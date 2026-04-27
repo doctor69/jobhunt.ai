@@ -34,6 +34,7 @@ from tailor import build_resume_pdf, generate_cover_letter, tailor_resume
 
 ROOT = Path(__file__).parent.parent
 DATA_DIR = ROOT / "data"
+RESUMES_DIR = DATA_DIR / "resumes"
 CONFIG_PATH = ROOT / "config" / "config.json"
 JOBS_PATH = DATA_DIR / "jobs.json"
 APPLIED_PATH = DATA_DIR / "applied.json"
@@ -69,12 +70,25 @@ def load_config() -> dict:
 # ── Playwright helpers ────────────────────────────────────────────────────────
 
 async def human_type(page: Page, selector, text: str):
-    """Fill a field with character-by-character human-like typing."""
+    """Fill the first VISIBLE element matching selector with human-like typing."""
     loc = page.locator(selector) if isinstance(selector, str) else selector
-    await loc.first.click()
-    await loc.first.fill("")
+    # Find first visible element — skip hidden ones (modals, off-screen fields, etc.)
+    target = None
+    count = await loc.count()
+    for i in range(min(count, 5)):
+        el = loc.nth(i)
+        try:
+            if await el.is_visible():
+                target = el
+                break
+        except Exception:
+            continue
+    if target is None:
+        return
+    await target.click(timeout=5000)
+    await target.fill("")
     for ch in text:
-        await loc.first.type(ch, delay=random.randint(40, 130))
+        await target.type(ch, delay=random.randint(40, 130))
 
 
 async def nap(lo=1.0, hi=3.0):
@@ -515,6 +529,20 @@ async def _click_apply_button(page: Page) -> bool:
     return False
 
 
+async def _first_visible(page: Page, selector: str):
+    """Return the first visible element for selector, or None."""
+    loc = page.locator(selector)
+    count = await loc.count()
+    for i in range(min(count, 5)):
+        el = loc.nth(i)
+        try:
+            if await el.is_visible():
+                return el
+        except Exception:
+            continue
+    return None
+
+
 async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: dict,
                               pdf_path, salary_ask: int) -> bool:
     """Fill whatever application form is currently visible and submit it."""
@@ -538,20 +566,33 @@ async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: d
          "input[placeholder*='portfolio' i]",
          config.get("portfolio_url", "")),
     ]:
-        fld = page.locator(sel)
-        if await fld.count() and not (await fld.first.input_value()):
-            await human_type(page, fld, val)
+        if not val:
+            continue
+        el = await _first_visible(page, sel)
+        if el is None:
+            continue
+        try:
+            if await el.input_value():
+                continue
+            await human_type(page, el, val)
+        except Exception:
+            continue
 
-    # Cover letter / message textarea
+    # Cover letter / message textarea — first visible one
     for sel in [
         "textarea[name*='cover' i]", "textarea[id*='cover' i]",
         "textarea[placeholder*='cover' i]", "textarea[placeholder*='message' i]",
         "textarea[name*='message' i]", "textarea",
     ]:
-        fld = page.locator(sel)
-        if await fld.count() and not (await fld.first.input_value()):
-            await human_type(page, fld, cover_letter[:2000])
-            break
+        el = await _first_visible(page, sel)
+        if el is None:
+            continue
+        try:
+            if not await el.input_value():
+                await human_type(page, el, cover_letter[:2000])
+                break
+        except Exception:
+            continue
 
     if salary_ask:
         await fill_salary_fields(page, salary_ask)
@@ -559,7 +600,8 @@ async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: d
     # Radio "Yes" buttons (work auth, etc.)
     for lbl in await page.locator("label:has-text('Yes')").all():
         try:
-            await lbl.click(timeout=800)
+            if await lbl.is_visible():
+                await lbl.click(timeout=800)
         except Exception:
             pass
 
@@ -567,13 +609,15 @@ async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: d
 
     for sel in [
         "button[type='submit']:has-text('Submit')",
+        "button:has-text('Submit Application')",
+        "button:has-text('Submit Your Application')",
+        "button:has-text('Send Application')",
+        "button:has-text('Complete Application')",
+        "button:has-text('Submit')",
+        "button:has-text('Send')",
+        "button:has-text('Continue')",
         "input[type='submit']",
         "button[type='submit']",
-        "button:has-text('Submit Application')",
-        "button:has-text('Submit')",
-        "button:has-text('Send Application')",
-        "button:has-text('Send')",
-        "button:has-text('Complete Application')",
     ]:
         if await click_if_visible(page, sel):
             await nap(2, 4)
@@ -589,8 +633,8 @@ async def apply_generic(
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
     await nap(2, 4)
 
-    # Check if the page already IS an application form (no button needed)
-    has_form = await page.locator("form input[type='email'], form input[type='text']").count() > 0
+    # Check if the page already IS an application form (visible fields only)
+    has_form = await _first_visible(page, "form input[type='email'], form input[type='text']") is not None
 
     if not has_form:
         clicked = await _click_apply_button(page)
@@ -859,15 +903,28 @@ async def run(max_apply: int = 5):
             }
 
             try:
-                print(f"\nTailoring resume for: {job['title']} @ {job['company']}")
                 desc = job.get("description", "")
-                visible_text = tailor_resume(job["title"], desc, job["company"])
-                cover = generate_cover_letter(job["title"], desc, job["company"])
-                pdf_path = build_resume_pdf(
-                    job["title"], desc, job["company"],
-                    visible_resume=visible_text,
-                    output_dir=DATA_DIR,
-                )
+                RESUMES_DIR.mkdir(parents=True, exist_ok=True)
+                cache_txt  = RESUMES_DIR / f"{job['id']}_resume.txt"
+                cache_pdf  = RESUMES_DIR / f"{job['id']}_resume.pdf"
+                cache_covr = RESUMES_DIR / f"{job['id']}_cover.txt"
+
+                if cache_txt.exists() and cache_pdf.exists() and cache_covr.exists():
+                    print(f"\n[cache] Reusing tailored resume for {job['title']} @ {job['company']}")
+                    visible_text = cache_txt.read_text()
+                    pdf_path     = cache_pdf
+                    cover        = cache_covr.read_text()
+                else:
+                    print(f"\nTailoring resume for: {job['title']} @ {job['company']}")
+                    visible_text = tailor_resume(job["title"], desc, job["company"])
+                    cover        = generate_cover_letter(job["title"], desc, job["company"])
+                    pdf_path     = build_resume_pdf(
+                        job["title"], desc, job["company"],
+                        visible_resume=visible_text,
+                        output_dir=RESUMES_DIR,
+                    )
+                    cache_txt.write_text(visible_text)
+                    cache_covr.write_text(cover)
                 salary_ask = get_salary_ask(job, config)
                 print(f"  [salary] Target ask: ${salary_ask:,}")
                 success = await handler(page, job, cover, config, pdf_path, salary_ask)
