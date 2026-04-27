@@ -392,18 +392,33 @@ def main():
         else:
             print(f"[warn] Unknown source: {src}", file=sys.stderr)
 
-    added = 0
+    auto_approve_score = config.get("auto_approve_score", 65)
+    added = approved = 0
+
     for job in raw_jobs:
         job = score_job(job, config)
         if job["score"] < config.get("min_score", 30):
             continue
         if job["id"] not in existing:
+            # Auto-approve high-scoring new jobs so apply.py picks them up
+            # immediately without any manual step
+            if job["score"] >= auto_approve_score:
+                job["status"] = "approved"
+                approved += 1
             existing[job["id"]] = job
             added += 1
         else:
-            # Refresh score/keywords but preserve user status/notes
-            existing[job["id"]]["score"] = job["score"]
-            existing[job["id"]]["matched_keywords"] = job["matched_keywords"]
+            # Refresh score/keywords but never downgrade a status the user
+            # (or a previous run) has already set to applied/rejected
+            prev = existing[job["id"]]
+            prev["score"] = job["score"]
+            prev["matched_keywords"] = job["matched_keywords"]
+            prev["remote"] = job.get("remote", prev.get("remote"))
+            prev["salary_parsed"] = job.get("salary_parsed")
+            # If score just crossed the threshold and job is still 'new', approve it
+            if prev.get("status") == "new" and job["score"] >= auto_approve_score:
+                prev["status"] = "approved"
+                approved += 1
 
     all_jobs = sorted(
         existing.values(),
@@ -414,7 +429,7 @@ def main():
     with open(JOBS_PATH, "w") as f:
         json.dump(all_jobs, f, indent=2)
 
-    print(f"=== Done: {added} new | {len(all_jobs)} total ===")
+    print(f"=== Done: {added} new | {approved} auto-approved | {len(all_jobs)} total ===")
 
 
 if __name__ == "__main__":

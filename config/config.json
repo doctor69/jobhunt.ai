@@ -5,6 +5,7 @@
     "aws", "docker", "kubernetes", "api", "saas", "startup"
   ],
   "min_score": 40,
+  "auto_approve_score": 65,
   "remote_required": true,
   "sources": ["dice", "ziprecruiter", "roberthalf", "remotive", "arbeitnow"],
   "location": "Remote",
