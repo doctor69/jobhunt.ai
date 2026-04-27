@@ -393,6 +393,21 @@ def main():
             print(f"[warn] Unknown source: {src}", file=sys.stderr)
 
     auto_approve_score = config.get("auto_approve_score", 65)
+    max_age_days = config.get("max_age_days", 14)
+    cutoff = datetime.now(timezone.utc) - __import__("datetime").timedelta(days=max_age_days)
+
+    # Drop jobs older than max_age_days; always keep applied ones for records
+    before = len(existing)
+    existing = {
+        jid: j for jid, j in existing.items()
+        if j.get("status") == "applied"
+        or not j.get("found_at")
+        or datetime.fromisoformat(j["found_at"]).replace(tzinfo=timezone.utc) >= cutoff
+    }
+    expired = before - len(existing)
+    if expired:
+        print(f"Pruned {expired} job(s) older than {max_age_days} days")
+
     added = approved = 0
 
     for job in raw_jobs:
@@ -429,7 +444,7 @@ def main():
     with open(JOBS_PATH, "w") as f:
         json.dump(all_jobs, f, indent=2)
 
-    print(f"=== Done: {added} new | {approved} auto-approved | {len(all_jobs)} total ===")
+    print(f"=== Done: {added} new | {approved} auto-approved | {expired} expired | {len(all_jobs)} total ===")
 
 
 if __name__ == "__main__":

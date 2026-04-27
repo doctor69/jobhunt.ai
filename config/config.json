@@ -6,6 +6,7 @@
   ],
   "min_score": 40,
   "auto_approve_score": 65,
+  "max_age_days": 14,
   "remote_required": true,
   "sources": ["dice", "ziprecruiter", "roberthalf", "remotive", "arbeitnow"],
   "location": "Remote",
