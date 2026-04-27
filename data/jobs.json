@@ -177,6 +177,29 @@
     "remote": true
   },
   {
+    "id": "b1b700340c8c",
+    "title": "App Developer - Founding Member, Freelance (m/w/d)",
+    "company": "O App (Holistic Health)",
+    "location": "Cologne",
+    "url": "https://www.arbeitnow.com/jobs/companies/o-app-holistic-health/app-developer-founding-member-freelance-cologne-452949",
+    "description": "<p><strong>Wir bauen Deutschlands erste ganzheitliche KI-Gesundheits-App</strong> \u2013 und suchen jemanden, der sie lebendig macht.</p>\n<p><strong>Unsere Vision</strong>: Die O App verbindet K\u00f6rper, Psyche und Emotionen und bringt echte Gesundheit in den Alltag von Millionen Menschen - durch einen spezalisierten KI-Assistenten (O Companion) sowie durch In-App-Coaching mit Expert:innen.</p>\n<p><strong>Dafu\u0308r brauchen wir jetzt dich</strong>: einen Developer, der mit Leidenschaft und Neugier die App entwickelt und das Team auf das n\u00e4chste Level hebt.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li><strong>Entwicklung der O App</strong> f\u00fcr iOS und Android auf einer gemeinsamen Codebasis</li>\n<li><strong>\u2060Aufbau der App-Architektur</strong> von Grund auf \u2013 sauber, wartbar, skalierbar</li>\n<li>\u2060<strong>Anbindung</strong> von Backend-APIs, KI-Services und externen Schnittstellen</li>\n<li><strong>\u2060Enge Zusammenarbeit</strong> mit Design und den Gr\u00fcndern f\u00fcr ein nahtloses Nutzererlebnis</li>\n<li>\u2060<strong>Eigenverantwortliche</strong> <strong>Umsetzung</strong> von Features \u2013 vom Prototyp bis zum Release</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li><strong>\u2060Praktische Erfahrung</strong> in der App-Entwicklung mit Flutter oder React Native</li>\n<li><strong>Verst\u00e4ndnis f\u00fcr plattformspezifische Besonderheiten</strong> von iOS und Android</li>\n<li><strong>Grundkenntnisse in REST-APIs und State-Management</strong> (z.B. Riverpod, Redux oder \u00e4hnliches)</li>\n<li><strong>Sorgf\u00e4ltige, strukturierte Arbeitsweise</strong> \u2013 auch wenn es mal schnell gehen muss</li>\n<li><strong>\u2060Interesse an Gesundheit</strong>, Wellness oder Mental Health ist ein Plus</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li><strong>Founding Member</strong>: Du gestaltest von Anfang an mit \u2013 und hast die Chance, ein internationales Produkt und Startup mit aufzubauen, das wirklich etwas ver\u00e4ndert.</li>\n<li><strong>Equity</strong>: Eine Beteiligung an der Firma ist m\u00f6glich.</li>\n<li><strong>Schnelligkeit</strong>: Wir sind ein kleines, ambitioniertes und schnelles Team mit klarer Vision - ohne Hierarchie.</li>\n<li><strong>Flexibilit\u00e4t</strong>: wir sind ein Startup in der Fru\u0308hphase mit voller Gestaltungsfreiheit.</li>\n<li><strong>100% Remote:</strong> du kannst den Job remote aus\u00fcben - von \u00fcberall auf der Welt.</li>\n<li><strong>Impact &#x26; Purpose</strong>: unser Ziel ist es, maximal vielen Menschen zu helfen, gesund zu sein.</li>\n<li><strong>Ausblick auf Festanstellung</strong>: sobald m\u00f6glich, kann von Freelance auf Festanstellung gewechsel werden.</li>\n</ul>\n<p>Wir suchen Menschen, die Unternehmergeist in sich tragen, mutig sind und gemeinsam etwas bewegen wollen.</p>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Remote Software Development",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1777320033",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-04-27T21:34:10.357545+00:00",
+    "salary_parsed": null,
+    "score": 55,
+    "matched_keywords": [
+      "react",
+      "api",
+      "startup"
+    ],
+    "remote": true
+  },
+  {
     "id": "956b913778d5",
     "title": "Office Assistant",
     "company": "Coalition Technologies ",
@@ -452,6 +475,48 @@
     "score": 45,
     "matched_keywords": [
       "api"
+    ],
+    "remote": true
+  },
+  {
+    "id": "cb3acd5b5e4e",
+    "title": "Senior QA Engineer - Mobile",
+    "company": "Bolt Technology",
+    "location": "Berlin, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/bolt-technology/senior-qa-engineer-mobile-berlin-156003",
+    "description": "<p>&lt;gh-intro&gt;<br>&lt;text&gt;</p>\n<p>Bolt engineering teams are working on unique product challenges: complex algorithms for demand prediction, optimal real-time pricing, routing, fraud detection, distributed systems and much more. We are now seeking a proactive and detail-oriented <strong>Senior QA Engineer</strong> to join our team!</p>\n<p>&lt;/text&gt;<br>&lt;/gh-intro&gt;</p>\n<p>&nbsp;</p>\n<p>&lt;gh-about-us&gt;<br>&lt;title&gt;<strong>About us</strong>&lt;/title&gt;</p>\n<p>&lt;text&gt;</p>\n<p>With over 200 million customers in 50+ countries, Bolt is one of the fastest-growing tech companies in Europe and Africa. And it's all thanks to our people.</p>\n<p>We believe in creating an inclusive environment where everyone is welcome, regardless of race, colour, religion, gender identity, sexual orientation, national origin, age, or disability.</p>\n<p>Our ultimate goal is to make cities for people, not cars, and we need your help to achieve this mission!</p>\n<p>&lt;/text&gt;</p>\n<p>&lt;/gh-about-us&gt;<br><br>&lt;gh-role-detail&gt;</p>\n<p>&lt;title&gt;<strong>About the role</strong>&lt;/title&gt;</p>\n<p>&lt;text&gt;</p>\n<p>We seek a proactive and detail-oriented <strong>Senior QA Engineer</strong> to join our<strong>&nbsp;</strong>team.&nbsp;You will be part of a team, collaborating closely with Engineers, Designers, and Product Managers to ensure high-quality outcomes. You will fully own the QA process, drive quality standards and ensure efficient testing practices.</p>\n<p>&lt;/text&gt;<br>&lt;/gh-role-detail&gt;<br><br></p>\n<p>&lt;gh-responsibilities&gt;</p>\n<p>&lt;title&gt;<strong>Main tasks &amp; responsibilities:</strong>&lt;/title&gt;</p>\n<p>&lt;bulletpoints&gt;</p>\n<ul>\n<li>&lt;point&gt;Assist in testing product features at all stages of development to ensure quality and functionality.&lt;/point&gt;</li>\n<li>&lt;point&gt;Perform release testing for our mobile app on both Android and iOS platforms, ensuring a seamless user experience.&lt;/point&gt;</li>\n<li>&lt;point&gt;Collaborate closely with Engineers to plan and execute testing strategies, identifying and resolving issues early in the development cycle.&lt;/point&gt;</li>\n<li>&lt;point&gt;Work with Engineers, Designers and Product Managers to review features and provide critical feedback for improving product design and usability.&lt;/point&gt;</li>\n<li>&lt;point&gt;Support the team in keeping documentation updated and maintaining a healthy, efficient test suite.&lt;/point&gt;</li>\n</ul>\n<p>&lt;/bulletpoints&gt;<br>&lt;/gh-responsibilities&gt;</p>\n<p>&lt;gh-requirements&gt;</p>\n<p>&lt;title&gt;<strong>About you:</strong>&lt;/title&gt;</p>\n<p>&lt;bulletpoints&gt;</p>\n<ul>\n<li>&lt;point&gt;You are experienced with manual testing of mobile applications in both Android and iOS.&lt;/point&gt;</li>\n<li>&lt;point&gt;You have experience with REST API testing and a solid understanding of how applications communicate with servers.&lt;/point&gt;</li>\n<li>&lt;point&gt;You are familiar with perfo",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1777322721",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-04-27T21:34:10.357510+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "api"
+    ],
+    "remote": true
+  },
+  {
+    "id": "de4bc2a02f39",
+    "title": "App Designer - Founding Member, Freelance (m/w/d)",
+    "company": "O App (Holistic Health)",
+    "location": "Cologne",
+    "url": "https://www.arbeitnow.com/jobs/companies/o-app-holistic-health/app-designer-founding-member-freelance-cologne-67860",
+    "description": "<p><strong>Wir bauen Deutschlands erste ganzheitliche KI-Gesundheits-App</strong> \u2013 und suchen jemanden, der sie lebendig macht.</p>\n<p><strong>Unsere Vision</strong>: Die O App verbindet K\u00f6rper, Psyche und Emotionen und bringt echte Gesundheit in den Alltag von Millionen Menschen - durch einen spezalisierten KI-Assistenten (O Companion) sowie durch In-App-Coaching mit Expert:innen.</p>\n<p><strong>Dafu\u0308r brauchen wir jetzt dich</strong>: einen Designer, der mit Leidenschaft und Neugier das App-Design etabliert und das Team auf das n\u00e4chste Level hebt.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li><strong>Gestaltung</strong> von Screens, Flows und Komponenten fu\u0308r die O App (iOS &#x26; Android)</li>\n<li><strong>Entwicklung</strong> eines konsistenten UI-Design-Systems von Grund auf</li>\n<li><strong>Enge Zusammenarbeit</strong> mit den Gru\u0308ndern und unserem Tech-Lead</li>\n<li><strong>Iteratives Design</strong>: schnelles Prototyping, Feedback einarbeiten, verbessern</li>\n<li><strong>Mitwirken</strong> an der visuellen Identit\u00e4t \u2013 Farben, Typografie, Animationssprache</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li><strong>Praktische Erfahrung</strong> im UI/UX-Design</li>\n<li><strong>Sicherer Umgang</strong> mit Figma oder \u00e4hnlichen Tools</li>\n<li><strong>Gespu\u0308r fu\u0308r klare, nutzerfreundliche Interfaces</strong> \u2013 besonders auf Mobile</li>\n<li><strong>Ein Blick f\u00fcr \u00c4sthetik,</strong> Minimalismus und Funktionalit\u00e4t</li>\n<li><strong>Interesse an Gesundheit</strong>, Wellness oder Mental Health ist ein Plus</li>\n<li><strong>Du arbeitest eigenverantwortlich</strong> und kannst deine Entscheidungen erkl\u00e4ren</li>\n<li><strong>Sprachenkenntnisse</strong>: du bist sicher in Deutsch und Englisch.</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li><strong>Founding Member</strong>: Du gestaltest von Anfang an mit \u2013 und hast die Chance, ein internationales Produkt und Startup mit aufzubauen, das wirklich etwas ver\u00e4ndert.</li>\n<li><strong>Equity</strong>: Eine Beteiligung an der Firma ist m\u00f6glich.</li>\n<li><strong>Schnelligkeit</strong>: Wir sind ein kleines, ambitioniertes und schnelles Team mit klarer Vision - ohne Hierarchie.</li>\n<li><strong>Flexibilit\u00e4t</strong>: wir sind ein Startup in der Fru\u0308hphase mit voller Gestaltungsfreiheit.</li>\n<li><strong>100% Remote:</strong> du kannst den Job remote aus\u00fcben - von \u00fcberall auf der Welt.</li>\n<li><strong>Impact &#x26; Purpose</strong>: unser Ziel ist, maximal vielen Menschen zu helfen, gesund zu sein.</li>\n<li><strong>Ausblick auf Festanstellung</strong>: sobald m\u00f6glich, kann von Freelance auf Festanstellung gewechsel werden.</li>\n</ul>\n<p>Wir suchen Menschen, die Unternehmergeist in sich tragen, mutig sind und gemeinsam etwas bewegen wollen.</p>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Remote Media Screen and Web Design",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1777320032",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-04-27T21:34:10.357549+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "startup"
     ],
     "remote": true
   },
@@ -868,6 +933,25 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-04-27T19:05:56.543156+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "cfa691dff698",
+    "title": "Junior Art Director (all genders)",
+    "company": "ADBAKER",
+    "location": "Cologne",
+    "url": "https://www.arbeitnow.com/jobs/companies/adbaker/junior-art-director-all-genders-cologne-308400",
+    "description": "<h2>join the team</h2>\n<p>Du m\u00f6chtest, dass deine Creatives nicht nur gut aussehen, sondern auch performen? Hast Lust f\u00fcr unterschiedliche Kunden und Branchen zu arbeiten? &#x26; m\u00f6chtest neben Statics auch alles zu Bewegtbild lernen &#x26; \u200blangfristig als Creative Design Allrounder arbeiten?</p>\n<p>Dann bist du bei uns genau richtig!</p>\n<h2>der task</h2>\n<ul>\n<li>Du erstellst hochwertige <strong>Static Creatives</strong> f\u00fcr unterschiedliche Brands und Branchen (z. B. Single Images, Carousels, Thumbnails)</li>\n<li>Du setzt verschiedene <strong>Ad-Formate &#x26; visuelle Styles</strong> um \u2013 mit Fokus auf Performance-getriebene Designs f\u00fcr Paid Social</li>\n<li>Du arbeitest sowohl im Agency- als auch im ACS-Team: von klaren Briefings bis hin zur eigenst\u00e4ndigen Entwicklung von Konzepten ist alles dabei</li>\n<li>Du wei\u00dft, wie man <strong>visuelle Hooks, Layouts und aufmerksamkeitsstarke Designs</strong> gezielt einsetzt, um die Zielgruppe direkt anzusprechen</li>\n</ul>\n<h2>you</h2>\n<ul>\n<li>Du hast Erfahrung im <strong>Creative Design mit Fokus auf Static Ads</strong> \u2013 idealerweise im Paid Social Umfeld (Meta, TikTok)</li>\n<li>Idealerweise hast du bereits <strong>Agenturerfahrung</strong> gesammelt (Nice-to-have)</li>\n<li>Du beherrschst die <strong>Adobe Programme</strong> (z. B. Photoshop) und hast idealerweise erste Ber\u00fchrungspunkte mit <strong>AI-Tools</strong> (z. B. f\u00fcr Bildgenerierung oder Unterst\u00fctzung im Designprozess)</li>\n<li>Du interessierst dich f\u00fcr <strong>Paid Social &#x26; Creative Strategy</strong> und verstehst, wie gutes Design Performance beeinflusst</li>\n<li>Du kannst sowohl mit klaren, detaillierten Briefings als auch mit offenen Aufgabenstellungen umgehen</li>\n<li>Du kannst dich schnell in unterschiedliche Branchen und Zielgruppen hineinversetzen und entwickelst so passende Creatives f\u00fcr verschiedene Kunden</li>\n</ul>\n<h2>das erwartet dich</h2>\n<ul>\n<li>Ein anspruchsvolles, dynamisches und herausforderndes Arbeitsumfeld in einer der f\u00fchrenden und gr\u00f6\u00dften Facebook &#x26; Instagram Performance Marketing Agenturen im deutschsprachigen Raum</li>\n<li>Zusammenarbeit mit spannenden Brands wie Karo Kauer, bofrost, Ravensburger, Schw\u00e4bisch Hall &#x26; Co.</li>\n<li>Remote optional - Du lebst in einer anderen deutschen Stadt? Kein Problem, Du kannst ganz einfach von Deinem zu Hause aus arbeiten</li>\n<li>Top ausgestattetes Studio (Creative Loft) mit Kameras, Zubeh\u00f6r, Sound, Beleuchtung f\u00fcr Shootings und Produktionen</li>\n<li>Dynamisches Team mit starker Hands On Mentalit\u00e4t und eigeninitiativer Arbeit</li>\n<li>Weiterbildung und Perspektive auf Teamlead Rolle und Personalverantwortung</li>\n<li>450 qm2 Loftb\u00fcro, eine lockere Arbeitsatmosph\u00e4re und die coolsten monatlichen Teamevents</li>\n<li>Technische Ausstattung mit den neuesten Apple Produkten</li>\n<li>30 Tage Urlaub</li>\n<li>Mobility und Sports: KVB JobTicket, Urban Sports Club Mitgliedschaft, Bikes, Fitness Studio</li>\n<li>Feel Good: Warmes Mittagessen, Healthy Snack Bar, Free Drinks &",
+    "tags": "Graphic Arts and Communication Design",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1777321848",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-04-27T21:34:10.357540+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
