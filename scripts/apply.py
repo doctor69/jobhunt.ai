@@ -758,10 +758,24 @@ async def run(max_apply: int = 5):
 
             applied.append(record)
 
-            # Update job status in the jobs list
+            # Update job status in the jobs list.
+            # On error/failed: increment retry_count and keep "approved" so the
+            # next run retries automatically. After 3 attempts, mark permanently failed.
+            MAX_RETRIES = 3
             for j in jobs:
                 if j["id"] == job["id"]:
-                    j["status"] = record["status"]
+                    if record["status"] == "applied":
+                        j["status"] = "applied"
+                    else:
+                        retries = j.get("retry_count", 0) + 1
+                        j["retry_count"] = retries
+                        if retries >= MAX_RETRIES:
+                            j["status"] = "failed"
+                            print(f"  [retry] Giving up after {retries} attempts → marked failed")
+                        else:
+                            j["status"] = "approved"  # keep in queue for next run
+                            print(f"  [retry] Attempt {retries}/{MAX_RETRIES} — will retry next run")
+                    break
                     break
 
             delay = random.uniform(
