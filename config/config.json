@@ -5,11 +5,15 @@
     "aws", "docker", "kubernetes", "api", "saas", "startup"
   ],
   "min_score": 30,
-  "sources": ["remotive", "arbeitnow", "themuse"],
+  "sources": ["dice", "ziprecruiter", "roberthalf", "remotive", "arbeitnow"],
   "location": "Remote",
   "min_salary": 0,
   "headless": true,
   "resume_url": "https://leadtrade.app/doctor",
+  "portfolio_url": "https://leadtrade.app",
+  "notable_projects": [
+    "leadtrade.app — a B2B lead generation SaaS platform I designed and built end-to-end"
+  ],
   "remotive_categories": ["software-dev", "backend", "fullstack"],
   "muse_categories": ["Engineering"],
   "apply_delay_min": 5,

@@ -103,6 +103,14 @@ def detect_platform(url: str) -> str:
         return "greenhouse"
     if "lever.co" in host:
         return "lever"
+    if "ziprecruiter.com" in host:
+        return "ziprecruiter"
+    if "roberthalf.com" in host:
+        return "roberthalf"
+    if "dice.com" in host:
+        return "dice"
+    if "workday.com" in host:
+        return "workday"
     return "generic"
 
 
@@ -349,11 +357,165 @@ async def apply_generic(
     return False
 
 
+# ── ZipRecruiter ─────────────────────────────────────────────────────────────
+
+async def apply_ziprecruiter(
+    page: Page, job: dict, cover_letter: str, config: dict
+) -> bool:
+    print(f"  [ZipRecruiter] {job['title']} @ {job['company']}")
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)
+
+    # ZipRecruiter uses "Apply Now" or "Quick Apply"
+    if not await click_if_visible(
+        page,
+        "button:has-text('Apply Now'), a:has-text('Apply Now'), "
+        "button:has-text('Quick Apply'), a:has-text('Quick Apply')",
+    ):
+        print("  [ZipRecruiter] No apply button — trying generic handler")
+        return await apply_generic(page, job, cover_letter, config)
+
+    await nap(2, 3)
+
+    # ZipRecruiter may open a modal or redirect; detect which
+    current_url = page.url
+    if "ziprecruiter.com" not in current_url:
+        # Redirected to employer ATS
+        platform = detect_platform(current_url)
+        handler = PLATFORM_HANDLERS.get(platform, apply_generic)
+        return await handler(page, job, cover_letter, config)
+
+    # Fill modal form
+    for sel, val in [
+        ("input[name='name'], input[id*='name']", config.get("full_name", "")),
+        ("input[type='email'], input[name='email']", config.get("email", "")),
+        ("input[type='tel'], input[name='phone']", config.get("phone", "")),
+    ]:
+        fld = page.locator(sel)
+        if await fld.count() and not (await fld.first.input_value()):
+            await human_type(page, fld, val)
+
+    fld = page.locator("textarea[name*='cover'], textarea[placeholder*='cover' i], textarea")
+    if await fld.count() and not (await fld.first.input_value()):
+        await human_type(page, fld, cover_letter[:2000])
+
+    await nap()
+
+    if await click_if_visible(page, "button:has-text('Submit'), button[type='submit']"):
+        await nap(2, 4)
+        print("  [ZipRecruiter] Submitted!")
+        return True
+
+    return False
+
+
+# ── Robert Half ───────────────────────────────────────────────────────────────
+
+async def apply_roberthalf(
+    page: Page, job: dict, cover_letter: str, config: dict
+) -> bool:
+    print(f"  [Robert Half] {job['title']} @ {job['company']}")
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)
+
+    if not await click_if_visible(
+        page,
+        "a:has-text('Apply'), button:has-text('Apply'), "
+        "a:has-text('Apply Now'), button:has-text('Apply Now')",
+    ):
+        print("  [Robert Half] No apply button")
+        return False
+
+    await nap(2, 3)
+
+    for sel, val in [
+        ("input[name='firstName'], input[id*='firstName']", (config.get("full_name") or "").split()[0]),
+        ("input[name='lastName'], input[id*='lastName']", (config.get("full_name") or "").split()[-1]),
+        ("input[type='email'], input[name='email']", config.get("email", "")),
+        ("input[type='tel'], input[name='phone']", config.get("phone", "")),
+    ]:
+        fld = page.locator(sel)
+        if await fld.count() and not (await fld.first.input_value()):
+            await human_type(page, fld, val)
+
+    # Cover letter
+    fld = page.locator("textarea[name*='cover'], textarea[id*='cover'], textarea")
+    if await fld.count() and not (await fld.first.input_value()):
+        await human_type(page, fld, cover_letter[:2000])
+
+    await nap()
+
+    if await click_if_visible(page, "button:has-text('Submit'), button[type='submit']"):
+        await nap(2, 4)
+        print("  [Robert Half] Submitted!")
+        return True
+
+    return False
+
+
+# ── Dice ─────────────────────────────────────────────────────────────────────
+
+async def apply_dice(
+    page: Page, job: dict, cover_letter: str, config: dict
+) -> bool:
+    """
+    Dice job pages usually redirect to an employer's ATS.
+    We navigate there, detect the platform, and hand off.
+    """
+    print(f"  [Dice] {job['title']} @ {job['company']}")
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)
+
+    # Click the Apply button — may redirect to external ATS
+    apply_btn = page.locator(
+        "a[data-cy='apply-button'], button[data-cy='apply-button'], "
+        "a:has-text('Apply Now'), button:has-text('Apply Now')"
+    )
+
+    if await apply_btn.count():
+        href = await apply_btn.first.get_attribute("href")
+        if href and href.startswith("http") and "dice.com" not in href:
+            # External link — navigate directly
+            await page.goto(href, wait_until="domcontentloaded", timeout=30000)
+            await nap(2, 3)
+        else:
+            await apply_btn.first.click()
+            await nap(2, 3)
+
+    # After navigation, detect new platform and delegate
+    current_url = page.url
+    if "dice.com" not in current_url:
+        platform = detect_platform(current_url)
+        handler = PLATFORM_HANDLERS.get(platform, apply_generic)
+        return await handler(page, job, cover_letter, config)
+
+    # Dice-native apply form (rare but exists)
+    for sel, val in [
+        ("input[name='firstName']", (config.get("full_name") or "").split()[0]),
+        ("input[name='lastName']", (config.get("full_name") or "").split()[-1]),
+        ("input[type='email']", config.get("email", "")),
+        ("input[type='tel']", config.get("phone", "")),
+    ]:
+        fld = page.locator(sel)
+        if await fld.count() and not (await fld.first.input_value()):
+            await human_type(page, fld, val)
+
+    if await click_if_visible(page, "button:has-text('Submit'), button[type='submit']"):
+        await nap(2, 4)
+        print("  [Dice] Submitted!")
+        return True
+
+    return await apply_generic(page, job, cover_letter, config)
+
+
 PLATFORM_HANDLERS = {
     "linkedin": apply_linkedin,
     "indeed": apply_indeed,
     "greenhouse": apply_greenhouse,
     "lever": apply_lever,
+    "ziprecruiter": apply_ziprecruiter,
+    "roberthalf": apply_roberthalf,
+    "dice": apply_dice,
     "generic": apply_generic,
 }
 

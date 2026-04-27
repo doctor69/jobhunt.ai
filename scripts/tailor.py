@@ -14,9 +14,20 @@ import anthropic
 import requests
 from bs4 import BeautifulSoup
 
+import json
+
 ROOT = Path(__file__).parent.parent
+CONFIG_PATH = ROOT / "config" / "config.json"
 RESUME_URL = "https://leadtrade.app/doctor"
 _cached_resume: str | None = None
+
+
+def load_config() -> dict:
+    try:
+        with open(CONFIG_PATH) as f:
+            return json.load(f)
+    except Exception:
+        return {}
 
 
 def fetch_resume() -> str:
@@ -54,12 +65,24 @@ def _client() -> anthropic.Anthropic:
     return anthropic.Anthropic(api_key=key)
 
 
+def _projects_block() -> str:
+    cfg = load_config()
+    projects = cfg.get("notable_projects", [])
+    portfolio = cfg.get("portfolio_url", "")
+    lines = []
+    if portfolio:
+        lines.append(f"Portfolio / live product: {portfolio}")
+    lines.extend(projects)
+    return "\n".join(f"- {l}" for l in lines) if lines else ""
+
+
 def tailor_resume(job_title: str, job_description: str, job_company: str) -> str:
     """Return a resume tailored to the given job posting."""
     resume = fetch_resume()
     client = _client()
+    projects_note = _projects_block()
 
-    # System prompt is cached; only the job details change per call
+    # System prompt + resume are cached; only the job details change per call
     response = client.messages.create(
         model="claude-opus-4-7",
         max_tokens=2000,
@@ -70,15 +93,23 @@ def tailor_resume(job_title: str, job_description: str, job_company: str) -> str
                     "You are an expert resume writer. "
                     "When given a resume and a job posting, rewrite the resume "
                     "to emphasize the most relevant experience and skills. "
-                    "Rules: keep all facts accurate, mirror the job's language, "
-                    "lead with the most relevant achievements, optimise for ATS. "
+                    "Rules:\n"
+                    "- Keep all facts accurate — do NOT invent experience\n"
+                    "- Mirror the job's language and keywords\n"
+                    "- Lead with the most relevant achievements\n"
+                    "- Prominently feature any notable projects the candidate built "
+                    "(especially live products like leadtrade.app) when relevant to the role\n"
+                    "- Optimise for ATS keyword matching\n"
                     "Output ONLY the tailored resume text — no commentary."
                 ),
                 "cache_control": {"type": "ephemeral"},
             },
             {
                 "type": "text",
-                "text": f"## Candidate Resume\n\n{resume}",
+                "text": (
+                    f"## Candidate Resume\n\n{resume}"
+                    + (f"\n\n## Notable Projects / Portfolio\n{projects_note}" if projects_note else "")
+                ),
                 "cache_control": {"type": "ephemeral"},
             },
         ],
@@ -104,6 +135,7 @@ def generate_cover_letter(
     """Return a concise, tailored cover letter."""
     resume = fetch_resume()
     client = _client()
+    projects_note = _projects_block()
 
     response = client.messages.create(
         model="claude-opus-4-7",
@@ -113,17 +145,23 @@ def generate_cover_letter(
                 "type": "text",
                 "text": (
                     "You are an expert cover-letter writer. "
-                    "Write 3 tight paragraphs: (1) a specific hook about the company/role, "
-                    "(2) 2-3 concrete achievements that map to their needs, "
-                    "(3) a clear call to action. "
-                    "Sound confident and human — avoid 'I am excited to apply'. "
+                    "Write 3 tight paragraphs:\n"
+                    "1. A specific hook about the company/role\n"
+                    "2. 2-3 concrete achievements that map to their needs. "
+                    "If the candidate built a live product (e.g. leadtrade.app), "
+                    "mention it naturally here to demonstrate real-world product ownership.\n"
+                    "3. A clear, confident call to action.\n"
+                    "Sound human — avoid 'I am excited to apply'. "
                     "Output ONLY the letter text."
                 ),
                 "cache_control": {"type": "ephemeral"},
             },
             {
                 "type": "text",
-                "text": f"## Candidate Resume\n\n{resume}",
+                "text": (
+                    f"## Candidate Resume\n\n{resume}"
+                    + (f"\n\n## Notable Projects / Portfolio\n{projects_note}" if projects_note else "")
+                ),
                 "cache_control": {"type": "ephemeral"},
             },
         ],

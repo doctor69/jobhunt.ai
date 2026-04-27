@@ -169,12 +169,166 @@ def fetch_themuse(config: dict) -> list[dict]:
     return jobs
 
 
+# ── Dice ─────────────────────────────────────────────────────────────────────
+
+def fetch_dice(config: dict) -> list[dict]:
+    jobs = []
+    keywords = config.get("keywords", [])
+    query = " ".join(keywords[:4]) if keywords else "software engineer"
+    try:
+        r = requests.get(
+            "https://job-search-api.svc.dhigroupinc.com/v1/dice/jobs/search",
+            params={
+                "q": query,
+                "countryCode": "US",
+                "radius": 30,
+                "radiusUnit": "mi",
+                "page": 1,
+                "pageSize": 50,
+                "language": "en",
+            },
+            headers={**HEADERS, "accept": "application/json"},
+            timeout=20,
+        )
+        r.raise_for_status()
+        for j in r.json().get("data", []):
+            url = j.get("detailUrl") or j.get("applyUrl") or ""
+            if not url.startswith("http"):
+                url = f"https://www.dice.com/jobs/detail/{j.get('id', '')}"
+            jobs.append({
+                "id": make_id(url, j.get("title", ""), j.get("company", "")),
+                "title": j.get("title", ""),
+                "company": j.get("company", ""),
+                "location": j.get("location", "Remote"),
+                "url": url,
+                "description": (j.get("jobDescription") or "")[:3000],
+                "tags": " ".join(j.get("skills") or []),
+                "salary_min": None,
+                "salary_max": None,
+                "posted_at": j.get("postedDate", ""),
+                "source": "dice",
+                "status": "new",
+                "found_at": datetime.now(timezone.utc).isoformat(),
+            })
+    except Exception as e:
+        print(f"[dice] {e}", file=sys.stderr)
+    return jobs
+
+
+# ── ZipRecruiter ──────────────────────────────────────────────────────────────
+
+def fetch_ziprecruiter(config: dict) -> list[dict]:
+    """Scrape ZipRecruiter search results (HTML, no API key needed)."""
+    from bs4 import BeautifulSoup
+    jobs = []
+    keywords = config.get("keywords", [])
+    query = "+".join(keywords[:3]) if keywords else "software+engineer"
+    location = config.get("location", "Remote")
+    try:
+        url = (
+            f"https://www.ziprecruiter.com/candidate/search"
+            f"?search={query}&location={location}&days=7"
+        )
+        r = requests.get(url, headers=HEADERS, timeout=25)
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, "lxml")
+
+        for article in soup.select("article.job_result, div[data-job-id]"):
+            title_el = article.select_one("h2 a, .job_title a, a[data-job-title]")
+            co_el = article.select_one(".hiring_company_text, a.hiring_company, .company_name")
+            loc_el = article.select_one(".location, .job_location")
+            desc_el = article.select_one(".job_description, p.job_snippet")
+            link_el = article.select_one("a[href*='/jobs/'], a[data-job-url]")
+
+            title = title_el.get_text(strip=True) if title_el else ""
+            company = co_el.get_text(strip=True) if co_el else ""
+            href = link_el["href"] if link_el and link_el.get("href") else ""
+            if not href.startswith("http"):
+                href = "https://www.ziprecruiter.com" + href
+
+            if not title or not href:
+                continue
+
+            jobs.append({
+                "id": make_id(href, title, company),
+                "title": title,
+                "company": company,
+                "location": loc_el.get_text(strip=True) if loc_el else location,
+                "url": href,
+                "description": desc_el.get_text(strip=True) if desc_el else "",
+                "tags": "",
+                "salary_min": None,
+                "salary_max": None,
+                "posted_at": "",
+                "source": "ziprecruiter",
+                "status": "new",
+                "found_at": datetime.now(timezone.utc).isoformat(),
+            })
+    except Exception as e:
+        print(f"[ziprecruiter] {e}", file=sys.stderr)
+    return jobs
+
+
+# ── Robert Half ───────────────────────────────────────────────────────────────
+
+def fetch_roberthalf(config: dict) -> list[dict]:
+    from bs4 import BeautifulSoup
+    jobs = []
+    keywords = config.get("keywords", [])
+    query = " ".join(keywords[:3]) if keywords else "software engineer"
+    try:
+        r = requests.get(
+            "https://www.roberthalf.com/us/en/jobs",
+            params={"keywords": query, "location": "remote", "industry": "Technology"},
+            headers={**HEADERS, "accept": "application/json, text/html"},
+            timeout=25,
+        )
+        r.raise_for_status()
+        soup = BeautifulSoup(r.text, "lxml")
+
+        for card in soup.select("div.job-card, article.job-listing, li.job-result"):
+            title_el = card.select_one("h2, h3, .job-title, a.title")
+            co_el = card.select_one(".company, .employer")
+            loc_el = card.select_one(".location, .job-location")
+            link_el = card.select_one("a[href*='/job/'], a[href*='/jobs/']")
+            desc_el = card.select_one(".description, p")
+
+            title = title_el.get_text(strip=True) if title_el else ""
+            href = link_el["href"] if link_el and link_el.get("href") else ""
+            if not href.startswith("http"):
+                href = "https://www.roberthalf.com" + href
+            if not title or not href:
+                continue
+
+            jobs.append({
+                "id": make_id(href, title, co_el.get_text(strip=True) if co_el else ""),
+                "title": title,
+                "company": co_el.get_text(strip=True) if co_el else "Robert Half",
+                "location": loc_el.get_text(strip=True) if loc_el else "Remote",
+                "url": href,
+                "description": desc_el.get_text(strip=True) if desc_el else "",
+                "tags": "",
+                "salary_min": None,
+                "salary_max": None,
+                "posted_at": "",
+                "source": "roberthalf",
+                "status": "new",
+                "found_at": datetime.now(timezone.utc).isoformat(),
+            })
+    except Exception as e:
+        print(f"[roberthalf] {e}", file=sys.stderr)
+    return jobs
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 SOURCE_MAP = {
     "remotive": fetch_remotive,
     "arbeitnow": fetch_arbeitnow,
     "themuse": fetch_themuse,
+    "dice": fetch_dice,
+    "ziprecruiter": fetch_ziprecruiter,
+    "roberthalf": fetch_roberthalf,
 }
 
 
