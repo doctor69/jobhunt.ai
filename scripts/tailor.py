@@ -16,6 +16,7 @@ Outputs:
 """
 
 import asyncio
+import concurrent.futures
 import json
 import os
 import re
@@ -29,6 +30,16 @@ ROOT = Path(__file__).parent.parent
 CONFIG_PATH = ROOT / "config" / "config.json"
 RESUME_URL = "https://leadtrade.app/doctor"
 _cached_resume: str | None = None
+
+
+def _run_playwright(coro):
+    """
+    Run a Playwright coroutine safely whether or not an event loop is already
+    running (e.g. when called from inside apply.py's async run()).
+    Spawns a dedicated thread so each call gets its own clean event loop.
+    """
+    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
+        return pool.submit(asyncio.run, coro).result()
 
 
 # ── Config / resume loading ───────────────────────────────────────────────────
@@ -51,7 +62,7 @@ def fetch_resume() -> str:
         return _cached_resume
 
     try:
-        text = asyncio.run(_fetch_resume_playwright())
+        text = _run_playwright(_fetch_resume_playwright())
         if text and len(text) > 200:
             _cached_resume = text
             return text
@@ -362,7 +373,7 @@ def build_resume_pdf(
     safe_company = re.sub(r"[^\w]", "_", job_company)[:30]
     pdf_path = out_dir / f"resume_{safe_company}.pdf"
 
-    asyncio.run(_render_pdf(html, pdf_path))
+    _run_playwright(_render_pdf(html, pdf_path))
     print(f"  [tailor] PDF written → {pdf_path}")
     return pdf_path
 
