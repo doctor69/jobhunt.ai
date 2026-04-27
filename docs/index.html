@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JobHunt.ai — Dashboard</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --card: #21253a;
+    --border: #2e3350;
+    --accent: #5b7cf7;
+    --accent2: #7c3aed;
+    --green: #22c55e;
+    --yellow: #eab308;
+    --red: #ef4444;
+    --orange: #f97316;
+    --text: #e2e8f0;
+    --muted: #8892a4;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; min-height: 100vh; }
+
+  /* ── Layout ── */
+  header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 24px; display: flex; align-items: center; gap: 12px; position: sticky; top: 0; z-index: 100; }
+  header h1 { font-size: 20px; font-weight: 700; background: linear-gradient(90deg, var(--accent), var(--accent2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  header .subtitle { color: var(--muted); font-size: 12px; }
+  header .spacer { flex: 1; }
+  header .last-updated { color: var(--muted); font-size: 12px; }
+
+  main { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+
+  /* ── Stats Bar ── */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 24px; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; }
+  .stat .val { font-size: 28px; font-weight: 700; line-height: 1; }
+  .stat .lbl { color: var(--muted); font-size: 12px; margin-top: 4px; }
+  .stat.new .val { color: var(--accent); }
+  .stat.approved .val { color: var(--yellow); }
+  .stat.applied .val { color: var(--green); }
+  .stat.rejected .val { color: var(--red); }
+
+  /* ── Tabs ── */
+  .tabs { display: flex; gap: 4px; margin-bottom: 20px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 4px; width: fit-content; }
+  .tab { padding: 8px 18px; border-radius: 7px; cursor: pointer; font-size: 13px; font-weight: 500; color: var(--muted); transition: all .15s; border: none; background: none; }
+  .tab.active { background: var(--accent); color: #fff; }
+
+  /* ── Filters ── */
+  .filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; }
+  .filters input, .filters select { background: var(--surface); border: 1px solid var(--border); border-radius: 7px; color: var(--text); padding: 7px 12px; font-size: 13px; outline: none; transition: border .15s; }
+  .filters input:focus, .filters select:focus { border-color: var(--accent); }
+  .filters input { width: 220px; }
+  .filters select { min-width: 140px; }
+  .filters .sort-label { color: var(--muted); font-size: 12px; align-self: center; }
+  .filters .clear-btn { padding: 7px 14px; border-radius: 7px; background: var(--card); border: 1px solid var(--border); color: var(--muted); cursor: pointer; font-size: 12px; }
+  .filters .clear-btn:hover { color: var(--text); border-color: var(--accent); }
+
+  /* ── Job cards ── */
+  .jobs-list { display: grid; gap: 12px; }
+  .job-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 16px 20px; transition: border .15s; }
+  .job-card:hover { border-color: var(--accent); }
+  .job-card.approved { border-left: 3px solid var(--yellow); }
+  .job-card.applied { border-left: 3px solid var(--green); }
+  .job-card.rejected { opacity: .5; }
+
+  .job-top { display: flex; align-items: flex-start; gap: 12px; }
+  .job-logo { width: 40px; height: 40px; border-radius: 8px; background: var(--border); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; flex-shrink: 0; color: var(--accent); }
+  .job-info { flex: 1; min-width: 0; }
+  .job-title { font-size: 15px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .job-company { color: var(--muted); font-size: 13px; }
+  .job-meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+  .chip { font-size: 11px; padding: 2px 8px; border-radius: 999px; font-weight: 500; }
+  .chip.source { background: #1e3a5f; color: #60a5fa; }
+  .chip.location { background: #1e3a2f; color: #4ade80; }
+  .chip.score { background: #2d1b69; color: #a78bfa; }
+  .chip.kw { background: var(--border); color: var(--muted); }
+  .chip.status-new { background: #1e2a4a; color: var(--accent); }
+  .chip.status-approved { background: #3a2e00; color: var(--yellow); }
+  .chip.status-applied { background: #063a1e; color: var(--green); }
+  .chip.status-rejected { background: #3a0e0e; color: var(--red); }
+  .chip.status-failed { background: #3a1500; color: var(--orange); }
+
+  .job-score-bar { height: 3px; background: var(--border); border-radius: 2px; margin-top: 8px; }
+  .job-score-bar-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width .3s; }
+
+  .job-actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+  .btn { padding: 6px 14px; border-radius: 7px; font-size: 12px; font-weight: 600; cursor: pointer; border: none; transition: all .15s; }
+  .btn-approve { background: #3a2e00; color: var(--yellow); border: 1px solid #6b5300; }
+  .btn-approve:hover { background: #5a4800; }
+  .btn-approve.active { background: var(--yellow); color: #000; }
+  .btn-reject { background: #3a0e0e; color: var(--red); border: 1px solid #6b1a1a; }
+  .btn-reject:hover { background: #5a1414; }
+  .btn-reject.active { background: var(--red); color: #fff; }
+  .btn-link { background: var(--border); color: var(--muted); border: 1px solid var(--border); text-decoration: none; display: inline-flex; align-items: center; gap: 4px; }
+  .btn-link:hover { color: var(--text); }
+  .btn-export { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
+  .btn-export:hover { opacity: .85; }
+
+  .job-desc { color: var(--muted); font-size: 12px; line-height: 1.6; margin-top: 10px; max-height: 80px; overflow: hidden; position: relative; cursor: pointer; }
+  .job-desc.expanded { max-height: none; }
+  .job-desc::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 30px; background: linear-gradient(transparent, var(--card)); pointer-events: none; }
+  .job-desc.expanded::after { display: none; }
+
+  /* ── Applied table ── */
+  .applied-table { width: 100%; border-collapse: collapse; }
+  .applied-table th { text-align: left; padding: 10px 14px; color: var(--muted); font-size: 12px; border-bottom: 1px solid var(--border); font-weight: 600; letter-spacing: .05em; text-transform: uppercase; }
+  .applied-table td { padding: 12px 14px; border-bottom: 1px solid var(--border); font-size: 13px; }
+  .applied-table tr:hover td { background: rgba(255,255,255,.02); }
+  .applied-table .status-applied { color: var(--green); font-weight: 600; }
+  .applied-table .status-failed { color: var(--orange); font-weight: 600; }
+  .applied-table .status-error { color: var(--red); font-weight: 600; }
+
+  /* ── Empty state ── */
+  .empty { text-align: center; padding: 80px 20px; color: var(--muted); }
+  .empty .icon { font-size: 48px; margin-bottom: 16px; }
+  .empty h3 { font-size: 18px; color: var(--text); margin-bottom: 8px; }
+
+  /* ── Loading ── */
+  .loading { text-align: center; padding: 60px; color: var(--muted); }
+  .spinner { width: 36px; height: 36px; border: 3px solid var(--border); border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; margin: 0 auto 16px; }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  /* ── Toast ── */
+  .toast { position: fixed; bottom: 24px; right: 24px; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px 18px; font-size: 13px; z-index: 999; transform: translateY(80px); opacity: 0; transition: all .3s; }
+  .toast.show { transform: translateY(0); opacity: 1; }
+  .toast.success { border-color: var(--green); color: var(--green); }
+  .toast.info { border-color: var(--accent); color: var(--accent); }
+
+  /* ── Action bar ── */
+  .action-bar { display: flex; gap: 10px; margin-bottom: 20px; align-items: center; }
+  .count-badge { color: var(--muted); font-size: 13px; }
+
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: repeat(2, 1fr); }
+    .job-actions { gap: 6px; }
+    .filters input { width: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>JobHunt.ai</h1>
+    <div class="subtitle">Automated job hunting &amp; application tracker</div>
+  </div>
+  <div class="spacer"></div>
+  <div class="last-updated" id="lastUpdated">Loading…</div>
+</header>
+
+<main>
+  <!-- Stats -->
+  <div class="stats" id="stats">
+    <div class="stat new"><div class="val" id="sNew">–</div><div class="lbl">New Jobs</div></div>
+    <div class="stat approved"><div class="val" id="sApproved">–</div><div class="lbl">Approved</div></div>
+    <div class="stat applied"><div class="val" id="sApplied">–</div><div class="lbl">Applied</div></div>
+    <div class="stat"><div class="val" id="sTotal">–</div><div class="lbl">Total Tracked</div></div>
+    <div class="stat rejected"><div class="val" id="sRejected">–</div><div class="lbl">Rejected</div></div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="tab active" onclick="switchTab('jobs')">Jobs</button>
+    <button class="tab" onclick="switchTab('applied')">Applications</button>
+  </div>
+
+  <!-- Jobs Tab -->
+  <div id="jobsTab">
+    <div class="filters">
+      <input type="text" id="search" placeholder="Search title, company…" oninput="renderJobs()" />
+      <select id="statusFilter" onchange="renderJobs()">
+        <option value="">All Statuses</option>
+        <option value="new">New</option>
+        <option value="approved">Approved</option>
+        <option value="applied">Applied</option>
+        <option value="rejected">Rejected</option>
+        <option value="failed">Failed</option>
+      </select>
+      <select id="sourceFilter" onchange="renderJobs()">
+        <option value="">All Sources</option>
+        <option value="remotive">Remotive</option>
+        <option value="arbeitnow">Arbeitnow</option>
+        <option value="themuse">The Muse</option>
+      </select>
+      <select id="sortBy" onchange="renderJobs()">
+        <option value="score">Sort: Score</option>
+        <option value="date">Sort: Newest</option>
+        <option value="company">Sort: Company</option>
+      </select>
+      <button class="clear-btn" onclick="clearFilters()">Clear</button>
+    </div>
+
+    <div class="action-bar">
+      <span class="count-badge" id="jobCount"></span>
+      <div style="flex:1"></div>
+      <button class="btn btn-export" onclick="exportApproved()">Export Approved JSON</button>
+    </div>
+
+    <div id="jobsList" class="jobs-list">
+      <div class="loading"><div class="spinner"></div>Loading jobs…</div>
+    </div>
+  </div>
+
+  <!-- Applied Tab -->
+  <div id="appliedTab" style="display:none">
+    <div id="appliedContent">
+      <div class="loading"><div class="spinner"></div>Loading applications…</div>
+    </div>
+  </div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ── State ─────────────────────────────────────────────────────────────────────
+let allJobs = [];
+let allApplied = [];
+// Local overrides keyed by job id: {status, notes}
+let localState = JSON.parse(localStorage.getItem('jh_state') || '{}');
+
+// ── Data loading ──────────────────────────────────────────────────────────────
+async function tryFetch(paths) {
+  for (const p of paths) {
+    try {
+      const r = await fetch(p);
+      if (r.ok) return r.json();
+    } catch (_) {}
+  }
+  return null;
+}
+
+async function loadData() {
+  const [jobs, applied] = await Promise.all([
+    tryFetch(['data/jobs.json', '../data/jobs.json', './data/jobs.json']),
+    tryFetch(['data/applied.json', '../data/applied.json', './data/applied.json']),
+  ]);
+
+  allJobs = (jobs || []).map(j => ({
+    ...j,
+    // Merge in any local status overrides
+    status: (localState[j.id] || {}).status || j.status || 'new',
+  }));
+  allApplied = applied || [];
+
+  updateStats();
+  renderJobs();
+  renderApplied();
+
+  const dates = allJobs.map(j => j.found_at).filter(Boolean).sort();
+  if (dates.length) {
+    const d = new Date(dates[dates.length - 1]);
+    document.getElementById('lastUpdated').textContent =
+      'Updated ' + d.toLocaleDateString() + ' ' + d.toLocaleTimeString();
+  } else {
+    document.getElementById('lastUpdated').textContent = '';
+  }
+}
+
+// ── Stats ─────────────────────────────────────────────────────────────────────
+function updateStats() {
+  const counts = { new: 0, approved: 0, applied: 0, rejected: 0, failed: 0 };
+  allJobs.forEach(j => { counts[j.status] = (counts[j.status] || 0) + 1; });
+  document.getElementById('sNew').textContent = counts.new || 0;
+  document.getElementById('sApproved').textContent = counts.approved || 0;
+  document.getElementById('sApplied').textContent = (counts.applied || 0) + allApplied.filter(a => a.status === 'applied').length;
+  document.getElementById('sTotal').textContent = allJobs.length;
+  document.getElementById('sRejected').textContent = counts.rejected || 0;
+}
+
+// ── Tabs ──────────────────────────────────────────────────────────────────────
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach((t, i) => {
+    t.classList.toggle('active', (i === 0 && tab === 'jobs') || (i === 1 && tab === 'applied'));
+  });
+  document.getElementById('jobsTab').style.display = tab === 'jobs' ? '' : 'none';
+  document.getElementById('appliedTab').style.display = tab === 'applied' ? '' : 'none';
+}
+
+// ── Filters ───────────────────────────────────────────────────────────────────
+function clearFilters() {
+  document.getElementById('search').value = '';
+  document.getElementById('statusFilter').value = '';
+  document.getElementById('sourceFilter').value = '';
+  document.getElementById('sortBy').value = 'score';
+  renderJobs();
+}
+
+function getFiltered() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const status = document.getElementById('statusFilter').value;
+  const source = document.getElementById('sourceFilter').value;
+  const sort = document.getElementById('sortBy').value;
+
+  let jobs = allJobs.filter(j => {
+    if (q && !(j.title + ' ' + j.company).toLowerCase().includes(q)) return false;
+    if (status && j.status !== status) return false;
+    if (source && j.source !== source) return false;
+    return true;
+  });
+
+  if (sort === 'score') jobs.sort((a, b) => (b.score || 0) - (a.score || 0));
+  else if (sort === 'date') jobs.sort((a, b) => (b.found_at || '') > (a.found_at || '') ? 1 : -1);
+  else if (sort === 'company') jobs.sort((a, b) => a.company.localeCompare(b.company));
+
+  return jobs;
+}
+
+// ── Job rendering ─────────────────────────────────────────────────────────────
+function scoreColor(s) {
+  if (s >= 70) return '#22c55e';
+  if (s >= 40) return '#eab308';
+  return '#8892a4';
+}
+
+function initials(name) {
+  return (name || '?').split(/\s+/).map(w => w[0]).join('').toUpperCase().slice(0, 2);
+}
+
+function stripHtml(s) {
+  const d = document.createElement('div');
+  d.innerHTML = s;
+  return d.textContent || '';
+}
+
+function renderJobs() {
+  const jobs = getFiltered();
+  document.getElementById('jobCount').textContent = `${jobs.length} job${jobs.length !== 1 ? 's' : ''}`;
+  const el = document.getElementById('jobsList');
+
+  if (!jobs.length) {
+    el.innerHTML = `<div class="empty"><div class="icon">🔍</div><h3>No jobs found</h3><p>Try adjusting your filters or wait for the next scan.</p></div>`;
+    return;
+  }
+
+  el.innerHTML = jobs.map(j => {
+    const kws = (j.matched_keywords || []).slice(0, 5).map(k =>
+      `<span class="chip kw">${k}</span>`).join('');
+    const desc = stripHtml(j.description || '').slice(0, 300);
+    const isApproved = j.status === 'approved';
+    const isRejected = j.status === 'rejected';
+    const scoreW = Math.max(5, j.score || 0);
+    const sc = scoreColor(j.score);
+
+    return `
+    <div class="job-card ${j.status}" id="card-${j.id}">
+      <div class="job-top">
+        <div class="job-logo">${initials(j.company)}</div>
+        <div class="job-info">
+          <div class="job-title">${esc(j.title)}</div>
+          <div class="job-company">${esc(j.company)}</div>
+          <div class="job-meta">
+            <span class="chip source">${j.source || 'unknown'}</span>
+            <span class="chip location">📍 ${esc(j.location || 'Remote')}</span>
+            <span class="chip score" style="background:#1a1240;color:${sc}">★ ${j.score || 0}</span>
+            <span class="chip status-${j.status}">${j.status}</span>
+            ${kws}
+          </div>
+        </div>
+      </div>
+      <div class="job-score-bar">
+        <div class="job-score-bar-fill" style="width:${scoreW}%;background:linear-gradient(90deg,${sc},${sc}88)"></div>
+      </div>
+      ${desc ? `<div class="job-desc" id="desc-${j.id}" onclick="toggleDesc('${j.id}')">${esc(desc)}…</div>` : ''}
+      <div class="job-actions">
+        <button class="btn btn-approve ${isApproved ? 'active' : ''}"
+          onclick="setStatus('${j.id}', '${isApproved ? 'new' : 'approved'}')">
+          ${isApproved ? '✓ Approved' : '👍 Approve'}
+        </button>
+        <button class="btn btn-reject ${isRejected ? 'active' : ''}"
+          onclick="setStatus('${j.id}', '${isRejected ? 'new' : 'rejected'}')">
+          ${isRejected ? '✗ Rejected' : '👎 Reject'}
+        </button>
+        <a class="btn btn-link" href="${esc(j.url)}" target="_blank" rel="noopener">
+          View Job ↗
+        </a>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleDesc(id) {
+  const el = document.getElementById('desc-' + id);
+  if (el) el.classList.toggle('expanded');
+}
+
+function esc(s) {
+  return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+// ── Status management ─────────────────────────────────────────────────────────
+function setStatus(id, status) {
+  // Update in-memory
+  const job = allJobs.find(j => j.id === id);
+  if (!job) return;
+  job.status = status;
+
+  // Persist locally
+  if (!localState[id]) localState[id] = {};
+  localState[id].status = status;
+  localStorage.setItem('jh_state', JSON.stringify(localState));
+
+  updateStats();
+  renderJobs();
+  toast(`Job ${status === 'approved' ? 'approved ✓' : status === 'rejected' ? 'rejected' : 'reset'}`, status === 'approved' ? 'success' : 'info');
+}
+
+// ── Export approved ───────────────────────────────────────────────────────────
+function exportApproved() {
+  const approved = allJobs.filter(j => j.status === 'approved');
+  if (!approved.length) { toast('No approved jobs to export', 'info'); return; }
+  const blob = new Blob([JSON.stringify(approved, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'approved_jobs.json';
+  a.click();
+  URL.revokeObjectURL(url);
+  toast(`Exported ${approved.length} approved jobs`, 'success');
+}
+
+// ── Applied table ─────────────────────────────────────────────────────────────
+function renderApplied() {
+  const el = document.getElementById('appliedContent');
+  const combined = [
+    ...allApplied,
+    ...allJobs.filter(j => j.status === 'applied' && !allApplied.find(a => a.id === j.id)).map(j => ({
+      ...j, applied_at: j.found_at || '',
+    })),
+  ].sort((a, b) => (b.applied_at || '') > (a.applied_at || '') ? 1 : -1);
+
+  if (!combined.length) {
+    el.innerHTML = `<div class="empty"><div class="icon">📋</div><h3>No applications yet</h3>
+      <p>Approve jobs in the Jobs tab, then run the GitHub Action to auto-apply.</p></div>`;
+    return;
+  }
+
+  el.innerHTML = `<table class="applied-table">
+    <thead><tr>
+      <th>Job</th><th>Company</th><th>Platform</th><th>Status</th><th>Applied</th><th>Link</th>
+    </tr></thead>
+    <tbody>${combined.map(a => `
+      <tr>
+        <td>${esc(a.title)}</td>
+        <td>${esc(a.company)}</td>
+        <td>${esc(a.platform || '–')}</td>
+        <td class="status-${a.status}">${a.status}</td>
+        <td>${a.applied_at ? new Date(a.applied_at).toLocaleDateString() : '–'}</td>
+        <td><a class="btn btn-link" href="${esc(a.url)}" target="_blank" rel="noopener" style="font-size:11px">↗</a></td>
+      </tr>`).join('')}
+    </tbody>
+  </table>`;
+}
+
+// ── Toast ─────────────────────────────────────────────────────────────────────
+let toastTimer;
+function toast(msg, type = 'info') {
+  const el = document.getElementById('toast');
+  el.textContent = msg;
+  el.className = `toast ${type} show`;
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => el.classList.remove('show'), 3000);
+}
+
+// ── Init ──────────────────────────────────────────────────────────────────────
+loadData();
+// Auto-refresh every 5 minutes
+setInterval(loadData, 5 * 60 * 1000);
+</script>
+</body>
+</html>

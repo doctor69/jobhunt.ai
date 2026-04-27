@@ -1,0 +1,221 @@
+#!/usr/bin/env python3
+"""
+Job scanner — fetches jobs from multiple free APIs, scores them against
+keywords in config.json, and writes results to data/jobs.json.
+Runs every 6 hrs via GitHub Actions.
+"""
+
+import json
+import hashlib
+import sys
+from datetime import datetime, timezone
+from pathlib import Path
+
+import requests
+
+ROOT = Path(__file__).parent.parent
+DATA_DIR = ROOT / "data"
+CONFIG_PATH = ROOT / "config" / "config.json"
+JOBS_PATH = DATA_DIR / "jobs.json"
+
+HEADERS = {
+    "User-Agent": (
+        "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+        "AppleWebKit/537.36 (KHTML, like Gecko) "
+        "Chrome/120.0.0.0 Safari/537.36"
+    )
+}
+
+
+def load_config():
+    with open(CONFIG_PATH) as f:
+        return json.load(f)
+
+
+def load_existing_jobs():
+    if JOBS_PATH.exists():
+        with open(JOBS_PATH) as f:
+            jobs = json.load(f)
+        return {j["id"]: j for j in jobs}
+    return {}
+
+
+def make_id(url: str, title: str, company: str) -> str:
+    raw = f"{url}{title}{company}".lower()
+    return hashlib.md5(raw.encode()).hexdigest()[:12]
+
+
+def score_job(job: dict, config: dict) -> dict:
+    text = " ".join([
+        job.get("title", ""),
+        job.get("description", ""),
+        job.get("tags", ""),
+    ]).lower()
+
+    matched = []
+    score = 0
+    for kw in config.get("keywords", []):
+        if kw.lower() in text:
+            score += 10
+            matched.append(kw)
+
+    loc = job.get("location", "").lower()
+    want = config.get("location", "remote").lower()
+    if want in loc or "remote" in loc or "anywhere" in loc:
+        score += 15
+
+    sal = job.get("salary_min")
+    if sal and sal >= config.get("min_salary", 0):
+        score += 10
+
+    job["score"] = min(score, 100)
+    job["matched_keywords"] = matched
+    return job
+
+
+# ── Sources ──────────────────────────────────────────────────────────────────
+
+def fetch_remotive(config: dict) -> list[dict]:
+    jobs = []
+    categories = config.get("remotive_categories", ["software-dev"])
+    for cat in categories:
+        try:
+            url = f"https://remotive.com/api/remote-jobs?category={cat}&limit=50"
+            r = requests.get(url, headers=HEADERS, timeout=20)
+            r.raise_for_status()
+            for j in r.json().get("jobs", []):
+                jobs.append({
+                    "id": make_id(j["url"], j["title"], j["company_name"]),
+                    "title": j["title"],
+                    "company": j["company_name"],
+                    "location": j.get("candidate_required_location", "Remote"),
+                    "url": j["url"],
+                    "description": (j.get("description") or "")[:3000],
+                    "tags": " ".join(j.get("tags") or []),
+                    "salary_min": j.get("salary_min"),
+                    "salary_max": j.get("salary_max"),
+                    "posted_at": j.get("publication_date", ""),
+                    "source": "remotive",
+                    "status": "new",
+                    "found_at": datetime.now(timezone.utc).isoformat(),
+                })
+        except Exception as e:
+            print(f"[remotive/{cat}] {e}", file=sys.stderr)
+    return jobs
+
+
+def fetch_arbeitnow(config: dict) -> list[dict]:
+    jobs = []
+    try:
+        r = requests.get(
+            "https://www.arbeitnow.com/api/job-board-api",
+            headers=HEADERS,
+            timeout=20,
+        )
+        r.raise_for_status()
+        for j in r.json().get("data", []):
+            jobs.append({
+                "id": make_id(j["url"], j["title"], j["company_name"]),
+                "title": j["title"],
+                "company": j["company_name"],
+                "location": j.get("location", "Remote"),
+                "url": j["url"],
+                "description": (j.get("description") or "")[:3000],
+                "tags": " ".join(j.get("tags") or []),
+                "salary_min": None,
+                "salary_max": None,
+                "posted_at": str(j.get("created_at", "")),
+                "source": "arbeitnow",
+                "status": "new",
+                "found_at": datetime.now(timezone.utc).isoformat(),
+            })
+    except Exception as e:
+        print(f"[arbeitnow] {e}", file=sys.stderr)
+    return jobs
+
+
+def fetch_themuse(config: dict) -> list[dict]:
+    jobs = []
+    try:
+        categories = config.get("muse_categories", ["Engineering"])
+        for cat in categories:
+            r = requests.get(
+                "https://www.themuse.com/api/public/jobs",
+                params={"category": cat, "page": 1, "descending": "true"},
+                headers=HEADERS,
+                timeout=20,
+            )
+            r.raise_for_status()
+            for j in r.json().get("results", []):
+                loc = (j.get("locations") or [{}])[0].get("name", "Remote")
+                url = j.get("refs", {}).get("landing_page", "")
+                jobs.append({
+                    "id": make_id(url, j["name"], j["company"]["name"]),
+                    "title": j["name"],
+                    "company": j["company"]["name"],
+                    "location": loc,
+                    "url": url,
+                    "description": (j.get("contents") or "")[:3000],
+                    "tags": " ".join(c["name"] for c in j.get("categories") or []),
+                    "salary_min": None,
+                    "salary_max": None,
+                    "posted_at": j.get("publication_date", ""),
+                    "source": "themuse",
+                    "status": "new",
+                    "found_at": datetime.now(timezone.utc).isoformat(),
+                })
+    except Exception as e:
+        print(f"[themuse] {e}", file=sys.stderr)
+    return jobs
+
+
+# ── Main ─────────────────────────────────────────────────────────────────────
+
+SOURCE_MAP = {
+    "remotive": fetch_remotive,
+    "arbeitnow": fetch_arbeitnow,
+    "themuse": fetch_themuse,
+}
+
+
+def main():
+    print("=== Job Scanner Starting ===")
+    config = load_config()
+    existing = load_existing_jobs()
+
+    raw_jobs: list[dict] = []
+    for src in config.get("sources", list(SOURCE_MAP.keys())):
+        fn = SOURCE_MAP.get(src)
+        if fn:
+            print(f"Fetching from {src}…")
+            raw_jobs.extend(fn(config))
+        else:
+            print(f"[warn] Unknown source: {src}", file=sys.stderr)
+
+    added = 0
+    for job in raw_jobs:
+        job = score_job(job, config)
+        if job["score"] < config.get("min_score", 30):
+            continue
+        if job["id"] not in existing:
+            existing[job["id"]] = job
+            added += 1
+        else:
+            # Refresh score/keywords but preserve user status/notes
+            existing[job["id"]]["score"] = job["score"]
+            existing[job["id"]]["matched_keywords"] = job["matched_keywords"]
+
+    all_jobs = sorted(
+        existing.values(),
+        key=lambda j: (-j["score"], j.get("found_at", "")),
+    )
+
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    with open(JOBS_PATH, "w") as f:
+        json.dump(all_jobs, f, indent=2)
+
+    print(f"=== Done: {added} new | {len(all_jobs)} total ===")
+
+
+if __name__ == "__main__":
+    main()

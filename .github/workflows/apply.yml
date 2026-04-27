@@ -1,0 +1,50 @@
+name: Apply to Jobs
+
+on:
+  workflow_dispatch:
+    inputs:
+      max_apply:
+        description: 'Max number of jobs to apply to'
+        required: false
+        default: '5'
+        type: string
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Install Playwright browsers
+        run: playwright install chromium --with-deps
+
+      - name: Run job applications
+        run: python scripts/apply.py ${{ github.event.inputs.max_apply }}
+        env:
+          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
+          LINKEDIN_EMAIL:     ${{ secrets.LINKEDIN_EMAIL }}
+          LINKEDIN_PASSWORD:  ${{ secrets.LINKEDIN_PASSWORD }}
+          APPLICANT_EMAIL:    ${{ secrets.APPLICANT_EMAIL }}
+          APPLICANT_NAME:     ${{ secrets.APPLICANT_NAME }}
+          APPLICANT_PHONE:    ${{ secrets.APPLICANT_PHONE }}
+          LINKEDIN_URL:       ${{ secrets.LINKEDIN_URL }}
+
+      - name: Commit application results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/jobs.json data/applied.json
+          git diff --staged --quiet || \
+            git commit -m "chore: apply to jobs $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
