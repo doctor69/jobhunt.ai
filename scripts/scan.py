@@ -45,31 +45,81 @@ def make_id(url: str, title: str, company: str) -> str:
     return hashlib.md5(raw.encode()).hexdigest()[:12]
 
 
+import re as _re
+
+def _extract_salary(text: str) -> int | None:
+    """Parse the first salary figure found in plain text."""
+    patterns = [
+        r'\$\s*(\d{2,3})[kK]',                          # $120k
+        r'\$\s*(\d{2,3}),\d{3}',                        # $120,000
+        r'(\d{2,3})[kK]\s*[-–to]+\s*\$?(\d{2,3})[kK]', # 120K-150K
+        r'USD\s+(\d{2,3})[kK]',                          # USD 120K
+        r'(\d{2,3}),\d{3}\s*[-–]',                      # 120,000-
+    ]
+    for pat in patterns:
+        m = _re.search(pat, text, _re.IGNORECASE)
+        if m:
+            val = int(m.group(1))
+            return val * 1000 if val < 500 else val
+    return None
+
+
 def score_job(job: dict, config: dict) -> dict:
+    """
+    Custom scoring scale (max 100):
+      Remote gate  : non-remote jobs score 0 when remote_required=true
+      Remote bonus : fully remote → +40 pts  |  hybrid → +15 pts
+      Salary tiers : $180k+ → +35  |  $150k → +30  |  $130k → +25
+                     $100k → +20   |  $80k  → +10   |  <$80k → +5
+      Keywords     : +5 per match, capped at 25 pts
+    """
     text = " ".join([
         job.get("title", ""),
         job.get("description", ""),
         job.get("tags", ""),
     ]).lower()
-
-    matched = []
-    score = 0
-    for kw in config.get("keywords", []):
-        if kw.lower() in text:
-            score += 10
-            matched.append(kw)
-
     loc = job.get("location", "").lower()
-    want = config.get("location", "remote").lower()
-    if want in loc or "remote" in loc or "anywhere" in loc:
+
+    # ── Remote detection ──────────────────────────────────────────────────────
+    remote_words = {"remote", "anywhere", "work from home", "wfh", "fully remote",
+                    "100% remote", "remote-first", "distributed"}
+    hybrid_words = {"hybrid"}
+
+    is_remote = any(w in loc for w in remote_words) or any(w in text for w in remote_words)
+    is_hybrid = (not is_remote) and (any(w in loc for w in hybrid_words) or "hybrid" in text)
+    is_onsite = not is_remote and not is_hybrid
+
+    # Hard gate: skip entirely if remote is required and this is on-site
+    if config.get("remote_required", True) and is_onsite:
+        job["score"] = 0
+        job["matched_keywords"] = []
+        job["remote"] = False
+        return job
+
+    score = 0
+    if is_remote:
+        score += 40
+    elif is_hybrid:
         score += 15
 
-    sal = job.get("salary_min")
-    if sal and sal >= config.get("min_salary", 0):
-        score += 10
+    # ── Salary ────────────────────────────────────────────────────────────────
+    sal = job.get("salary_min") or _extract_salary(text)
+    if sal:
+        if sal >= 180_000:   score += 35
+        elif sal >= 150_000: score += 30
+        elif sal >= 130_000: score += 25
+        elif sal >= 100_000: score += 20
+        elif sal >= 80_000:  score += 10
+        else:                score += 5
+    job["salary_parsed"] = sal  # store so the dashboard can display it
+
+    # ── Keywords ──────────────────────────────────────────────────────────────
+    matched = [kw for kw in config.get("keywords", []) if kw.lower() in text]
+    score += min(len(matched) * 5, 25)
 
     job["score"] = min(score, 100)
     job["matched_keywords"] = matched
+    job["remote"] = is_remote
     return job
 
 

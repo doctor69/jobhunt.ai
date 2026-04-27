@@ -4,7 +4,8 @@
     "node.js", "typescript", "react", "fastapi", "django", "postgresql",
     "aws", "docker", "kubernetes", "api", "saas", "startup"
   ],
-  "min_score": 30,
+  "min_score": 40,
+  "remote_required": true,
   "sources": ["dice", "ziprecruiter", "roberthalf", "remotive", "arbeitnow"],
   "location": "Remote",
   "min_salary": 0,
