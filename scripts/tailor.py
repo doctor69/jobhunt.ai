@@ -24,8 +24,6 @@ import tempfile
 from pathlib import Path
 
 import anthropic
-import requests
-from bs4 import BeautifulSoup
 
 ROOT = Path(__file__).parent.parent
 CONFIG_PATH = ROOT / "config" / "config.json"
