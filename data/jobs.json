@@ -24,7 +24,7 @@
       "startup"
     ],
     "remote": true,
-    "retry_count": 1
+    "retry_count": 2
   },
   {
     "id": "4e5a34ed56d7",
@@ -50,7 +50,7 @@
       "saas"
     ],
     "remote": true,
-    "retry_count": 1
+    "retry_count": 2
   },
   {
     "id": "1fdc5eeaaf9b",
@@ -78,7 +78,7 @@
       "api"
     ],
     "remote": true,
-    "retry_count": 1
+    "retry_count": 2
   },
   {
     "id": "efe5c21c1788",
