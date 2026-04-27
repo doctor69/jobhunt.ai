@@ -689,13 +689,21 @@ async def run(max_apply: int = 5):
     applied: list[dict] = _load_json(APPLIED_PATH, [])
     applied_ids = {a["id"] for a in applied if a.get("status") == "applied"}
 
+    MAX_RETRIES = 3
     queue = [
         j for j in jobs
-        if j.get("status") == "approved" and j["id"] not in applied_ids
+        if (
+            j.get("status") == "approved"
+            or (
+                j.get("status") in ("error", "failed")
+                and j.get("retry_count", 0) < MAX_RETRIES
+            )
+        )
+        and j["id"] not in applied_ids
     ][:max_apply]
 
     if not queue:
-        print("No jobs with status='approved' found. Approve jobs in the dashboard first.")
+        print("No eligible jobs found (approved or pending retry). Run the scanner first.")
         return
 
     print(f"Applying to {len(queue)} job(s)…")
