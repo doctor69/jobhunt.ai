@@ -134,6 +134,11 @@
   .action-bar { display: flex; gap: 10px; margin-bottom: 20px; align-items: center; }
   .count-badge { color: var(--muted); font-size: 13px; }
 
+  /* ── Refresh button ── */
+  .btn-refresh { background: none; border: 1px solid var(--border); border-radius: 7px; color: var(--muted); cursor: pointer; font-size: 16px; padding: 6px 10px; transition: all .15s; }
+  .btn-refresh:hover { border-color: var(--accent); color: var(--text); }
+  .btn-refresh:disabled { opacity: .4; cursor: not-allowed; }
+
   @media (max-width: 600px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
     .job-actions { gap: 6px; }
@@ -150,6 +155,7 @@
   </div>
   <div class="spacer"></div>
   <div class="last-updated" id="lastUpdated">Loading…</div>
+  <button class="btn-refresh" onclick="loadData()" title="Refresh" id="refreshBtn">↻</button>
 </header>
 
 <main>
@@ -205,8 +211,6 @@
 
     <div class="action-bar">
       <span class="count-badge" id="jobCount"></span>
-      <div style="flex:1"></div>
-      <button class="btn btn-export" onclick="exportApproved()">Export Approved JSON</button>
     </div>
 
     <div id="jobsList" class="jobs-list">
@@ -243,18 +247,21 @@ async function tryFetch(paths) {
 }
 
 async function loadData() {
+  const rb = document.getElementById('refreshBtn');
+  if (rb) { rb.style.animation = 'spin .6s linear infinite'; rb.disabled = true; }
   const [jobs, applied] = await Promise.all([
+
     tryFetch(['data/jobs.json', '../data/jobs.json', './data/jobs.json']),
     tryFetch(['data/applied.json', '../data/applied.json', './data/applied.json']),
   ]);
 
   allJobs = (jobs || []).map(j => ({
     ...j,
-    // Merge in any local status overrides
     status: (localState[j.id] || {}).status || j.status || 'new',
   }));
   allApplied = applied || [];
 
+  if (rb) { rb.style.animation = ''; rb.disabled = false; }
   updateStats();
   renderJobs();
   renderApplied();
@@ -419,19 +426,20 @@ function esc(s) {
 
 // ── Status management ─────────────────────────────────────────────────────────
 function setStatus(id, status) {
-  // Update in-memory
   const job = allJobs.find(j => j.id === id);
   if (!job) return;
   job.status = status;
 
-  // Persist locally
   if (!localState[id]) localState[id] = {};
   localState[id].status = status;
   localStorage.setItem('jh_state', JSON.stringify(localState));
 
   updateStats();
   renderJobs();
-  toast(`Job ${status === 'approved' ? 'approved ✓' : status === 'rejected' ? 'rejected' : 'reset'}`, status === 'approved' ? 'success' : 'info');
+  toast(
+    status === 'approved' ? 'Approved ✓' : status === 'rejected' ? 'Rejected' : 'Reset',
+    status === 'approved' ? 'success' : 'info'
+  );
 }
 
 // ── Export approved ───────────────────────────────────────────────────────────

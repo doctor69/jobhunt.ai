@@ -91,6 +91,98 @@ async def click_if_visible(page: Page, selector: str) -> bool:
         return False
 
 
+def get_salary_ask(job: dict, config: dict) -> int:
+    """
+    Calculate the salary to state on application forms.
+      - No salary data on job → target_salary ($150k default)
+      - Job offers >= target   → use their number (don't undersell)
+      - Job offers < target    → their rate + 10%
+    """
+    target = config.get("target_salary", 150_000)
+    offered = job.get("salary_min") or job.get("salary_parsed") or 0
+    if not offered:
+        return target
+    if offered >= target:
+        return offered
+    return int(offered * 1.10)
+
+
+async def fill_salary_fields(page: Page, salary: int) -> bool:
+    """
+    Find salary expectation inputs on the current page and fill them.
+    Handles text inputs, number inputs, and select dropdowns.
+    Returns True if any field was filled.
+    """
+    filled = False
+    salary_str = str(salary)          # "150000"
+    salary_k   = str(salary // 1000)  # "150"
+
+    # Text / number inputs
+    text_selectors = [
+        "input[name*='salary' i]",
+        "input[id*='salary' i]",
+        "input[placeholder*='salary' i]",
+        "input[name*='compensation' i]",
+        "input[id*='compensation' i]",
+        "input[placeholder*='compensation' i]",
+        "input[name*='expected' i]",
+        "input[placeholder*='expected' i]",
+        "input[name*='desired' i]",
+        "input[placeholder*='desired' i]",
+    ]
+    for sel in text_selectors:
+        fld = page.locator(sel)
+        if not await fld.count():
+            continue
+        el = fld.first
+        try:
+            await el.wait_for(state="visible", timeout=1500)
+            val = await el.input_value()
+            if val:
+                continue  # already filled
+            # Detect whether field expects thousands or full number
+            placeholder = (await el.get_attribute("placeholder") or "").lower()
+            max_attr = await el.get_attribute("max") or ""
+            use_k = (
+                "k" in placeholder
+                or (max_attr.isdigit() and int(max_attr) < 10_000)
+            )
+            await human_type(page, el, salary_k if use_k else salary_str)
+            filled = True
+        except Exception:
+            continue
+
+    # Select dropdowns
+    for sel_el in await page.locator("select").all():
+        try:
+            label = await sel_el.get_attribute("name") or await sel_el.get_attribute("id") or ""
+            if not any(w in label.lower() for w in ("salary", "compensation", "expected", "desired")):
+                continue
+            opts = await sel_el.evaluate(
+                "el => Array.from(el.options).map(o => ({v: o.value, t: o.text}))"
+            )
+            # Pick the option whose numeric value is closest to our ask
+            best = None
+            best_diff = float("inf")
+            for opt in opts:
+                nums = [int(n.replace(",", "")) for n in __import__("re").findall(r"\d[\d,]+", opt["t"])]
+                if not nums:
+                    continue
+                diff = abs(nums[0] - salary)
+                if diff < best_diff:
+                    best_diff = diff
+                    best = opt["v"]
+            if best:
+                await sel_el.select_option(best, timeout=1500)
+                filled = True
+        except Exception:
+            continue
+
+    if filled:
+        print(f"  [salary] Filled ${salary:,}")
+    return filled
+
+
 async def upload_resume_if_possible(page: Page, pdf_path: Path) -> bool:
     """
     Look for a resume/CV file-upload input on the current page and set the
@@ -144,7 +236,7 @@ def detect_platform(url: str) -> str:
 # ── LinkedIn Easy Apply ───────────────────────────────────────────────────────
 
 async def apply_linkedin(
-    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
     print(f"  [LinkedIn] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -201,6 +293,10 @@ async def apply_linkedin(
                 except Exception:
                     pass
 
+        # Salary fields (if any step exposes them)
+        if salary_ask:
+            await fill_salary_fields(page, salary_ask)
+
         # Navigation
         if await click_if_visible(page, "button:has-text('Submit application')"):
             await nap(2, 4)
@@ -221,7 +317,7 @@ async def apply_linkedin(
 # ── Indeed ────────────────────────────────────────────────────────────────────
 
 async def apply_indeed(
-    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
     print(f"  [Indeed] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -248,6 +344,9 @@ async def apply_indeed(
     if await fld.count() and not (await fld.first.input_value()):
         await human_type(page, fld, cover_letter[:2000])
 
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
+
     await nap()
 
     if await click_if_visible(page, "button:has-text('Submit'), button[type='submit']"):
@@ -261,7 +360,7 @@ async def apply_indeed(
 # ── Greenhouse ────────────────────────────────────────────────────────────────
 
 async def apply_greenhouse(
-    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
     print(f"  [Greenhouse] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -290,6 +389,9 @@ async def apply_greenhouse(
     if await fld.count() and not (await fld.first.input_value()):
         await human_type(page, fld, cover_letter)
 
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
+
     await nap()
 
     if await click_if_visible(page, "input#submit_app, button:has-text('Submit Application')"):
@@ -303,7 +405,7 @@ async def apply_greenhouse(
 # ── Lever ─────────────────────────────────────────────────────────────────────
 
 async def apply_lever(
-    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
     print(f"  [Lever] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -332,6 +434,9 @@ async def apply_lever(
     if await fld.count() and not (await fld.first.input_value()):
         await human_type(page, fld, cover_letter)
 
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
+
     await nap()
 
     if await click_if_visible(page, "button:has-text('Submit application'), button[type='submit']"):
@@ -345,7 +450,7 @@ async def apply_lever(
 # ── Generic fallback ──────────────────────────────────────────────────────────
 
 async def apply_generic(
-    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
     print(f"  [Generic] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -381,6 +486,9 @@ async def apply_generic(
     if await fld.count() and not (await fld.first.input_value()):
         await human_type(page, fld, cover_letter)
 
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
+
     await nap()
 
     if await click_if_visible(
@@ -396,7 +504,7 @@ async def apply_generic(
 # ── ZipRecruiter ─────────────────────────────────────────────────────────────
 
 async def apply_ziprecruiter(
-    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
     print(f"  [ZipRecruiter] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -438,6 +546,9 @@ async def apply_ziprecruiter(
     if await fld.count() and not (await fld.first.input_value()):
         await human_type(page, fld, cover_letter[:2000])
 
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
+
     await nap()
 
     if await click_if_visible(page, "button:has-text('Submit'), button[type='submit']"):
@@ -451,7 +562,7 @@ async def apply_ziprecruiter(
 # ── Robert Half ───────────────────────────────────────────────────────────────
 
 async def apply_roberthalf(
-    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
     print(f"  [Robert Half] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -485,6 +596,9 @@ async def apply_roberthalf(
     if await fld.count() and not (await fld.first.input_value()):
         await human_type(page, fld, cover_letter[:2000])
 
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
+
     await nap()
 
     if await click_if_visible(page, "button:has-text('Submit'), button[type='submit']"):
@@ -498,7 +612,7 @@ async def apply_roberthalf(
 # ── Dice ─────────────────────────────────────────────────────────────────────
 
 async def apply_dice(
-    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
     """
     Dice job pages usually redirect to an employer's ATS.
@@ -543,6 +657,9 @@ async def apply_dice(
         fld = page.locator(sel)
         if await fld.count() and not (await fld.first.input_value()):
             await human_type(page, fld, val)
+
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
 
     if await click_if_visible(page, "button:has-text('Submit'), button[type='submit']"):
         await nap(2, 4)
@@ -630,7 +747,9 @@ async def run(max_apply: int = 5):
                     visible_resume=visible_text,
                     output_dir=DATA_DIR,
                 )
-                success = await handler(page, job, cover, config, pdf_path)
+                salary_ask = get_salary_ask(job, config)
+                print(f"  [salary] Target ask: ${salary_ask:,}")
+                success = await handler(page, job, cover, config, pdf_path, salary_ask)
                 record["status"] = "applied" if success else "failed"
             except Exception as exc:
                 print(f"  ERROR: {exc}")
