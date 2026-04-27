@@ -30,7 +30,7 @@ from playwright.async_api import TimeoutError as PWTimeout
 
 # Resolve sibling module without installing as a package
 sys.path.insert(0, str(Path(__file__).parent))
-from tailor import generate_cover_letter, tailor_resume
+from tailor import build_resume_pdf, generate_cover_letter, tailor_resume
 
 ROOT = Path(__file__).parent.parent
 DATA_DIR = ROOT / "data"
@@ -91,6 +91,33 @@ async def click_if_visible(page: Page, selector: str) -> bool:
         return False
 
 
+async def upload_resume_if_possible(page: Page, pdf_path: Path) -> bool:
+    """
+    Look for a resume/CV file-upload input on the current page and set the
+    generated ATS-optimised PDF.  Returns True if a file was attached.
+    """
+    selectors = [
+        "input[type='file'][name*='resume' i]",
+        "input[type='file'][name*='cv' i]",
+        "input[type='file'][id*='resume' i]",
+        "input[type='file'][id*='cv' i]",
+        "input[type='file'][accept*='pdf' i]",
+        "input[type='file'][accept*='.doc' i]",
+        "input[type='file']",          # fallback: any file input
+    ]
+    for sel in selectors:
+        try:
+            el = page.locator(sel).first
+            await el.wait_for(state="attached", timeout=2000)
+            await el.set_input_files(str(pdf_path))
+            print(f"  [upload] Resume PDF attached via {sel}")
+            await nap(1, 2)
+            return True
+        except Exception:
+            continue
+    return False
+
+
 # ── Platform detection ────────────────────────────────────────────────────────
 
 def detect_platform(url: str) -> str:
@@ -117,7 +144,7 @@ def detect_platform(url: str) -> str:
 # ── LinkedIn Easy Apply ───────────────────────────────────────────────────────
 
 async def apply_linkedin(
-    page: Page, job: dict, cover_letter: str, config: dict
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
 ) -> bool:
     print(f"  [LinkedIn] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -194,7 +221,7 @@ async def apply_linkedin(
 # ── Indeed ────────────────────────────────────────────────────────────────────
 
 async def apply_indeed(
-    page: Page, job: dict, cover_letter: str, config: dict
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
 ) -> bool:
     print(f"  [Indeed] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -234,11 +261,14 @@ async def apply_indeed(
 # ── Greenhouse ────────────────────────────────────────────────────────────────
 
 async def apply_greenhouse(
-    page: Page, job: dict, cover_letter: str, config: dict
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
 ) -> bool:
     print(f"  [Greenhouse] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
     await nap(2, 4)
+
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
 
     for sel, val in [
         ("#first_name", config.get("full_name", "").split()[0] if config.get("full_name") else ""),
@@ -273,7 +303,7 @@ async def apply_greenhouse(
 # ── Lever ─────────────────────────────────────────────────────────────────────
 
 async def apply_lever(
-    page: Page, job: dict, cover_letter: str, config: dict
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
 ) -> bool:
     print(f"  [Lever] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -284,6 +314,9 @@ async def apply_lever(
         return False
 
     await nap(2, 3)
+
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
 
     for sel, val in [
         ("input[name='name']", config.get("full_name", "")),
@@ -312,7 +345,7 @@ async def apply_lever(
 # ── Generic fallback ──────────────────────────────────────────────────────────
 
 async def apply_generic(
-    page: Page, job: dict, cover_letter: str, config: dict
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
 ) -> bool:
     print(f"  [Generic] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -327,6 +360,9 @@ async def apply_generic(
         return False
 
     await nap(2, 3)
+
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
 
     for sel, val in [
         ("input[name='name'], input[placeholder*='name' i]", config.get("full_name", "")),
@@ -360,7 +396,7 @@ async def apply_generic(
 # ── ZipRecruiter ─────────────────────────────────────────────────────────────
 
 async def apply_ziprecruiter(
-    page: Page, job: dict, cover_letter: str, config: dict
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
 ) -> bool:
     print(f"  [ZipRecruiter] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -373,9 +409,12 @@ async def apply_ziprecruiter(
         "button:has-text('Quick Apply'), a:has-text('Quick Apply')",
     ):
         print("  [ZipRecruiter] No apply button — trying generic handler")
-        return await apply_generic(page, job, cover_letter, config)
+        return await apply_generic(page, job, cover_letter, config, pdf_path)
 
     await nap(2, 3)
+
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
 
     # ZipRecruiter may open a modal or redirect; detect which
     current_url = page.url
@@ -383,7 +422,7 @@ async def apply_ziprecruiter(
         # Redirected to employer ATS
         platform = detect_platform(current_url)
         handler = PLATFORM_HANDLERS.get(platform, apply_generic)
-        return await handler(page, job, cover_letter, config)
+        return await handler(page, job, cover_letter, config, pdf_path)
 
     # Fill modal form
     for sel, val in [
@@ -412,7 +451,7 @@ async def apply_ziprecruiter(
 # ── Robert Half ───────────────────────────────────────────────────────────────
 
 async def apply_roberthalf(
-    page: Page, job: dict, cover_letter: str, config: dict
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
 ) -> bool:
     print(f"  [Robert Half] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
@@ -427,6 +466,9 @@ async def apply_roberthalf(
         return False
 
     await nap(2, 3)
+
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
 
     for sel, val in [
         ("input[name='firstName'], input[id*='firstName']", (config.get("full_name") or "").split()[0]),
@@ -456,7 +498,7 @@ async def apply_roberthalf(
 # ── Dice ─────────────────────────────────────────────────────────────────────
 
 async def apply_dice(
-    page: Page, job: dict, cover_letter: str, config: dict
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None
 ) -> bool:
     """
     Dice job pages usually redirect to an employer's ATS.
@@ -487,9 +529,11 @@ async def apply_dice(
     if "dice.com" not in current_url:
         platform = detect_platform(current_url)
         handler = PLATFORM_HANDLERS.get(platform, apply_generic)
-        return await handler(page, job, cover_letter, config)
+        return await handler(page, job, cover_letter, config, pdf_path)
 
     # Dice-native apply form (rare but exists)
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
     for sel, val in [
         ("input[name='firstName']", (config.get("full_name") or "").split()[0]),
         ("input[name='lastName']", (config.get("full_name") or "").split()[-1]),
@@ -505,7 +549,7 @@ async def apply_dice(
         print("  [Dice] Submitted!")
         return True
 
-    return await apply_generic(page, job, cover_letter, config)
+    return await apply_generic(page, job, cover_letter, config, pdf_path)
 
 
 PLATFORM_HANDLERS = {
@@ -578,10 +622,15 @@ async def run(max_apply: int = 5):
 
             try:
                 print(f"\nTailoring resume for: {job['title']} @ {job['company']}")
-                cover = generate_cover_letter(
-                    job["title"], job.get("description", ""), job["company"]
+                desc = job.get("description", "")
+                visible_text = tailor_resume(job["title"], desc, job["company"])
+                cover = generate_cover_letter(job["title"], desc, job["company"])
+                pdf_path = build_resume_pdf(
+                    job["title"], desc, job["company"],
+                    visible_resume=visible_text,
+                    output_dir=DATA_DIR,
                 )
-                success = await handler(page, job, cover, config)
+                success = await handler(page, job, cover, config, pdf_path)
                 record["status"] = "applied" if success else "failed"
             except Exception as exc:
                 print(f"  ERROR: {exc}")
