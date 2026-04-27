@@ -89,18 +89,14 @@ def score_job(job: dict, config: dict) -> dict:
     is_hybrid = (not is_remote) and (any(w in loc for w in hybrid_words) or "hybrid" in text)
     is_onsite = not is_remote and not is_hybrid
 
-    # Hard gate: skip entirely if remote is required and this is on-site
-    if config.get("remote_required", True) and is_onsite:
+    # Hard gate: only fully remote jobs pass when remote_required=true
+    if config.get("remote_required", True) and not is_remote:
         job["score"] = 0
         job["matched_keywords"] = []
         job["remote"] = False
         return job
 
-    score = 0
-    if is_remote:
-        score += 40
-    elif is_hybrid:
-        score += 15
+    score = 40  # fully remote baseline
 
     # ── Salary ────────────────────────────────────────────────────────────────
     sal = job.get("salary_min") or _extract_salary(text)
