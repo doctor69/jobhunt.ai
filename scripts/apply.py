@@ -449,6 +449,139 @@ async def apply_lever(
 
 # ── Generic fallback ──────────────────────────────────────────────────────────
 
+# Every text variation seen across company career pages and job boards
+_APPLY_BUTTON_TEXTS = [
+    "Apply Now", "Apply now", "Apply For This Job", "Apply for this job",
+    "Apply For This Position", "Apply for this position", "Apply For Job",
+    "Apply Here", "Apply here", "Apply Online", "Apply Today",
+    "Quick Apply", "Easy Apply", "1-Click Apply", "One-Click Apply",
+    "Submit Application", "Submit Your Application",
+    "Apply", "APPLY",
+]
+
+async def _click_apply_button(page: Page) -> bool:
+    """
+    Try every known apply button pattern. If the button is an external link,
+    navigate there directly. Returns True if something was clicked/navigated.
+    """
+    # 1. Text-based selectors
+    for text in _APPLY_BUTTON_TEXTS:
+        for tag in ("button", "a"):
+            loc = page.locator(f"{tag}:has-text('{text}')")
+            try:
+                await loc.first.wait_for(state="visible", timeout=600)
+                href = await loc.first.get_attribute("href") if tag == "a" else None
+                if href and href.startswith("http"):
+                    await page.goto(href, wait_until="domcontentloaded", timeout=30000)
+                else:
+                    await loc.first.click()
+                await nap(2, 3)
+                return True
+            except Exception:
+                continue
+
+    # 2. Common data attributes
+    for sel in [
+        "[data-qa='apply-button']", "[data-cy='apply-button']",
+        "[data-testid*='apply' i]", "[id*='apply-button' i]",
+        "[class*='apply-btn' i]", "[class*='apply_btn' i]",
+        "a[href*='/apply']", "a[href*='apply?']",
+        "input[value*='Apply' i]",
+    ]:
+        loc = page.locator(sel)
+        try:
+            await loc.first.wait_for(state="visible", timeout=600)
+            href = await loc.first.get_attribute("href")
+            if href and href.startswith("http"):
+                await page.goto(href, wait_until="domcontentloaded", timeout=30000)
+            else:
+                await loc.first.click()
+            await nap(2, 3)
+            return True
+        except Exception:
+            continue
+
+    # 3. Playwright role-based (catches aria-label variations)
+    try:
+        import re as _re
+        btn = page.get_by_role("button", name=_re.compile(r"apply", _re.I))
+        await btn.first.wait_for(state="visible", timeout=1000)
+        await btn.first.click()
+        await nap(2, 3)
+        return True
+    except Exception:
+        pass
+
+    return False
+
+
+async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: dict,
+                              pdf_path, salary_ask: int) -> bool:
+    """Fill whatever application form is currently visible and submit it."""
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
+
+    for sel, val in [
+        ("input[name='name'], input[id*='name' i], input[placeholder*='name' i]",
+         config.get("full_name", "")),
+        ("input[name*='first' i], input[id*='first' i], input[placeholder*='first' i]",
+         (config.get("full_name") or "").split()[0]),
+        ("input[name*='last' i], input[id*='last' i], input[placeholder*='last' i]",
+         (config.get("full_name") or "").split()[-1]),
+        ("input[type='email'], input[name='email'], input[id*='email' i]",
+         config.get("email", "")),
+        ("input[type='tel'], input[name*='phone' i], input[id*='phone' i]",
+         config.get("phone", "")),
+        ("input[placeholder*='linkedin' i], input[name*='linkedin' i]",
+         config.get("linkedin_url", "")),
+        ("input[placeholder*='website' i], input[name*='website' i], "
+         "input[placeholder*='portfolio' i]",
+         config.get("portfolio_url", "")),
+    ]:
+        fld = page.locator(sel)
+        if await fld.count() and not (await fld.first.input_value()):
+            await human_type(page, fld, val)
+
+    # Cover letter / message textarea
+    for sel in [
+        "textarea[name*='cover' i]", "textarea[id*='cover' i]",
+        "textarea[placeholder*='cover' i]", "textarea[placeholder*='message' i]",
+        "textarea[name*='message' i]", "textarea",
+    ]:
+        fld = page.locator(sel)
+        if await fld.count() and not (await fld.first.input_value()):
+            await human_type(page, fld, cover_letter[:2000])
+            break
+
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
+
+    # Radio "Yes" buttons (work auth, etc.)
+    for lbl in await page.locator("label:has-text('Yes')").all():
+        try:
+            await lbl.click(timeout=800)
+        except Exception:
+            pass
+
+    await nap()
+
+    for sel in [
+        "button[type='submit']:has-text('Submit')",
+        "input[type='submit']",
+        "button[type='submit']",
+        "button:has-text('Submit Application')",
+        "button:has-text('Submit')",
+        "button:has-text('Send Application')",
+        "button:has-text('Send')",
+        "button:has-text('Complete Application')",
+    ]:
+        if await click_if_visible(page, sel):
+            await nap(2, 4)
+            return True
+
+    return False
+
+
 async def apply_generic(
     page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
@@ -456,49 +589,29 @@ async def apply_generic(
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
     await nap(2, 4)
 
-    if not await click_if_visible(
-        page,
-        "a:has-text('Apply Now'), button:has-text('Apply Now'), "
-        "a:has-text('Apply'), button:has-text('Apply')",
-    ):
-        print("  [Generic] No apply button found")
-        return False
+    # Check if the page already IS an application form (no button needed)
+    has_form = await page.locator("form input[type='email'], form input[type='text']").count() > 0
 
-    await nap(2, 3)
+    if not has_form:
+        clicked = await _click_apply_button(page)
+        if not clicked:
+            print("  [Generic] No apply button or form found")
+            return False
 
-    if pdf_path:
-        await upload_resume_if_possible(page, pdf_path)
+        # After navigation, re-detect platform and hand off if recognised
+        new_url = page.url
+        if new_url != job["url"]:
+            platform = detect_platform(new_url)
+            if platform != "generic":
+                handler = PLATFORM_HANDLERS.get(platform, apply_generic)
+                return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
 
-    for sel, val in [
-        ("input[name='name'], input[placeholder*='name' i]", config.get("full_name", "")),
-        ("input[type='email'], input[name='email']", config.get("email", "")),
-        ("input[type='tel'], input[name='phone']", config.get("phone", "")),
-        (
-            "input[placeholder*='linkedin' i], input[name*='linkedin' i]",
-            config.get("linkedin_url", ""),
-        ),
-    ]:
-        fld = page.locator(sel)
-        if await fld.count() and not (await fld.first.input_value()):
-            await human_type(page, fld, val)
-
-    fld = page.locator("textarea")
-    if await fld.count() and not (await fld.first.input_value()):
-        await human_type(page, fld, cover_letter)
-
-    if salary_ask:
-        await fill_salary_fields(page, salary_ask)
-
-    await nap()
-
-    if await click_if_visible(
-        page, "button[type='submit'], input[type='submit'], button:has-text('Submit')"
-    ):
-        await nap(2, 4)
-        print("  [Generic] Submitted!")
-        return True
-
-    return False
+    success = await _fill_generic_form(page, job, cover_letter, config, pdf_path, salary_ask)
+    if success:
+        print(f"  [Generic] Submitted!")
+    else:
+        print(f"  [Generic] Form found but could not submit")
+    return success
 
 
 # ── ZipRecruiter ─────────────────────────────────────────────────────────────
