@@ -687,7 +687,7 @@ async def run(max_apply: int = 5):
     config = load_config()
     jobs: list[dict] = _load_json(JOBS_PATH, [])
     applied: list[dict] = _load_json(APPLIED_PATH, [])
-    applied_ids = {a["id"] for a in applied}
+    applied_ids = {a["id"] for a in applied if a.get("status") == "applied"}
 
     queue = [
         j for j in jobs
