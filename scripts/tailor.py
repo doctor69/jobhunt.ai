@@ -42,23 +42,21 @@ def load_config() -> dict:
 
 
 def fetch_resume() -> str:
+    """
+    Fetch resume from leadtrade.app/doctor via Playwright (JS-rendered site).
+    Falls back to config/resume.txt if the page is unreachable.
+    """
     global _cached_resume
     if _cached_resume:
         return _cached_resume
 
     try:
-        r = requests.get(RESUME_URL, timeout=20)
-        r.raise_for_status()
-        soup = BeautifulSoup(r.text, "lxml")
-        for tag in soup(["script", "style", "nav", "footer", "header"]):
-            tag.decompose()
-        text = soup.get_text(separator="\n", strip=True)
-        text = re.sub(r"\n{3,}", "\n\n", text).strip()
-        if len(text) > 200:
+        text = asyncio.run(_fetch_resume_playwright())
+        if text and len(text) > 200:
             _cached_resume = text
             return text
     except Exception as e:
-        print(f"[tailor] Failed to fetch resume from web: {e}", file=sys.stderr)
+        print(f"[tailor] Playwright fetch failed: {e}", file=sys.stderr)
 
     local = ROOT / "config" / "resume.txt"
     if local.exists():
@@ -66,6 +64,23 @@ def fetch_resume() -> str:
         return _cached_resume
 
     raise RuntimeError("Could not load resume from web or local file")
+
+
+async def _fetch_resume_playwright() -> str:
+    from playwright.async_api import async_playwright
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch(
+            args=["--no-sandbox", "--disable-dev-shm-usage"]
+        )
+        page = await browser.new_page()
+        await page.goto(RESUME_URL, wait_until="networkidle", timeout=30000)
+        await page.evaluate(
+            "document.querySelectorAll('nav,header,footer,script,style')"
+            ".forEach(el => el.remove())"
+        )
+        text = await page.inner_text("body")
+        await browser.close()
+    return re.sub(r"\n{3,}", "\n\n", text).strip()
 
 
 def _client() -> anthropic.Anthropic:

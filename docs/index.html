@@ -99,6 +99,9 @@
   .btn-link:hover { color: var(--text); }
   .btn-export { background: var(--accent); color: #fff; border: 1px solid var(--accent); }
   .btn-export:hover { opacity: .85; }
+  .btn-apply { background: linear-gradient(90deg, var(--green), #16a34a); color: #fff; border: none; }
+  .btn-apply:hover { opacity: .85; }
+  .btn-apply:disabled { opacity: .4; cursor: not-allowed; }
 
   .job-desc { color: var(--muted); font-size: 12px; line-height: 1.6; margin-top: 10px; max-height: 80px; overflow: hidden; position: relative; cursor: pointer; }
   .job-desc.expanded { max-height: none; }
@@ -134,6 +137,29 @@
   .action-bar { display: flex; gap: 10px; margin-bottom: 20px; align-items: center; }
   .count-badge { color: var(--muted); font-size: 13px; }
 
+  /* ── Settings button + sync indicator ── */
+  .btn-settings { background: none; border: 1px solid var(--border); border-radius: 7px; color: var(--muted); cursor: pointer; font-size: 16px; padding: 6px 10px; transition: all .15s; }
+  .btn-settings:hover { border-color: var(--accent); color: var(--text); }
+  .sync-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); display: inline-block; margin-left: 8px; transition: background .3s; }
+  .sync-dot.syncing { background: var(--yellow); animation: pulse .8s infinite; }
+  .sync-dot.ok { background: var(--green); }
+  .sync-dot.err { background: var(--red); }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  /* ── Settings modal ── */
+  .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 200; display: flex; align-items: center; justify-content: center; }
+  .modal-backdrop.hidden { display: none; }
+  .modal { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 28px; width: 420px; max-width: 95vw; }
+  .modal h2 { font-size: 16px; margin-bottom: 6px; }
+  .modal p { color: var(--muted); font-size: 12px; margin-bottom: 20px; line-height: 1.6; }
+  .modal label { display: block; font-size: 12px; color: var(--muted); margin-bottom: 6px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+  .modal input { width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 7px; color: var(--text); padding: 9px 12px; font-size: 13px; outline: none; margin-bottom: 16px; font-family: monospace; }
+  .modal input:focus { border-color: var(--accent); }
+  .modal-actions { display: flex; gap: 10px; justify-content: flex-end; margin-top: 4px; }
+  .btn-save { background: var(--accent); color: #fff; border: none; border-radius: 7px; padding: 8px 20px; font-size: 13px; font-weight: 600; cursor: pointer; }
+  .btn-save:hover { opacity: .85; }
+  .btn-cancel { background: var(--card); color: var(--muted); border: 1px solid var(--border); border-radius: 7px; padding: 8px 16px; font-size: 13px; cursor: pointer; }
+
   @media (max-width: 600px) {
     .stats { grid-template-columns: repeat(2, 1fr); }
     .job-actions { gap: 6px; }
@@ -150,7 +176,27 @@
   </div>
   <div class="spacer"></div>
   <div class="last-updated" id="lastUpdated">Loading…</div>
+  <span class="sync-dot" id="syncDot" title="GitHub sync status"></span>
+  <button class="btn-settings" onclick="loadData()" title="Refresh" id="refreshBtn">↻</button>
+  <button class="btn-settings" onclick="openSettings()" title="GitHub Settings">⚙️</button>
 </header>
+
+<!-- Settings modal -->
+<div class="modal-backdrop hidden" id="settingsModal" onclick="if(event.target===this)closeSettings()">
+  <div class="modal">
+    <h2>GitHub Sync Settings</h2>
+    <p>Approvals are saved directly to <code>data/jobs.json</code> in your repo so <code>apply.py</code>
+       picks them up immediately. Needs a GitHub Personal Access Token with <strong>repo</strong> scope.</p>
+    <label>Personal Access Token</label>
+    <input type="password" id="patInput" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+    <label>Repository (owner/name)</label>
+    <input type="text" id="repoInput" placeholder="doctor69/jobhunt.ai" />
+    <div class="modal-actions">
+      <button class="btn-cancel" onclick="closeSettings()">Cancel</button>
+      <button class="btn-save" onclick="saveSettings()">Save</button>
+    </div>
+  </div>
+</div>
 
 <main>
   <!-- Stats -->
@@ -207,6 +253,9 @@
       <span class="count-badge" id="jobCount"></span>
       <div style="flex:1"></div>
       <button class="btn btn-export" onclick="exportApproved()">Export Approved JSON</button>
+      <button class="btn btn-apply" id="applyBtn" onclick="triggerApplyWorkflow()">
+        ▶ Run Apply Workflow
+      </button>
     </div>
 
     <div id="jobsList" class="jobs-list">
@@ -243,6 +292,8 @@ async function tryFetch(paths) {
 }
 
 async function loadData() {
+  const rb = document.getElementById('refreshBtn');
+  if (rb) { rb.style.animation = 'spin .6s linear infinite'; rb.disabled = true; }
   const [jobs, applied] = await Promise.all([
     tryFetch(['data/jobs.json', '../data/jobs.json', './data/jobs.json']),
     tryFetch(['data/applied.json', '../data/applied.json', './data/applied.json']),
@@ -250,11 +301,11 @@ async function loadData() {
 
   allJobs = (jobs || []).map(j => ({
     ...j,
-    // Merge in any local status overrides
     status: (localState[j.id] || {}).status || j.status || 'new',
   }));
   allApplied = applied || [];
 
+  if (rb) { rb.style.animation = ''; rb.disabled = false; }
   updateStats();
   renderJobs();
   renderApplied();
@@ -417,21 +468,109 @@ function esc(s) {
   return String(s || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// ── GitHub sync ───────────────────────────────────────────────────────────────
+const GH_API = 'https://api.github.com';
+
+function ghHeaders() {
+  const pat = localStorage.getItem('gh_pat') || '';
+  return {
+    'Authorization': `token ${pat}`,
+    'Accept': 'application/vnd.github.v3+json',
+    'Content-Type': 'application/json',
+  };
+}
+
+function getRepo() { return localStorage.getItem('gh_repo') || 'doctor69/jobhunt.ai'; }
+
+function setSyncDot(state) {
+  const d = document.getElementById('syncDot');
+  d.className = 'sync-dot' + (state ? ' ' + state : '');
+}
+
+let _syncTimer;
+function scheduleSyncToGitHub() {
+  clearTimeout(_syncTimer);
+  _syncTimer = setTimeout(syncToGitHub, 1200);
+}
+
+async function syncToGitHub() {
+  const pat = localStorage.getItem('gh_pat');
+  if (!pat) return; // silently skip if not configured
+
+  const repo = getRepo();
+  const path = 'data/jobs.json';
+  const url = `${GH_API}/repos/${repo}/contents/${path}`;
+
+  setSyncDot('syncing');
+  try {
+    // 1. Get current SHA
+    const meta = await fetch(url, { headers: ghHeaders() }).then(r => r.json());
+    if (!meta.sha) throw new Error(meta.message || 'Could not get file SHA');
+
+    // 2. Build updated content
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(allJobs, null, 2) + '\n')));
+
+    // 3. Commit
+    const res = await fetch(url, {
+      method: 'PUT',
+      headers: ghHeaders(),
+      body: JSON.stringify({
+        message: 'chore: update job statuses from dashboard',
+        content,
+        sha: meta.sha,
+      }),
+    });
+    if (!res.ok) {
+      const err = await res.json();
+      throw new Error(err.message || res.statusText);
+    }
+    setSyncDot('ok');
+    setTimeout(() => setSyncDot(''), 3000);
+  } catch (e) {
+    setSyncDot('err');
+    toast(`GitHub sync failed: ${e.message}`, 'info');
+    console.error('GitHub sync error:', e);
+  }
+}
+
+// ── Settings modal ────────────────────────────────────────────────────────────
+function openSettings() {
+  document.getElementById('patInput').value = localStorage.getItem('gh_pat') || '';
+  document.getElementById('repoInput').value = getRepo();
+  document.getElementById('settingsModal').classList.remove('hidden');
+}
+function closeSettings() {
+  document.getElementById('settingsModal').classList.add('hidden');
+}
+function saveSettings() {
+  const pat = document.getElementById('patInput').value.trim();
+  const repo = document.getElementById('repoInput').value.trim();
+  if (pat) localStorage.setItem('gh_pat', pat);
+  if (repo) localStorage.setItem('gh_repo', repo);
+  closeSettings();
+  toast('Settings saved — approvals will now sync to GitHub', 'success');
+}
+
 // ── Status management ─────────────────────────────────────────────────────────
 function setStatus(id, status) {
-  // Update in-memory
   const job = allJobs.find(j => j.id === id);
   if (!job) return;
   job.status = status;
 
-  // Persist locally
   if (!localState[id]) localState[id] = {};
   localState[id].status = status;
   localStorage.setItem('jh_state', JSON.stringify(localState));
 
   updateStats();
   renderJobs();
-  toast(`Job ${status === 'approved' ? 'approved ✓' : status === 'rejected' ? 'rejected' : 'reset'}`, status === 'approved' ? 'success' : 'info');
+
+  const msg = status === 'approved' ? 'Approved ✓ — syncing to GitHub…'
+            : status === 'rejected' ? 'Rejected'
+            : 'Reset to new';
+  toast(msg, status === 'approved' ? 'success' : 'info');
+
+  // Write status change back to data/jobs.json in the repo
+  scheduleSyncToGitHub();
 }
 
 // ── Export approved ───────────────────────────────────────────────────────────
@@ -478,6 +617,64 @@ function renderApplied() {
       </tr>`).join('')}
     </tbody>
   </table>`;
+}
+
+// ── Trigger Apply GitHub Actions workflow ─────────────────────────────────────
+async function triggerApplyWorkflow() {
+  const pat = localStorage.getItem('gh_pat');
+  if (!pat) {
+    openSettings();
+    toast('Enter your GitHub token in Settings first', 'info');
+    return;
+  }
+
+  const approved = allJobs.filter(j => j.status === 'approved');
+  if (!approved.length) {
+    toast('No approved jobs to apply to', 'info');
+    return;
+  }
+
+  const maxApply = approved.length;
+  const repo = getRepo();
+  const btn = document.getElementById('applyBtn');
+  btn.disabled = true;
+  btn.textContent = '⏳ Triggering…';
+
+  try {
+    const res = await fetch(
+      `${GH_API}/repos/${repo}/actions/workflows/apply.yml/dispatches`,
+      {
+        method: 'POST',
+        headers: ghHeaders(),
+        body: JSON.stringify({
+          ref: 'main',
+          inputs: { max_apply: String(maxApply) },
+        }),
+      }
+    );
+    if (res.status === 204) {
+      toast(`Apply workflow triggered for ${maxApply} job(s) — auto-refreshing in 30s ✓`, 'success');
+      btn.textContent = '✓ Triggered';
+      // Poll for updated results — workflow takes ~30s to start committing
+      let polls = 0;
+      const poller = setInterval(async () => {
+        polls++;
+        await loadData();
+        if (polls >= 12) { // stop after ~6 min
+          clearInterval(poller);
+          btn.disabled = false;
+          btn.textContent = '▶ Run Apply Workflow';
+        }
+      }, 30000);
+    } else {
+      const err = await res.json().catch(() => ({ message: res.statusText }));
+      throw new Error(err.message);
+    }
+  } catch (e) {
+    toast(`Failed to trigger workflow: ${e.message}`, 'info');
+    btn.disabled = false;
+    btn.textContent = '▶ Run Apply Workflow';
+  }
 }
 
 // ── Toast ─────────────────────────────────────────────────────────────────────
