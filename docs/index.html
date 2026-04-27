@@ -232,8 +232,6 @@
 // ── State ─────────────────────────────────────────────────────────────────────
 let allJobs = [];
 let allApplied = [];
-// Local overrides keyed by job id: {status, notes}
-let localState = JSON.parse(localStorage.getItem('jh_state') || '{}');
 
 // ── Data loading ──────────────────────────────────────────────────────────────
 async function tryFetch(paths) {
@@ -255,10 +253,7 @@ async function loadData() {
     tryFetch(['data/applied.json', '../data/applied.json', './data/applied.json']),
   ]);
 
-  allJobs = (jobs || []).map(j => ({
-    ...j,
-    status: (localState[j.id] || {}).status || j.status || 'new',
-  }));
+  allJobs = (jobs || []).map(j => ({ ...j, status: j.status || 'new' }));
   allApplied = applied || [];
 
   if (rb) { rb.style.animation = ''; rb.disabled = false; }
@@ -367,8 +362,6 @@ function renderJobs() {
     const kws = (j.matched_keywords || []).slice(0, 5).map(k =>
       `<span class="chip kw">${k}</span>`).join('');
     const desc = stripHtml(j.description || '').slice(0, 300);
-    const isApproved = j.status === 'approved';
-    const isRejected = j.status === 'rejected';
     const scoreW = Math.max(5, j.score || 0);
     const sc = scoreColor(j.score);
 
@@ -399,14 +392,6 @@ function renderJobs() {
       </div>
       ${desc ? `<div class="job-desc" id="desc-${j.id}" onclick="toggleDesc('${j.id}')">${esc(desc)}…</div>` : ''}
       <div class="job-actions">
-        <button class="btn btn-approve ${isApproved ? 'active' : ''}"
-          onclick="setStatus('${j.id}', '${isApproved ? 'new' : 'approved'}')">
-          ${isApproved ? '✓ Approved' : '👍 Approve'}
-        </button>
-        <button class="btn btn-reject ${isRejected ? 'active' : ''}"
-          onclick="setStatus('${j.id}', '${isRejected ? 'new' : 'rejected'}')">
-          ${isRejected ? '✗ Rejected' : '👎 Reject'}
-        </button>
         <a class="btn btn-link" href="${esc(j.url)}" target="_blank" rel="noopener">
           View Job ↗
         </a>
@@ -425,22 +410,8 @@ function esc(s) {
 }
 
 // ── Status management ─────────────────────────────────────────────────────────
-function setStatus(id, status) {
-  const job = allJobs.find(j => j.id === id);
-  if (!job) return;
-  job.status = status;
-
-  if (!localState[id]) localState[id] = {};
-  localState[id].status = status;
-  localStorage.setItem('jh_state', JSON.stringify(localState));
-
-  updateStats();
-  renderJobs();
-  toast(
-    status === 'approved' ? 'Approved ✓' : status === 'rejected' ? 'Rejected' : 'Reset',
-    status === 'approved' ? 'success' : 'info'
-  );
-}
+// Status is managed server-side by scan.py (auto-approve) and apply.py.
+// The dashboard is read-only — refresh to see the latest from the repo.
 
 // ── Export approved ───────────────────────────────────────────────────────────
 function exportApproved() {
