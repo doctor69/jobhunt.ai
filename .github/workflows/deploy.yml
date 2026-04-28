@@ -1,11 +1,10 @@
 name: Deploy Dashboard
 
 on:
-  push:
-    branches: [main, Initial]
-    paths:
-      - 'docs/**'
-      - 'data/**'
+  workflow_run:
+    workflows: ["Scan Jobs", "Apply to Jobs"]
+    types: [completed]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -19,18 +18,26 @@ concurrency:
 
 jobs:
   deploy:
+    # Only deploy when the triggering workflow succeeded (or on manual dispatch)
+    if: >
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
 
     steps:
+      - name: Wait 5 minutes for data to settle
+        if: github.event_name == 'workflow_run'
+        run: sleep 300
+
       - uses: actions/checkout@v4
 
       - name: Copy data into docs for Pages
         run: |
           mkdir -p docs/data
-          cp data/jobs.json   docs/data/jobs.json
+          cp data/jobs.json    docs/data/jobs.json
           cp data/applied.json docs/data/applied.json
 
       - uses: actions/configure-pages@v4
