@@ -197,6 +197,44 @@ async def fill_salary_fields(page: Page, salary: int) -> bool:
     return filled
 
 
+def _find_similar_resume(job: dict) -> tuple[str | None, str | None, list | None]:
+    """
+    Look for a cached resume from a previous job with ≥50% keyword overlap.
+    Returns (resume_text, cover_text, keywords) or (None, None, None).
+    """
+    if not RESUMES_DIR.exists():
+        return None, None, None
+    job_kws = {k.lower() for k in (job.get("matched_keywords") or [])}
+    if not job_kws:
+        return None, None, None
+
+    best_score = 0.0
+    best_id: str | None = None
+    for meta_file in RESUMES_DIR.glob("*_meta.json"):
+        try:
+            meta = json.loads(meta_file.read_text())
+            cached_kws = {k.lower() for k in (meta.get("keywords") or [])}
+            if not cached_kws:
+                continue
+            overlap = len(job_kws & cached_kws) / max(len(job_kws), len(cached_kws))
+            if overlap > best_score:
+                best_score = overlap
+                best_id = meta.get("job_id")
+        except Exception:
+            continue
+
+    if best_score >= 0.50 and best_id:
+        r = RESUMES_DIR / f"{best_id}_resume.txt"
+        c = RESUMES_DIR / f"{best_id}_cover.txt"
+        k = RESUMES_DIR / f"{best_id}_keywords.json"
+        if r.exists() and c.exists():
+            kws = json.loads(k.read_text()) if k.exists() else None
+            print(f"  [cache] Reusing similar job resume (keyword overlap: {best_score:.0%})")
+            return r.read_text(), c.read_text(), kws
+
+    return None, None, None
+
+
 async def upload_resume_if_possible(page: Page, pdf_path: Path) -> bool:
     """
     Look for a resume/CV file-upload input on the current page and set the
@@ -908,23 +946,63 @@ async def run(max_apply: int = 5):
                 cache_txt  = RESUMES_DIR / f"{job['id']}_resume.txt"
                 cache_pdf  = RESUMES_DIR / f"{job['id']}_resume.pdf"
                 cache_covr = RESUMES_DIR / f"{job['id']}_cover.txt"
+                cache_kws  = RESUMES_DIR / f"{job['id']}_keywords.json"
+                cache_meta = RESUMES_DIR / f"{job['id']}_meta.json"
 
-                if cache_txt.exists() and cache_pdf.exists() and cache_covr.exists():
-                    print(f"\n[cache] Reusing tailored resume for {job['title']} @ {job['company']}")
+                if cache_txt.exists() and cache_covr.exists():
+                    # Exact cache hit — reuse text + cover
+                    print(f"\n[cache] Exact cache hit for {job['title']} @ {job['company']}")
                     visible_text = cache_txt.read_text()
-                    pdf_path     = cache_pdf
                     cover        = cache_covr.read_text()
+                    cached_kws   = json.loads(cache_kws.read_text()) if cache_kws.exists() else None
+                    if cache_pdf.exists():
+                        pdf_path = cache_pdf
+                    else:
+                        # Rebuild PDF from cached text — Playwright only, no API call
+                        print(f"  [cache] Rebuilding PDF from cached text…")
+                        pdf_path, _ = build_resume_pdf(
+                            job["title"], desc, job["company"],
+                            visible_resume=visible_text,
+                            output_dir=RESUMES_DIR,
+                            cached_keywords=cached_kws,
+                        )
                 else:
-                    print(f"\nTailoring resume for: {job['title']} @ {job['company']}")
-                    visible_text = tailor_resume(job["title"], desc, job["company"])
-                    cover        = generate_cover_letter(job["title"], desc, job["company"])
-                    pdf_path     = build_resume_pdf(
-                        job["title"], desc, job["company"],
-                        visible_resume=visible_text,
-                        output_dir=RESUMES_DIR,
-                    )
+                    # Check for a similar job's cached resume (≥50% keyword overlap)
+                    sim_text, sim_cover, sim_kws = _find_similar_resume(job)
+
+                    if sim_text:
+                        # Similar cache hit — reuse text/cover, regenerate PDF for this company
+                        visible_text = sim_text
+                        cover        = sim_cover
+                        pdf_path, keywords = build_resume_pdf(
+                            job["title"], desc, job["company"],
+                            visible_resume=visible_text,
+                            output_dir=RESUMES_DIR,
+                            cached_keywords=sim_kws,
+                        )
+                    else:
+                        # No cache — call Claude API for everything
+                        print(f"\nTailoring resume for: {job['title']} @ {job['company']}")
+                        visible_text = tailor_resume(job["title"], desc, job["company"])
+                        cover        = generate_cover_letter(job["title"], desc, job["company"])
+                        pdf_path, keywords = build_resume_pdf(
+                            job["title"], desc, job["company"],
+                            visible_resume=visible_text,
+                            output_dir=RESUMES_DIR,
+                        )
+
+                    # Persist all cache files for this job
                     cache_txt.write_text(visible_text)
                     cache_covr.write_text(cover)
+                    cache_kws.write_text(json.dumps(keywords, indent=2))
+                    cache_meta.write_text(json.dumps({
+                        "job_id":   job["id"],
+                        "title":    job["title"],
+                        "company":  job["company"],
+                        "score":    job.get("score", 0),
+                        "keywords": keywords,
+                        "matched_keywords": job.get("matched_keywords", []),
+                    }, indent=2))
                 salary_ask = get_salary_ask(job, config)
                 print(f"  [salary] Target ask: ${salary_ask:,}")
                 success = await handler(page, job, cover, config, pdf_path, salary_ask)

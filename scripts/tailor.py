@@ -345,23 +345,25 @@ def build_resume_pdf(
     job_company: str,
     visible_resume: str | None = None,
     output_dir: Path | None = None,
-) -> Path:
+    cached_keywords: list[str] | None = None,
+) -> tuple[Path, list[str]]:
     """
     Generate an ATS-optimised PDF resume with a hidden keyword layer.
+    Returns (pdf_path, keywords) so the caller can persist the keywords.
 
-    Steps:
-      1. Tailor the visible resume text (or use provided text)
-      2. Extract every ATS keyword from the job description
-      3. Embed those keywords invisibly in the PDF
-      4. Render HTML → PDF via Playwright
-      5. Return the PDF path
+    If cached_keywords is provided, skips the Claude keyword-extraction
+    API call entirely (Playwright-only PDF rebuild — zero API cost).
     """
     if visible_resume is None:
         visible_resume = tailor_resume(job_title, job_description, job_company)
 
-    print(f"  [tailor] Extracting ATS keywords for {job_title}…")
-    keywords = extract_ats_keywords(job_title, job_description)
-    print(f"  [tailor] {len(keywords)} keywords extracted")
+    if cached_keywords is not None:
+        keywords = cached_keywords
+        print(f"  [tailor] Using {len(keywords)} cached keywords — skipping API call")
+    else:
+        print(f"  [tailor] Extracting ATS keywords for {job_title}…")
+        keywords = extract_ats_keywords(job_title, job_description)
+        print(f"  [tailor] {len(keywords)} keywords extracted")
 
     hidden_block = _build_hidden_block(keywords)
     html = _HTML_TEMPLATE.format(
@@ -375,7 +377,7 @@ def build_resume_pdf(
 
     _run_playwright(_render_pdf(html, pdf_path))
     print(f"  [tailor] PDF written → {pdf_path}")
-    return pdf_path
+    return pdf_path, keywords
 
 
 # ── Cover letter ──────────────────────────────────────────────────────────────
@@ -442,5 +444,5 @@ if __name__ == "__main__":
     print("=== Visible resume (first 400 chars) ===")
     print(text[:400])
     print("\n=== Generating PDF… ===")
-    pdf = build_resume_pdf("Senior Backend Engineer", sample_jd, "Acme Corp", visible_resume=text)
-    print(f"PDF: {pdf}")
+    pdf, kws = build_resume_pdf("Senior Backend Engineer", sample_jd, "Acme Corp", visible_resume=text)
+    print(f"PDF: {pdf}  ({len(kws)} keywords)")
