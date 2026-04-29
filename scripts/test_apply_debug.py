@@ -356,11 +356,15 @@ async def inspect_page(page: Page, url: str, label: str):
         print(f"  Error getting snippet: {e}")
 
 
+HEADLESS_SHELL = "/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell"
+
+
 async def main():
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(
+            executable_path=HEADLESS_SHELL,
             headless=True,
-            args=["--no-sandbox", "--disable-dev-shm-usage"],
+            args=["--no-sandbox", "--disable-dev-shm-usage", "--ignore-certificate-errors"],
         )
         ctx = await browser.new_context(
             user_agent=(
@@ -369,6 +373,7 @@ async def main():
                 "Chrome/120.0.0.0 Safari/537.36"
             ),
             viewport={"width": 1440, "height": 900},
+            ignore_https_errors=True,
         )
 
         for url in URLS:
