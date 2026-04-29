@@ -140,9 +140,46 @@
   .btn-refresh:disabled { opacity: .4; cursor: not-allowed; }
 
   @media (max-width: 600px) {
-    .stats { grid-template-columns: repeat(2, 1fr); }
-    .job-actions { gap: 6px; }
-    .filters input { width: 100%; }
+    /* ── Header ── */
+    header { padding: 12px 16px; flex-wrap: wrap; gap: 8px; }
+    header > div:first-child { flex: 1; min-width: 0; }
+    header h1 { font-size: 17px; }
+    header .subtitle { display: none; }
+    header .spacer { display: none; }
+    header .last-updated { font-size: 11px; width: 100%; order: 10; margin-top: 0; }
+
+    /* ── Main padding ── */
+    main { padding: 14px 10px; }
+
+    /* ── Stats ── */
+    .stats { grid-template-columns: repeat(2, 1fr); gap: 8px; margin-bottom: 16px; }
+    .stat { padding: 12px; }
+    .stat .val { font-size: 22px; }
+
+    /* ── Filters: 2-column grid ── */
+    .filters { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .filters input { grid-column: 1 / -1; width: 100%; }
+    .filters .clear-btn { grid-column: 1 / -1; }
+
+    /* ── Job cards ── */
+    .job-card { padding: 12px 12px; }
+    .job-logo { width: 34px; height: 34px; font-size: 13px; flex-shrink: 0; }
+    .job-title { white-space: normal; font-size: 14px; line-height: 1.3; }
+    .job-company { font-size: 12px; }
+    .chip { font-size: 10px; padding: 2px 6px; }
+
+    /* ── Applied table: horizontal scroll ── */
+    .applied-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .applied-table { min-width: 520px; }
+    .applied-table td, .applied-table th { padding: 10px 10px; }
+
+    /* ── Action bar ── */
+    .action-bar { margin-bottom: 12px; }
+    .tabs { width: 100%; }
+    .tab { flex: 1; text-align: center; }
+
+    /* ── Toast ── */
+    .toast { left: 16px; right: 16px; bottom: 16px; }
   }
 </style>
 </head>
@@ -442,7 +479,7 @@ function renderApplied() {
     return;
   }
 
-  el.innerHTML = `<table class="applied-table">
+  el.innerHTML = `<div class="applied-table-wrap"><table class="applied-table">
     <thead><tr>
       <th>Job</th><th>Company</th><th>Platform</th><th>Status</th><th>Applied</th><th>Link</th>
     </tr></thead>
@@ -456,7 +493,7 @@ function renderApplied() {
         <td><a class="btn btn-link" href="${esc(a.url)}" target="_blank" rel="noopener" style="font-size:11px">↗</a></td>
       </tr>`).join('')}
     </tbody>
-  </table>`;
+  </table></div>`;
 }
 
 // ── Toast ─────────────────────────────────────────────────────────────────────
