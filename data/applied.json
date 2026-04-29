@@ -102,5 +102,23 @@
     "platform": "generic",
     "applied_at": "2026-04-29T16:47:59.194034+00:00",
     "status": "failed"
+  },
+  {
+    "id": "1fdc5eeaaf9b",
+    "title": "Senior Full Stack Engineer",
+    "company": "Coding Partners",
+    "url": "https://www.arbeitnow.com/jobs/companies/coding-partners/senior-full-stack-engineer-berlin-391720",
+    "platform": "arbeitnow",
+    "applied_at": "2026-04-29T18:48:31.072380+00:00",
+    "status": "failed"
+  },
+  {
+    "id": "95254a9e5f0b",
+    "title": "Senior Backend Engineer (Golang) - Bank",
+    "company": "SumUp",
+    "url": "https://www.arbeitnow.com/jobs/companies/sumup/senior-backend-engineer-golang-bank-berlin-169219",
+    "platform": "arbeitnow",
+    "applied_at": "2026-04-29T18:50:42.166593+00:00",
+    "status": "failed"
   }
 ]

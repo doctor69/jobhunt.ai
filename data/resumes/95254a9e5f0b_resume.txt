@@ -1,0 +1,65 @@
+SAKET "CLIFF WATERS" SHARMA
+Senior Backend Engineer
+saket87@live.com | GitHub | https://leadtrade.app
+
+## Summary
+
+Senior Backend Engineer with 8+ years of experience building reliable, high-volume services and tackling complex distributed systems challenges under high transaction volumes. Proven track record designing core banking and payments services at Mastercard and Visa, with deep expertise in system design, APIs, data modeling, and service interactions. Proficient in Go (Golang) and polyglot across Java, Kotlin, and TypeScript — comfortable learning new languages as needed. Hands-on experience building, deploying, and running services in AWS using Docker and Kubernetes, with strong CI/CD discipline and full ownership from design to production. Curious about banking, fintech, and ledger systems, with direct experience modernizing legacy regional platforms into unified, globally scalable architectures.
+
+## Core Skills
+
+**Languages:** Golang (Go), Java (8/11/17/21), Kotlin (familiar), TypeScript, JavaScript, Python, SQL, PL/SQL
+**Backend & Distributed Systems:** Microservices, Ledger & Transaction Systems, Event-Driven Architecture, Domain-Driven Design (DDD), API Gateway, gRPC, REST, GraphQL, Circuit Breakers, Rate Limiting, Resilience patterns
+**Cloud & Infrastructure:** AWS (EC2, ECS, Lambda, RDS, S3, SQS, SNS, API Gateway, CloudWatch, IAM, VPC), Docker, Kubernetes, Terraform
+**Relational Databases (high-load):** PostgreSQL, Oracle, MySQL, IBM DB2, SQL Server — connection pooling (HikariCP/pgx), query optimization, indexing, stored procedures, optimistic locking, audit trails
+**NoSQL & Caching:** Redis, MongoDB, DynamoDB, Cassandra
+**Messaging & Streaming:** Apache Kafka, RabbitMQ, AWS SQS/SNS, JMS, IBM MQ
+**CI/CD & DevOps:** Jenkins, GitHub Actions, GitLab CI/CD, Blue-Green Deployments, Automated Testing, SonarQube, OWASP
+**Observability:** Distributed Tracing, Correlation IDs, Datadog, Splunk, New Relic, Prometheus, Micrometer
+**Testing:** TDD, BDD, Unit, Integration, Contract Tests, TestContainers, JUnit, Mockito
+**Security & Compliance:** OAuth2, JWT, SAML, SSO, MFA, SSL/TLS, PCI-DSS
+**Methodologies:** Agile/Scrum, CI/CD best practices, Code Reviews, Pair Programming, Production Ownership
+
+## Experience
+
+**MASTERCARD — Senior Software / Backend Engineer**
+St Louis, MO | Dec 2023 – Present
+
+- Build and evolve **core banking and payment services** powering ledger-style transaction operations, processing **2M+ daily transactions** with sub-100ms response times and 99.95% uptime.
+- Tackle complex **distributed systems challenges**, ensuring resilient services that continue to perform under **high transaction volumes** through circuit breakers (Resilience4j), rate limiting, retries, and idempotency.
+- Take **ownership from design to production** — running services I build, monitoring performance with distributed tracing and correlation IDs, and continuously improving delivery quality at scale.
+- Implement event-driven architecture with **Apache Kafka** for real-time payment processing, handling 500K+ events/hour with exactly-once semantics and dead-letter queue error handling.
+- Drive **modernization initiatives**: improving observability, expanding test coverage, refactoring for long-term maintainability, and gradually introducing new architectural patterns **without disrupting live operations**.
+- Build, deploy, and run services in **AWS using Docker and Kubernetes** (ECS, EKS), with auto-scaling, health checks, and blue-green deployments.
+- Optimize **relational databases that perform well under load** — connection pooling, indexing, and query tuning improving performance by 70%.
+- Establish **CI/CD best practices** with Jenkins, automated unit/integration tests, security scans, and 50+ zero-downtime production releases per month.
+- Collaborate across Risk, Compliance, and Infrastructure teams to ensure smooth, compliant, and reliable operations across regulated markets.
+- Mentor 4 engineers on backend best practices, API design, and distributed systems patterns.
+
+**VISA — Backend Software Engineer**
+Austin, TX | Sep 2022 – Nov 2023
+
+- **Modernized existing systems**, migrating 8 monolithic applications into a unified, scalable microservices platform — reducing deployment time from 4 hours to 15 minutes.
+- Contributed to **key architectural decisions**, designing services from the ground up to support globally scalable payment operations across diverse regulatory markets.
+- Built and deployed services in **AWS using Docker and Kubernetes** (Deployments, Services, ConfigMaps, Secrets) with health checks and auto-scaling for 12 microservices.
+- Designed secure authentication/authorization with SSO, OAuth2, MFA, and SSL/TLS automation, ensuring **PCI-DSS compliance** for financial services.
+- Wrote **maintainable, well-tested code** with 85%+ coverage across unit, integration, and contract tests.
+- Worked with **IBM DB2 relational databases under load**, implementing optimistic locking, audit trails, and complex queries with stored procedures.
+- Collaborated with cross-regional teams (Risk, Treasury-adjacent, Infrastructure) to deliver compliant, reliable services.
+
+**STATE STREET CORPORATION — Backend / Full Stack Engineer**
+Quincy, MA | Nov 2017 – Feb 2022
+
+- Designed and developed enterprise REST and reactive APIs serving a financial services platform with 100K+ daily active users across multiple regions and time zones.
+- Built non-blocking, asynchronous services improving concurrent request handling capacity by 200% — directly relevant to **high-volume balance and transaction systems**.
+- Implemented JMS messaging with IBM MQ for asynchronous service-to-service communication with timeout handling and retry logic.
+- Optimized **Oracle relational databases** with stored procedures, triggers, and indexing — improving query performance by 50% under heavy load.
+- Built ledger-adjacent batch processing using Quartz Scheduler for nightly reconciliation, report generation, and data synchronization.
+- Established **CI/CD pipelines** with Jenkins, automated testing, and code quality gates with rollback capabilities.
+
+## Projects
+
+**leadtrade.app — Founder & Sole Engineer** | https://leadtrade.app
+- Designed and built end-to-end a B2B lead-generation SaaS platform: backend services, data model, APIs, deployment, and observability.
+- Owns the full lifecycle from **design to production** — architecture, cloud deployment (Docker), relational database modeling under load, CI/CD, and live monitoring.
+- Demonstrates ability to **build reliable services

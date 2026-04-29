@@ -64,7 +64,7 @@
     "salary_max": null,
     "posted_at": "1777284038",
     "source": "arbeitnow",
-    "status": "approved",
+    "status": "failed",
     "found_at": "2026-04-27T15:31:51.791883+00:00",
     "salary_parsed": null,
     "score": 65,
@@ -78,7 +78,7 @@
       "api"
     ],
     "remote": true,
-    "retry_count": 2
+    "retry_count": 3
   },
   {
     "id": "efe5c21c1788",
@@ -128,7 +128,8 @@
       "kubernetes",
       "api"
     ],
-    "remote": true
+    "remote": true,
+    "retry_count": 1
   },
   {
     "id": "dd3bbbac7d82",

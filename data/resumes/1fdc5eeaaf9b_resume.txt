@@ -1,0 +1,69 @@
+SAKET "CLIFF WATERS" SHARMA
+Senior Full Stack Engineer
+saket87@live.com | GitHub | https://leadtrade.app
+
+## Summary
+
+Senior Full Stack Engineer with 8+ years of proven ability to build, deploy, and maintain production-ready applications end-to-end across frontend, backend, database, and cloud infrastructure. Expert in JavaScript, TypeScript, React, Node.js, and NestJS, with hands-on experience delivering scalable backend services, modular architecture, REST/GraphQL APIs, and reusable UI patterns. Strong DevOps background spanning AWS, CI/CD pipelines, Docker, and system monitoring. Builder of leadtrade.app — a B2B commerce/lead generation SaaS platform shipped end-to-end — and experienced across QA traceability, B2B commerce, and financial services domains. Adept at agile development, AI-assisted development workflows, and partnering with teams to ship products faster.
+
+## Core Skills
+
+**Languages & Type Systems:** JavaScript (ES6+), TypeScript, Java, SQL, PL/SQL
+**Frontend:** React.js 18, Next.js 14, hooks, component architecture, state management (Redux, Redux Toolkit, React Query), reusable UI patterns, browser APIs, performance optimization, HTML5, CSS3, Tailwind CSS, Material-UI
+**Backend:** Node.js, NestJS, Express, modular architecture, dependency injection, REST APIs, GraphQL, validation logic, error handling, production-ready server-side design, Spring Boot
+**Databases (Relational & NoSQL):** PostgreSQL, MySQL, Oracle, IBM DB2, SQL Server, MongoDB, Redis, DynamoDB — data modeling and schema design
+**Cloud Infrastructure:** AWS (EC2, S3, Lambda, ECS, RDS, API Gateway, IAM, VPC, SNS, SQS, CloudWatch), Google Cloud familiarity, Terraform
+**DevOps & CI/CD:** Jenkins, GitHub Actions, GitLab CI/CD, Azure DevOps, deployment workflows, environments, blue-green deployments, system monitoring (Datadog, New Relic, CloudWatch, Splunk)
+**Containerization:** Docker, Kubernetes, ECS
+**APIs & Integrations:** REST, GraphQL, OpenAPI/Swagger, OAuth2, JWT, WebSockets, gRPC
+**AI-Assisted Development:** Modern AI-assisted development workflows, code generation, and pair-programming tools
+**Methodologies:** Agile/Scrum, TDD, BDD, Clean Architecture, Domain-Driven Design, CI/CD, Microservices
+
+## Projects
+
+**leadtrade.app** — https://leadtrade.app
+- Designed, built, deployed, and maintained a B2B commerce / lead generation SaaS platform end-to-end as sole engineer — covering frontend, backend, database, and cloud infrastructure
+- Built with TypeScript, React, Node.js, and NestJS-style modular backend architecture with dependency injection, REST APIs, validation logic, and centralized error handling
+- Designed relational data models, deployed to AWS with Docker containers, and implemented CI/CD pipelines, environment management, and production monitoring
+- Applied modern AI-assisted development workflows to accelerate delivery and ship features faster
+- Demonstrates ownership of the full software lifecycle: requirements gathering, architecture design, implementation, production release, and ongoing maintenance
+
+## Experience
+
+**MASTERCARD** | St Louis, MO
+*Senior Software Developer* | Dec 2023 – Present
+
+- Built and shipped production-ready applications end-to-end across frontend, backend, database, and infrastructure for financial services clients
+- Designed scalable backend services with modular architecture, dependency injection patterns, REST and GraphQL APIs, integrations, validation logic, and robust error handling
+- Architected microservices and API Gateway pattern with rate limiting, circuit breakers (Resilience4j), and OAuth2/JWT authentication, processing 2M+ daily transactions with 99.95% uptime
+- Implemented Docker containerization and Kubernetes deployment for 15+ services with health checks, auto-scaling, and production-ready server-side design
+- Established CI/CD pipelines (Jenkins) with automated tests, security scans (SonarQube, OWASP), deployment workflows, and blue-green deployments — 50+ production releases/month with zero downtime
+- Built Redis caching layer and optimized database queries, reducing API response times from 500ms to 80ms
+- Drove process improvement initiatives: led Java 21 migration across 15+ apps, improved performance 30%, reduced code 25%
+- Took ownership of code and documentation reaching main branch through code reviews, OpenAPI specs, and mentoring 4 junior developers
+- Adopted AI-assisted development workflows for code generation, refactoring, and accelerated delivery
+
+**VISA** | Austin, TX
+*Full Stack Software Developer* | Sep 2022 – Nov 2023
+
+- Built scalable backend services and 20+ REST APIs with modular architecture, validation, and error handling, migrating 8 monolithic applications to microservices
+- Designed relational data models on IBM DB2 with optimistic locking, audit trails, and stored procedures
+- Hands-on cloud infrastructure and DevOps: containerization with Docker, Kubernetes manifests (Deployments, Services, ConfigMaps, Secrets), auto-scaling, and system monitoring
+- Reduced deployment time from 4 hours to 15 minutes via CI/CD pipelines and improved environment management
+- Implemented secure authentication (SSO, LDAP, OAuth2, MFA) supporting 50K+ concurrent users
+- Achieved 85%+ code coverage with JUnit, Mockito, integration tests, and contract tests — taking ownership of code quality on main branch
+- Participated in full software lifecycle: requirements gathering, architecture design, implementation, and production release in agile sprints
+
+**STATE STREET CORPORATION** | Quincy, MA
+*Full Stack Software Developer* | Nov 2017 – Feb 2022
+
+- Delivered React + TypeScript single-page applications with advanced React experience: component architecture, hooks, state management (Redux), React Query, reusable UI patterns, browser APIs, and performance optimization
+- Migrated legacy UI to React 18 + TypeScript + Material-UI, improving page load times by 65% and user satisfaction by 40%
+- Built reusable component library of 50+ documented components in Storybook — reducing development time 30% and ensuring maintainable code
+- Implemented real-time features using WebSockets and Server-Sent Events for live financial data dashboards
+- Developed REST APIs and reactive non-blocking services serving 100K+ daily active users
+- Designed relational data models in Oracle with optimized SQL, stored procedures, and indexing — improving query performance 50%
+- Established Jenkins CI/CD with Maven, automated testing, code quality gates, and deployment workflows
+- Migrated source control from SVN to Git with GitFlow, pull request workflows, and code review process — driving team process improvement
+
+##
