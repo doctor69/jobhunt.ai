@@ -84,5 +84,23 @@
     "platform": "generic",
     "applied_at": "2026-04-27T21:39:55.587275+00:00",
     "status": "failed"
+  },
+  {
+    "id": "b55c25d91173",
+    "title": "Senior Full-stack React Developer",
+    "company": "Lemon.io",
+    "url": "https://remotive.com/remote-jobs/software-development/senior-full-stack-react-developer-2088711",
+    "platform": "generic",
+    "applied_at": "2026-04-29T16:46:11.556283+00:00",
+    "status": "failed"
+  },
+  {
+    "id": "4e5a34ed56d7",
+    "title": "Fullstack Developer (US - ET)",
+    "company": "Chooose",
+    "url": "https://remotive.com/remote-jobs/software-development/fullstack-developer-us-et-2088706",
+    "platform": "generic",
+    "applied_at": "2026-04-29T16:47:59.194034+00:00",
+    "status": "failed"
   }
 ]

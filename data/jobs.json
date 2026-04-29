@@ -11,7 +11,7 @@
     "salary_max": null,
     "posted_at": "2026-04-15T14:19:37",
     "source": "remotive",
-    "status": "approved",
+    "status": "failed",
     "found_at": "2026-04-27T15:31:51.255816+00:00",
     "salary_parsed": null,
     "score": 65,
@@ -24,7 +24,7 @@
       "startup"
     ],
     "remote": true,
-    "retry_count": 2
+    "retry_count": 3
   },
   {
     "id": "4e5a34ed56d7",
@@ -38,7 +38,7 @@
     "salary_max": null,
     "posted_at": "2026-04-08T12:36:43",
     "source": "remotive",
-    "status": "approved",
+    "status": "failed",
     "found_at": "2026-04-27T15:31:51.255867+00:00",
     "salary_parsed": null,
     "score": 65,
@@ -50,7 +50,7 @@
       "saas"
     ],
     "remote": true,
-    "retry_count": 2
+    "retry_count": 3
   },
   {
     "id": "1fdc5eeaaf9b",
