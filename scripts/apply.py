@@ -197,6 +197,44 @@ async def fill_salary_fields(page: Page, salary: int) -> bool:
     return filled
 
 
+def _find_similar_resume(job: dict) -> tuple[str | None, str | None, list | None]:
+    """
+    Look for a cached resume from a previous job with ≥50% keyword overlap.
+    Returns (resume_text, cover_text, keywords) or (None, None, None).
+    """
+    if not RESUMES_DIR.exists():
+        return None, None, None
+    job_kws = {k.lower() for k in (job.get("matched_keywords") or [])}
+    if not job_kws:
+        return None, None, None
+
+    best_score = 0.0
+    best_id: str | None = None
+    for meta_file in RESUMES_DIR.glob("*_meta.json"):
+        try:
+            meta = json.loads(meta_file.read_text())
+            cached_kws = {k.lower() for k in (meta.get("keywords") or [])}
+            if not cached_kws:
+                continue
+            overlap = len(job_kws & cached_kws) / max(len(job_kws), len(cached_kws))
+            if overlap > best_score:
+                best_score = overlap
+                best_id = meta.get("job_id")
+        except Exception:
+            continue
+
+    if best_score >= 0.50 and best_id:
+        r = RESUMES_DIR / f"{best_id}_resume.txt"
+        c = RESUMES_DIR / f"{best_id}_cover.txt"
+        k = RESUMES_DIR / f"{best_id}_keywords.json"
+        if r.exists() and c.exists():
+            kws = json.loads(k.read_text()) if k.exists() else None
+            print(f"  [cache] Reusing similar job resume (keyword overlap: {best_score:.0%})")
+            return r.read_text(), c.read_text(), kws
+
+    return None, None, None
+
+
 async def upload_resume_if_possible(page: Page, pdf_path: Path) -> bool:
     """
     Look for a resume/CV file-upload input on the current page and set the
@@ -244,6 +282,36 @@ def detect_platform(url: str) -> str:
         return "dice"
     if "workday.com" in host:
         return "workday"
+    # Job board sources — need special handling to extract external apply URL
+    if "remotive.com" in host:
+        return "remotive"
+    if "arbeitnow.com" in host:
+        return "arbeitnow"
+    # Additional ATS platforms
+    if "ashbyhq.com" in host:
+        return "greenhouse"   # Ashby forms are structurally similar to Greenhouse
+    if "workable.com" in host:
+        return "workable"
+    if "smartrecruiters.com" in host:
+        return "smartrecruiters"
+    if "breezy.hr" in host:
+        return "generic"
+    if "jazzhr.com" in host or "resumatoradmin.com" in host:
+        return "generic"
+    if "bamboohr.com" in host:
+        return "generic"
+    if "recruitee.com" in host:
+        return "generic"
+    if "icims.com" in host:
+        return "generic"
+    if "myworkdayjobs.com" in host:
+        return "workday"
+    if "taleo.net" in host:
+        return "generic"
+    if "successfactors.com" in host:
+        return "generic"
+    if "themuse.com" in host:
+        return "generic"
     return "generic"
 
 
@@ -461,6 +529,116 @@ async def apply_lever(
     return False
 
 
+# ── Remotive ─────────────────────────────────────────────────────────────────
+
+async def apply_remotive(
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
+) -> bool:
+    """
+    Remotive is a job aggregator. The job page has a direct external link to the
+    employer's ATS (Lever, Greenhouse, Workable, etc.) as the Apply button.
+    Strategy: load the Remotive job page, find the external apply link, navigate
+    there, detect the real platform, and fill the form.
+    """
+    print(f"  [Remotive] {job['title']} @ {job['company']}")
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)
+
+    # Find the external apply URL — Remotive renders it as an <a> with class
+    # containing "apply" that points to an external domain.
+    apply_href = None
+    for sel in [
+        "a.apply-button", "a[class*='apply-button']", "a[class*='apply_button']",
+        "a[class*='apply-btn']", "a[class*='apply_btn']",
+        "a:has-text('Apply Now')", "a:has-text('Apply now')",
+        "a:has-text('Apply')",
+    ]:
+        loc = page.locator(sel)
+        try:
+            await loc.first.wait_for(state="visible", timeout=3000)
+            href = await loc.first.get_attribute("href") or ""
+            if href.startswith("http") and "remotive.com" not in href:
+                apply_href = href
+                break
+            elif href.startswith("http"):
+                # It's a remotive link — click it (may redirect)
+                await loc.first.click()
+                await nap(2, 3)
+                if page.url != job["url"]:
+                    apply_href = page.url
+                break
+        except Exception:
+            continue
+
+    if not apply_href:
+        print("  [Remotive] Could not find external apply link — falling back to generic")
+        return await apply_generic(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    print(f"  [Remotive] External apply URL: {apply_href}")
+    await page.goto(apply_href, wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 3)
+
+    success = await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
+    if success:
+        print(f"  [Remotive] Submitted!")
+    else:
+        print(f"  [Remotive] Form found but could not submit")
+    return success
+
+
+# ── Arbeitnow ─────────────────────────────────────────────────────────────────
+
+async def apply_arbeitnow(
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
+) -> bool:
+    """
+    Arbeitnow is a job aggregator. Each job page has an Apply button that links
+    directly to the employer's external site or ATS. Extract the external URL,
+    navigate there, and fill the application form.
+    """
+    print(f"  [Arbeitnow] {job['title']} @ {job['company']}")
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)
+
+    apply_href = None
+    for sel in [
+        "a.apply-btn", "a[class*='apply-btn']", "a[class*='apply_btn']",
+        "a[class*='apply-button']",
+        "a:has-text('Apply Now')", "a:has-text('Apply now')",
+        "a:has-text('Apply for this job')", "a:has-text('Apply')",
+    ]:
+        loc = page.locator(sel)
+        try:
+            await loc.first.wait_for(state="visible", timeout=3000)
+            href = await loc.first.get_attribute("href") or ""
+            if href.startswith("http") and "arbeitnow.com" not in href:
+                apply_href = href
+                break
+            elif href.startswith("http"):
+                await loc.first.click()
+                await nap(2, 3)
+                if page.url != job["url"]:
+                    apply_href = page.url
+                break
+        except Exception:
+            continue
+
+    if not apply_href:
+        print("  [Arbeitnow] Could not find external apply link — falling back to generic")
+        return await apply_generic(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    print(f"  [Arbeitnow] External apply URL: {apply_href}")
+    await page.goto(apply_href, wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 3)
+
+    success = await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
+    if success:
+        print(f"  [Arbeitnow] Submitted!")
+    else:
+        print(f"  [Arbeitnow] Form found but could not submit")
+    return success
+
+
 # ── Generic fallback ──────────────────────────────────────────────────────────
 
 # Every text variation seen across company career pages and job boards
@@ -483,7 +661,7 @@ async def _click_apply_button(page: Page) -> bool:
         for tag in ("button", "a"):
             loc = page.locator(f"{tag}:has-text('{text}')")
             try:
-                await loc.first.wait_for(state="visible", timeout=600)
+                await loc.first.wait_for(state="visible", timeout=2000)
                 href = await loc.first.get_attribute("href") if tag == "a" else None
                 if href and href.startswith("http"):
                     await page.goto(href, wait_until="domcontentloaded", timeout=30000)
@@ -494,17 +672,21 @@ async def _click_apply_button(page: Page) -> bool:
             except Exception:
                 continue
 
-    # 2. Common data attributes
+    # 2. Common data attributes and class-based selectors
     for sel in [
         "[data-qa='apply-button']", "[data-cy='apply-button']",
         "[data-testid*='apply' i]", "[id*='apply-button' i]",
         "[class*='apply-btn' i]", "[class*='apply_btn' i]",
+        "[class*='apply-button' i]",
         "a[href*='/apply']", "a[href*='apply?']",
+        "a[href*='jobs.lever.co']", "a[href*='greenhouse.io']",
+        "a[href*='ashbyhq.com']", "a[href*='workable.com']",
+        "a[href*='smartrecruiters.com']",
         "input[value*='Apply' i]",
     ]:
         loc = page.locator(sel)
         try:
-            await loc.first.wait_for(state="visible", timeout=600)
+            await loc.first.wait_for(state="visible", timeout=2000)
             href = await loc.first.get_attribute("href")
             if href and href.startswith("http"):
                 await page.goto(href, wait_until="domcontentloaded", timeout=30000)
@@ -519,10 +701,33 @@ async def _click_apply_button(page: Page) -> bool:
     try:
         import re as _re
         btn = page.get_by_role("button", name=_re.compile(r"apply", _re.I))
-        await btn.first.wait_for(state="visible", timeout=1000)
+        await btn.first.wait_for(state="visible", timeout=2000)
         await btn.first.click()
         await nap(2, 3)
         return True
+    except Exception:
+        pass
+
+    # 4. Last resort: any visible link whose href contains an ATS domain
+    try:
+        import re as _re
+        ats_pattern = _re.compile(
+            r"(lever\.co|greenhouse\.io|ashbyhq\.com|workable\.com|"
+            r"smartrecruiters\.com|bamboohr\.com|breezy\.hr|recruitee\.com|"
+            r"jazzhr\.com|icims\.com|myworkdayjobs\.com|taleo\.net)",
+            _re.I
+        )
+        for a in await page.locator("a[href]").all():
+            try:
+                if not await a.is_visible():
+                    continue
+                href = await a.get_attribute("href") or ""
+                if ats_pattern.search(href):
+                    await page.goto(href, wait_until="domcontentloaded", timeout=30000)
+                    await nap(2, 3)
+                    return True
+            except Exception:
+                continue
     except Exception:
         pass
 
@@ -626,6 +831,119 @@ async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: d
     return False
 
 
+async def _fill_form_at_current_page(
+    page: Page, job: dict, cover_letter: str, config: dict,
+    pdf_path, salary_ask: int, *, depth: int = 0
+) -> bool:
+    """
+    Fill and submit whatever application form is (or becomes) visible on the
+    CURRENT page. Does NOT navigate away via job["url"]. Handles pages that
+    themselves have an intermediate Apply button before showing the actual form.
+    depth guards against infinite recursion.
+    """
+    if depth > 2:
+        return False
+
+    current_url = page.url
+    platform = detect_platform(current_url)
+
+    # Delegate to a known ATS's fill-logic if we recognise it.
+    # We replicate just the form-fill portion to avoid re-navigating.
+    if platform == "greenhouse":
+        return await _fill_greenhouse_form(page, job, cover_letter, config, pdf_path, salary_ask)
+    if platform == "lever":
+        return await _fill_lever_form(page, job, cover_letter, config, pdf_path, salary_ask)
+    if platform == "workday":
+        # Workday is complex; fall through to generic
+        pass
+
+    # Check if we already see a form
+    has_form = await _first_visible(page, "form input[type='email'], form input[type='text']") is not None
+
+    if not has_form:
+        # There may be another Apply button on this external landing page
+        # (e.g., the ATS shows the job description first, with its own Apply button)
+        clicked = await _click_apply_button(page)
+        if clicked and page.url != current_url:
+            return await _fill_form_at_current_page(
+                page, job, cover_letter, config, pdf_path, salary_ask, depth=depth + 1
+            )
+
+    return await _fill_generic_form(page, job, cover_letter, config, pdf_path, salary_ask)
+
+
+async def _fill_greenhouse_form(
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path, salary_ask: int
+) -> bool:
+    """Fill a Greenhouse application form on the current page (no re-navigation)."""
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
+
+    for sel, val in [
+        ("#first_name", config.get("full_name", "").split()[0] if config.get("full_name") else ""),
+        ("#last_name", config.get("full_name", "").split()[-1] if config.get("full_name") else ""),
+        ("#email", config.get("email", "")),
+        ("#phone", config.get("phone", "")),
+    ]:
+        if not val:
+            continue
+        fld = page.locator(sel)
+        if await fld.count() and not (await fld.first.input_value()):
+            await human_type(page, fld, val)
+
+    fld = page.locator("input[placeholder*='linkedin' i], input[id*='linkedin' i]")
+    if await fld.count():
+        await human_type(page, fld, config.get("linkedin_url", ""))
+
+    fld = page.locator("textarea")
+    if await fld.count() and not (await fld.first.input_value()):
+        await human_type(page, fld, cover_letter)
+
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
+
+    await nap()
+    if await click_if_visible(page, "input#submit_app, button:has-text('Submit Application')"):
+        await nap(2, 4)
+        print("  [Greenhouse/inline] Submitted!")
+        return True
+    return False
+
+
+async def _fill_lever_form(
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path, salary_ask: int
+) -> bool:
+    """Fill a Lever application form on the current page (no re-navigation)."""
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
+
+    for sel, val in [
+        ("input[name='name']", config.get("full_name", "")),
+        ("input[name='email']", config.get("email", "")),
+        ("input[name='phone']", config.get("phone", "")),
+        ("input[name='urls[LinkedIn]']", config.get("linkedin_url", "")),
+    ]:
+        if not val:
+            continue
+        fld = page.locator(sel)
+        if await fld.count() and not (await fld.first.input_value()):
+            await human_type(page, fld, val)
+
+    fld = page.locator("textarea[name='comments']")
+    if await fld.count() and not (await fld.first.input_value()):
+        await human_type(page, fld, cover_letter)
+
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
+
+    await nap()
+    if await click_if_visible(page, "button:has-text('Submit application'), button[type='submit']"):
+        await nap(2, 4)
+        print("  [Lever/inline] Submitted!")
+        return True
+    return False
+
+
 async def apply_generic(
     page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
@@ -637,18 +955,27 @@ async def apply_generic(
     has_form = await _first_visible(page, "form input[type='email'], form input[type='text']") is not None
 
     if not has_form:
+        start_url = page.url
         clicked = await _click_apply_button(page)
         if not clicked:
             print("  [Generic] No apply button or form found")
             return False
 
-        # After navigation, re-detect platform and hand off if recognised
+        # After the click/navigation, handle the destination intelligently.
+        # IMPORTANT: do NOT call a full handler (which would re-navigate to job["url"]).
+        # Instead use _fill_form_at_current_page which works on whatever page we
+        # landed on after clicking Apply.
         new_url = page.url
-        if new_url != job["url"]:
-            platform = detect_platform(new_url)
-            if platform != "generic":
-                handler = PLATFORM_HANDLERS.get(platform, apply_generic)
-                return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
+        if new_url != start_url:
+            print(f"  [Generic] Redirected to: {new_url}")
+            success = await _fill_form_at_current_page(
+                page, job, cover_letter, config, pdf_path, salary_ask
+            )
+            if success:
+                print(f"  [Generic] Submitted (via redirect)!")
+            else:
+                print(f"  [Generic] Form found but could not submit")
+            return success
 
     success = await _fill_generic_form(page, job, cover_letter, config, pdf_path, salary_ask)
     if success:
@@ -834,6 +1161,8 @@ PLATFORM_HANDLERS = {
     "ziprecruiter": apply_ziprecruiter,
     "roberthalf": apply_roberthalf,
     "dice": apply_dice,
+    "remotive": apply_remotive,
+    "arbeitnow": apply_arbeitnow,
     "generic": apply_generic,
 }
 
@@ -908,23 +1237,63 @@ async def run(max_apply: int = 5):
                 cache_txt  = RESUMES_DIR / f"{job['id']}_resume.txt"
                 cache_pdf  = RESUMES_DIR / f"{job['id']}_resume.pdf"
                 cache_covr = RESUMES_DIR / f"{job['id']}_cover.txt"
+                cache_kws  = RESUMES_DIR / f"{job['id']}_keywords.json"
+                cache_meta = RESUMES_DIR / f"{job['id']}_meta.json"
 
-                if cache_txt.exists() and cache_pdf.exists() and cache_covr.exists():
-                    print(f"\n[cache] Reusing tailored resume for {job['title']} @ {job['company']}")
+                if cache_txt.exists() and cache_covr.exists():
+                    # Exact cache hit — reuse text + cover
+                    print(f"\n[cache] Exact cache hit for {job['title']} @ {job['company']}")
                     visible_text = cache_txt.read_text()
-                    pdf_path     = cache_pdf
                     cover        = cache_covr.read_text()
+                    cached_kws   = json.loads(cache_kws.read_text()) if cache_kws.exists() else None
+                    if cache_pdf.exists():
+                        pdf_path = cache_pdf
+                    else:
+                        # Rebuild PDF from cached text — Playwright only, no API call
+                        print(f"  [cache] Rebuilding PDF from cached text…")
+                        pdf_path, _ = build_resume_pdf(
+                            job["title"], desc, job["company"],
+                            visible_resume=visible_text,
+                            output_dir=RESUMES_DIR,
+                            cached_keywords=cached_kws,
+                        )
                 else:
-                    print(f"\nTailoring resume for: {job['title']} @ {job['company']}")
-                    visible_text = tailor_resume(job["title"], desc, job["company"])
-                    cover        = generate_cover_letter(job["title"], desc, job["company"])
-                    pdf_path     = build_resume_pdf(
-                        job["title"], desc, job["company"],
-                        visible_resume=visible_text,
-                        output_dir=RESUMES_DIR,
-                    )
+                    # Check for a similar job's cached resume (≥50% keyword overlap)
+                    sim_text, sim_cover, sim_kws = _find_similar_resume(job)
+
+                    if sim_text:
+                        # Similar cache hit — reuse text/cover, regenerate PDF for this company
+                        visible_text = sim_text
+                        cover        = sim_cover
+                        pdf_path, keywords = build_resume_pdf(
+                            job["title"], desc, job["company"],
+                            visible_resume=visible_text,
+                            output_dir=RESUMES_DIR,
+                            cached_keywords=sim_kws,
+                        )
+                    else:
+                        # No cache — call Claude API for everything
+                        print(f"\nTailoring resume for: {job['title']} @ {job['company']}")
+                        visible_text = tailor_resume(job["title"], desc, job["company"])
+                        cover        = generate_cover_letter(job["title"], desc, job["company"])
+                        pdf_path, keywords = build_resume_pdf(
+                            job["title"], desc, job["company"],
+                            visible_resume=visible_text,
+                            output_dir=RESUMES_DIR,
+                        )
+
+                    # Persist all cache files for this job
                     cache_txt.write_text(visible_text)
                     cache_covr.write_text(cover)
+                    cache_kws.write_text(json.dumps(keywords, indent=2))
+                    cache_meta.write_text(json.dumps({
+                        "job_id":   job["id"],
+                        "title":    job["title"],
+                        "company":  job["company"],
+                        "score":    job.get("score", 0),
+                        "keywords": keywords,
+                        "matched_keywords": job.get("matched_keywords", []),
+                    }, indent=2))
                 salary_ask = get_salary_ask(job, config)
                 print(f"  [salary] Target ask: ${salary_ask:,}")
                 success = await handler(page, job, cover, config, pdf_path, salary_ask)

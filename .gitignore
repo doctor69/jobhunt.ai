@@ -5,5 +5,5 @@ __pycache__/
 .venv/
 venv/
 
-# Resume PDFs are large — only commit text caches
+# Resume PDFs are large binaries — commit text/json caches only
 data/resumes/*.pdf

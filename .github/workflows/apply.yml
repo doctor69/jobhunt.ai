@@ -44,7 +44,7 @@ jobs:
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/jobs.json data/applied.json
+          git add data/jobs.json data/applied.json data/resumes/
           git diff --staged --quiet || \
             git commit -m "chore: apply to jobs $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git push
