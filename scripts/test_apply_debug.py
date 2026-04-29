@@ -14,6 +14,12 @@ URLS = [
     "https://www.arbeitnow.com/jobs/companies/coding-partners/senior-full-stack-engineer-berlin-391720",
 ]
 
+# Local mock pages (used when external URLs are blocked in sandbox)
+LOCAL_MOCK_URLS = [
+    ("file:///tmp/remotive_mock.html", "Remotive (local mock)"),
+    ("file:///tmp/arbeitnow_mock.html", "Arbeitnow (local mock)"),
+]
+
 
 async def find_apply_buttons(page: Page) -> list[dict]:
     """Find all potential apply buttons/links on the page."""
@@ -376,9 +382,28 @@ async def main():
             ignore_https_errors=True,
         )
 
-        for url in URLS:
+        # Try real URLs first; fall back to local mocks if blocked
+        import urllib.request
+        use_mocks = False
+        try:
+            req = urllib.request.Request(
+                URLS[0],
+                headers={"User-Agent": "Mozilla/5.0"},
+            )
+            urllib.request.urlopen(req, timeout=5)
+        except Exception:
+            use_mocks = True
+
+        if use_mocks:
+            print("\n[INFO] External URLs are blocked in this environment.")
+            print("[INFO] Running against local mock pages that simulate real site structure.")
+            test_pairs = LOCAL_MOCK_URLS
+        else:
+            test_pairs = [(url, "Remotive" if "remotive.com" in url else "Arbeitnow")
+                          for url in URLS]
+
+        for url, label in test_pairs:
             page = await ctx.new_page()
-            label = "Remotive" if "remotive.com" in url else "Arbeitnow"
             try:
                 await inspect_page(page, url, label)
             except Exception as e:

@@ -282,6 +282,36 @@ def detect_platform(url: str) -> str:
         return "dice"
     if "workday.com" in host:
         return "workday"
+    # Job board sources — need special handling to extract external apply URL
+    if "remotive.com" in host:
+        return "remotive"
+    if "arbeitnow.com" in host:
+        return "arbeitnow"
+    # Additional ATS platforms
+    if "ashbyhq.com" in host:
+        return "greenhouse"   # Ashby forms are structurally similar to Greenhouse
+    if "workable.com" in host:
+        return "workable"
+    if "smartrecruiters.com" in host:
+        return "smartrecruiters"
+    if "breezy.hr" in host:
+        return "generic"
+    if "jazzhr.com" in host or "resumatoradmin.com" in host:
+        return "generic"
+    if "bamboohr.com" in host:
+        return "generic"
+    if "recruitee.com" in host:
+        return "generic"
+    if "icims.com" in host:
+        return "generic"
+    if "myworkdayjobs.com" in host:
+        return "workday"
+    if "taleo.net" in host:
+        return "generic"
+    if "successfactors.com" in host:
+        return "generic"
+    if "themuse.com" in host:
+        return "generic"
     return "generic"
 
 
@@ -499,6 +529,116 @@ async def apply_lever(
     return False
 
 
+# ── Remotive ─────────────────────────────────────────────────────────────────
+
+async def apply_remotive(
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
+) -> bool:
+    """
+    Remotive is a job aggregator. The job page has a direct external link to the
+    employer's ATS (Lever, Greenhouse, Workable, etc.) as the Apply button.
+    Strategy: load the Remotive job page, find the external apply link, navigate
+    there, detect the real platform, and fill the form.
+    """
+    print(f"  [Remotive] {job['title']} @ {job['company']}")
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)
+
+    # Find the external apply URL — Remotive renders it as an <a> with class
+    # containing "apply" that points to an external domain.
+    apply_href = None
+    for sel in [
+        "a.apply-button", "a[class*='apply-button']", "a[class*='apply_button']",
+        "a[class*='apply-btn']", "a[class*='apply_btn']",
+        "a:has-text('Apply Now')", "a:has-text('Apply now')",
+        "a:has-text('Apply')",
+    ]:
+        loc = page.locator(sel)
+        try:
+            await loc.first.wait_for(state="visible", timeout=3000)
+            href = await loc.first.get_attribute("href") or ""
+            if href.startswith("http") and "remotive.com" not in href:
+                apply_href = href
+                break
+            elif href.startswith("http"):
+                # It's a remotive link — click it (may redirect)
+                await loc.first.click()
+                await nap(2, 3)
+                if page.url != job["url"]:
+                    apply_href = page.url
+                break
+        except Exception:
+            continue
+
+    if not apply_href:
+        print("  [Remotive] Could not find external apply link — falling back to generic")
+        return await apply_generic(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    print(f"  [Remotive] External apply URL: {apply_href}")
+    await page.goto(apply_href, wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 3)
+
+    success = await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
+    if success:
+        print(f"  [Remotive] Submitted!")
+    else:
+        print(f"  [Remotive] Form found but could not submit")
+    return success
+
+
+# ── Arbeitnow ─────────────────────────────────────────────────────────────────
+
+async def apply_arbeitnow(
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
+) -> bool:
+    """
+    Arbeitnow is a job aggregator. Each job page has an Apply button that links
+    directly to the employer's external site or ATS. Extract the external URL,
+    navigate there, and fill the application form.
+    """
+    print(f"  [Arbeitnow] {job['title']} @ {job['company']}")
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)
+
+    apply_href = None
+    for sel in [
+        "a.apply-btn", "a[class*='apply-btn']", "a[class*='apply_btn']",
+        "a[class*='apply-button']",
+        "a:has-text('Apply Now')", "a:has-text('Apply now')",
+        "a:has-text('Apply for this job')", "a:has-text('Apply')",
+    ]:
+        loc = page.locator(sel)
+        try:
+            await loc.first.wait_for(state="visible", timeout=3000)
+            href = await loc.first.get_attribute("href") or ""
+            if href.startswith("http") and "arbeitnow.com" not in href:
+                apply_href = href
+                break
+            elif href.startswith("http"):
+                await loc.first.click()
+                await nap(2, 3)
+                if page.url != job["url"]:
+                    apply_href = page.url
+                break
+        except Exception:
+            continue
+
+    if not apply_href:
+        print("  [Arbeitnow] Could not find external apply link — falling back to generic")
+        return await apply_generic(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    print(f"  [Arbeitnow] External apply URL: {apply_href}")
+    await page.goto(apply_href, wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 3)
+
+    success = await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
+    if success:
+        print(f"  [Arbeitnow] Submitted!")
+    else:
+        print(f"  [Arbeitnow] Form found but could not submit")
+    return success
+
+
 # ── Generic fallback ──────────────────────────────────────────────────────────
 
 # Every text variation seen across company career pages and job boards
@@ -521,7 +661,7 @@ async def _click_apply_button(page: Page) -> bool:
         for tag in ("button", "a"):
             loc = page.locator(f"{tag}:has-text('{text}')")
             try:
-                await loc.first.wait_for(state="visible", timeout=600)
+                await loc.first.wait_for(state="visible", timeout=2000)
                 href = await loc.first.get_attribute("href") if tag == "a" else None
                 if href and href.startswith("http"):
                     await page.goto(href, wait_until="domcontentloaded", timeout=30000)
@@ -532,17 +672,21 @@ async def _click_apply_button(page: Page) -> bool:
             except Exception:
                 continue
 
-    # 2. Common data attributes
+    # 2. Common data attributes and class-based selectors
     for sel in [
         "[data-qa='apply-button']", "[data-cy='apply-button']",
         "[data-testid*='apply' i]", "[id*='apply-button' i]",
         "[class*='apply-btn' i]", "[class*='apply_btn' i]",
+        "[class*='apply-button' i]",
         "a[href*='/apply']", "a[href*='apply?']",
+        "a[href*='jobs.lever.co']", "a[href*='greenhouse.io']",
+        "a[href*='ashbyhq.com']", "a[href*='workable.com']",
+        "a[href*='smartrecruiters.com']",
         "input[value*='Apply' i]",
     ]:
         loc = page.locator(sel)
         try:
-            await loc.first.wait_for(state="visible", timeout=600)
+            await loc.first.wait_for(state="visible", timeout=2000)
             href = await loc.first.get_attribute("href")
             if href and href.startswith("http"):
                 await page.goto(href, wait_until="domcontentloaded", timeout=30000)
@@ -557,10 +701,33 @@ async def _click_apply_button(page: Page) -> bool:
     try:
         import re as _re
         btn = page.get_by_role("button", name=_re.compile(r"apply", _re.I))
-        await btn.first.wait_for(state="visible", timeout=1000)
+        await btn.first.wait_for(state="visible", timeout=2000)
         await btn.first.click()
         await nap(2, 3)
         return True
+    except Exception:
+        pass
+
+    # 4. Last resort: any visible link whose href contains an ATS domain
+    try:
+        import re as _re
+        ats_pattern = _re.compile(
+            r"(lever\.co|greenhouse\.io|ashbyhq\.com|workable\.com|"
+            r"smartrecruiters\.com|bamboohr\.com|breezy\.hr|recruitee\.com|"
+            r"jazzhr\.com|icims\.com|myworkdayjobs\.com|taleo\.net)",
+            _re.I
+        )
+        for a in await page.locator("a[href]").all():
+            try:
+                if not await a.is_visible():
+                    continue
+                href = await a.get_attribute("href") or ""
+                if ats_pattern.search(href):
+                    await page.goto(href, wait_until="domcontentloaded", timeout=30000)
+                    await nap(2, 3)
+                    return True
+            except Exception:
+                continue
     except Exception:
         pass
 
@@ -664,6 +831,119 @@ async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: d
     return False
 
 
+async def _fill_form_at_current_page(
+    page: Page, job: dict, cover_letter: str, config: dict,
+    pdf_path, salary_ask: int, *, depth: int = 0
+) -> bool:
+    """
+    Fill and submit whatever application form is (or becomes) visible on the
+    CURRENT page. Does NOT navigate away via job["url"]. Handles pages that
+    themselves have an intermediate Apply button before showing the actual form.
+    depth guards against infinite recursion.
+    """
+    if depth > 2:
+        return False
+
+    current_url = page.url
+    platform = detect_platform(current_url)
+
+    # Delegate to a known ATS's fill-logic if we recognise it.
+    # We replicate just the form-fill portion to avoid re-navigating.
+    if platform == "greenhouse":
+        return await _fill_greenhouse_form(page, job, cover_letter, config, pdf_path, salary_ask)
+    if platform == "lever":
+        return await _fill_lever_form(page, job, cover_letter, config, pdf_path, salary_ask)
+    if platform == "workday":
+        # Workday is complex; fall through to generic
+        pass
+
+    # Check if we already see a form
+    has_form = await _first_visible(page, "form input[type='email'], form input[type='text']") is not None
+
+    if not has_form:
+        # There may be another Apply button on this external landing page
+        # (e.g., the ATS shows the job description first, with its own Apply button)
+        clicked = await _click_apply_button(page)
+        if clicked and page.url != current_url:
+            return await _fill_form_at_current_page(
+                page, job, cover_letter, config, pdf_path, salary_ask, depth=depth + 1
+            )
+
+    return await _fill_generic_form(page, job, cover_letter, config, pdf_path, salary_ask)
+
+
+async def _fill_greenhouse_form(
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path, salary_ask: int
+) -> bool:
+    """Fill a Greenhouse application form on the current page (no re-navigation)."""
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
+
+    for sel, val in [
+        ("#first_name", config.get("full_name", "").split()[0] if config.get("full_name") else ""),
+        ("#last_name", config.get("full_name", "").split()[-1] if config.get("full_name") else ""),
+        ("#email", config.get("email", "")),
+        ("#phone", config.get("phone", "")),
+    ]:
+        if not val:
+            continue
+        fld = page.locator(sel)
+        if await fld.count() and not (await fld.first.input_value()):
+            await human_type(page, fld, val)
+
+    fld = page.locator("input[placeholder*='linkedin' i], input[id*='linkedin' i]")
+    if await fld.count():
+        await human_type(page, fld, config.get("linkedin_url", ""))
+
+    fld = page.locator("textarea")
+    if await fld.count() and not (await fld.first.input_value()):
+        await human_type(page, fld, cover_letter)
+
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
+
+    await nap()
+    if await click_if_visible(page, "input#submit_app, button:has-text('Submit Application')"):
+        await nap(2, 4)
+        print("  [Greenhouse/inline] Submitted!")
+        return True
+    return False
+
+
+async def _fill_lever_form(
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path, salary_ask: int
+) -> bool:
+    """Fill a Lever application form on the current page (no re-navigation)."""
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
+
+    for sel, val in [
+        ("input[name='name']", config.get("full_name", "")),
+        ("input[name='email']", config.get("email", "")),
+        ("input[name='phone']", config.get("phone", "")),
+        ("input[name='urls[LinkedIn]']", config.get("linkedin_url", "")),
+    ]:
+        if not val:
+            continue
+        fld = page.locator(sel)
+        if await fld.count() and not (await fld.first.input_value()):
+            await human_type(page, fld, val)
+
+    fld = page.locator("textarea[name='comments']")
+    if await fld.count() and not (await fld.first.input_value()):
+        await human_type(page, fld, cover_letter)
+
+    if salary_ask:
+        await fill_salary_fields(page, salary_ask)
+
+    await nap()
+    if await click_if_visible(page, "button:has-text('Submit application'), button[type='submit']"):
+        await nap(2, 4)
+        print("  [Lever/inline] Submitted!")
+        return True
+    return False
+
+
 async def apply_generic(
     page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
@@ -675,18 +955,27 @@ async def apply_generic(
     has_form = await _first_visible(page, "form input[type='email'], form input[type='text']") is not None
 
     if not has_form:
+        start_url = page.url
         clicked = await _click_apply_button(page)
         if not clicked:
             print("  [Generic] No apply button or form found")
             return False
 
-        # After navigation, re-detect platform and hand off if recognised
+        # After the click/navigation, handle the destination intelligently.
+        # IMPORTANT: do NOT call a full handler (which would re-navigate to job["url"]).
+        # Instead use _fill_form_at_current_page which works on whatever page we
+        # landed on after clicking Apply.
         new_url = page.url
-        if new_url != job["url"]:
-            platform = detect_platform(new_url)
-            if platform != "generic":
-                handler = PLATFORM_HANDLERS.get(platform, apply_generic)
-                return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
+        if new_url != start_url:
+            print(f"  [Generic] Redirected to: {new_url}")
+            success = await _fill_form_at_current_page(
+                page, job, cover_letter, config, pdf_path, salary_ask
+            )
+            if success:
+                print(f"  [Generic] Submitted (via redirect)!")
+            else:
+                print(f"  [Generic] Form found but could not submit")
+            return success
 
     success = await _fill_generic_form(page, job, cover_letter, config, pdf_path, salary_ask)
     if success:
@@ -872,6 +1161,8 @@ PLATFORM_HANDLERS = {
     "ziprecruiter": apply_ziprecruiter,
     "roberthalf": apply_roberthalf,
     "dice": apply_dice,
+    "remotive": apply_remotive,
+    "arbeitnow": apply_arbeitnow,
     "generic": apply_generic,
 }
 
