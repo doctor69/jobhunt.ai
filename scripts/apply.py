@@ -541,8 +541,8 @@ async def apply_remotive(
     there, detect the real platform, and fill the form.
     """
     print(f"  [Remotive] {job['title']} @ {job['company']}")
-    await page.goto(job["url"], wait_until="networkidle", timeout=30000)
-    await nap(2, 4)
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)  # let SPA render
 
     # Find the external apply URL — Remotive renders it as an <a> with class
     # containing "apply" that points to an external domain.
@@ -561,11 +561,16 @@ async def apply_remotive(
                 apply_href = href
                 break
             elif href.startswith("http"):
-                # It's a remotive link — click it (may redirect)
+                # It's a remotive link — click it and wait for redirect
                 await loc.first.click()
-                await nap(2, 3)
+                try:
+                    await page.wait_for_url(lambda u: u != job["url"], timeout=5000)
+                except Exception:
+                    pass
                 if page.url != job["url"]:
-                    apply_href = page.url
+                    # Already on the external ATS — don't re-navigate
+                    print(f"  [Remotive] Redirected to: {page.url}")
+                    return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
                 break
         except Exception:
             continue
@@ -597,8 +602,8 @@ async def apply_arbeitnow(
     navigate there, and fill the application form.
     """
     print(f"  [Arbeitnow] {job['title']} @ {job['company']}")
-    await page.goto(job["url"], wait_until="networkidle", timeout=30000)
-    await nap(2, 4)
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)  # let SPA render
 
     apply_href = None
     for sel in [
@@ -615,10 +620,16 @@ async def apply_arbeitnow(
                 apply_href = href
                 break
             elif href.startswith("http"):
+                # Arbeitnow own-domain link — click and wait for redirect
                 await loc.first.click()
-                await nap(2, 3)
+                try:
+                    await page.wait_for_url(lambda u: u != job["url"], timeout=5000)
+                except Exception:
+                    pass
                 if page.url != job["url"]:
-                    apply_href = page.url
+                    # Already on the external ATS — don't re-navigate
+                    print(f"  [Arbeitnow] Redirected to: {page.url}")
+                    return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
                 break
         except Exception:
             continue
@@ -754,13 +765,14 @@ async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: d
     if pdf_path:
         await upload_resume_if_possible(page, pdf_path)
 
+    _name_parts = (config.get("full_name") or "").split()
     for sel, val in [
-        ("input[name='name'], input[id*='name' i], input[placeholder*='name' i]",
+        ("input[name='name'], input[id='name'], input[placeholder*='full name' i]",
          config.get("full_name", "")),
         ("input[name*='first' i], input[id*='first' i], input[placeholder*='first' i]",
-         (config.get("full_name") or "").split()[0]),
+         _name_parts[0] if _name_parts else ""),
         ("input[name*='last' i], input[id*='last' i], input[placeholder*='last' i]",
-         (config.get("full_name") or "").split()[-1]),
+         _name_parts[-1] if len(_name_parts) > 1 else (_name_parts[0] if _name_parts else "")),
         ("input[type='email'], input[name='email'], input[id*='email' i]",
          config.get("email", "")),
         ("input[type='tel'], input[name*='phone' i], input[id*='phone' i]",
@@ -820,13 +832,15 @@ async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: d
         "button:has-text('Complete Application')",
         "button:has-text('Submit')",
         "button:has-text('Send')",
-        "button:has-text('Continue')",
         "input[type='submit']",
         "button[type='submit']",
-        # Last resort — inline/modal Apply button (e.g. Arbeitnow Easy Apply)
-        "button:has-text('Apply Now')",
-        "button:has-text('Apply now')",
-        "button:has-text('Apply')",
+        "button:has-text('Continue')",
+        # Scoped to form/dialog so we don't re-click the page-level Apply button
+        "form button:has-text('Apply Now')",
+        "form button:has-text('Apply now')",
+        "form button:has-text('Apply')",
+        "[role='dialog'] button:has-text('Apply Now')",
+        "[role='dialog'] button:has-text('Apply')",
     ]:
         if await click_if_visible(page, sel):
             await nap(2, 4)
@@ -870,17 +884,27 @@ async def _fill_form_at_current_page(
         # Also handles inline/modal forms (URL doesn't change but form appears after click)
         clicked = await _click_apply_button(page)
         if clicked:
-            await nap(1, 2)  # wait for modal or page transition
+            # Wait for navigation or modal DOM injection — whichever comes first
+            try:
+                await page.wait_for_url(lambda u: u != current_url, timeout=5000)
+            except Exception:
+                pass  # URL unchanged — assume a modal appeared
             if page.url != current_url:
                 return await _fill_form_at_current_page(
                     page, job, cover_letter, config, pdf_path, salary_ask, depth=depth + 1
                 )
-            # URL unchanged — a modal/inline form may now be visible; re-detect platform
+            # Modal path — re-detect platform (unlikely to change, but cheap check)
             platform = detect_platform(page.url)
             if platform == "greenhouse":
                 return await _fill_greenhouse_form(page, job, cover_letter, config, pdf_path, salary_ask)
             if platform == "lever":
                 return await _fill_lever_form(page, job, cover_letter, config, pdf_path, salary_ask)
+            # Only proceed if a form is now visible
+            has_form_now = await _first_visible(
+                page, "form input[type='email'], form input[type='text'], input[type='email']"
+            ) is not None
+            if not has_form_now:
+                return False
 
     return await _fill_generic_form(page, job, cover_letter, config, pdf_path, salary_ask)
 
@@ -1335,7 +1359,6 @@ async def run(max_apply: int = 5):
                         else:
                             j["status"] = "approved"  # keep in queue for next run
                             print(f"  [retry] Attempt {retries}/{MAX_RETRIES} — will retry next run")
-                    break
                     break
 
             delay = random.uniform(
