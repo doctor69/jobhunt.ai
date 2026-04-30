@@ -366,6 +366,60 @@ def fetch_roberthalf(config: dict) -> list[dict]:
     return jobs
 
 
+# ── Jobot ─────────────────────────────────────────────────────────────────────
+
+def fetch_jobot(config: dict) -> list[dict]:
+    """Scrape Jobot job listings via their JSON search API."""
+    jobs = []
+    keywords = config.get("keywords", [])
+    query = " ".join(keywords[:4]) if keywords else "software engineer"
+    remote = config.get("remote_required", True)
+    try:
+        params = {
+            "q": query,
+            "l": "Remote" if remote else config.get("location", ""),
+            "page": 1,
+        }
+        resp = requests.get(
+            "https://jobot.com/search",
+            params=params,
+            headers=HEADERS,
+            timeout=15,
+        )
+        resp.raise_for_status()
+        # Jobot's search returns HTML; parse <script id="__NEXT_DATA__"> JSON
+        import re
+        m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', resp.text, re.S)
+        if not m:
+            return jobs
+        data = json.loads(m.group(1))
+        listings = (
+            data.get("props", {})
+                .get("pageProps", {})
+                .get("jobList", {})
+                .get("jobs", [])
+        )
+        for item in listings:
+            jid = str(item.get("id", ""))
+            if not jid:
+                continue
+            slug = item.get("slug", jid)
+            jobs.append({
+                "id": f"jobot_{jid}",
+                "title": item.get("title", ""),
+                "company": item.get("company", {}).get("name", "Unknown") if isinstance(item.get("company"), dict) else item.get("company", "Unknown"),
+                "location": item.get("location", "Remote"),
+                "description": item.get("description", ""),
+                "url": f"https://jobot.com/jobs/detail/{jid}/{slug}",
+                "source": "jobot",
+                "status": "new",
+                "found_at": datetime.now(timezone.utc).isoformat(),
+            })
+    except Exception as e:
+        print(f"[jobot] {e}", file=sys.stderr)
+    return jobs
+
+
 # ── Main ─────────────────────────────────────────────────────────────────────
 
 SOURCE_MAP = {
@@ -375,6 +429,7 @@ SOURCE_MAP = {
     "dice": fetch_dice,
     "ziprecruiter": fetch_ziprecruiter,
     "roberthalf": fetch_roberthalf,
+    "jobot": fetch_jobot,
 }
 
 

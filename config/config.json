@@ -9,7 +9,7 @@
   "max_age_days": 14,
   "target_salary": 150000,
   "remote_required": true,
-  "sources": ["dice", "ziprecruiter", "roberthalf", "remotive", "arbeitnow"],
+  "sources": ["dice", "ziprecruiter", "roberthalf", "remotive", "arbeitnow", "jobot"],
   "location": "Remote",
   "min_salary": 0,
   "headless": true,

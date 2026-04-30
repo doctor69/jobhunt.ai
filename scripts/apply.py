@@ -64,6 +64,10 @@ def load_config() -> dict:
     cfg["full_name"] = os.environ.get("APPLICANT_NAME", cfg.get("full_name", ""))
     cfg["phone"] = os.environ.get("APPLICANT_PHONE", cfg.get("phone", ""))
     cfg["linkedin_url"] = os.environ.get("LINKEDIN_URL", cfg.get("linkedin_url", ""))
+    cfg["ziprecruiter_email"] = os.environ.get("ZIPRECRUITER_EMAIL", cfg.get("ziprecruiter_email", ""))
+    cfg["ziprecruiter_password"] = os.environ.get("ZIPRECRUITER_PASSWORD", cfg.get("ziprecruiter_password", ""))
+    cfg["roberthalf_email"] = os.environ.get("ROBERTHALF_EMAIL", cfg.get("roberthalf_email", ""))
+    cfg["roberthalf_password"] = os.environ.get("ROBERTHALF_PASSWORD", cfg.get("roberthalf_password", ""))
     return cfg
 
 
@@ -278,6 +282,8 @@ def detect_platform(url: str) -> str:
         return "ziprecruiter"
     if "roberthalf.com" in host:
         return "roberthalf"
+    if "jobot.com" in host:
+        return "jobot"
     if "dice.com" in host:
         return "dice"
     if "workday.com" in host:
@@ -1102,12 +1108,17 @@ async def apply_roberthalf(
     if pdf_path:
         await upload_resume_if_possible(page, pdf_path)
 
+    _rh_parts = (config.get("full_name") or "").split()
     for sel, val in [
-        ("input[name='firstName'], input[id*='firstName']", (config.get("full_name") or "").split()[0]),
-        ("input[name='lastName'], input[id*='lastName']", (config.get("full_name") or "").split()[-1]),
+        ("input[name='firstName'], input[id*='firstName']",
+         _rh_parts[0] if _rh_parts else ""),
+        ("input[name='lastName'], input[id*='lastName']",
+         _rh_parts[-1] if len(_rh_parts) > 1 else (_rh_parts[0] if _rh_parts else "")),
         ("input[type='email'], input[name='email']", config.get("email", "")),
         ("input[type='tel'], input[name='phone']", config.get("phone", "")),
     ]:
+        if not val:
+            continue
         fld = page.locator(sel)
         if await fld.count() and not (await fld.first.input_value()):
             await human_type(page, fld, val)
@@ -1128,6 +1139,46 @@ async def apply_roberthalf(
         return True
 
     return False
+
+
+# ── Jobot ────────────────────────────────────────────────────────────────────
+
+async def apply_jobot(
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
+) -> bool:
+    """
+    Jobot is a tech-focused recruiting platform. Jobs either have an inline
+    Easy Apply form or redirect to the employer's ATS (Greenhouse, Lever, etc.).
+    """
+    print(f"  [Jobot] {job['title']} @ {job['company']}")
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)
+
+    if not await click_if_visible(
+        page,
+        "button:has-text('Easy Apply'), a:has-text('Easy Apply'), "
+        "button:has-text('Apply Now'), a:has-text('Apply Now'), "
+        "button:has-text('Apply'), a:has-text('Apply')",
+    ):
+        print("  [Jobot] No apply button — trying inline")
+        return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    await nap(2, 3)
+
+    # Check if redirected to an external ATS
+    current_url = page.url
+    if "jobot.com" not in current_url:
+        platform = detect_platform(current_url)
+        handler = PLATFORM_HANDLERS.get(platform, apply_generic)
+        return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    # Still on Jobot — fill their own form
+    success = await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
+    if success:
+        print(f"  [Jobot] Submitted!")
+    else:
+        print(f"  [Jobot] Form found but could not submit")
+    return success
 
 
 # ── Dice ─────────────────────────────────────────────────────────────────────
@@ -1197,6 +1248,7 @@ PLATFORM_HANDLERS = {
     "lever": apply_lever,
     "ziprecruiter": apply_ziprecruiter,
     "roberthalf": apply_roberthalf,
+    "jobot": apply_jobot,
     "dice": apply_dice,
     "remotive": apply_remotive,
     "arbeitnow": apply_arbeitnow,
@@ -1255,6 +1307,36 @@ async def run(max_apply: int = 5):
             await human_type(page, "#password", config["linkedin_password"])
             await page.click("[type='submit']")
             await nap(4, 7)
+
+        # ZipRecruiter login — enables 1-Click / Quick Apply
+        needs_zr = any(detect_platform(j["url"]) == "ziprecruiter" for j in queue)
+        if needs_zr and config.get("ziprecruiter_email") and config.get("ziprecruiter_password"):
+            print("Logging into ZipRecruiter…")
+            await page.goto("https://www.ziprecruiter.com/login", wait_until="domcontentloaded")
+            await nap(1, 2)
+            el = await _first_visible(page, "input[name='email'], input[type='email'], #email")
+            if el:
+                await human_type(page, el, config["ziprecruiter_email"])
+            el = await _first_visible(page, "input[name='password'], input[type='password'], #password")
+            if el:
+                await human_type(page, el, config["ziprecruiter_password"])
+            await click_if_visible(page, "button[type='submit'], form button:has-text('Log in'), form button:has-text('Sign in')")
+            await nap(4, 6)
+
+        # Robert Half login — pre-fills profile on application forms
+        needs_rh = any(detect_platform(j["url"]) == "roberthalf" for j in queue)
+        if needs_rh and config.get("roberthalf_email") and config.get("roberthalf_password"):
+            print("Logging into Robert Half…")
+            await page.goto("https://www.roberthalf.com/us/en/login", wait_until="domcontentloaded")
+            await nap(1, 2)
+            el = await _first_visible(page, "input[name='email'], input[type='email']")
+            if el:
+                await human_type(page, el, config["roberthalf_email"])
+            el = await _first_visible(page, "input[name='password'], input[type='password']")
+            if el:
+                await human_type(page, el, config["roberthalf_password"])
+            await click_if_visible(page, "button[type='submit']")
+            await nap(4, 6)
 
         for job in queue:
             platform = detect_platform(job["url"])
