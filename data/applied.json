@@ -120,5 +120,25 @@
     "platform": "arbeitnow",
     "applied_at": "2026-04-29T18:50:42.166593+00:00",
     "status": "failed"
+  },
+  {
+    "id": "95254a9e5f0b",
+    "title": "Senior Backend Engineer (Golang) - Bank",
+    "company": "SumUp",
+    "url": "https://www.arbeitnow.com/jobs/companies/sumup/senior-backend-engineer-golang-bank-berlin-169219",
+    "platform": "arbeitnow",
+    "applied_at": "2026-04-30T20:22:55.583814+00:00",
+    "status": "error",
+    "error": "Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.arbeitnow.com/jobs/companies/sumup/senior-backend-engineer-golang-bank-berlin-169219\", waiting until \"networkidle\"\n"
+  },
+  {
+    "id": "dd3bbbac7d82",
+    "title": "Senior Backend Web Developer (m/f/d)",
+    "company": "Principia Mentis GmbH",
+    "url": "https://www.arbeitnow.com/jobs/companies/principia-mentis-gmbh/senior-backend-web-developer-munich-68189",
+    "platform": "arbeitnow",
+    "applied_at": "2026-04-30T20:23:31.610343+00:00",
+    "status": "error",
+    "error": "Page.goto: Timeout 30000ms exceeded.\nCall log:\n  - navigating to \"https://www.arbeitnow.com/jobs/companies/principia-mentis-gmbh/senior-backend-web-developer-munich-68189\", waiting until \"networkidle\"\n"
   }
 ]

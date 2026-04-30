@@ -1,0 +1,72 @@
+SAKET "CLIFF WATERS" SHARMA
+Senior Backend Web Developer
+saket87@live.com | GitHub: github.com/saket87 | Portfolio: https://leadtrade.app
+
+## Summary
+
+Senior Backend Web Developer with 8+ years of professional experience designing, discussing, and implementing new features for SaaS products — from prototype to production. High proficiency in TypeScript, NodeJS, GraphQL, and PostgreSQL deployed to AWS, with a strong understanding of modern web technologies and a real passion for software engineering. Proven track record of API design, code quality focus, mentoring junior engineers, and conducting thorough code reviews. Builder of leadtrade.app — a B2B lead generation SaaS platform architected end-to-end on TypeScript, NodeJS, GraphQL, and PostgreSQL. Pragmatic engineer who values open discussion, continuous improvement, and both automated and manual testing. Strong communicator in English with a proactive, user-centric, detail-oriented mindset.
+
+## Core Skills
+
+**Primary Stack:** TypeScript, NodeJS, GraphQL, PostgreSQL, AWS (ECS, S3, RDS, CloudFront/CF)
+**API & Web:** GraphQL API design, PostGraphile-style auto-generated APIs, REST, OpenAPI/Swagger, WebSockets, Server-Sent Events, OAuth2/JWT, Keycloak-equivalent SSO/SAML
+**Databases:** PostgreSQL, SQL, PL/pgSQL, logical decoding, event sourcing patterns, query optimization, indexing, stored procedures
+**Frontend (advantageous):** React 18, Next.js, Redux, TypeScript
+**Cloud & DevOps:** AWS ECS, S3, RDS, CloudFront, Lambda, API Gateway, IAM, VPC, SNS, SQS, CloudWatch; Docker, Kubernetes, Terraform; non-AWS cloud deployment setups
+**CI Pipelines:** GitHub Actions, Jenkins, GitLab CI/CD, Azure DevOps
+**Test Automation:** Jest, React Testing Library, JUnit 5, Mockito, Selenium, TestContainers, JMeter, Postman, automated + manual testing
+**Monitoring, Alerting & Performance Optimization:** Datadog, New Relic, Splunk, CloudWatch, Micrometer, distributed tracing, SonarQube
+**Other Languages:** Python, Java, JavaScript (ES6+), SQL
+**Automation Services:** Zapier, Make.com integrations
+**Methodologies:** Agile (pragmatic, non-dogmatic), TDD, BDD, code reviews, continuous improvement, Domain-Driven Design
+
+## Experience
+
+### Mastercard — Senior Software Developer | St Louis, MO
+Dec 2023 – Present
+- Designed, discussed, and implemented new features for a high-scale SaaS platform — from prototype to production — including automated and manual testing.
+- Built GraphQL APIs with optimized resolvers and DataLoader, reducing over-fetching and improving client performance by 45%; documented architectural and technical decisions for the team.
+- Designed and implemented event-driven architecture using Apache Kafka with exactly-once semantics, applying event sourcing patterns to handle 500K+ events per hour.
+- Authored RESTful and GraphQL API designs handling 2M+ daily transactions at sub-100ms response times with 99.95% uptime.
+- Established CI pipelines (Jenkins + GitHub Actions equivalents) with automated tests, security scans, and blue-green deployments — 50+ production releases/month with zero downtime.
+- Implemented monitoring, alerting, and performance optimization via Spring Boot Actuator, Micrometer, distributed tracing, and Redis caching, cutting response times from 500ms to 80ms.
+- Mentored 4 junior engineers through code reviews, pair programming, and architectural guidance — emphasizing code quality and pragmatic engineering.
+
+### Visa — Full Stack Software Developer (Backend Focus) | Austin, TX
+Sep 2022 – Nov 2023
+- Modernized 8 legacy monolithic applications into containerized microservices deployed to AWS ECS with S3, RDS, and CloudFront — reducing deployment time from 4 hours to 15 minutes.
+- Designed and implemented GraphQL and RESTful APIs with strong API design principles, comprehensive validation, and OpenAPI documentation.
+- Built secure authentication/authorization using OAuth2, SSO, LDAP, and MFA (Keycloak-equivalent patterns) supporting 50K+ concurrent users.
+- Implemented test automation across unit, integration, and contract tests achieving 85%+ code coverage; championed code quality via SonarQube, reducing technical debt by 40%.
+- Set up CI pipelines (GitHub Actions / Jenkins) with quality gates, security scanning, and automated deployments to AWS.
+- Reviewed pull requests daily and supported junior engineers, fostering open discussion and continuous improvement.
+
+### State Street Corporation — Full Stack Software Developer | Quincy, MA
+Nov 2017 – Feb 2022
+- Designed and developed enterprise REST and reactive APIs serving a financial SaaS platform with 100K+ daily active users.
+- Built non-blocking, asynchronous backends improving concurrent request handling capacity by 200% — a NodeJS-style event-driven approach applied in JVM ecosystem.
+- Modernized legacy frontend to React 18 + TypeScript + Redux, with WebSockets and Server-Sent Events for real-time updates.
+- Implemented PostgreSQL/Oracle schema design, query optimization, indexing, and stored procedures — improving query performance by 50%.
+- Established Jenkins CI pipelines with Maven, automated testing, and quality gates; migrated SVN → Git with GitFlow and rigorous pull request code reviews.
+- Built a centralized error-handling framework and reusable component library (50+ components in Storybook) — reducing development time by 30% and ensuring consistent UX.
+
+## Projects
+
+### leadtrade.app — Founder & Lead Engineer
+A B2B lead generation SaaS platform designed and built end-to-end.
+- **Stack:** TypeScript, NodeJS, GraphQL, PostgreSQL, deployed to AWS (ECS, S3, RDS, CloudFront).
+- Designed the GraphQL schema and API from scratch with a strong focus on code quality, type safety, and developer ergonomics — leveraging PostGraphile-style auto-generation patterns.
+- Implemented PostgreSQL schema design with logical decoding for change-data-capture and event-driven workflows.
+- Built CI pipelines on GitHub Actions covering linting, type-checking, automated tests, and deployment.
+- Integrated automation services (Zapier, Make.com) for customer-facing workflow automation.
+- Set up monitoring, alerting, and performance optimization across the full stack.
+
+## Education
+
+**Associate Degree in Computer Science** — Quincy College, Quincy, MA (2010)
+
+## Certifications
+
+- FAA Certified Pilot, Part 107 (UAVs)
+
+##
