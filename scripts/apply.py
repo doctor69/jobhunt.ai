@@ -541,7 +541,7 @@ async def apply_remotive(
     there, detect the real platform, and fill the form.
     """
     print(f"  [Remotive] {job['title']} @ {job['company']}")
-    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await page.goto(job["url"], wait_until="networkidle", timeout=30000)
     await nap(2, 4)
 
     # Find the external apply URL — Remotive renders it as an <a> with class
@@ -571,8 +571,8 @@ async def apply_remotive(
             continue
 
     if not apply_href:
-        print("  [Remotive] Could not find external apply link — falling back to generic")
-        return await apply_generic(page, job, cover_letter, config, pdf_path, salary_ask)
+        print("  [Remotive] No external link — trying inline form")
+        return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
 
     print(f"  [Remotive] External apply URL: {apply_href}")
     await page.goto(apply_href, wait_until="domcontentloaded", timeout=30000)
@@ -597,7 +597,7 @@ async def apply_arbeitnow(
     navigate there, and fill the application form.
     """
     print(f"  [Arbeitnow] {job['title']} @ {job['company']}")
-    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await page.goto(job["url"], wait_until="networkidle", timeout=30000)
     await nap(2, 4)
 
     apply_href = None
@@ -624,8 +624,8 @@ async def apply_arbeitnow(
             continue
 
     if not apply_href:
-        print("  [Arbeitnow] Could not find external apply link — falling back to generic")
-        return await apply_generic(page, job, cover_letter, config, pdf_path, salary_ask)
+        print("  [Arbeitnow] No external link — trying inline form")
+        return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
 
     print(f"  [Arbeitnow] External apply URL: {apply_href}")
     await page.goto(apply_href, wait_until="domcontentloaded", timeout=30000)
@@ -823,6 +823,10 @@ async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: d
         "button:has-text('Continue')",
         "input[type='submit']",
         "button[type='submit']",
+        # Last resort — inline/modal Apply button (e.g. Arbeitnow Easy Apply)
+        "button:has-text('Apply Now')",
+        "button:has-text('Apply now')",
+        "button:has-text('Apply')",
     ]:
         if await click_if_visible(page, sel):
             await nap(2, 4)
@@ -863,11 +867,20 @@ async def _fill_form_at_current_page(
     if not has_form:
         # There may be another Apply button on this external landing page
         # (e.g., the ATS shows the job description first, with its own Apply button)
+        # Also handles inline/modal forms (URL doesn't change but form appears after click)
         clicked = await _click_apply_button(page)
-        if clicked and page.url != current_url:
-            return await _fill_form_at_current_page(
-                page, job, cover_letter, config, pdf_path, salary_ask, depth=depth + 1
-            )
+        if clicked:
+            await nap(1, 2)  # wait for modal or page transition
+            if page.url != current_url:
+                return await _fill_form_at_current_page(
+                    page, job, cover_letter, config, pdf_path, salary_ask, depth=depth + 1
+                )
+            # URL unchanged — a modal/inline form may now be visible; re-detect platform
+            platform = detect_platform(page.url)
+            if platform == "greenhouse":
+                return await _fill_greenhouse_form(page, job, cover_letter, config, pdf_path, salary_ask)
+            if platform == "lever":
+                return await _fill_lever_form(page, job, cover_letter, config, pdf_path, salary_ask)
 
     return await _fill_generic_form(page, job, cover_letter, config, pdf_path, salary_ask)
 
