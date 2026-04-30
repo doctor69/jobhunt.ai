@@ -410,7 +410,7 @@ def fetch_jobot(config: dict) -> list[dict]:
                 "company": item.get("company", {}).get("name", "Unknown") if isinstance(item.get("company"), dict) else item.get("company", "Unknown"),
                 "location": item.get("location", "Remote"),
                 "description": item.get("description", ""),
-                "url": f"https://jobot.com/jobs/detail/{jid}/{slug}",
+                "url": f"https://jobot.com/details/{slug}/{jid}",
                 "source": "jobot",
                 "status": "new",
                 "found_at": datetime.now(timezone.utc).isoformat(),

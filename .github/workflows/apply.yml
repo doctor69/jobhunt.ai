@@ -43,6 +43,8 @@ jobs:
           ZIPRECRUITER_PASSWORD:   ${{ secrets.ZIPRECRUITER_PASSWORD }}
           ROBERTHALF_EMAIL:        ${{ secrets.ROBERTHALF_EMAIL }}
           ROBERTHALF_PASSWORD:     ${{ secrets.ROBERTHALF_PASSWORD }}
+          JOBOT_EMAIL:             ${{ secrets.JOBOT_EMAIL }}
+          JOBOT_PASSWORD:          ${{ secrets.JOBOT_PASSWORD }}
 
       - name: Commit application results
         run: |

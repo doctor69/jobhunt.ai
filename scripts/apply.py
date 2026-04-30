@@ -68,6 +68,8 @@ def load_config() -> dict:
     cfg["ziprecruiter_password"] = os.environ.get("ZIPRECRUITER_PASSWORD", cfg.get("ziprecruiter_password", ""))
     cfg["roberthalf_email"] = os.environ.get("ROBERTHALF_EMAIL", cfg.get("roberthalf_email", ""))
     cfg["roberthalf_password"] = os.environ.get("ROBERTHALF_PASSWORD", cfg.get("roberthalf_password", ""))
+    cfg["jobot_email"] = os.environ.get("JOBOT_EMAIL", cfg.get("jobot_email", ""))
+    cfg["jobot_password"] = os.environ.get("JOBOT_PASSWORD", cfg.get("jobot_password", ""))
     return cfg
 
 
@@ -1038,26 +1040,36 @@ async def apply_ziprecruiter(
     await nap(2, 4)
 
     # ZipRecruiter uses "Apply Now" or "Quick Apply"
+    # Prefer 1-Click Apply (logged-in, pre-saved profile — no form to fill)
+    one_click = await _first_visible(page, "button.quick_apply_btn[data-quickApply='one_click']")
+    if one_click:
+        await one_click.click()
+        await nap(2, 3)
+        # Confirm submission page
+        if "ziprecruiter.com" in page.url:
+            print("  [ZipRecruiter] 1-Click applied!")
+            return True
+
+    # Standard Apply Now / Quick Apply button
     if not await click_if_visible(
         page,
         "button:has-text('Apply Now'), a:has-text('Apply Now'), "
         "button:has-text('Quick Apply'), a:has-text('Quick Apply')",
     ):
-        print("  [ZipRecruiter] No apply button — trying generic handler")
-        return await apply_generic(page, job, cover_letter, config, pdf_path)
+        print("  [ZipRecruiter] No apply button — trying inline form")
+        return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
 
     await nap(2, 3)
 
-    if pdf_path:
-        await upload_resume_if_possible(page, pdf_path)
-
-    # ZipRecruiter may open a modal or redirect; detect which
+    # ZipRecruiter may open a modal or redirect to employer ATS; detect which
     current_url = page.url
     if "ziprecruiter.com" not in current_url:
-        # Redirected to employer ATS
         platform = detect_platform(current_url)
         handler = PLATFORM_HANDLERS.get(platform, apply_generic)
-        return await handler(page, job, cover_letter, config, pdf_path)
+        return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
 
     # Fill modal form
     for sel, val in [
@@ -1312,29 +1324,44 @@ async def run(max_apply: int = 5):
         needs_zr = any(detect_platform(j["url"]) == "ziprecruiter" for j in queue)
         if needs_zr and config.get("ziprecruiter_email") and config.get("ziprecruiter_password"):
             print("Logging into ZipRecruiter…")
-            await page.goto("https://www.ziprecruiter.com/login", wait_until="domcontentloaded")
+            await page.goto("https://www.ziprecruiter.com/authn/login", wait_until="domcontentloaded")
             await nap(1, 2)
-            el = await _first_visible(page, "input[name='email'], input[type='email'], #email")
+            el = await _first_visible(page, "input[type='email'], input[name='email']")
             if el:
                 await human_type(page, el, config["ziprecruiter_email"])
-            el = await _first_visible(page, "input[name='password'], input[type='password'], #password")
+            el = await _first_visible(page, "input[type='password'], input[name='password']")
             if el:
                 await human_type(page, el, config["ziprecruiter_password"])
             await click_if_visible(page, "button[type='submit'], form button:has-text('Log in'), form button:has-text('Sign in')")
             await nap(4, 6)
 
-        # Robert Half login — pre-fills profile on application forms
+        # Robert Half login — uses their Salesforce candidate portal
         needs_rh = any(detect_platform(j["url"]) == "roberthalf" for j in queue)
         if needs_rh and config.get("roberthalf_email") and config.get("roberthalf_password"):
             print("Logging into Robert Half…")
-            await page.goto("https://www.roberthalf.com/us/en/login", wait_until="domcontentloaded")
+            await page.goto("https://online.roberthalf.com/s/login", wait_until="domcontentloaded")
             await nap(1, 2)
-            el = await _first_visible(page, "input[name='email'], input[type='email']")
+            el = await _first_visible(page, "input[type='email'], input[name='email']")
             if el:
                 await human_type(page, el, config["roberthalf_email"])
-            el = await _first_visible(page, "input[name='password'], input[type='password']")
+            el = await _first_visible(page, "input[type='password'], input[name='password']")
             if el:
                 await human_type(page, el, config["roberthalf_password"])
+            await click_if_visible(page, "button[type='submit']")
+            await nap(4, 6)
+
+        # Jobot login — "Easy Apply" requires an active session
+        needs_jobot = any(detect_platform(j["url"]) == "jobot" for j in queue)
+        if needs_jobot and config.get("jobot_email") and config.get("jobot_password"):
+            print("Logging into Jobot…")
+            await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
+            await nap(1, 2)
+            el = await _first_visible(page, "input[type='email'], input[name='email']")
+            if el:
+                await human_type(page, el, config["jobot_email"])
+            el = await _first_visible(page, "input[type='password'], input[name='password']")
+            if el:
+                await human_type(page, el, config["jobot_password"])
             await click_if_visible(page, "button[type='submit']")
             await nap(4, 6)
 
