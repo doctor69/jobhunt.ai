@@ -1031,6 +1031,18 @@ async def apply_generic(
     return success
 
 
+async def _cloudflare_blocked(page) -> bool:
+    """Return True if Cloudflare has intercepted the page with a challenge."""
+    title = (await page.title()).lower()
+    if "just a moment" in title or "attention required" in title:
+        return True
+    # Check for cf-challenge form or Turnstile widget
+    for sel in ["#cf-challenge-running", ".cf-turnstile", "#challenge-form"]:
+        if await page.locator(sel).count():
+            return True
+    return False
+
+
 # ── ZipRecruiter ─────────────────────────────────────────────────────────────
 
 async def apply_ziprecruiter(
@@ -1039,6 +1051,10 @@ async def apply_ziprecruiter(
     print(f"  [ZipRecruiter] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
     await nap(2, 4)
+
+    if await _cloudflare_blocked(page):
+        print("  [ZipRecruiter] Cloudflare bot protection detected — skipping (cannot automate)")
+        return False
 
     # ZipRecruiter uses "Apply Now" or "Quick Apply"
     # Prefer 1-Click Apply (logged-in, pre-saved profile — no form to fill)
@@ -1322,19 +1338,23 @@ async def run(max_apply: int = 5):
             await nap(4, 7)
 
         # ZipRecruiter login — enables 1-Click / Quick Apply
+        # Note: ZipRecruiter uses Cloudflare bot protection; login may be blocked
         needs_zr = any(detect_platform(j["url"]) == "ziprecruiter" for j in queue)
         if needs_zr and config.get("ziprecruiter_email") and config.get("ziprecruiter_password"):
             print("Logging into ZipRecruiter…")
             await page.goto("https://www.ziprecruiter.com/authn/login", wait_until="domcontentloaded")
             await nap(1, 2)
-            el = await _first_visible(page, "input[type='email'], input[name='email']")
-            if el:
-                await human_type(page, el, config["ziprecruiter_email"])
-            el = await _first_visible(page, "input[type='password'], input[name='password']")
-            if el:
-                await human_type(page, el, config["ziprecruiter_password"])
-            await click_if_visible(page, "button[type='submit'], form button:has-text('Log in'), form button:has-text('Sign in')")
-            await nap(4, 6)
+            if await _cloudflare_blocked(page):
+                print("  [ZipRecruiter] Cloudflare challenge on login page — skipping ZR login")
+            else:
+                el = await _first_visible(page, "input[type='email'], input[name='email']")
+                if el:
+                    await human_type(page, el, config["ziprecruiter_email"])
+                el = await _first_visible(page, "input[type='password'], input[name='password']")
+                if el:
+                    await human_type(page, el, config["ziprecruiter_password"])
+                await click_if_visible(page, "button[type='submit'], form button:has-text('Log in'), form button:has-text('Sign in')")
+                await nap(4, 6)
 
         # Robert Half login — uses their Salesforce candidate portal
         needs_rh = any(detect_platform(j["url"]) == "roberthalf" for j in queue)
