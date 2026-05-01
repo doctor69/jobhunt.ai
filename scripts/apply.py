@@ -64,6 +64,12 @@ def load_config() -> dict:
     cfg["full_name"] = os.environ.get("APPLICANT_NAME", cfg.get("full_name", ""))
     cfg["phone"] = os.environ.get("APPLICANT_PHONE", cfg.get("phone", ""))
     cfg["linkedin_url"] = os.environ.get("LINKEDIN_URL", cfg.get("linkedin_url", ""))
+    cfg["ziprecruiter_email"] = os.environ.get("ZIPRECRUITER_EMAIL", cfg.get("ziprecruiter_email", ""))
+    cfg["ziprecruiter_password"] = os.environ.get("ZIPRECRUITER_PASSWORD", cfg.get("ziprecruiter_password", ""))
+    cfg["roberthalf_email"] = os.environ.get("ROBERTHALF_EMAIL", cfg.get("roberthalf_email", ""))
+    cfg["roberthalf_password"] = os.environ.get("ROBERTHALF_PASSWORD", cfg.get("roberthalf_password", ""))
+    cfg["jobot_email"] = os.environ.get("JOBOT_EMAIL", cfg.get("jobot_email", ""))
+    cfg["jobot_password"] = os.environ.get("JOBOT_PASSWORD", cfg.get("jobot_password", ""))
     return cfg
 
 
@@ -278,6 +284,8 @@ def detect_platform(url: str) -> str:
         return "ziprecruiter"
     if "roberthalf.com" in host:
         return "roberthalf"
+    if "jobot.com" in host:
+        return "jobot"
     if "dice.com" in host:
         return "dice"
     if "workday.com" in host:
@@ -541,8 +549,8 @@ async def apply_remotive(
     there, detect the real platform, and fill the form.
     """
     print(f"  [Remotive] {job['title']} @ {job['company']}")
-    await page.goto(job["url"], wait_until="networkidle", timeout=30000)
-    await nap(2, 4)
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)  # let SPA render
 
     # Find the external apply URL — Remotive renders it as an <a> with class
     # containing "apply" that points to an external domain.
@@ -561,11 +569,16 @@ async def apply_remotive(
                 apply_href = href
                 break
             elif href.startswith("http"):
-                # It's a remotive link — click it (may redirect)
+                # It's a remotive link — click it and wait for redirect
                 await loc.first.click()
-                await nap(2, 3)
+                try:
+                    await page.wait_for_url(lambda u: u != job["url"], timeout=5000)
+                except Exception:
+                    pass
                 if page.url != job["url"]:
-                    apply_href = page.url
+                    # Already on the external ATS — don't re-navigate
+                    print(f"  [Remotive] Redirected to: {page.url}")
+                    return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
                 break
         except Exception:
             continue
@@ -597,8 +610,8 @@ async def apply_arbeitnow(
     navigate there, and fill the application form.
     """
     print(f"  [Arbeitnow] {job['title']} @ {job['company']}")
-    await page.goto(job["url"], wait_until="networkidle", timeout=30000)
-    await nap(2, 4)
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)  # let SPA render
 
     apply_href = None
     for sel in [
@@ -615,10 +628,16 @@ async def apply_arbeitnow(
                 apply_href = href
                 break
             elif href.startswith("http"):
+                # Arbeitnow own-domain link — click and wait for redirect
                 await loc.first.click()
-                await nap(2, 3)
+                try:
+                    await page.wait_for_url(lambda u: u != job["url"], timeout=5000)
+                except Exception:
+                    pass
                 if page.url != job["url"]:
-                    apply_href = page.url
+                    # Already on the external ATS — don't re-navigate
+                    print(f"  [Arbeitnow] Redirected to: {page.url}")
+                    return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
                 break
         except Exception:
             continue
@@ -754,13 +773,14 @@ async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: d
     if pdf_path:
         await upload_resume_if_possible(page, pdf_path)
 
+    _name_parts = (config.get("full_name") or "").split()
     for sel, val in [
-        ("input[name='name'], input[id*='name' i], input[placeholder*='name' i]",
+        ("input[name='name'], input[id='name'], input[placeholder*='full name' i]",
          config.get("full_name", "")),
         ("input[name*='first' i], input[id*='first' i], input[placeholder*='first' i]",
-         (config.get("full_name") or "").split()[0]),
+         _name_parts[0] if _name_parts else ""),
         ("input[name*='last' i], input[id*='last' i], input[placeholder*='last' i]",
-         (config.get("full_name") or "").split()[-1]),
+         _name_parts[-1] if len(_name_parts) > 1 else (_name_parts[0] if _name_parts else "")),
         ("input[type='email'], input[name='email'], input[id*='email' i]",
          config.get("email", "")),
         ("input[type='tel'], input[name*='phone' i], input[id*='phone' i]",
@@ -820,13 +840,15 @@ async def _fill_generic_form(page: Page, job: dict, cover_letter: str, config: d
         "button:has-text('Complete Application')",
         "button:has-text('Submit')",
         "button:has-text('Send')",
-        "button:has-text('Continue')",
         "input[type='submit']",
         "button[type='submit']",
-        # Last resort — inline/modal Apply button (e.g. Arbeitnow Easy Apply)
-        "button:has-text('Apply Now')",
-        "button:has-text('Apply now')",
-        "button:has-text('Apply')",
+        "button:has-text('Continue')",
+        # Scoped to form/dialog so we don't re-click the page-level Apply button
+        "form button:has-text('Apply Now')",
+        "form button:has-text('Apply now')",
+        "form button:has-text('Apply')",
+        "[role='dialog'] button:has-text('Apply Now')",
+        "[role='dialog'] button:has-text('Apply')",
     ]:
         if await click_if_visible(page, sel):
             await nap(2, 4)
@@ -870,17 +892,27 @@ async def _fill_form_at_current_page(
         # Also handles inline/modal forms (URL doesn't change but form appears after click)
         clicked = await _click_apply_button(page)
         if clicked:
-            await nap(1, 2)  # wait for modal or page transition
+            # Wait for navigation or modal DOM injection — whichever comes first
+            try:
+                await page.wait_for_url(lambda u: u != current_url, timeout=5000)
+            except Exception:
+                pass  # URL unchanged — assume a modal appeared
             if page.url != current_url:
                 return await _fill_form_at_current_page(
                     page, job, cover_letter, config, pdf_path, salary_ask, depth=depth + 1
                 )
-            # URL unchanged — a modal/inline form may now be visible; re-detect platform
+            # Modal path — re-detect platform (unlikely to change, but cheap check)
             platform = detect_platform(page.url)
             if platform == "greenhouse":
                 return await _fill_greenhouse_form(page, job, cover_letter, config, pdf_path, salary_ask)
             if platform == "lever":
                 return await _fill_lever_form(page, job, cover_letter, config, pdf_path, salary_ask)
+            # Only proceed if a form is now visible
+            has_form_now = await _first_visible(
+                page, "form input[type='email'], form input[type='text'], input[type='email']"
+            ) is not None
+            if not has_form_now:
+                return False
 
     return await _fill_generic_form(page, job, cover_letter, config, pdf_path, salary_ask)
 
@@ -1008,26 +1040,36 @@ async def apply_ziprecruiter(
     await nap(2, 4)
 
     # ZipRecruiter uses "Apply Now" or "Quick Apply"
+    # Prefer 1-Click Apply (logged-in, pre-saved profile — no form to fill)
+    one_click = await _first_visible(page, "button.quick_apply_btn[data-quickApply='one_click']")
+    if one_click:
+        await one_click.click()
+        await nap(2, 3)
+        # Confirm submission page
+        if "ziprecruiter.com" in page.url:
+            print("  [ZipRecruiter] 1-Click applied!")
+            return True
+
+    # Standard Apply Now / Quick Apply button
     if not await click_if_visible(
         page,
         "button:has-text('Apply Now'), a:has-text('Apply Now'), "
         "button:has-text('Quick Apply'), a:has-text('Quick Apply')",
     ):
-        print("  [ZipRecruiter] No apply button — trying generic handler")
-        return await apply_generic(page, job, cover_letter, config, pdf_path)
+        print("  [ZipRecruiter] No apply button — trying inline form")
+        return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
 
     await nap(2, 3)
 
-    if pdf_path:
-        await upload_resume_if_possible(page, pdf_path)
-
-    # ZipRecruiter may open a modal or redirect; detect which
+    # ZipRecruiter may open a modal or redirect to employer ATS; detect which
     current_url = page.url
     if "ziprecruiter.com" not in current_url:
-        # Redirected to employer ATS
         platform = detect_platform(current_url)
         handler = PLATFORM_HANDLERS.get(platform, apply_generic)
-        return await handler(page, job, cover_letter, config, pdf_path)
+        return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    if pdf_path:
+        await upload_resume_if_possible(page, pdf_path)
 
     # Fill modal form
     for sel, val in [
@@ -1078,12 +1120,17 @@ async def apply_roberthalf(
     if pdf_path:
         await upload_resume_if_possible(page, pdf_path)
 
+    _rh_parts = (config.get("full_name") or "").split()
     for sel, val in [
-        ("input[name='firstName'], input[id*='firstName']", (config.get("full_name") or "").split()[0]),
-        ("input[name='lastName'], input[id*='lastName']", (config.get("full_name") or "").split()[-1]),
+        ("input[name='firstName'], input[id*='firstName']",
+         _rh_parts[0] if _rh_parts else ""),
+        ("input[name='lastName'], input[id*='lastName']",
+         _rh_parts[-1] if len(_rh_parts) > 1 else (_rh_parts[0] if _rh_parts else "")),
         ("input[type='email'], input[name='email']", config.get("email", "")),
         ("input[type='tel'], input[name='phone']", config.get("phone", "")),
     ]:
+        if not val:
+            continue
         fld = page.locator(sel)
         if await fld.count() and not (await fld.first.input_value()):
             await human_type(page, fld, val)
@@ -1104,6 +1151,46 @@ async def apply_roberthalf(
         return True
 
     return False
+
+
+# ── Jobot ────────────────────────────────────────────────────────────────────
+
+async def apply_jobot(
+    page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
+) -> bool:
+    """
+    Jobot is a tech-focused recruiting platform. Jobs either have an inline
+    Easy Apply form or redirect to the employer's ATS (Greenhouse, Lever, etc.).
+    """
+    print(f"  [Jobot] {job['title']} @ {job['company']}")
+    await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
+    await nap(2, 4)
+
+    if not await click_if_visible(
+        page,
+        "button:has-text('Easy Apply'), a:has-text('Easy Apply'), "
+        "button:has-text('Apply Now'), a:has-text('Apply Now'), "
+        "button:has-text('Apply'), a:has-text('Apply')",
+    ):
+        print("  [Jobot] No apply button — trying inline")
+        return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    await nap(2, 3)
+
+    # Check if redirected to an external ATS
+    current_url = page.url
+    if "jobot.com" not in current_url:
+        platform = detect_platform(current_url)
+        handler = PLATFORM_HANDLERS.get(platform, apply_generic)
+        return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    # Still on Jobot — fill their own form
+    success = await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
+    if success:
+        print(f"  [Jobot] Submitted!")
+    else:
+        print(f"  [Jobot] Form found but could not submit")
+    return success
 
 
 # ── Dice ─────────────────────────────────────────────────────────────────────
@@ -1173,6 +1260,7 @@ PLATFORM_HANDLERS = {
     "lever": apply_lever,
     "ziprecruiter": apply_ziprecruiter,
     "roberthalf": apply_roberthalf,
+    "jobot": apply_jobot,
     "dice": apply_dice,
     "remotive": apply_remotive,
     "arbeitnow": apply_arbeitnow,
@@ -1231,6 +1319,51 @@ async def run(max_apply: int = 5):
             await human_type(page, "#password", config["linkedin_password"])
             await page.click("[type='submit']")
             await nap(4, 7)
+
+        # ZipRecruiter login — enables 1-Click / Quick Apply
+        needs_zr = any(detect_platform(j["url"]) == "ziprecruiter" for j in queue)
+        if needs_zr and config.get("ziprecruiter_email") and config.get("ziprecruiter_password"):
+            print("Logging into ZipRecruiter…")
+            await page.goto("https://www.ziprecruiter.com/authn/login", wait_until="domcontentloaded")
+            await nap(1, 2)
+            el = await _first_visible(page, "input[type='email'], input[name='email']")
+            if el:
+                await human_type(page, el, config["ziprecruiter_email"])
+            el = await _first_visible(page, "input[type='password'], input[name='password']")
+            if el:
+                await human_type(page, el, config["ziprecruiter_password"])
+            await click_if_visible(page, "button[type='submit'], form button:has-text('Log in'), form button:has-text('Sign in')")
+            await nap(4, 6)
+
+        # Robert Half login — uses their Salesforce candidate portal
+        needs_rh = any(detect_platform(j["url"]) == "roberthalf" for j in queue)
+        if needs_rh and config.get("roberthalf_email") and config.get("roberthalf_password"):
+            print("Logging into Robert Half…")
+            await page.goto("https://online.roberthalf.com/s/login", wait_until="domcontentloaded")
+            await nap(1, 2)
+            el = await _first_visible(page, "input[type='email'], input[name='email']")
+            if el:
+                await human_type(page, el, config["roberthalf_email"])
+            el = await _first_visible(page, "input[type='password'], input[name='password']")
+            if el:
+                await human_type(page, el, config["roberthalf_password"])
+            await click_if_visible(page, "button[type='submit']")
+            await nap(4, 6)
+
+        # Jobot login — "Easy Apply" requires an active session
+        needs_jobot = any(detect_platform(j["url"]) == "jobot" for j in queue)
+        if needs_jobot and config.get("jobot_email") and config.get("jobot_password"):
+            print("Logging into Jobot…")
+            await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
+            await nap(1, 2)
+            el = await _first_visible(page, "input[type='email'], input[name='email']")
+            if el:
+                await human_type(page, el, config["jobot_email"])
+            el = await _first_visible(page, "input[type='password'], input[name='password']")
+            if el:
+                await human_type(page, el, config["jobot_password"])
+            await click_if_visible(page, "button[type='submit']")
+            await nap(4, 6)
 
         for job in queue:
             platform = detect_platform(job["url"])
@@ -1335,7 +1468,6 @@ async def run(max_apply: int = 5):
                         else:
                             j["status"] = "approved"  # keep in queue for next run
                             print(f"  [retry] Attempt {retries}/{MAX_RETRIES} — will retry next run")
-                    break
                     break
 
             delay = random.uniform(

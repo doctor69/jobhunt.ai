@@ -32,13 +32,19 @@ jobs:
       - name: Run job applications
         run: python scripts/apply.py ${{ github.event.inputs.max_apply }}
         env:
-          ANTHROPIC_API_KEY:  ${{ secrets.ANTHROPIC_API_KEY }}
-          LINKEDIN_EMAIL:     ${{ secrets.LINKEDIN_EMAIL }}
-          LINKEDIN_PASSWORD:  ${{ secrets.LINKEDIN_PASSWORD }}
-          APPLICANT_EMAIL:    ${{ secrets.APPLICANT_EMAIL }}
-          APPLICANT_NAME:     ${{ secrets.APPLICANT_NAME }}
-          APPLICANT_PHONE:    ${{ secrets.APPLICANT_PHONE }}
-          LINKEDIN_URL:       ${{ secrets.LINKEDIN_URL }}
+          ANTHROPIC_API_KEY:       ${{ secrets.ANTHROPIC_API_KEY }}
+          LINKEDIN_EMAIL:          ${{ secrets.LINKEDIN_EMAIL }}
+          LINKEDIN_PASSWORD:       ${{ secrets.LINKEDIN_PASSWORD }}
+          APPLICANT_EMAIL:         ${{ secrets.APPLICANT_EMAIL }}
+          APPLICANT_NAME:          ${{ secrets.APPLICANT_NAME }}
+          APPLICANT_PHONE:         ${{ secrets.APPLICANT_PHONE }}
+          LINKEDIN_URL:            ${{ secrets.LINKEDIN_URL }}
+          ZIPRECRUITER_EMAIL:      ${{ secrets.ZIPRECRUITER_EMAIL }}
+          ZIPRECRUITER_PASSWORD:   ${{ secrets.ZIPRECRUITER_PASSWORD }}
+          ROBERTHALF_EMAIL:        ${{ secrets.ROBERTHALF_EMAIL }}
+          ROBERTHALF_PASSWORD:     ${{ secrets.ROBERTHALF_PASSWORD }}
+          JOBOT_EMAIL:             ${{ secrets.JOBOT_EMAIL }}
+          JOBOT_PASSWORD:          ${{ secrets.JOBOT_PASSWORD }}
 
       - name: Commit application results
         run: |
