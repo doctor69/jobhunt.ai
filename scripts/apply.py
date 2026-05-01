@@ -1122,52 +1122,44 @@ async def apply_roberthalf(
 ) -> bool:
     print(f"  [Robert Half] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
-    await nap(2, 4)
+    await nap(3, 5)  # Salesforce/Angular SPA needs extra render time
 
-    if not await click_if_visible(
+    start_url = page.url
+
+    # Click Apply — may redirect to online.roberthalf.com portal or external ATS
+    clicked = await click_if_visible(
         page,
-        "a:has-text('Apply'), button:has-text('Apply'), "
-        "a:has-text('Apply Now'), button:has-text('Apply Now')",
-    ):
-        print("  [Robert Half] No apply button")
+        "a:has-text('Apply Now'), button:has-text('Apply Now'), "
+        "a:has-text('Apply'), button:has-text('Apply')",
+    )
+    if not clicked:
+        print("  [Robert Half] No apply button found")
         return False
 
+    # Wait for navigation (Salesforce portal or external ATS)
+    try:
+        await page.wait_for_url(lambda u: u != start_url, timeout=8000)
+    except Exception:
+        pass
+
+    current_url = page.url
+    print(f"  [Robert Half] Post-click URL: {current_url}")
+
+    # If redirected to an external ATS, hand off
+    if "roberthalf.com" not in current_url:
+        platform = detect_platform(current_url)
+        handler = PLATFORM_HANDLERS.get(platform, apply_generic)
+        return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    # Still on Robert Half — use generic form filler
+    # (logged-in users see a one-tap confirm; logged-out see a form)
     await nap(2, 3)
-
-    if pdf_path:
-        await upload_resume_if_possible(page, pdf_path)
-
-    _rh_parts = (config.get("full_name") or "").split()
-    for sel, val in [
-        ("input[name='firstName'], input[id*='firstName']",
-         _rh_parts[0] if _rh_parts else ""),
-        ("input[name='lastName'], input[id*='lastName']",
-         _rh_parts[-1] if len(_rh_parts) > 1 else (_rh_parts[0] if _rh_parts else "")),
-        ("input[type='email'], input[name='email']", config.get("email", "")),
-        ("input[type='tel'], input[name='phone']", config.get("phone", "")),
-    ]:
-        if not val:
-            continue
-        fld = page.locator(sel)
-        if await fld.count() and not (await fld.first.input_value()):
-            await human_type(page, fld, val)
-
-    # Cover letter
-    fld = page.locator("textarea[name*='cover'], textarea[id*='cover'], textarea")
-    if await fld.count() and not (await fld.first.input_value()):
-        await human_type(page, fld, cover_letter[:2000])
-
-    if salary_ask:
-        await fill_salary_fields(page, salary_ask)
-
-    await nap()
-
-    if await click_if_visible(page, "button:has-text('Submit'), button[type='submit']"):
-        await nap(2, 4)
+    success = await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
+    if success:
         print("  [Robert Half] Submitted!")
-        return True
-
-    return False
+    else:
+        print("  [Robert Half] Could not submit form")
+    return success
 
 
 # ── Jobot ────────────────────────────────────────────────────────────────────
@@ -1356,35 +1348,55 @@ async def run(max_apply: int = 5):
                 await click_if_visible(page, "button[type='submit'], form button:has-text('Log in'), form button:has-text('Sign in')")
                 await nap(4, 6)
 
-        # Robert Half login — uses their Salesforce candidate portal
+        # Robert Half login — Salesforce Experience Cloud portal (heavy SPA)
         needs_rh = any(detect_platform(j["url"]) == "roberthalf" for j in queue)
         if needs_rh and config.get("roberthalf_email") and config.get("roberthalf_password"):
             print("Logging into Robert Half…")
             await page.goto("https://online.roberthalf.com/s/login", wait_until="domcontentloaded")
-            await nap(1, 2)
-            el = await _first_visible(page, "input[type='email'], input[name='email']")
+            await nap(3, 4)  # Salesforce Lightning SPA needs extra time
+            # Salesforce uses name="username" not name="email"
+            el = await _first_visible(
+                page,
+                "input[name='username'], input[type='email'], input[name='email']"
+            )
             if el:
                 await human_type(page, el, config["roberthalf_email"])
+            else:
+                print("  [RobertHalf] Could not find email/username field — skipping login")
             el = await _first_visible(page, "input[type='password'], input[name='password']")
             if el:
                 await human_type(page, el, config["roberthalf_password"])
-            await click_if_visible(page, "button[type='submit']")
+            await click_if_visible(page, "button[type='submit'], input[type='submit']")
             await nap(4, 6)
 
-        # Jobot login — "Easy Apply" requires an active session
+        # Jobot login — two-step: email page → submit → password page → submit
         needs_jobot = any(detect_platform(j["url"]) == "jobot" for j in queue)
         if needs_jobot and config.get("jobot_email") and config.get("jobot_password"):
             print("Logging into Jobot…")
             await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
             await nap(1, 2)
+            # Step 1: email
             el = await _first_visible(page, "input[type='email'], input[name='email']")
             if el:
                 await human_type(page, el, config["jobot_email"])
+                await click_if_visible(
+                    page,
+                    "button[type='submit'], button:has-text('Continue'), "
+                    "button:has-text('Next'), button:has-text('Sign in')"
+                )
+                await nap(2, 3)
+            # Step 2: password (appears on next page or same page after email submit)
             el = await _first_visible(page, "input[type='password'], input[name='password']")
             if el:
                 await human_type(page, el, config["jobot_password"])
-            await click_if_visible(page, "button[type='submit']")
-            await nap(4, 6)
+                await click_if_visible(
+                    page,
+                    "button[type='submit'], button:has-text('Sign in'), "
+                    "button:has-text('Log in'), button:has-text('Continue')"
+                )
+                await nap(4, 6)
+            else:
+                print("  [Jobot] Could not find password field after email step")
 
         for job in queue:
             platform = detect_platform(job["url"])
