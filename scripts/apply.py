@@ -1375,28 +1375,46 @@ async def run(max_apply: int = 5):
             print("Logging into Jobot…")
             await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
             await nap(1, 2)
-            # Step 1: email
+            # Step 1: email — wait for field, fill, click Continue
+            try:
+                await page.wait_for_selector(
+                    "input[type='email'], input[name='email']", timeout=8000
+                )
+            except Exception:
+                print("  [Jobot] Email field not found")
             el = await _first_visible(page, "input[type='email'], input[name='email']")
             if el:
                 await human_type(page, el, config["jobot_email"])
-                await click_if_visible(
-                    page,
-                    "button[type='submit'], button:has-text('Continue'), "
-                    "button:has-text('Next'), button:has-text('Sign in')"
-                )
-                await nap(2, 3)
-            # Step 2: password (appears on next page or same page after email submit)
-            el = await _first_visible(page, "input[type='password'], input[name='password']")
-            if el:
-                await human_type(page, el, config["jobot_password"])
-                await click_if_visible(
-                    page,
-                    "button[type='submit'], button:has-text('Sign in'), "
-                    "button:has-text('Log in'), button:has-text('Continue')"
-                )
-                await nap(4, 6)
-            else:
-                print("  [Jobot] Could not find password field after email step")
+                # Click whatever the submit button is on this step
+                for btn_sel in [
+                    "button[type='submit']",
+                    "button:has-text('Continue')",
+                    "button:has-text('Next')",
+                    "button:has-text('Sign in')",
+                    "button:has-text('Log in')",
+                ]:
+                    if await click_if_visible(page, btn_sel):
+                        break
+                # Step 2: wait up to 10s for password field to appear (new page or same page)
+                try:
+                    await page.wait_for_selector("input[type='password']", timeout=10000)
+                    print("  [Jobot] Password field appeared")
+                except Exception:
+                    print("  [Jobot] Password field did not appear after email step")
+                el2 = await _first_visible(page, "input[type='password'], input[name='password']")
+                if el2:
+                    await human_type(page, el2, config["jobot_password"])
+                    for btn_sel in [
+                        "button[type='submit']",
+                        "button:has-text('Sign in')",
+                        "button:has-text('Log in')",
+                        "button:has-text('Continue')",
+                    ]:
+                        if await click_if_visible(page, btn_sel):
+                            break
+                    await nap(4, 6)
+                else:
+                    print("  [Jobot] Could not fill password")
 
         for job in queue:
             platform = detect_platform(job["url"])
