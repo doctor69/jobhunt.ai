@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Resume tailoring + cover-letter generation via Claude AI.
 Base resume is fetched live from https://leadtrade.app/doctor.
