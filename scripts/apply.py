@@ -1429,20 +1429,48 @@ async def run(max_apply: int = 5):
             print("Logging into Robert Half…")
             await page.goto("https://online.roberthalf.com/s/login", wait_until="domcontentloaded")
             await nap(3, 4)  # Salesforce Lightning SPA needs extra time
-            # Salesforce uses name="username" not name="email"
-            el = await _first_visible(
-                page,
-                "input[name='username'], input[type='email'], input[name='email']"
-            )
-            if el:
-                await human_type(page, el, config["roberthalf_email"])
-            else:
-                print("  [RobertHalf] Could not find email/username field — skipping login")
-            el = await _first_visible(page, "input[type='password'], input[name='password']")
-            if el:
-                await human_type(page, el, config["roberthalf_password"])
-            await click_if_visible(page, "button[type='submit'], input[type='submit']")
-            await nap(4, 6)
+
+            # Dismiss any acknowledgment / cookie / terms banner that blocks the form
+            for ack in [
+                "button:has-text('I understand')", "button:has-text('I Understand')",
+                "button:has-text('I Agree')", "button:has-text('Agree')",
+                "button:has-text('Accept')", "button:has-text('Accept All')",
+                "button:has-text('Got it')", "button:has-text('OK')",
+                "button:has-text('Continue')", "button:has-text('Acknowledge')",
+                "[class*='acknowledge'] button", "[id*='acknowledge'] button",
+                "[class*='cookie'] button[class*='accept']",
+            ]:
+                try:
+                    loc = page.locator(ack)
+                    if await loc.count() and await loc.first.is_visible():
+                        await loc.first.click()
+                        print(f"  [RobertHalf] Dismissed acknowledgment: {ack}")
+                        await nap(1, 2)
+                        break
+                except Exception:
+                    continue
+
+            # Give Salesforce SPA time to render the form whether or not
+            # an acknowledgment was shown (acknowledgment nap covers that case;
+            # this nap covers the case where no acknowledgment was present)
+            await nap(1, 2)
+
+            # Salesforce uses name="username"; fill directly (not a React app)
+            try:
+                await page.wait_for_selector(
+                    "input[name='username'], input[type='email'], input[name='email']",
+                    timeout=8000,
+                )
+                username_sel = "input[name='username'], input[type='email'], input[name='email']"
+                await page.locator(username_sel).first.fill(config["roberthalf_email"])
+                await page.locator("input[type='password'], input[name='password']").first.fill(
+                    config["roberthalf_password"]
+                )
+                await page.locator("button[type='submit'], input[type='submit']").first.click()
+                await nap(4, 6)
+                print(f"  [RobertHalf] Post-login URL: {page.url}")
+            except Exception as e:
+                print(f"  [RobertHalf] Login failed: {e}")
 
         # Jobot login — two-step: email page → submit → password page → submit
         needs_jobot = any(detect_platform(j["url"]) == "jobot" for j in queue)

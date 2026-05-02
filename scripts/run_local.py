@@ -112,18 +112,49 @@ async def test_login(platform: str):
                 return
             print(f"  Navigating to Robert Half login…")
             await page.goto("https://online.roberthalf.com/s/login", wait_until="domcontentloaded")
+            await nap(3, 4)  # Salesforce SPA needs extra render time
+
+            # Dismiss acknowledgment / cookie banner
+            for ack in [
+                "button:has-text('I understand')", "button:has-text('I Understand')",
+                "button:has-text('I Agree')", "button:has-text('Agree')",
+                "button:has-text('Accept')", "button:has-text('Accept All')",
+                "button:has-text('Got it')", "button:has-text('OK')",
+                "button:has-text('Continue')", "button:has-text('Acknowledge')",
+                "[class*='acknowledge'] button", "[id*='acknowledge'] button",
+            ]:
+                try:
+                    loc = page.locator(ack)
+                    if await loc.count() and await loc.first.is_visible():
+                        await loc.first.click()
+                        print(f"  Dismissed acknowledgment: {ack}")
+                        await nap(1, 2)
+                        break
+                except Exception:
+                    continue
+
+            # Ensure form is rendered whether or not an acknowledgment was shown
             await nap(1, 2)
-            el = await _first_visible(page, "input[type='email'], input[name='email']")
-            if el:
-                await human_type(page, el, config["roberthalf_email"])
-            el = await _first_visible(page, "input[type='password'], input[name='password']")
-            if el:
-                await human_type(page, el, config["roberthalf_password"])
-            print("  Fields filled — waiting 5s before clicking submit")
-            await asyncio.sleep(5)
-            await click_if_visible(page, "button[type='submit']")
-            await nap(4, 5)
-            print(f"  Post-login URL: {page.url}")
+
+            # Salesforce uses name="username"; fill directly (not React)
+            try:
+                await page.wait_for_selector(
+                    "input[name='username'], input[type='email'], input[name='email']",
+                    timeout=8000,
+                )
+                await page.locator(
+                    "input[name='username'], input[type='email'], input[name='email']"
+                ).first.fill(config["roberthalf_email"])
+                print(f"  Username filled")
+                await page.locator(
+                    "input[type='password'], input[name='password']"
+                ).first.fill(config["roberthalf_password"])
+                print(f"  Password filled — clicking submit")
+                await page.locator("button[type='submit'], input[type='submit']").first.click()
+                await nap(4, 5)
+                print(f"  Post-login URL: {page.url}")
+            except Exception as e:
+                print(f"  [!] Login failed: {e}")
 
         elif platform in ("jobot",):
             if not config.get("jobot_email"):
