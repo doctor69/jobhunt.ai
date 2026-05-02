@@ -1375,21 +1375,6 @@ async def run(max_apply: int = 5):
             print("Logging into Jobot…")
             await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
 
-            # Helper: set value on a React controlled input via native prototype setter
-            # then fire input+change events so React's state updates
-            async def react_fill(selector: str, value: str):
-                await page.wait_for_selector(selector, timeout=8000)
-                await page.evaluate("""([sel, val]) => {
-                    const el = document.querySelector(sel);
-                    if (!el) return;
-                    const setter = Object.getOwnPropertyDescriptor(
-                        window.HTMLInputElement.prototype, 'value'
-                    ).set;
-                    setter.call(el, val);
-                    el.dispatchEvent(new Event('input',  { bubbles: true }));
-                    el.dispatchEvent(new Event('change', { bubbles: true }));
-                }""", [selector, value])
-
             async def click_btn(*names):
                 for name in names:
                     try:
@@ -1402,8 +1387,9 @@ async def run(max_apply: int = 5):
 
             # Step 1: email
             try:
-                await react_fill("input[type='email']", config["jobot_email"])
-                await asyncio.sleep(0.3)
+                await page.wait_for_selector("input[type='email']", timeout=8000)
+                await page.locator("input[type='email']").first.click()
+                await page.keyboard.type(config["jobot_email"])
                 await click_btn("Continue", "Next", "Sign in", "Sign In", "Log in")
             except Exception as e:
                 print(f"  [Jobot] Email step failed: {e}")
