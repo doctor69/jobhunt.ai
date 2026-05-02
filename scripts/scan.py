@@ -395,7 +395,7 @@ def fetch_jobot(config: dict) -> list[dict]:
         return []
 
 
-async def _fetch_jobot_playwright(config: dict) -> list[dict]:
+async def _fetch_jobot_playwright(config: dict, headless: bool = True, slow_mo: int = 0) -> list[dict]:
     from playwright.async_api import async_playwright
 
     jobs = []
@@ -406,7 +406,9 @@ async def _fetch_jobot_playwright(config: dict) -> list[dict]:
 
     async with async_playwright() as pw:
         browser = await pw.chromium.launch(
-            args=["--no-sandbox", "--disable-dev-shm-usage"]
+            headless=headless,
+            slow_mo=slow_mo,
+            args=["--no-sandbox", "--disable-dev-shm-usage"],
         )
         ctx = await browser.new_context(
             user_agent=(

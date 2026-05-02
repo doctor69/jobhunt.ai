@@ -6,12 +6,14 @@ Loads credentials from .env, forces headless=False + slow_mo so you can
 watch every Playwright action in a real browser window and report issues.
 
 Usage:
-  python scripts/run_local.py                  # apply to up to 3 approved jobs
-  python scripts/run_local.py 1                # apply to 1 job
-  python scripts/run_local.py --url URL        # test a specific job URL
-  python scripts/run_local.py --platform zr    # test ZipRecruiter login only
-  python scripts/run_local.py --platform rh    # test RobertHalf login only
-  python scripts/run_local.py --platform jobot # test Jobot login only
+  python scripts/run_local.py                    # apply to up to 3 approved jobs
+  python scripts/run_local.py 1                  # apply to 1 job
+  python scripts/run_local.py --url URL          # test a specific job URL
+  python scripts/run_local.py --platform zr      # test ZipRecruiter login only
+  python scripts/run_local.py --platform rh      # test RobertHalf login only
+  python scripts/run_local.py --platform jobot   # test Jobot login only
+  python scripts/run_local.py --scan jobot       # scan Jobot jobs (headed, login visible)
+  python scripts/run_local.py --jobot-full       # scan + apply first matching Jobot job
 
 Requires: pip install python-dotenv playwright
           playwright install chromium
@@ -133,7 +135,6 @@ async def test_login(platform: str):
             await page.locator("input[type='email']").first.click()
             await page.locator("input[type='email']").first.type(config["jobot_email"], delay=30)
             print(f"  Email typed: {config['jobot_email']}")
-            # Submit email form
             submitted = False
             for sel in ["button[type='submit']", "button:has-text('Sign in')",
                         "button:has-text('Sign In')", "button:has-text('Continue')"]:
@@ -196,6 +197,12 @@ async def test_url(url: str):
     try:
         platform = detect_platform(url)
         print(f"  Detected platform: {platform}")
+
+        # For Jobot jobs, log in first so Easy Apply confirmation is available
+        if platform == "jobot" and config.get("jobot_email") and config.get("jobot_password"):
+            print("  Logging into Jobot before apply test…")
+            await _jobot_login(page, config)
+
         cover = "This is a test cover letter for local debugging."
         job = {
             "id": "local_test",
@@ -217,48 +224,196 @@ async def test_url(url: str):
         await pw.stop()
 
 
+async def _jobot_login(page, config):
+    """Two-step Jobot login — same flow confirmed working in testing."""
+    try:
+        await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
+        await page.wait_for_selector("input[type='email']", timeout=8000)
+        await page.locator("input[type='email']").first.click()
+        await page.locator("input[type='email']").first.type(config["jobot_email"], delay=30)
+        submitted = False
+        for sel in ["button[type='submit']", "button:has-text('Sign in')",
+                    "button:has-text('Sign In')", "button:has-text('Continue')"]:
+            try:
+                await page.locator(sel).first.click(timeout=2000)
+                submitted = True
+                break
+            except Exception:
+                continue
+        if not submitted:
+            await page.keyboard.press("Enter")
+
+        await page.wait_for_selector("input[type='password']", timeout=10000)
+        await page.locator("input[type='password']").first.click()
+        await page.locator("input[type='password']").first.type(config["jobot_password"], delay=30)
+        submitted = False
+        for sel in ["button[type='submit']", "button:has-text('Sign In')",
+                    "button:has-text('Sign in')", "button:has-text('Log in')"]:
+            try:
+                await page.locator(sel).first.click(timeout=2000)
+                submitted = True
+                break
+            except Exception:
+                continue
+        if not submitted:
+            await page.keyboard.press("Enter")
+
+        await asyncio.sleep(4)
+        print(f"  [Jobot] Logged in — URL: {page.url}")
+    except Exception as e:
+        print(f"  [Jobot] Login failed: {e}")
+
+
+async def test_jobot_scan():
+    """
+    Run the Jobot scanner with a headed visible browser so you can watch:
+      1. The two-step login (email → password)
+      2. The search results page loading
+      3. What jobs are found and printed to the console
+    """
+    import scan as _scan_module
+    from scan import _fetch_jobot_playwright
+
+    config = _scan_module.load_config()
+
+    if not config.get("jobot_email"):
+        print("[!] JOBOT_EMAIL not set in .env — will scan without login")
+
+    print(f"\n{'='*60}")
+    print("Jobot scan test (headed browser)")
+    print(f"{'='*60}")
+    print("Watch the browser window for login + search steps.\n")
+
+    jobs = await _fetch_jobot_playwright(config, headless=False, slow_mo=SLOW_MO)
+
+    print(f"\n{'='*60}")
+    print(f"Scan complete — {len(jobs)} job(s) found")
+    print(f"{'='*60}")
+    for i, j in enumerate(jobs[:10], 1):
+        print(f"  {i:>2}. [{j.get('score', '?')}] {j['title']} @ {j['company']}")
+        print(f"       {j['url']}")
+    if len(jobs) > 10:
+        print(f"  … and {len(jobs) - 10} more")
+
+    if jobs:
+        print(f"\nTo test applying to the first job, run:")
+        print(f"  python scripts/run_local.py --url \"{jobs[0]['url']}\"")
+
+    return jobs
+
+
+async def test_jobot_full():
+    """
+    Full end-to-end Jobot test:
+      1. Scan Jobot jobs (headed, login visible)
+      2. Score and filter them
+      3. Apply to the top-scoring job (headed, apply flow visible)
+    """
+    import scan as _scan_module
+    from scan import _fetch_jobot_playwright, score_job
+
+    config_scan = _scan_module.load_config()
+    config_apply = load_config()
+
+    print(f"\n{'='*60}")
+    print("Jobot full test: scan → score → apply (headed)")
+    print(f"{'='*60}\n")
+
+    # ── Step 1: Scan ─────────────────────────────────────────────────────────
+    print("Step 1/3 — Scanning Jobot for jobs (watch browser)…")
+    jobs = await _fetch_jobot_playwright(config_scan, headless=False, slow_mo=SLOW_MO)
+    if not jobs:
+        print("[!] No jobs found — check credentials and try again")
+        return
+
+    # ── Step 2: Score ─────────────────────────────────────────────────────────
+    print(f"\nStep 2/3 — Scoring {len(jobs)} job(s)…")
+    scored = []
+    for j in jobs:
+        j = score_job(j, config_scan)
+        if j["score"] >= config_scan.get("min_score", 30):
+            scored.append(j)
+    scored.sort(key=lambda x: -x["score"])
+
+    print(f"  {len(scored)} job(s) passed minimum score ({config_scan.get('min_score', 30)})")
+    for i, j in enumerate(scored[:5], 1):
+        print(f"  {i}. score={j['score']}  {j['title']} @ {j['company']}")
+        print(f"     {j['url']}")
+
+    if not scored:
+        print("[!] No jobs passed the score threshold — lower min_score in config.json")
+        return
+
+    top = scored[0]
+    print(f"\nStep 3/3 — Applying to: {top['title']} @ {top['company']}")
+    print(f"  URL: {top['url']}")
+    confirm = input("  Proceed with apply? [y/N] ").strip().lower()
+    if confirm != "y":
+        print("  Skipped.")
+        return
+
+    # ── Step 3: Apply ─────────────────────────────────────────────────────────
+    pw, browser, page, _ = await _launch()
+    try:
+        # Login first
+        if config_apply.get("jobot_email") and config_apply.get("jobot_password"):
+            print("  Logging in…")
+            await _jobot_login(page, config_apply)
+
+        from apply import apply_jobot, generate_cover_letter
+        cover = generate_cover_letter(top["title"], top.get("description", ""), top["company"])
+        result = await apply_jobot(page, top, cover, config_apply, None, 0)
+        print(f"\n  Apply result: {'SUCCESS' if result else 'FAILED'}")
+        print("\n[hold] Browser open — press Ctrl+C when done")
+        await asyncio.Event().wait()
+    except KeyboardInterrupt:
+        pass
+    finally:
+        await browser.close()
+        await pw.stop()
+
+
 async def run_jobs(max_apply: int):
     """Run the real apply loop with a headed visible browser."""
     print(f"\n{'='*60}")
     print(f"Running apply loop (headed) — max {max_apply} job(s)")
     print(f"{'='*60}\n")
 
-    # Temporarily force headless=False in config
-    original_run = _apply_module.run
+    import apply as _a
+    orig_load = _a.load_config
+    def patched_load():
+        cfg = orig_load()
+        cfg["headless"] = False
+        return cfg
+    _a.load_config = patched_load
 
-    async def headed_run(n):
-        # Monkey-patch slow_mo into the playwright launch inside run()
-        orig_launch = None
-        import playwright.async_api as _pw_api
-        orig_chromium_launch = None
-
-        # Patch config to force headless=False
-        cfg_backup = None
-        import apply as _a
-        orig_load = _a.load_config
-        def patched_load():
-            cfg = orig_load()
-            cfg["headless"] = False
-            return cfg
-        _a.load_config = patched_load
-
-        try:
-            await _a.run(n)
-        finally:
-            _a.load_config = orig_load
-
-    await headed_run(max_apply)
+    try:
+        await _a.run(max_apply)
+    finally:
+        _a.load_config = orig_load
 
 
 def main():
     parser = argparse.ArgumentParser(description="Local headed Playwright test runner")
     parser.add_argument("max_apply", nargs="?", type=int, default=3,
                         help="Max jobs to apply to (default: 3)")
-    parser.add_argument("--url", help="Test a specific job URL")
+    parser.add_argument("--url", help="Test apply at a specific job URL (Jobot URLs auto-login first)")
     parser.add_argument("--platform", help="Test login for a platform: zr | rh | jobot")
+    parser.add_argument("--scan", metavar="SOURCE",
+                        help="Run a scan source with headed browser (currently: jobot)")
+    parser.add_argument("--jobot-full", action="store_true",
+                        help="Full Jobot test: scan → score → confirm → apply")
     args = parser.parse_args()
 
-    if args.platform:
+    if args.scan:
+        src = args.scan.lower()
+        if src == "jobot":
+            asyncio.run(test_jobot_scan())
+        else:
+            print(f"[!] --scan only supports 'jobot' for now (got: {src})")
+    elif args.jobot_full:
+        asyncio.run(test_jobot_full())
+    elif args.platform:
         asyncio.run(test_login(args.platform))
     elif args.url:
         asyncio.run(test_url(args.url))
