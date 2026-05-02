@@ -1168,10 +1168,11 @@ async def apply_jobot(
     page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
     """
-    Jobot is a tech-focused recruiting platform.
-    When logged in, clicking Easy Apply opens a slide-in confirmation panel —
-    we click the confirm/apply button inside it.
-    If a full form appears instead, we fill it generically.
+    Jobot logged-in Easy Apply flow:
+      1. Click Easy Apply → application submitted immediately with saved profile
+      2. Elevator Pitch step appears — fill textarea with cover letter + click Submit
+      3. "Application Received" confirmation
+
     External ATS redirects are delegated to the appropriate handler.
     """
     print(f"  [Jobot] {job['title']} @ {job['company']}")
@@ -1202,8 +1203,42 @@ async def apply_jobot(
         handler = PLATFORM_HANDLERS.get(platform, apply_generic)
         return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
 
-    # Still on Jobot — try the logged-in Easy Apply confirmation panel first.
-    # Jobot shows a slide-in drawer/modal with profile pre-filled; we just confirm.
+    # ── Elevator Pitch step ───────────────────────────────────────────────────
+    # After Easy Apply the application is received; Jobot then asks for an
+    # Elevator Pitch (textarea + "Submit Elevator Pitch" button).
+    # We use the cover letter as the pitch — it's already job-tailored.
+    try:
+        await page.wait_for_selector(
+            "button:has-text('Submit Elevator Pitch')", timeout=6000
+        )
+        print("  [Jobot] Elevator Pitch step detected — filling…")
+
+        # Fill the pitch textarea
+        pitch_area = page.locator("textarea").first
+        if await pitch_area.count():
+            await pitch_area.click()
+            # Condense cover letter to ≤1000 chars — Jobot wants a concise pitch
+            pitch_text = cover_letter[:1000]
+            await pitch_area.fill(pitch_text)
+            await nap(1, 2)
+
+        await page.locator("button:has-text('Submit Elevator Pitch')").first.click()
+        await nap(2, 3)
+
+        # Confirm final "Application Received" state
+        if await page.locator(
+            ":has-text('Application Received'), :has-text('application received')"
+        ).count():
+            print("  [Jobot] Application Received — fully submitted!")
+            return True
+
+        print("  [Jobot] Elevator Pitch submitted — assuming success")
+        return True
+
+    except Exception:
+        pass  # no elevator pitch step — check for simpler confirmation below
+
+    # ── Simple confirmation panel (profile pre-filled, just confirm) ──────────
     for confirm_sel in [
         "button:has-text('Submit Application')",
         "button:has-text('Confirm Application')",
@@ -1213,7 +1248,6 @@ async def apply_jobot(
         "[class*='modal'] button:has-text('Apply')",
         "[class*='panel'] button:has-text('Apply')",
         "[class*='drawer'] button:has-text('Apply')",
-        "[class*='slide'] button:has-text('Apply')",
         "[class*='apply-panel'] button",
     ]:
         loc = page.locator(confirm_sel)
@@ -1221,22 +1255,20 @@ async def apply_jobot(
             await loc.first.wait_for(state="visible", timeout=2000)
             await loc.first.click()
             await nap(2, 3)
-            # Check for explicit success indicators
             for ok_sel in [
-                ":has-text('Application Submitted')", ":has-text('Successfully Applied')",
-                ":has-text('Applied!')", ":has-text('Application sent')",
+                ":has-text('Application Received')", ":has-text('Application Submitted')",
+                ":has-text('Successfully Applied')", ":has-text('Applied!')",
                 ":has-text('Thank you')",
             ]:
                 if await page.locator(ok_sel).count():
-                    print("  [Jobot] Easy Apply confirmed — application submitted!")
+                    print("  [Jobot] Application submitted!")
                     return True
-            # No explicit success text but button was clicked — assume submitted
             print("  [Jobot] Confirmation clicked — assuming submitted")
             return True
         except Exception:
             continue
 
-    # Confirmation panel not found — fall back to generic form filling
+    # Fallback to generic form filling
     success = await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
     if success:
         print("  [Jobot] Submitted!")
