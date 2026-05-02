@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Job scanner — fetches jobs from multiple free APIs, scores them against
 keywords in config.json, and writes results to data/jobs.json.
