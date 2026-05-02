@@ -1168,20 +1168,24 @@ async def apply_jobot(
     page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
     """
-    Jobot is a tech-focused recruiting platform. Jobs either have an inline
-    Easy Apply form or redirect to the employer's ATS (Greenhouse, Lever, etc.).
+    Jobot is a tech-focused recruiting platform.
+    When logged in, clicking Easy Apply opens a slide-in confirmation panel —
+    we click the confirm/apply button inside it.
+    If a full form appears instead, we fill it generically.
+    External ATS redirects are delegated to the appropriate handler.
     """
     print(f"  [Jobot] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
     await nap(2, 4)
 
-    if not await click_if_visible(
+    apply_clicked = await click_if_visible(
         page,
         "button:has-text('Easy Apply'), a:has-text('Easy Apply'), "
         "button:has-text('Apply Now'), a:has-text('Apply Now'), "
         "button:has-text('Apply'), a:has-text('Apply')",
-    ):
-        print("  [Jobot] No apply button — trying inline")
+    )
+    if not apply_clicked:
+        print("  [Jobot] No apply button — trying inline form")
         return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
 
     await nap(2, 3)
@@ -1193,12 +1197,46 @@ async def apply_jobot(
         handler = PLATFORM_HANDLERS.get(platform, apply_generic)
         return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
 
-    # Still on Jobot — fill their own form
+    # Still on Jobot — try the logged-in Easy Apply confirmation panel first.
+    # Jobot shows a slide-in drawer/modal with profile pre-filled; we just confirm.
+    for confirm_sel in [
+        "button:has-text('Submit Application')",
+        "button:has-text('Confirm Application')",
+        "button:has-text('Confirm Apply')",
+        "button:has-text('Confirm')",
+        "[role='dialog'] button:has-text('Apply')",
+        "[class*='modal'] button:has-text('Apply')",
+        "[class*='panel'] button:has-text('Apply')",
+        "[class*='drawer'] button:has-text('Apply')",
+        "[class*='slide'] button:has-text('Apply')",
+        "[class*='apply-panel'] button",
+    ]:
+        loc = page.locator(confirm_sel)
+        try:
+            await loc.first.wait_for(state="visible", timeout=2000)
+            await loc.first.click()
+            await nap(2, 3)
+            # Check for explicit success indicators
+            for ok_sel in [
+                ":has-text('Application Submitted')", ":has-text('Successfully Applied')",
+                ":has-text('Applied!')", ":has-text('Application sent')",
+                ":has-text('Thank you')",
+            ]:
+                if await page.locator(ok_sel).count():
+                    print("  [Jobot] Easy Apply confirmed — application submitted!")
+                    return True
+            # No explicit success text but button was clicked — assume submitted
+            print("  [Jobot] Confirmation clicked — assuming submitted")
+            return True
+        except Exception:
+            continue
+
+    # Confirmation panel not found — fall back to generic form filling
     success = await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
     if success:
-        print(f"  [Jobot] Submitted!")
+        print("  [Jobot] Submitted!")
     else:
-        print(f"  [Jobot] Form found but could not submit")
+        print("  [Jobot] Form found but could not submit")
     return success
 
 
