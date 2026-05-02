@@ -18,11 +18,16 @@ Credentials come from environment variables (set as GitHub Secrets):
 """
 
 import asyncio
+import email as _email_lib
+import imaplib
 import json
 import os
 import random
+import re
 import sys
+import time
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -100,6 +105,68 @@ async def human_type(page: Page, selector, text: str):
 
 async def nap(lo=1.0, hi=3.0):
     await asyncio.sleep(random.uniform(lo, hi))
+
+
+# ── Outlook IMAP 2FA helper ───────────────────────────────────────────────────
+
+def _extract_email_body(msg) -> str:
+    body = ""
+    if msg.is_multipart():
+        for part in msg.walk():
+            if part.get_content_type() in ("text/plain", "text/html"):
+                try:
+                    body += part.get_payload(decode=True).decode("utf-8", errors="ignore")
+                except Exception:
+                    pass
+    else:
+        try:
+            body = msg.get_payload(decode=True).decode("utf-8", errors="ignore")
+        except Exception:
+            pass
+    return body
+
+
+def fetch_rh_verification_code(
+    imap_user: str,
+    imap_password: str,
+    min_timestamp: float,
+    timeout: int = 60,
+) -> str | None:
+    """Poll Outlook IMAP for a Robert Half 2FA code sent after min_timestamp."""
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        try:
+            mail = imaplib.IMAP4_SSL("outlook.office365.com", 993)
+            mail.login(imap_user, imap_password)
+            mail.select("INBOX")
+            _, msg_ids = mail.search(None, 'FROM "roberthalf"')
+            if msg_ids and msg_ids[0]:
+                for msg_id in reversed(msg_ids[0].split()):
+                    _, msg_data = mail.fetch(msg_id, "(RFC822)")
+                    if not msg_data or not msg_data[0]:
+                        continue
+                    raw = msg_data[0][1]
+                    msg = _email_lib.message_from_bytes(raw)
+                    try:
+                        msg_ts = parsedate_to_datetime(msg.get("Date", "")).timestamp()
+                        if msg_ts < min_timestamp - 30:
+                            continue
+                    except Exception:
+                        pass
+                    match = re.search(r'\b(\d{6})\b', _extract_email_body(msg))
+                    if match:
+                        mail.logout()
+                        return match.group(1)
+            mail.logout()
+        except Exception as e:
+            print(f"  [RobertHalf] IMAP error: {e}", file=sys.stderr)
+        remaining = deadline - time.time()
+        if remaining > 0:
+            time.sleep(min(5, remaining))
+    return None
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 
 
 async def click_if_visible(page: Page, selector: str) -> bool:
@@ -1430,45 +1497,121 @@ async def run(max_apply: int = 5):
             await page.goto("https://online.roberthalf.com/s/login", wait_until="domcontentloaded")
             await nap(3, 4)  # Salesforce Lightning SPA needs extra time
 
-            # Dismiss any acknowledgment / cookie / terms banner that blocks the form
-            for ack in [
-                "button:has-text('I understand')", "button:has-text('I Understand')",
-                "button:has-text('I Agree')", "button:has-text('Agree')",
-                "button:has-text('Accept')", "button:has-text('Accept All')",
-                "button:has-text('Got it')", "button:has-text('OK')",
-                "button:has-text('Continue')", "button:has-text('Acknowledge')",
+            # Wait up to 6 s for any consent/ACK dialog, then force-click it.
+            # The button may be in DOM but not "visible" per Playwright (MDC pattern).
+            ACK_SELECTORS = [
+                "button:has-text('I Understand')", "button:has-text('I understand')",
+                "button:has-text('I Accept')", "button:has-text('I Agree')",
+                "button:has-text('Agree')", "button:has-text('Accept All')",
+                "button:has-text('Accept')", "button:has-text('Got it')",
+                "button:has-text('OK')", "button:has-text('Continue')",
+                "button:has-text('Acknowledge')",
                 "[class*='acknowledge'] button", "[id*='acknowledge'] button",
-                "[class*='cookie'] button[class*='accept']",
-            ]:
-                try:
-                    loc = page.locator(ack)
-                    if await loc.count() and await loc.first.is_visible():
-                        await loc.first.click()
-                        print(f"  [RobertHalf] Dismissed acknowledgment: {ack}")
-                        await nap(1, 2)
-                        break
-                except Exception:
-                    continue
-
-            # Give Salesforce SPA time to render the form whether or not
-            # an acknowledgment was shown (acknowledgment nap covers that case;
-            # this nap covers the case where no acknowledgment was present)
-            await nap(1, 2)
-
-            # Salesforce uses name="username"; fill directly (not a React app)
+                "[class*='consent'] button", "[id*='consent'] button",
+                "[class*='cookie'] button",
+            ]
             try:
-                await page.wait_for_selector(
-                    "input[name='username'], input[type='email'], input[name='email']",
-                    timeout=8000,
-                )
-                username_sel = "input[name='username'], input[type='email'], input[name='email']"
-                await page.locator(username_sel).first.fill(config["roberthalf_email"])
-                await page.locator("input[type='password'], input[name='password']").first.fill(
-                    config["roberthalf_password"]
-                )
-                await page.locator("button[type='submit'], input[type='submit']").first.click()
+                await page.wait_for_selector(", ".join(ACK_SELECTORS), timeout=6000, state="attached")
+                for ack in ACK_SELECTORS:
+                    try:
+                        loc = page.locator(ack)
+                        if await loc.count():
+                            await loc.first.click(force=True, timeout=3000)
+                            print(f"  [RobertHalf] Dismissed acknowledgment: {ack}")
+                            await nap(1, 2)
+                            break
+                    except Exception:
+                        continue
+            except Exception:
+                print("  [RobertHalf] No acknowledgment dialog detected — proceeding.")
+
+            # After ACK dismissal the SPA does a route transition; wait for it.
+            try:
+                await page.wait_for_load_state("domcontentloaded", timeout=10000)
+            except Exception:
+                pass
+            await nap(2, 3)
+
+            EMAIL_SEL = "input[name='username'], input[type='email'], input[name='email']"
+            PASS_SEL  = "input[type='password'], input[name='password']"
+
+            try:
+                # MDC hides the raw <input>; wait for DOM attachment, not visibility.
+                await page.wait_for_selector(EMAIL_SEL, timeout=10000, state="attached")
+                # Activate MDC wrapper with a real click so its state machine opens,
+                # then type via keyboard so React/MDC events fire correctly.
+                try:
+                    await page.locator(".mdc-text-field").first.click(timeout=3000)
+                except Exception:
+                    await page.locator(EMAIL_SEL).first.click(force=True)
+                await page.keyboard.type(config["roberthalf_email"], delay=50)
+                await nap(0.5, 1)
+
+                try:
+                    await page.locator(".mdc-text-field").nth(1).click(timeout=3000)
+                except Exception:
+                    await page.locator(PASS_SEL).first.click(force=True)
+                await page.keyboard.type(config["roberthalf_password"], delay=50)
+                await nap(0.5, 1)
+
+                submit_time = time.time()
+                submit = page.locator("button[type='submit'], input[type='submit']")
+                try:
+                    await submit.first.click(timeout=5000)
+                except Exception:
+                    await submit.first.click(force=True)
                 await nap(4, 6)
-                print(f"  [RobertHalf] Post-login URL: {page.url}")
+                print(f"  [RobertHalf] Post-submit URL: {page.url}")
+
+                # ── 2FA / verification code ───────────────────────────────────
+                MFA_SEL = (
+                    "input[name*='code' i], input[name*='otp' i], "
+                    "input[name*='token' i], input[name*='verify' i], "
+                    "input[name*='mfa' i], input[placeholder*='code' i], "
+                    "input[placeholder*='verification' i], "
+                    "input[type='number'][maxlength='6'], "
+                    "input[type='text'][maxlength='6']"
+                )
+                try:
+                    await page.wait_for_selector(MFA_SEL, timeout=8000, state="attached")
+                    print("  [RobertHalf] 2FA screen detected — fetching code from Outlook IMAP…")
+                    imap_pass = os.environ.get("OUTLOOK_APP_PASSWORD", "")
+                    if not imap_pass:
+                        print("  [RobertHalf] OUTLOOK_APP_PASSWORD not set — cannot complete 2FA")
+                    else:
+                        code = await asyncio.to_thread(
+                            fetch_rh_verification_code,
+                            config["roberthalf_email"], imap_pass, submit_time,
+                        )
+                        if code:
+                            print(f"  [RobertHalf] Verification code received: {code}")
+                            try:
+                                await page.locator(MFA_SEL).first.click(force=True)
+                            except Exception:
+                                pass
+                            await page.keyboard.type(code, delay=100)
+                            await nap(0.5, 1)
+                            submitted_mfa = False
+                            for sel in [
+                                "button[type='submit']", "input[type='submit']",
+                                "button:has-text('Verify')", "button:has-text('Submit')",
+                                "button:has-text('Continue')", "button:has-text('Confirm')",
+                            ]:
+                                try:
+                                    await page.locator(sel).first.click(timeout=3000)
+                                    submitted_mfa = True
+                                    break
+                                except Exception:
+                                    continue
+                            if not submitted_mfa:
+                                await page.keyboard.press("Enter")
+                            await nap(3, 4)
+                            print(f"  [RobertHalf] Post-2FA URL: {page.url}")
+                        else:
+                            print("  [RobertHalf] Timed out — no verification code received within 60 s")
+                except Exception:
+                    print(f"  [RobertHalf] No 2FA screen — treating as successful login")
+
             except Exception as e:
                 print(f"  [RobertHalf] Login failed: {e}")
 
