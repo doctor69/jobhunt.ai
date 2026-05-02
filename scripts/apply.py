@@ -1408,12 +1408,12 @@ async def run(max_apply: int = 5):
             except Exception as e:
                 print(f"  [Jobot] Email step failed: {e}")
 
-            # Step 2: wait for password page, fill, submit
+            # Step 2: wait for password page, click field, type, submit
             try:
                 await page.wait_for_selector("input[type='password']", timeout=10000)
                 print("  [Jobot] Password field appeared — filling…")
-                await react_fill("input[type='password']", config["jobot_password"])
-                await asyncio.sleep(0.3)
+                await page.locator("input[type='password']").first.click()
+                await page.keyboard.type(config["jobot_password"])
                 await click_btn("Sign In", "Sign in", "Log in", "Continue")
                 await nap(4, 6)
                 print(f"  [Jobot] Post-login URL: {page.url}")
