@@ -130,8 +130,9 @@ async def test_login(platform: str):
             print("  Navigating to Jobot login (step 1: email)…")
             await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
             await page.wait_for_selector("input[type='email']", timeout=8000)
-            await page.locator("input[type='email']").first.fill(config["jobot_email"])
-            print(f"  Email filled: {config['jobot_email']}")
+            await page.locator("input[type='email']").first.click()
+            await page.locator("input[type='email']").first.type(config["jobot_email"], delay=30)
+            print(f"  Email typed: {config['jobot_email']}")
             # Submit email form
             submitted = False
             for sel in ["button[type='submit']", "button:has-text('Sign in')",
@@ -151,9 +152,10 @@ async def test_login(platform: str):
             print("  Waiting for password page…")
             await page.wait_for_selector("input[type='password']", timeout=10000)
             print(f"  Password page URL: {page.url}")
-            await page.locator("input[type='password']").first.fill(config["jobot_password"])
+            await page.locator("input[type='password']").first.click()
+            await page.locator("input[type='password']").first.type(config["jobot_password"], delay=30)
             val = await page.locator("input[type='password']").first.input_value()
-            print(f"  Password field length after fill: {len(val)}")
+            print(f"  Password field length after type: {len(val)}")
             submitted = False
             for sel in ["button[type='submit']", "button:has-text('Sign In')",
                         "button:has-text('Sign in')", "button:has-text('Log in')"]:

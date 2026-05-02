@@ -1379,8 +1379,9 @@ async def run(max_apply: int = 5):
             try:
                 print("  [Jobot] Waiting for email field…")
                 await page.wait_for_selector("input[type='email']", timeout=8000)
-                await page.locator("input[type='email']").first.fill(config["jobot_email"])
-                print(f"  [Jobot] Email filled — clicking submit…")
+                await page.locator("input[type='email']").first.click()
+                await page.locator("input[type='email']").first.type(config["jobot_email"], delay=30)
+                print(f"  [Jobot] Email typed — clicking submit…")
                 # Click the submit button directly; fall back to Enter
                 submitted = False
                 for sel in ["button[type='submit']", "button:has-text('Sign in')",
@@ -1403,10 +1404,10 @@ async def run(max_apply: int = 5):
                 print("  [Jobot] Waiting for password field…")
                 await page.wait_for_selector("input[type='password']", timeout=10000)
                 print("  [Jobot] Password field found — filling…")
-                await page.locator("input[type='password']").first.fill(config["jobot_password"])
-                # Confirm value was accepted
+                await page.locator("input[type='password']").first.click()
+                await page.locator("input[type='password']").first.type(config["jobot_password"], delay=30)
                 val = await page.locator("input[type='password']").first.input_value()
-                print(f"  [Jobot] Password field value length after fill: {len(val)}")
+                print(f"  [Jobot] Password field length after type: {len(val)}")
                 print("  [Jobot] Clicking Sign In…")
                 submitted = False
                 for sel in ["button[type='submit']", "button:has-text('Sign In')",
