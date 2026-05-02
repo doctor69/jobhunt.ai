@@ -1387,19 +1387,21 @@ async def run(max_apply: int = 5):
 
             # Step 1: email
             try:
-                await page.wait_for_selector("input[type='email']", timeout=8000)
-                await page.locator("input[type='email']").first.click()
-                await page.keyboard.type(config["jobot_email"])
+                email_loc = page.locator("input[type='email']")
+                await email_loc.first.wait_for(state="visible", timeout=8000)
+                await email_loc.first.click()
+                await email_loc.first.type(config["jobot_email"], delay=50)
                 await click_btn("Continue", "Next", "Sign in", "Sign In", "Log in")
             except Exception as e:
                 print(f"  [Jobot] Email step failed: {e}")
 
-            # Step 2: wait for password page, click field, type, submit
+            # Step 2: wait for password page, type directly on the locator, submit
             try:
-                await page.wait_for_selector("input[type='password']", timeout=10000)
+                pwd_loc = page.locator("input[type='password']")
+                await pwd_loc.first.wait_for(state="visible", timeout=10000)
                 print("  [Jobot] Password field appeared — filling…")
-                await page.locator("input[type='password']").first.click()
-                await page.keyboard.type(config["jobot_password"])
+                await pwd_loc.first.click()
+                await pwd_loc.first.type(config["jobot_password"], delay=50)
                 await click_btn("Sign In", "Sign in", "Log in", "Continue")
                 await nap(4, 6)
                 print(f"  [Jobot] Post-login URL: {page.url}")
