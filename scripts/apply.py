@@ -1374,39 +1374,47 @@ async def run(max_apply: int = 5):
         if needs_jobot and config.get("jobot_email") and config.get("jobot_password"):
             print("Logging into Jobot…")
             await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
-            # Step 1: email — fill directly, press Enter (most reliable for React inputs)
-            try:
-                await page.wait_for_selector("input[type='email']", timeout=8000)
-                await page.locator("input[type='email']").first.fill(config["jobot_email"])
-                # Try button click first, fall back to Enter key
-                clicked = False
-                for name in ["Continue", "Next", "Sign in", "Sign In", "Log in"]:
+
+            # Helper: set value on a React controlled input via native prototype setter
+            # then fire input+change events so React's state updates
+            async def react_fill(selector: str, value: str):
+                await page.wait_for_selector(selector, timeout=8000)
+                await page.evaluate("""([sel, val]) => {
+                    const el = document.querySelector(sel);
+                    if (!el) return;
+                    const setter = Object.getOwnPropertyDescriptor(
+                        window.HTMLInputElement.prototype, 'value'
+                    ).set;
+                    setter.call(el, val);
+                    el.dispatchEvent(new Event('input',  { bubbles: true }));
+                    el.dispatchEvent(new Event('change', { bubbles: true }));
+                }""", [selector, value])
+
+            async def click_btn(*names):
+                for name in names:
                     try:
-                        await page.get_by_role("button", name=name).click(timeout=2000)
-                        clicked = True
-                        break
+                        await page.get_by_role("button", name=name, exact=False).click(timeout=2000)
+                        return True
                     except Exception:
                         continue
-                if not clicked:
-                    await page.keyboard.press("Enter")
+                await page.keyboard.press("Enter")
+                return False
+
+            # Step 1: email
+            try:
+                await react_fill("input[type='email']", config["jobot_email"])
+                await asyncio.sleep(0.3)
+                await click_btn("Continue", "Next", "Sign in", "Sign In", "Log in")
             except Exception as e:
                 print(f"  [Jobot] Email step failed: {e}")
 
-            # Step 2: wait for password field, fill directly, submit
+            # Step 2: wait for password page, fill, submit
             try:
                 await page.wait_for_selector("input[type='password']", timeout=10000)
                 print("  [Jobot] Password field appeared — filling…")
-                await page.locator("input[type='password']").first.fill(config["jobot_password"])
-                clicked = False
-                for name in ["Sign In", "Sign in", "Log in", "Continue"]:
-                    try:
-                        await page.get_by_role("button", name=name).click(timeout=2000)
-                        clicked = True
-                        break
-                    except Exception:
-                        continue
-                if not clicked:
-                    await page.keyboard.press("Enter")
+                await react_fill("input[type='password']", config["jobot_password"])
+                await asyncio.sleep(0.3)
+                await click_btn("Sign In", "Sign in", "Log in", "Continue")
                 await nap(4, 6)
                 print(f"  [Jobot] Post-login URL: {page.url}")
             except Exception as e:
