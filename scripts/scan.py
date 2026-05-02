@@ -470,149 +470,94 @@ async def _fetch_jobot_playwright(config: dict, headless: bool = True, slow_mo: 
                 print(f"[jobot] Login failed (continuing unauthenticated): {e}", file=sys.stderr)
 
         # ── Search ────────────────────────────────────────────────────────────
+        # Use a short, clean query — Jobot fails to match long keyword strings
+        short_query = (keywords[0] if keywords else "senior software engineer").replace(" ", "+")
         try:
-            search_url = (
-                f"https://jobot.com/search"
-                f"?q={query.replace(' ', '+')}&l=Remote"
-            )
+            search_url = f"https://jobot.com/search?q={short_query}&l=Remote"
             await page.goto(search_url, wait_until="domcontentloaded", timeout=30000)
 
-            # Wait for job detail links to appear (client-side API populates them)
+            # Jobot renders job cards as links with &j=<id> in the search URL.
+            # Wait for those to appear (populated by a client-side API call).
             print(f"[jobot] Waiting for job results to load…", file=sys.stderr)
             try:
-                await page.wait_for_selector("a[href*='/details/']", timeout=15000)
+                await page.wait_for_selector("a[href*='&j=']", timeout=15000)
             except Exception:
-                print(f"[jobot] Timed out waiting for job links — page title: {await page.title()}", file=sys.stderr)
+                print(f"[jobot] Timed out — page: {page.url}", file=sys.stderr)
 
-            # Brief extra pause for any lazy-loaded cards
-            await asyncio.sleep(2)
+            await asyncio.sleep(1)
 
-            # Debug: print all unique href patterns so we can identify the right selector
-            all_hrefs = await page.evaluate(
-                "() => [...new Set([...document.querySelectorAll('a[href]')]"
-                ".map(a => a.getAttribute('href'))"
-                ".filter(h => h && !h.startsWith('#') && !h.startsWith('mailto')))].slice(0, 40)"
-            )
-            print(f"[jobot:debug] Page URL: {page.url}", file=sys.stderr)
-            print(f"[jobot:debug] Sample hrefs on page:", file=sys.stderr)
-            for h in all_hrefs:
-                print(f"  {h}", file=sys.stderr)
+            # Scrape all job-card links (?…&j=<id>)
+            from urllib.parse import urlparse, parse_qs
+            links = await page.locator("a[href*='&j=']").all()
+            seen_ids: set[str] = set()
 
-            # ── Strategy 1: __NEXT_DATA__ (server-rendered job list) ──────────
-            content = await page.content()
-            m = _re.search(
-                r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', content, _re.S
-            )
-            if m:
-                data = json.loads(m.group(1))
-                # Try several known paths where Jobot may embed the job list
-                listings = (
-                    data.get("props", {}).get("pageProps", {}).get("jobList", {}).get("jobs", [])
-                    or data.get("props", {}).get("pageProps", {}).get("jobs", [])
-                    or data.get("props", {}).get("pageProps", {}).get("initialJobs", [])
-                    or []
-                )
-                for item in listings:
-                    jid = str(item.get("id", ""))
-                    if not jid:
+            for link in links:
+                try:
+                    href = (await link.get_attribute("href") or "").strip()
+                    if not href:
                         continue
-                    slug = item.get("slug", jid)
-                    company_raw = item.get("company", "Unknown")
-                    company = (
-                        company_raw.get("name", "Unknown")
-                        if isinstance(company_raw, dict)
-                        else company_raw
+                    full_href = f"https://jobot.com{href}" if href.startswith("/") else href
+
+                    # Extract job id from the j= param
+                    qs = parse_qs(urlparse(full_href).query)
+                    jid = (qs.get("j") or [""])[0]
+                    if not jid or jid in seen_ids:
+                        continue
+                    seen_ids.add(jid)
+
+                    # Title comes from the link text or nearest heading in its card
+                    title = (await link.inner_text()).strip()
+                    if not title or len(title) < 3:
+                        for h_sel in ["h1", "h2", "h3", "h4"]:
+                            h_el = link.locator(f"xpath=ancestor::*[1]//{h_sel}")
+                            if await h_el.count():
+                                title = (await h_el.first.inner_text()).strip()
+                                break
+
+                    # Company / location from sibling elements inside the card
+                    card = link.locator(
+                        "xpath=ancestor::*["
+                        "contains(@class,'card') or contains(@class,'job') or "
+                        "contains(@class,'item') or contains(@class,'result') or "
+                        "contains(@class,'listing')][1]"
                     )
+                    company, location = "Unknown", "Remote"
+                    if await card.count():
+                        for co_sel in ["[class*='company']", "[class*='employer']", "span", "p"]:
+                            el = card.locator(co_sel)
+                            if await el.count():
+                                txt = (await el.first.inner_text()).strip()
+                                if txt and txt != title and len(txt) < 80:
+                                    company = txt
+                                    break
+                        for loc_sel in ["[class*='location']", "[class*='city']", "[class*='remote']"]:
+                            el = card.locator(loc_sel)
+                            if await el.count():
+                                location = (await el.first.inner_text()).strip()
+                                break
+
+                    if not title:
+                        continue
+
                     jobs.append({
                         "id": f"jobot_{jid}",
-                        "title": item.get("title", ""),
+                        "title": title,
                         "company": company,
-                        "location": item.get("location", "Remote"),
-                        "description": (item.get("description") or "")[:3000],
-                        "url": f"https://jobot.com/details/{slug}/{jid}",
+                        "location": location,
+                        "description": "",
+                        "url": full_href,
                         "tags": "",
-                        "salary_min": item.get("salaryMin") or item.get("salary_min"),
-                        "salary_max": item.get("salaryMax") or item.get("salary_max"),
-                        "posted_at": item.get("postedDate", item.get("created_at", "")),
+                        "salary_min": None,
+                        "salary_max": None,
+                        "posted_at": "",
                         "source": "jobot",
                         "status": "new",
                         "found_at": datetime.now(timezone.utc).isoformat(),
                     })
-                if jobs:
-                    print(f"[jobot] {len(jobs)} jobs via __NEXT_DATA__", file=sys.stderr)
+                except Exception:
+                    continue
 
-            # ── Strategy 2: scrape all /details/ links from the live DOM ──────
-            # Reliable regardless of class names — job cards always link to /details/<slug>/<id>
-            if not jobs:
-                links = await page.locator("a[href*='/details/']").all()
-                seen_ids: set[str] = set()
-                for link in links:
-                    try:
-                        href = (await link.get_attribute("href") or "").strip()
-                        if not href:
-                            continue
-                        if not href.startswith("http"):
-                            href = "https://jobot.com" + href
-
-                        # Extract job id from URL: /details/<slug>/<id>
-                        parts = href.rstrip("/").split("/")
-                        jid = parts[-1] if parts else ""
-                        if not jid or jid in seen_ids:
-                            continue
-                        seen_ids.add(jid)
-
-                        # Title: text of the link itself, or nearest heading in parent
-                        title = (await link.inner_text()).strip()
-                        if not title or len(title) < 3:
-                            parent = link.locator("xpath=..")
-                            for heading_sel in ["h1", "h2", "h3", "h4"]:
-                                h = parent.locator(heading_sel)
-                                if await h.count():
-                                    title = (await h.first.inner_text()).strip()
-                                    break
-
-                        # Company / location: siblings in the same card container
-                        card = link.locator("xpath=ancestor::*[contains(@class,'card') or contains(@class,'job') or contains(@class,'item') or contains(@class,'result')][1]")
-                        company = "Unknown"
-                        location = "Remote"
-                        if await card.count():
-                            for co_sel in [
-                                "[class*='company']", "[class*='employer']",
-                                "span:nth-child(2)", "p:first-child",
-                            ]:
-                                el = card.locator(co_sel)
-                                if await el.count():
-                                    txt = (await el.first.inner_text()).strip()
-                                    if txt and txt != title:
-                                        company = txt
-                                        break
-                            for loc_sel in ["[class*='location']", "[class*='city']", "[class*='remote']"]:
-                                el = card.locator(loc_sel)
-                                if await el.count():
-                                    location = (await el.first.inner_text()).strip()
-                                    break
-
-                        if not title:
-                            continue
-
-                        jobs.append({
-                            "id": f"jobot_{jid}",
-                            "title": title,
-                            "company": company,
-                            "location": location,
-                            "description": "",
-                            "url": href,
-                            "tags": "",
-                            "salary_min": None,
-                            "salary_max": None,
-                            "posted_at": "",
-                            "source": "jobot",
-                            "status": "new",
-                            "found_at": datetime.now(timezone.utc).isoformat(),
-                        })
-                    except Exception:
-                        continue
-                print(f"[jobot] {len(jobs)} jobs via /details/ link scraping", file=sys.stderr)
+            print(f"[jobot] {len(jobs)} jobs found", file=sys.stderr)
 
         except Exception as e:
             print(f"[jobot] Search failed: {e}", file=sys.stderr)

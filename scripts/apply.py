@@ -1178,6 +1178,11 @@ async def apply_jobot(
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
     await nap(2, 4)
 
+    # If this is a search-results URL with &j=<id>, the job detail panel loads
+    # on the right side — give it a moment to render
+    if "jobot.com/search" in page.url and "&j=" in page.url:
+        await nap(1, 2)
+
     apply_clicked = await click_if_visible(
         page,
         "button:has-text('Easy Apply'), a:has-text('Easy Apply'), "
