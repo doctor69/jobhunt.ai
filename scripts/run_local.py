@@ -52,7 +52,7 @@ from apply import (
 )
 from playwright.async_api import async_playwright
 
-SLOW_MO = 600  # ms between each Playwright action — set to 0 to speed up
+SLOW_MO = 200  # ms between each Playwright action — set to 0 to speed up
 
 
 async def _launch(headless=False):

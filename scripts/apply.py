@@ -1375,34 +1375,52 @@ async def run(max_apply: int = 5):
             print("Logging into Jobot…")
             await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
 
-            async def click_btn(*names):
-                for name in names:
-                    try:
-                        await page.get_by_role("button", name=name, exact=False).click(timeout=2000)
-                        return True
-                    except Exception:
-                        continue
-                await page.keyboard.press("Enter")
-                return False
-
             # Step 1: email
             try:
-                email_loc = page.locator("input[type='email']")
-                await email_loc.first.wait_for(state="visible", timeout=8000)
-                await email_loc.first.click()
-                await email_loc.first.type(config["jobot_email"], delay=50)
-                await click_btn("Continue", "Next", "Sign in", "Sign In", "Log in")
+                print("  [Jobot] Waiting for email field…")
+                await page.wait_for_selector("input[type='email']", timeout=8000)
+                await page.locator("input[type='email']").first.fill(config["jobot_email"])
+                print(f"  [Jobot] Email filled — clicking submit…")
+                # Click the submit button directly; fall back to Enter
+                submitted = False
+                for sel in ["button[type='submit']", "button:has-text('Sign in')",
+                             "button:has-text('Sign In')", "button:has-text('Continue')"]:
+                    try:
+                        await page.locator(sel).first.click(timeout=2000)
+                        submitted = True
+                        print(f"  [Jobot] Clicked: {sel}")
+                        break
+                    except Exception:
+                        continue
+                if not submitted:
+                    await page.keyboard.press("Enter")
+                    print("  [Jobot] Pressed Enter to submit email")
             except Exception as e:
                 print(f"  [Jobot] Email step failed: {e}")
 
-            # Step 2: wait for password page, type directly on the locator, submit
+            # Step 2: password page
             try:
-                pwd_loc = page.locator("input[type='password']")
-                await pwd_loc.first.wait_for(state="visible", timeout=10000)
-                print("  [Jobot] Password field appeared — filling…")
-                await pwd_loc.first.click()
-                await pwd_loc.first.type(config["jobot_password"], delay=50)
-                await click_btn("Sign In", "Sign in", "Log in", "Continue")
+                print("  [Jobot] Waiting for password field…")
+                await page.wait_for_selector("input[type='password']", timeout=10000)
+                print("  [Jobot] Password field found — filling…")
+                await page.locator("input[type='password']").first.fill(config["jobot_password"])
+                # Confirm value was accepted
+                val = await page.locator("input[type='password']").first.input_value()
+                print(f"  [Jobot] Password field value length after fill: {len(val)}")
+                print("  [Jobot] Clicking Sign In…")
+                submitted = False
+                for sel in ["button[type='submit']", "button:has-text('Sign In')",
+                             "button:has-text('Sign in')", "button:has-text('Log in')"]:
+                    try:
+                        await page.locator(sel).first.click(timeout=2000)
+                        submitted = True
+                        print(f"  [Jobot] Clicked: {sel}")
+                        break
+                    except Exception:
+                        continue
+                if not submitted:
+                    await page.keyboard.press("Enter")
+                    print("  [Jobot] Pressed Enter to submit password")
                 await nap(4, 6)
                 print(f"  [Jobot] Post-login URL: {page.url}")
             except Exception as e:
