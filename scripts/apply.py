@@ -1374,47 +1374,43 @@ async def run(max_apply: int = 5):
         if needs_jobot and config.get("jobot_email") and config.get("jobot_password"):
             print("Logging into Jobot…")
             await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
-            await nap(1, 2)
-            # Step 1: email — wait for field, fill, click Continue
+            # Step 1: email — fill directly, press Enter (most reliable for React inputs)
             try:
-                await page.wait_for_selector(
-                    "input[type='email'], input[name='email']", timeout=8000
-                )
-            except Exception:
-                print("  [Jobot] Email field not found")
-            el = await _first_visible(page, "input[type='email'], input[name='email']")
-            if el:
-                await human_type(page, el, config["jobot_email"])
-                # Click whatever the submit button is on this step
-                for btn_sel in [
-                    "button[type='submit']",
-                    "button:has-text('Continue')",
-                    "button:has-text('Next')",
-                    "button:has-text('Sign in')",
-                    "button:has-text('Log in')",
-                ]:
-                    if await click_if_visible(page, btn_sel):
+                await page.wait_for_selector("input[type='email']", timeout=8000)
+                await page.locator("input[type='email']").first.fill(config["jobot_email"])
+                # Try button click first, fall back to Enter key
+                clicked = False
+                for name in ["Continue", "Next", "Sign in", "Sign In", "Log in"]:
+                    try:
+                        await page.get_by_role("button", name=name).click(timeout=2000)
+                        clicked = True
                         break
-                # Step 2: wait up to 10s for password field to appear (new page or same page)
-                try:
-                    await page.wait_for_selector("input[type='password']", timeout=10000)
-                    print("  [Jobot] Password field appeared")
-                except Exception:
-                    print("  [Jobot] Password field did not appear after email step")
-                el2 = await _first_visible(page, "input[type='password'], input[name='password']")
-                if el2:
-                    await human_type(page, el2, config["jobot_password"])
-                    for btn_sel in [
-                        "button[type='submit']",
-                        "button:has-text('Sign in')",
-                        "button:has-text('Log in')",
-                        "button:has-text('Continue')",
-                    ]:
-                        if await click_if_visible(page, btn_sel):
-                            break
-                    await nap(4, 6)
-                else:
-                    print("  [Jobot] Could not fill password")
+                    except Exception:
+                        continue
+                if not clicked:
+                    await page.keyboard.press("Enter")
+            except Exception as e:
+                print(f"  [Jobot] Email step failed: {e}")
+
+            # Step 2: wait for password field, fill directly, submit
+            try:
+                await page.wait_for_selector("input[type='password']", timeout=10000)
+                print("  [Jobot] Password field appeared — filling…")
+                await page.locator("input[type='password']").first.fill(config["jobot_password"])
+                clicked = False
+                for name in ["Sign In", "Sign in", "Log in", "Continue"]:
+                    try:
+                        await page.get_by_role("button", name=name).click(timeout=2000)
+                        clicked = True
+                        break
+                    except Exception:
+                        continue
+                if not clicked:
+                    await page.keyboard.press("Enter")
+                await nap(4, 6)
+                print(f"  [Jobot] Post-login URL: {page.url}")
+            except Exception as e:
+                print(f"  [Jobot] Password step failed: {e}")
 
         for job in queue:
             platform = detect_platform(job["url"])
