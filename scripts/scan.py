@@ -487,6 +487,17 @@ async def _fetch_jobot_playwright(config: dict, headless: bool = True, slow_mo: 
             # Brief extra pause for any lazy-loaded cards
             await asyncio.sleep(2)
 
+            # Debug: print all unique href patterns so we can identify the right selector
+            all_hrefs = await page.evaluate(
+                "() => [...new Set([...document.querySelectorAll('a[href]')]"
+                ".map(a => a.getAttribute('href'))"
+                ".filter(h => h && !h.startsWith('#') && !h.startsWith('mailto')))].slice(0, 40)"
+            )
+            print(f"[jobot:debug] Page URL: {page.url}", file=sys.stderr)
+            print(f"[jobot:debug] Sample hrefs on page:", file=sys.stderr)
+            for h in all_hrefs:
+                print(f"  {h}", file=sys.stderr)
+
             # ── Strategy 1: __NEXT_DATA__ (server-rendered job list) ──────────
             content = await page.content()
             m = _re.search(
