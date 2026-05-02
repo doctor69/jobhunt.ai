@@ -127,18 +127,46 @@ async def test_login(platform: str):
             if not config.get("jobot_email"):
                 print("[!] JOBOT_EMAIL not set in .env")
                 return
-            print(f"  Navigating to Jobot login…")
+            print("  Navigating to Jobot login (step 1: email)…")
             await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
-            await nap(1, 2)
-            el = await _first_visible(page, "input[type='email'], input[name='email']")
-            if el:
-                await human_type(page, el, config["jobot_email"])
-            el = await _first_visible(page, "input[type='password'], input[name='password']")
-            if el:
-                await human_type(page, el, config["jobot_password"])
-            print("  Fields filled — waiting 5s before clicking submit")
-            await asyncio.sleep(5)
-            await click_if_visible(page, "button[type='submit']")
+            await page.wait_for_selector("input[type='email']", timeout=8000)
+            await page.locator("input[type='email']").first.fill(config["jobot_email"])
+            print(f"  Email filled: {config['jobot_email']}")
+            # Submit email form
+            submitted = False
+            for sel in ["button[type='submit']", "button:has-text('Sign in')",
+                        "button:has-text('Sign In')", "button:has-text('Continue')"]:
+                try:
+                    await page.locator(sel).first.click(timeout=2000)
+                    print(f"  Clicked: {sel}")
+                    submitted = True
+                    break
+                except Exception:
+                    continue
+            if not submitted:
+                await page.keyboard.press("Enter")
+                print("  Pressed Enter to submit email")
+
+            # Step 2: password page
+            print("  Waiting for password page…")
+            await page.wait_for_selector("input[type='password']", timeout=10000)
+            print(f"  Password page URL: {page.url}")
+            await page.locator("input[type='password']").first.fill(config["jobot_password"])
+            val = await page.locator("input[type='password']").first.input_value()
+            print(f"  Password field length after fill: {len(val)}")
+            submitted = False
+            for sel in ["button[type='submit']", "button:has-text('Sign In')",
+                        "button:has-text('Sign in')", "button:has-text('Log in')"]:
+                try:
+                    await page.locator(sel).first.click(timeout=2000)
+                    print(f"  Clicked: {sel}")
+                    submitted = True
+                    break
+                except Exception:
+                    continue
+            if not submitted:
+                await page.keyboard.press("Enter")
+                print("  Pressed Enter to submit password")
             await nap(4, 5)
             print(f"  Post-login URL: {page.url}")
 
