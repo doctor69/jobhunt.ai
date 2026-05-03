@@ -1268,6 +1268,29 @@
     "remote": true
   },
   {
+    "id": "dc3cb7b5c2aa",
+    "title": "AI Developer (Claude + AWS)",
+    "company": "Datavent",
+    "location": "Hamburg",
+    "url": "https://www.arbeitnow.com/jobs/companies/datavent/ai-developer-claude-aws-hamburg-22354",
+    "description": "<p>Datavent is a boutique Data Engineering and AI consultancy, proudly an AWS and Anthropic(in-process) Registered Partner. We develop AI-ready data platforms for regulated enterprise clients throughout Europe and the Gulf region. We are currently expanding our Claude AI delivery network as part of the Anthropic Claude Partner Network.</p>\n<p>We are growing our network of trusted AI delivery engineers to collaborate on client projects across Europe and the Gulf. We start on a freelance basis, with the potential to grow into a permanent role as the practice scales</p>\n<h2>Tasks</h2>\n<ul>\n<li>Design and build Claude-powered AI applications and agents for enterprise clients</li>\n<li>Develop and deploy RAG pipelines with document ingestion, vector search, and retrieval optimisation</li>\n<li>Build and publish MCP servers that connect Claude to enterprise data sources, APIs, and internal tools</li>\n<li>Automate repetitive enterprise workflows using Claude: document processing, report generation, data extraction, and decision supportImprove developer experience by integrating Claude into internal tooling, CI/CD pipelines, and engineering workflows</li>\n<li>Replace or augment manual business processes with Claude-powered agents and agentic workflows</li>\n<li>Collaborate with Datavent leads on client delivery, solution design, and technical documentation</li>\n</ul>\n<h2>Requirements</h2>\n<ul>\n<li>Strong Python background with production-grade delivery experience</li>\n<li>Hands-on experience building LLM applications: RAG, agents, tool use, prompt engineering</li>\n<li>Experience building or consuming MCP servers is a strong plus</li>\n<li>Familiarity with AWS (Bedrock, Lambda, S3 is a plus)Experience with LangChain, LlamaIndex, or direct Anthropic API usageBased in Europe, able to work in CET timezone</li>\n<li>Independent, communicates clearly with clients and senior stakeholders</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Access to real enterprise client engagements through an AWS Registered Partner</li>\n<li>Anthropic Claude Partner Network training and certification currently only available through approved partners, not open to independent developers. As part of Datavent's delivery network, you gain access to training and certification that is not publicly available</li>\n<li>Competitive day rates on project work</li>\n<li>A named place in a growing AI delivery network at the ground floor of the Anthropic partner ecosystem</li>\n</ul>\n<p>Apply with a short note on your background and one relevant project related to this role</p>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Remote Software Development",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1777825823",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-03T18:45:11.516346+00:00",
+    "salary_parsed": null,
+    "score": 55,
+    "matched_keywords": [
+      "python",
+      "aws",
+      "api"
+    ],
+    "remote": true
+  },
+  {
     "id": "956b913778d5",
     "title": "Office Assistant",
     "company": "Coalition Technologies ",
@@ -2605,6 +2628,27 @@
     "score": 45,
     "matched_keywords": [
       "startup"
+    ],
+    "remote": true
+  },
+  {
+    "id": "4a7302d5480c",
+    "title": "Senior Oracle HCM / ADP Payroll Integration Consultant - Freelance (remote)",
+    "company": "Sidekick Network GmbH & Co. KG",
+    "location": "Bonn",
+    "url": "https://www.arbeitnow.com/jobs/companies/sidekick-network-gmbh-co-kg/senior-oracle-hcm-adp-payroll-integration-consultant-freelance-remote-bonn-364899",
+    "description": "<p>We are supporting a global payroll outsourcing initiative and are looking for an experienced <strong>Senior Oracle HCM / ADP Payroll Integration Consultant</strong> with strong technical integration expertise.</p>\n<p>The project focuses on integrating <strong>Oracle HCM Cloud</strong> with <strong>ADP</strong> as the global payroll provider. The consultant will support the client in adapting available Oracle HCM standard connectors for ADP, addressing local country-specific payroll requirements, and designing or implementing custom integrations where required.</p>\n<p>The project involves a tight timeline, multiple country implementations running in parallel, and close coordination between global HR, payroll, IT, local country teams, and ADP.</p>\n<p><strong>Framework Conditions</strong></p>\n<ul>\n<li><strong>Start:</strong> 18.05.2026</li>\n<li><strong>Duration:</strong> At least until end of Q1 2027, with quarterly assignment and capacity review possible</li>\n<li><strong>Capacity:</strong> Full-time expected, especially during the initial project phase</li>\n<li><strong>Location:</strong> Remote, with possible participation in selected onsite workshops</li>\n<li><strong>Language:</strong> English</li>\n<li><strong>Level:</strong> Senior</li>\n<li><strong>Contract Type:</strong> Freelance</li>\n</ul>\n<h2>Tasks</h2>\n<ul>\n<li>Act as Senior Technical Integration Consultant for a global Oracle HCM to ADP payroll outsourcing project</li>\n<li>Support the project from kick-off through implementation, rollout, testing, and hypercare</li>\n<li>Analyze, assess, and adapt available Oracle HCM standard connectors for ADP, especially in relation to local country-specific payroll requirements</li>\n<li>Support integration scenarios for <strong>ADP GlobalView</strong> and/or <strong>ADP Celergo</strong>, depending on project scope and country rollout</li>\n<li>Design and implement custom integrations between Oracle HCM Cloud and ADP where standard connectors are not sufficient</li>\n<li>Define and validate payroll-relevant data mappings between Oracle HCM and ADP</li>\n<li>Work with Oracle HCM Extracts, HDL, BI Publisher, APIs, OIC or comparable middleware/integration technologies</li>\n<li>Coordinate technical interface requirements with ADP, internal IT, HR, payroll, and local country stakeholders</li>\n<li>Support multiple country implementations and rollouts running in parallel</li>\n<li>Prepare and facilitate technical integration workshops</li>\n<li>Support SIT, UAT, payroll parallel runs, defect resolution, and cutover activities</li>\n<li>Analyze interface errors, data quality issues, and payroll integration defects</li>\n<li>Create and maintain technical documentation, interface specifications, mapping documents, and handover materials</li>\n<li>Support knowledge transfer to the internal client team</li>\n</ul>\n<h2>Requirements</h2>\n<ul>\n<li>Several years of experience as a technical consultant in <strong>Oracle HCM Cloud</strong> environments</li>\n<li>Proven hands-on e",
+    "tags": "Remote SAP/ERP Consulting Development",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1777824032",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-03T18:45:11.516359+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "api"
     ],
     "remote": true
   },
@@ -4845,6 +4889,25 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-05-03T12:51:00.053717+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "cd1d477d2a46",
+    "title": "SEO/SEA Werkstudent (m/w/d) mit Fokus auf Sichtbarkeit in KI-Suchen (Remote oder W\u00fcrzburg)",
+    "company": "Mainwebsolutions",
+    "location": "W\u00fcrzburg",
+    "url": "https://www.arbeitnow.com/jobs/companies/mainwebsolutions/seo-sea-werkstudent-mit-fokus-auf-sichtbarkeit-in-ki-suchen-remote-oder-wurzburg-342953",
+    "description": "<p>Du studierst, hast erste Erfahrungen in SEO oder SEA gesammelt und suchst eine Werkstudentenstelle, bei der du an echten Kundenprojekten mitarbeitest? Du willst dein Wissen im Google-Universum vertiefen, mit modernen KI- und LLM-Tools im Marketing arbeiten und verstehen, wie Marken nicht mehr nur in Google, sondern auch in ChatGPT, Perplexity und Google AI Overviews sichtbar werden? Dann bewirb dich bei Mainwebsolutions. Bei uns lernst du klassisches SEO/SEA von Grund auf und steigst direkt in den Bereich KI-Sichtbarkeit (GEO) ein, in dem wir aktuell echte Pionierarbeit leisten.</p><p><br /></p><p><strong>Was erwartet dich bei uns?</strong></p><p>Willkommen bei Mainwebsolutions, der Agentur, die Softwareentwicklung und Onlinemarketing unter einem Dach vereint. Unser Team aus Marketern und Entwicklern startet jeden Tag mit einer Portion Humor und einem morgendlichen Team-Meeting, in dem wir uns \u00fcber aktuelle Themen und Fortschritte abstimmen. Anschlie\u00dfend tauchen wir in die Projekte ein und arbeiten gemeinsam daran, den Erfolg unserer Kunden weiter zu steigern. Zudem entwickeln wir laufend eigene Produkte und KI-Tools, bei denen du mit deinen Ideen mitwirken kannst. Doch bei uns geht es nicht nur um Arbeit. Wir feiern unsere Erfolge regelm\u00e4\u00dfig mit coolen Teamevents, von Grillpartys auf der Dachterrasse \u00fcber Yoga und gemeinsames Kochen bis zu geselligen Weinfesten. Du arbeitest remote? Kein Problem. Transfer- und \u00dcbernachtungskosten f\u00fcr Office-Besuche und Teamevents \u00fcbernehmen wir selbstverst\u00e4ndlich. Eines ist sicher: Bei uns steht das Team an erster Stelle. Erlebe den Spirit von Mainwebsolutions! #workatmws</p><p><br /></p><p><strong>Dein Aufgabenbereich?</strong></p><p>Als Werkstudent im SEO/SEA-Team unterst\u00fctzt du uns dabei, die digitale Sichtbarkeit unserer Kunden zu steigern, sowohl bei Google als auch in KI-Suchen wie ChatGPT, Perplexity und Google AI Overviews. Du arbeitest eng mit dem Team zusammen und \u00fcbernimmst schrittweise eigene Aufgaben in Kundenprojekten. Du f\u00fchrst SEO- und GEO-Analysen durch, erstellst Keyword-Recherchen und Content-Briefings, k\u00fcmmerst dich um Content-Optimierung, Technical SEO und Linkbuilding und unterst\u00fctzt bei der Planung und Optimierung von Google Ads-Kampagnen. Dabei arbeitest du t\u00e4glich mit unserem hauseigenen KI-Stack: dem AiHub als zentraler KI-Plattform, eigenen SEA-Agenten f\u00fcr Kampagnen-Audits und ma\u00dfgeschneiderten Claude Skills f\u00fcr GEO-Audits, Topical Cluster, Content-Briefings und mehr. Du erstellst Reportings, leitest daraus konkrete Optimierungspotenziale ab und kannst aktiv an der Weiterentwicklung unserer internen Marketing-Tools mitwirken. Wer Lust hat, eigene Workflows oder neue Claude Skills zu bauen, ist hier genau richtig. Ready for departure? \ud83d\ude80</p><br /><br /><p><strong>Das bringst du mit:</strong></p><ul><li><p><strong>Eingeschriebenes Studium:</strong> Du bist eingeschrieben in einem Studiengang im Bereich E-Commerce, Marketing, Medien, Informatik oder einem vergleichbaren Feld.</p></li><l",
+    "tags": "Marketing and pr high school coursework",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1777821611",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-03T18:45:11.516382+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
