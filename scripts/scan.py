@@ -1,12 +1,16 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Job scanner — fetches jobs from multiple free APIs, scores them against
 keywords in config.json, and writes results to data/jobs.json.
 Runs every 6 hrs via GitHub Actions.
 """
 
+import asyncio
+import concurrent.futures
 import json
 import hashlib
+import os
 import sys
 from datetime import datetime, timezone
 from pathlib import Path
@@ -17,6 +21,12 @@ ROOT = Path(__file__).parent.parent
 DATA_DIR = ROOT / "data"
 CONFIG_PATH = ROOT / "config" / "config.json"
 JOBS_PATH = DATA_DIR / "jobs.json"
+
+
+def _run_playwright(coro):
+    """Run a Playwright coroutine in a dedicated thread with its own event loop."""
+    with concurrent.futures.ThreadPoolExecutor(max_workers=1) as pool:
+        return pool.submit(asyncio.run, coro).result()
 
 HEADERS = {
     "User-Agent": (
@@ -29,7 +39,11 @@ HEADERS = {
 
 def load_config():
     with open(CONFIG_PATH) as f:
-        return json.load(f)
+        cfg = json.load(f)
+    # Overlay credentials from environment so scan can log into sources
+    cfg["jobot_email"] = os.environ.get("JOBOT_EMAIL", cfg.get("jobot_email", ""))
+    cfg["jobot_password"] = os.environ.get("JOBOT_PASSWORD", cfg.get("jobot_password", ""))
+    return cfg
 
 
 def load_existing_jobs():
@@ -369,54 +383,187 @@ def fetch_roberthalf(config: dict) -> list[dict]:
 # ── Jobot ─────────────────────────────────────────────────────────────────────
 
 def fetch_jobot(config: dict) -> list[dict]:
-    """Scrape Jobot job listings via their JSON search API."""
+    """
+    Fetch Jobot job listings via Playwright.
+    Logs in with credentials when available so authenticated job listings
+    (including salary data and Easy Apply jobs) are visible.
+    Falls back to unauthenticated search if login fails or credentials are absent.
+    """
+    try:
+        return _run_playwright(_fetch_jobot_playwright(config))
+    except Exception as e:
+        print(f"[jobot] Playwright fetch failed: {e}", file=sys.stderr)
+        return []
+
+
+async def _fetch_jobot_playwright(config: dict, headless: bool = True, slow_mo: int = 0) -> list[dict]:
+    from playwright.async_api import async_playwright
+
     jobs = []
     keywords = config.get("keywords", [])
     query = " ".join(keywords[:4]) if keywords else "software engineer"
-    remote = config.get("remote_required", True)
-    try:
-        params = {
-            "q": query,
-            "l": "Remote" if remote else config.get("location", ""),
-            "page": 1,
-        }
-        resp = requests.get(
-            "https://jobot.com/search",
-            params=params,
-            headers=HEADERS,
-            timeout=15,
+    email = config.get("jobot_email", "")
+    password = config.get("jobot_password", "")
+
+    async with async_playwright() as pw:
+        browser = await pw.chromium.launch(
+            headless=headless,
+            slow_mo=slow_mo,
+            args=["--no-sandbox", "--disable-dev-shm-usage"],
         )
-        resp.raise_for_status()
-        # Jobot's search returns HTML; parse <script id="__NEXT_DATA__"> JSON
-        import re
-        m = re.search(r'<script id="__NEXT_DATA__"[^>]*>(.*?)</script>', resp.text, re.S)
-        if not m:
-            return jobs
-        data = json.loads(m.group(1))
-        listings = (
-            data.get("props", {})
-                .get("pageProps", {})
-                .get("jobList", {})
-                .get("jobs", [])
+        ctx = await browser.new_context(
+            user_agent=(
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                "AppleWebKit/537.36 (KHTML, like Gecko) "
+                "Chrome/120.0.0.0 Safari/537.36"
+            )
         )
-        for item in listings:
-            jid = str(item.get("id", ""))
-            if not jid:
-                continue
-            slug = item.get("slug", jid)
-            jobs.append({
-                "id": f"jobot_{jid}",
-                "title": item.get("title", ""),
-                "company": item.get("company", {}).get("name", "Unknown") if isinstance(item.get("company"), dict) else item.get("company", "Unknown"),
-                "location": item.get("location", "Remote"),
-                "description": item.get("description", ""),
-                "url": f"https://jobot.com/details/{slug}/{jid}",
-                "source": "jobot",
-                "status": "new",
-                "found_at": datetime.now(timezone.utc).isoformat(),
-            })
-    except Exception as e:
-        print(f"[jobot] {e}", file=sys.stderr)
+        page = await ctx.new_page()
+
+        # ── Login (two-step: email → password) ───────────────────────────────
+        if email and password:
+            try:
+                await page.goto(
+                    "https://jobot.com/login/email-sign-in",
+                    wait_until="domcontentloaded",
+                    timeout=30000,
+                )
+                # Step 1: email
+                await page.wait_for_selector("input[type='email']", timeout=8000)
+                await page.locator("input[type='email']").first.click()
+                await page.locator("input[type='email']").first.type(email, delay=30)
+                submitted = False
+                for sel in [
+                    "button[type='submit']", "button:has-text('Sign in')",
+                    "button:has-text('Sign In')", "button:has-text('Continue')",
+                ]:
+                    try:
+                        await page.locator(sel).first.click(timeout=2000)
+                        submitted = True
+                        break
+                    except Exception:
+                        continue
+                if not submitted:
+                    await page.keyboard.press("Enter")
+
+                # Step 2: password
+                await page.wait_for_selector("input[type='password']", timeout=10000)
+                await page.locator("input[type='password']").first.click()
+                await page.locator("input[type='password']").first.type(password, delay=30)
+                submitted = False
+                for sel in [
+                    "button[type='submit']", "button:has-text('Sign In')",
+                    "button:has-text('Sign in')", "button:has-text('Log in')",
+                ]:
+                    try:
+                        await page.locator(sel).first.click(timeout=2000)
+                        submitted = True
+                        break
+                    except Exception:
+                        continue
+                if not submitted:
+                    await page.keyboard.press("Enter")
+
+                await asyncio.sleep(4)
+                print(f"[jobot] Logged in — URL: {page.url}", file=sys.stderr)
+            except Exception as e:
+                print(f"[jobot] Login failed (continuing unauthenticated): {e}", file=sys.stderr)
+
+        # ── Search ────────────────────────────────────────────────────────────
+        # Use a short, clean query — Jobot fails to match long keyword strings
+        short_query = (keywords[0] if keywords else "senior software engineer").replace(" ", "+")
+        try:
+            search_url = f"https://jobot.com/search?q={short_query}&l=Remote"
+            await page.goto(search_url, wait_until="domcontentloaded", timeout=30000)
+
+            # Jobot renders job cards as links with &j=<id> in the search URL.
+            # Wait for those to appear (populated by a client-side API call).
+            print(f"[jobot] Waiting for job results to load…", file=sys.stderr)
+            try:
+                await page.wait_for_selector("a[href*='&j=']", timeout=15000)
+            except Exception:
+                print(f"[jobot] Timed out — page: {page.url}", file=sys.stderr)
+
+            await asyncio.sleep(1)
+
+            # Scrape all job-card links (?…&j=<id>)
+            from urllib.parse import urlparse, parse_qs
+            links = await page.locator("a[href*='&j=']").all()
+            seen_ids: set[str] = set()
+
+            for link in links:
+                try:
+                    href = (await link.get_attribute("href") or "").strip()
+                    if not href:
+                        continue
+                    full_href = f"https://jobot.com{href}" if href.startswith("/") else href
+
+                    # Extract job id from the j= param
+                    qs = parse_qs(urlparse(full_href).query)
+                    jid = (qs.get("j") or [""])[0]
+                    if not jid or jid in seen_ids:
+                        continue
+                    seen_ids.add(jid)
+
+                    # Title comes from the link text or nearest heading in its card
+                    title = (await link.inner_text()).strip()
+                    if not title or len(title) < 3:
+                        for h_sel in ["h1", "h2", "h3", "h4"]:
+                            h_el = link.locator(f"xpath=ancestor::*[1]//{h_sel}")
+                            if await h_el.count():
+                                title = (await h_el.first.inner_text()).strip()
+                                break
+
+                    # Company / location from sibling elements inside the card
+                    card = link.locator(
+                        "xpath=ancestor::*["
+                        "contains(@class,'card') or contains(@class,'job') or "
+                        "contains(@class,'item') or contains(@class,'result') or "
+                        "contains(@class,'listing')][1]"
+                    )
+                    company, location = "Unknown", "Remote"
+                    if await card.count():
+                        for co_sel in ["[class*='company']", "[class*='employer']", "span", "p"]:
+                            el = card.locator(co_sel)
+                            if await el.count():
+                                txt = (await el.first.inner_text()).strip()
+                                if txt and txt != title and len(txt) < 80:
+                                    company = txt
+                                    break
+                        for loc_sel in ["[class*='location']", "[class*='city']", "[class*='remote']"]:
+                            el = card.locator(loc_sel)
+                            if await el.count():
+                                location = (await el.first.inner_text()).strip()
+                                break
+
+                    if not title:
+                        continue
+
+                    jobs.append({
+                        "id": f"jobot_{jid}",
+                        "title": title,
+                        "company": company,
+                        "location": location,
+                        "description": "",
+                        "url": full_href,
+                        "tags": "",
+                        "salary_min": None,
+                        "salary_max": None,
+                        "posted_at": "",
+                        "source": "jobot",
+                        "status": "new",
+                        "found_at": datetime.now(timezone.utc).isoformat(),
+                    })
+                except Exception:
+                    continue
+
+            print(f"[jobot] {len(jobs)} jobs found", file=sys.stderr)
+
+        except Exception as e:
+            print(f"[jobot] Search failed: {e}", file=sys.stderr)
+
+        await browser.close()
+
     return jobs
 
 

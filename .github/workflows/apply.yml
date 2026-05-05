@@ -43,6 +43,7 @@ jobs:
           ZIPRECRUITER_PASSWORD:   ${{ secrets.ZIPRECRUITER_PASSWORD }}
           ROBERTHALF_EMAIL:        ${{ secrets.ROBERTHALF_EMAIL }}
           ROBERTHALF_PASSWORD:     ${{ secrets.ROBERTHALF_PASSWORD }}
+          OUTLOOK_APP_PASSWORD:    ${{ secrets.OUTLOOK_APP_PASSWORD }}
           JOBOT_EMAIL:             ${{ secrets.JOBOT_EMAIL }}
           JOBOT_PASSWORD:          ${{ secrets.JOBOT_PASSWORD }}
 

@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import annotations
 """
 Playwright job-application automation.
 
@@ -17,11 +18,16 @@ Credentials come from environment variables (set as GitHub Secrets):
 """
 
 import asyncio
+import email as _email_lib
+import imaplib
 import json
 import os
 import random
+import re
 import sys
+import time
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import urlparse
 
@@ -99,6 +105,68 @@ async def human_type(page: Page, selector, text: str):
 
 async def nap(lo=1.0, hi=3.0):
     await asyncio.sleep(random.uniform(lo, hi))
+
+
+# ── Outlook IMAP 2FA helper ───────────────────────────────────────────────────
+
+def _extract_email_body(msg) -> str:
+    body = ""
+    if msg.is_multipart():
+        for part in msg.walk():
+            if part.get_content_type() in ("text/plain", "text/html"):
+                try:
+                    body += part.get_payload(decode=True).decode("utf-8", errors="ignore")
+                except Exception:
+                    pass
+    else:
+        try:
+            body = msg.get_payload(decode=True).decode("utf-8", errors="ignore")
+        except Exception:
+            pass
+    return body
+
+
+def fetch_rh_verification_code(
+    imap_user: str,
+    imap_password: str,
+    min_timestamp: float,
+    timeout: int = 60,
+) -> str | None:
+    """Poll Outlook IMAP for a Robert Half 2FA code sent after min_timestamp."""
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        try:
+            mail = imaplib.IMAP4_SSL("outlook.office365.com", 993)
+            mail.login(imap_user, imap_password)
+            mail.select("INBOX")
+            _, msg_ids = mail.search(None, 'FROM "roberthalf"')
+            if msg_ids and msg_ids[0]:
+                for msg_id in reversed(msg_ids[0].split()):
+                    _, msg_data = mail.fetch(msg_id, "(RFC822)")
+                    if not msg_data or not msg_data[0]:
+                        continue
+                    raw = msg_data[0][1]
+                    msg = _email_lib.message_from_bytes(raw)
+                    try:
+                        msg_ts = parsedate_to_datetime(msg.get("Date", "")).timestamp()
+                        if msg_ts < min_timestamp - 30:
+                            continue
+                    except Exception:
+                        pass
+                    match = re.search(r'\b(\d{6})\b', _extract_email_body(msg))
+                    if match:
+                        mail.logout()
+                        return match.group(1)
+            mail.logout()
+        except Exception as e:
+            print(f"  [RobertHalf] IMAP error: {e}", file=sys.stderr)
+        remaining = deadline - time.time()
+        if remaining > 0:
+            time.sleep(min(5, remaining))
+    return None
+
+
+# ─────────────────────────────────────────────────────────────────────────────
 
 
 async def click_if_visible(page: Page, selector: str) -> bool:
@@ -1030,6 +1098,18 @@ async def apply_generic(
     return success
 
 
+async def _cloudflare_blocked(page) -> bool:
+    """Return True if Cloudflare has intercepted the page with a challenge."""
+    title = (await page.title()).lower()
+    if "just a moment" in title or "attention required" in title:
+        return True
+    # Check for cf-challenge form or Turnstile widget
+    for sel in ["#cf-challenge-running", ".cf-turnstile", "#challenge-form"]:
+        if await page.locator(sel).count():
+            return True
+    return False
+
+
 # ── ZipRecruiter ─────────────────────────────────────────────────────────────
 
 async def apply_ziprecruiter(
@@ -1038,6 +1118,10 @@ async def apply_ziprecruiter(
     print(f"  [ZipRecruiter] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
     await nap(2, 4)
+
+    if await _cloudflare_blocked(page):
+        print("  [ZipRecruiter] Cloudflare bot protection detected — skipping (cannot automate)")
+        return False
 
     # ZipRecruiter uses "Apply Now" or "Quick Apply"
     # Prefer 1-Click Apply (logged-in, pre-saved profile — no form to fill)
@@ -1105,52 +1189,44 @@ async def apply_roberthalf(
 ) -> bool:
     print(f"  [Robert Half] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
-    await nap(2, 4)
+    await nap(3, 5)  # Salesforce/Angular SPA needs extra render time
 
-    if not await click_if_visible(
+    start_url = page.url
+
+    # Click Apply — may redirect to online.roberthalf.com portal or external ATS
+    clicked = await click_if_visible(
         page,
-        "a:has-text('Apply'), button:has-text('Apply'), "
-        "a:has-text('Apply Now'), button:has-text('Apply Now')",
-    ):
-        print("  [Robert Half] No apply button")
+        "a:has-text('Apply Now'), button:has-text('Apply Now'), "
+        "a:has-text('Apply'), button:has-text('Apply')",
+    )
+    if not clicked:
+        print("  [Robert Half] No apply button found")
         return False
 
+    # Wait for navigation (Salesforce portal or external ATS)
+    try:
+        await page.wait_for_url(lambda u: u != start_url, timeout=8000)
+    except Exception:
+        pass
+
+    current_url = page.url
+    print(f"  [Robert Half] Post-click URL: {current_url}")
+
+    # If redirected to an external ATS, hand off
+    if "roberthalf.com" not in current_url:
+        platform = detect_platform(current_url)
+        handler = PLATFORM_HANDLERS.get(platform, apply_generic)
+        return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
+
+    # Still on Robert Half — use generic form filler
+    # (logged-in users see a one-tap confirm; logged-out see a form)
     await nap(2, 3)
-
-    if pdf_path:
-        await upload_resume_if_possible(page, pdf_path)
-
-    _rh_parts = (config.get("full_name") or "").split()
-    for sel, val in [
-        ("input[name='firstName'], input[id*='firstName']",
-         _rh_parts[0] if _rh_parts else ""),
-        ("input[name='lastName'], input[id*='lastName']",
-         _rh_parts[-1] if len(_rh_parts) > 1 else (_rh_parts[0] if _rh_parts else "")),
-        ("input[type='email'], input[name='email']", config.get("email", "")),
-        ("input[type='tel'], input[name='phone']", config.get("phone", "")),
-    ]:
-        if not val:
-            continue
-        fld = page.locator(sel)
-        if await fld.count() and not (await fld.first.input_value()):
-            await human_type(page, fld, val)
-
-    # Cover letter
-    fld = page.locator("textarea[name*='cover'], textarea[id*='cover'], textarea")
-    if await fld.count() and not (await fld.first.input_value()):
-        await human_type(page, fld, cover_letter[:2000])
-
-    if salary_ask:
-        await fill_salary_fields(page, salary_ask)
-
-    await nap()
-
-    if await click_if_visible(page, "button:has-text('Submit'), button[type='submit']"):
-        await nap(2, 4)
+    success = await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
+    if success:
         print("  [Robert Half] Submitted!")
-        return True
-
-    return False
+    else:
+        print("  [Robert Half] Could not submit form")
+    return success
 
 
 # ── Jobot ────────────────────────────────────────────────────────────────────
@@ -1159,20 +1235,30 @@ async def apply_jobot(
     page: Page, job: dict, cover_letter: str, config: dict, pdf_path: Path | None = None, salary_ask: int = 0
 ) -> bool:
     """
-    Jobot is a tech-focused recruiting platform. Jobs either have an inline
-    Easy Apply form or redirect to the employer's ATS (Greenhouse, Lever, etc.).
+    Jobot logged-in Easy Apply flow:
+      1. Click Easy Apply → application submitted immediately with saved profile
+      2. Elevator Pitch step appears — fill textarea with cover letter + click Submit
+      3. "Application Received" confirmation
+
+    External ATS redirects are delegated to the appropriate handler.
     """
     print(f"  [Jobot] {job['title']} @ {job['company']}")
     await page.goto(job["url"], wait_until="domcontentloaded", timeout=30000)
     await nap(2, 4)
 
-    if not await click_if_visible(
+    # If this is a search-results URL with &j=<id>, the job detail panel loads
+    # on the right side — give it a moment to render
+    if "jobot.com/search" in page.url and "&j=" in page.url:
+        await nap(1, 2)
+
+    apply_clicked = await click_if_visible(
         page,
         "button:has-text('Easy Apply'), a:has-text('Easy Apply'), "
         "button:has-text('Apply Now'), a:has-text('Apply Now'), "
         "button:has-text('Apply'), a:has-text('Apply')",
-    ):
-        print("  [Jobot] No apply button — trying inline")
+    )
+    if not apply_clicked:
+        print("  [Jobot] No apply button — trying inline form")
         return await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
 
     await nap(2, 3)
@@ -1184,12 +1270,77 @@ async def apply_jobot(
         handler = PLATFORM_HANDLERS.get(platform, apply_generic)
         return await handler(page, job, cover_letter, config, pdf_path, salary_ask)
 
-    # Still on Jobot — fill their own form
+    # ── Elevator Pitch step ───────────────────────────────────────────────────
+    # After Easy Apply the application is received; Jobot then asks for an
+    # Elevator Pitch (textarea + "Submit Elevator Pitch" button).
+    # We use the cover letter as the pitch — it's already job-tailored.
+    try:
+        await page.wait_for_selector(
+            "button:has-text('Submit Elevator Pitch')", timeout=6000
+        )
+        print("  [Jobot] Elevator Pitch step detected — filling…")
+
+        # Fill the pitch textarea
+        pitch_area = page.locator("textarea").first
+        if await pitch_area.count():
+            await pitch_area.click()
+            # Condense cover letter to ≤1000 chars — Jobot wants a concise pitch
+            pitch_text = cover_letter[:1000]
+            await pitch_area.fill(pitch_text)
+            await nap(1, 2)
+
+        await page.locator("button:has-text('Submit Elevator Pitch')").first.click()
+        await nap(2, 3)
+
+        # Confirm final "Application Received" state
+        if await page.locator(
+            ":has-text('Application Received'), :has-text('application received')"
+        ).count():
+            print("  [Jobot] Application Received — fully submitted!")
+            return True
+
+        print("  [Jobot] Elevator Pitch submitted — assuming success")
+        return True
+
+    except Exception:
+        pass  # no elevator pitch step — check for simpler confirmation below
+
+    # ── Simple confirmation panel (profile pre-filled, just confirm) ──────────
+    for confirm_sel in [
+        "button:has-text('Submit Application')",
+        "button:has-text('Confirm Application')",
+        "button:has-text('Confirm Apply')",
+        "button:has-text('Confirm')",
+        "[role='dialog'] button:has-text('Apply')",
+        "[class*='modal'] button:has-text('Apply')",
+        "[class*='panel'] button:has-text('Apply')",
+        "[class*='drawer'] button:has-text('Apply')",
+        "[class*='apply-panel'] button",
+    ]:
+        loc = page.locator(confirm_sel)
+        try:
+            await loc.first.wait_for(state="visible", timeout=2000)
+            await loc.first.click()
+            await nap(2, 3)
+            for ok_sel in [
+                ":has-text('Application Received')", ":has-text('Application Submitted')",
+                ":has-text('Successfully Applied')", ":has-text('Applied!')",
+                ":has-text('Thank you')",
+            ]:
+                if await page.locator(ok_sel).count():
+                    print("  [Jobot] Application submitted!")
+                    return True
+            print("  [Jobot] Confirmation clicked — assuming submitted")
+            return True
+        except Exception:
+            continue
+
+    # Fallback to generic form filling
     success = await _fill_form_at_current_page(page, job, cover_letter, config, pdf_path, salary_ask)
     if success:
-        print(f"  [Jobot] Submitted!")
+        print("  [Jobot] Submitted!")
     else:
-        print(f"  [Jobot] Form found but could not submit")
+        print("  [Jobot] Form found but could not submit")
     return success
 
 
@@ -1321,49 +1472,206 @@ async def run(max_apply: int = 5):
             await nap(4, 7)
 
         # ZipRecruiter login — enables 1-Click / Quick Apply
+        # Note: ZipRecruiter uses Cloudflare bot protection; login may be blocked
         needs_zr = any(detect_platform(j["url"]) == "ziprecruiter" for j in queue)
         if needs_zr and config.get("ziprecruiter_email") and config.get("ziprecruiter_password"):
             print("Logging into ZipRecruiter…")
             await page.goto("https://www.ziprecruiter.com/authn/login", wait_until="domcontentloaded")
             await nap(1, 2)
-            el = await _first_visible(page, "input[type='email'], input[name='email']")
-            if el:
-                await human_type(page, el, config["ziprecruiter_email"])
-            el = await _first_visible(page, "input[type='password'], input[name='password']")
-            if el:
-                await human_type(page, el, config["ziprecruiter_password"])
-            await click_if_visible(page, "button[type='submit'], form button:has-text('Log in'), form button:has-text('Sign in')")
-            await nap(4, 6)
+            if await _cloudflare_blocked(page):
+                print("  [ZipRecruiter] Cloudflare challenge on login page — skipping ZR login")
+            else:
+                el = await _first_visible(page, "input[type='email'], input[name='email']")
+                if el:
+                    await human_type(page, el, config["ziprecruiter_email"])
+                el = await _first_visible(page, "input[type='password'], input[name='password']")
+                if el:
+                    await human_type(page, el, config["ziprecruiter_password"])
+                await click_if_visible(page, "button[type='submit'], form button:has-text('Log in'), form button:has-text('Sign in')")
+                await nap(4, 6)
 
-        # Robert Half login — uses their Salesforce candidate portal
+        # Robert Half login — Salesforce Experience Cloud portal (heavy SPA)
         needs_rh = any(detect_platform(j["url"]) == "roberthalf" for j in queue)
         if needs_rh and config.get("roberthalf_email") and config.get("roberthalf_password"):
             print("Logging into Robert Half…")
             await page.goto("https://online.roberthalf.com/s/login", wait_until="domcontentloaded")
-            await nap(1, 2)
-            el = await _first_visible(page, "input[type='email'], input[name='email']")
-            if el:
-                await human_type(page, el, config["roberthalf_email"])
-            el = await _first_visible(page, "input[type='password'], input[name='password']")
-            if el:
-                await human_type(page, el, config["roberthalf_password"])
-            await click_if_visible(page, "button[type='submit']")
-            await nap(4, 6)
+            await nap(3, 4)  # Salesforce Lightning SPA needs extra time
 
-        # Jobot login — "Easy Apply" requires an active session
+            # Wait up to 6 s for any consent/ACK dialog, then force-click it.
+            # The button may be in DOM but not "visible" per Playwright (MDC pattern).
+            ACK_SELECTORS = [
+                "button:has-text('I Understand')", "button:has-text('I understand')",
+                "button:has-text('I Accept')", "button:has-text('I Agree')",
+                "button:has-text('Agree')", "button:has-text('Accept All')",
+                "button:has-text('Accept')", "button:has-text('Got it')",
+                "button:has-text('OK')", "button:has-text('Continue')",
+                "button:has-text('Acknowledge')",
+                "[class*='acknowledge'] button", "[id*='acknowledge'] button",
+                "[class*='consent'] button", "[id*='consent'] button",
+                "[class*='cookie'] button",
+            ]
+            try:
+                await page.wait_for_selector(", ".join(ACK_SELECTORS), timeout=6000, state="attached")
+                for ack in ACK_SELECTORS:
+                    try:
+                        loc = page.locator(ack)
+                        if await loc.count():
+                            await loc.first.click(force=True, timeout=3000)
+                            print(f"  [RobertHalf] Dismissed acknowledgment: {ack}")
+                            await nap(1, 2)
+                            break
+                    except Exception:
+                        continue
+            except Exception:
+                print("  [RobertHalf] No acknowledgment dialog detected — proceeding.")
+
+            # After ACK dismissal the SPA does a route transition; wait for it.
+            try:
+                await page.wait_for_load_state("domcontentloaded", timeout=10000)
+            except Exception:
+                pass
+            await nap(2, 3)
+
+            EMAIL_SEL = "input[name='username'], input[type='email'], input[name='email']"
+            PASS_SEL  = "input[type='password'], input[name='password']"
+
+            try:
+                # MDC hides the raw <input>; wait for DOM attachment, not visibility.
+                await page.wait_for_selector(EMAIL_SEL, timeout=10000, state="attached")
+                # Activate MDC wrapper with a real click so its state machine opens,
+                # then type via keyboard so React/MDC events fire correctly.
+                try:
+                    await page.locator(".mdc-text-field").first.click(timeout=3000)
+                except Exception:
+                    await page.locator(EMAIL_SEL).first.click(force=True)
+                await page.keyboard.type(config["roberthalf_email"], delay=50)
+                await nap(0.5, 1)
+
+                try:
+                    await page.locator(".mdc-text-field").nth(1).click(timeout=3000)
+                except Exception:
+                    await page.locator(PASS_SEL).first.click(force=True)
+                await page.keyboard.type(config["roberthalf_password"], delay=50)
+                await nap(0.5, 1)
+
+                submit_time = time.time()
+                submit = page.locator("button[type='submit'], input[type='submit']")
+                try:
+                    await submit.first.click(timeout=5000)
+                except Exception:
+                    await submit.first.click(force=True)
+                await nap(4, 6)
+                print(f"  [RobertHalf] Post-submit URL: {page.url}")
+
+                # ── 2FA / verification code ───────────────────────────────────
+                MFA_SEL = (
+                    "input[name*='code' i], input[name*='otp' i], "
+                    "input[name*='token' i], input[name*='verify' i], "
+                    "input[name*='mfa' i], input[placeholder*='code' i], "
+                    "input[placeholder*='verification' i], "
+                    "input[type='number'][maxlength='6'], "
+                    "input[type='text'][maxlength='6']"
+                )
+                try:
+                    await page.wait_for_selector(MFA_SEL, timeout=8000, state="attached")
+                    print("  [RobertHalf] 2FA screen detected — fetching code from Outlook IMAP…")
+                    imap_pass = os.environ.get("OUTLOOK_APP_PASSWORD", "")
+                    if not imap_pass:
+                        print("  [RobertHalf] OUTLOOK_APP_PASSWORD not set — cannot complete 2FA")
+                    else:
+                        code = await asyncio.to_thread(
+                            fetch_rh_verification_code,
+                            config["roberthalf_email"], imap_pass, submit_time,
+                        )
+                        if code:
+                            print(f"  [RobertHalf] Verification code received: {code}")
+                            try:
+                                await page.locator(MFA_SEL).first.click(force=True)
+                            except Exception:
+                                pass
+                            await page.keyboard.type(code, delay=100)
+                            await nap(0.5, 1)
+                            submitted_mfa = False
+                            for sel in [
+                                "button[type='submit']", "input[type='submit']",
+                                "button:has-text('Verify')", "button:has-text('Submit')",
+                                "button:has-text('Continue')", "button:has-text('Confirm')",
+                            ]:
+                                try:
+                                    await page.locator(sel).first.click(timeout=3000)
+                                    submitted_mfa = True
+                                    break
+                                except Exception:
+                                    continue
+                            if not submitted_mfa:
+                                await page.keyboard.press("Enter")
+                            await nap(3, 4)
+                            print(f"  [RobertHalf] Post-2FA URL: {page.url}")
+                        else:
+                            print("  [RobertHalf] Timed out — no verification code received within 60 s")
+                except Exception:
+                    print(f"  [RobertHalf] No 2FA screen — treating as successful login")
+
+            except Exception as e:
+                print(f"  [RobertHalf] Login failed: {e}")
+
+        # Jobot login — two-step: email page → submit → password page → submit
         needs_jobot = any(detect_platform(j["url"]) == "jobot" for j in queue)
         if needs_jobot and config.get("jobot_email") and config.get("jobot_password"):
             print("Logging into Jobot…")
             await page.goto("https://jobot.com/login/email-sign-in", wait_until="domcontentloaded")
-            await nap(1, 2)
-            el = await _first_visible(page, "input[type='email'], input[name='email']")
-            if el:
-                await human_type(page, el, config["jobot_email"])
-            el = await _first_visible(page, "input[type='password'], input[name='password']")
-            if el:
-                await human_type(page, el, config["jobot_password"])
-            await click_if_visible(page, "button[type='submit']")
-            await nap(4, 6)
+
+            # Step 1: email
+            try:
+                print("  [Jobot] Waiting for email field…")
+                await page.wait_for_selector("input[type='email']", timeout=8000)
+                await page.locator("input[type='email']").first.click()
+                await page.locator("input[type='email']").first.type(config["jobot_email"], delay=30)
+                print(f"  [Jobot] Email typed — clicking submit…")
+                # Click the submit button directly; fall back to Enter
+                submitted = False
+                for sel in ["button[type='submit']", "button:has-text('Sign in')",
+                             "button:has-text('Sign In')", "button:has-text('Continue')"]:
+                    try:
+                        await page.locator(sel).first.click(timeout=2000)
+                        submitted = True
+                        print(f"  [Jobot] Clicked: {sel}")
+                        break
+                    except Exception:
+                        continue
+                if not submitted:
+                    await page.keyboard.press("Enter")
+                    print("  [Jobot] Pressed Enter to submit email")
+            except Exception as e:
+                print(f"  [Jobot] Email step failed: {e}")
+
+            # Step 2: password page
+            try:
+                print("  [Jobot] Waiting for password field…")
+                await page.wait_for_selector("input[type='password']", timeout=10000)
+                print("  [Jobot] Password field found — filling…")
+                await page.locator("input[type='password']").first.click()
+                await page.locator("input[type='password']").first.type(config["jobot_password"], delay=30)
+                val = await page.locator("input[type='password']").first.input_value()
+                print(f"  [Jobot] Password field length after type: {len(val)}")
+                print("  [Jobot] Clicking Sign In…")
+                submitted = False
+                for sel in ["button[type='submit']", "button:has-text('Sign In')",
+                             "button:has-text('Sign in')", "button:has-text('Log in')"]:
+                    try:
+                        await page.locator(sel).first.click(timeout=2000)
+                        submitted = True
+                        print(f"  [Jobot] Clicked: {sel}")
+                        break
+                    except Exception:
+                        continue
+                if not submitted:
+                    await page.keyboard.press("Enter")
+                    print("  [Jobot] Pressed Enter to submit password")
+                await nap(4, 6)
+                print(f"  [Jobot] Post-login URL: {page.url}")
+            except Exception as e:
+                print(f"  [Jobot] Password step failed: {e}")
 
         for job in queue:
             platform = detect_platform(job["url"])

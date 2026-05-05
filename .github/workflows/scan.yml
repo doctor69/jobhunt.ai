@@ -22,10 +22,15 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r requirements.txt
 
+      - name: Install Playwright browser
+        run: playwright install chromium --with-deps
+
       - name: Run scanner
         run: python scripts/scan.py
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          JOBOT_EMAIL: ${{ secrets.JOBOT_EMAIL }}
+          JOBOT_PASSWORD: ${{ secrets.JOBOT_PASSWORD }}
 
       - name: Commit updated job data
         run: |
