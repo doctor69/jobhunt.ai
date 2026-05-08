@@ -2728,6 +2728,72 @@
     "remote": true
   },
   {
+    "id": "9f81e41b1c1f",
+    "title": "Senior Backend Engineer - Global Expansion",
+    "company": "SumUp",
+    "location": "Leipzig, Saxony, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/sumup/senior-backend-engineer-global-expansion-leipzig-119997",
+    "description": "<h1>Senior Backend Engineer \u2014 Global Expansion</h1>\n<h2>About the team</h2>\n<p>The Global Expansion Acquiring Squad is the engine behind SumUp's growth into new markets \u2014 integrating local payment acquirers, enabling merchant onboarding, and ensuring transactions flow reliably across countries like Mexico, Canada, New Zealand, and Australia. This role sits at the heart of that mission, owning critical backend systems while also shaping how the squad works \u2014 building AI agents and developer tooling that make the entire team faster and smarter. If you're a backend engineer who wants real ownership, enjoys working in ambiguous and complex environments, and is genuinely excited about teaching AI how your codebase works (not just using it for autocomplete), this role is for you.</p>\n<h2>What you'll do</h2>\n<ul>\n<li>Design and build scalable backend services in Golang and Kotlin, covering merchant onboarding, transaction processing, and reconciliation across multiple acquirers and markets</li>\n<li>Lead technical investigations for new market launches and mentor engineers on the team</li>\n<li>Configure and maintain AI coding assistants (Cursor, Copilot, Continue) with team-specific rules, framework conventions, and testing patterns \u2014 so generated code fits our systems, not generic templates</li>\n<li>Build AI agents that automate repetitive development tasks, such as generating integration stubs, updating OpenAPI specs, and flagging idempotency violations</li>\n<li>Keep documentation accurate and AI-accessible, so the team spends less time answering \"how does X work?\" and more time shipping</li>\n</ul>\n<h2>You'll be great for this role if\u2026</h2>\n<ul>\n<li>Strong proficiency in Golang (primary) or a JVM language such as Java or Kotlin, with experience building distributed, fault-tolerant backend systems</li>\n<li>Experience configuring AI coding assistants at a team level \u2014 defining rules, prompts, and context packages that produce consistent, framework-compliant output</li>\n<li>Solid understanding of idempotency, retry policies, and transaction safety in payment or financial systems</li>\n<li>Comfort working across multiple teams and domains simultaneously, navigating ambiguity and influencing without direct authority</li>\n<li>A track record of taking ownership in complex, cross-functional environments where the scope isn't always clearly defined</li>\n</ul>\n<h2>Why you should join SumUp</h2>\n<ul>\n<li>\ud83c\udf0e Opportunity to work with SumUppers globally on large-scale fintech products used by millions of businesses worldwide, from our Berlin office. This involves an office-first setup</li>\n<li>\ud83c\udf08 Commitment to Diversity and Inclusion: be part of a workplace that values and promotes diversity, fostering an inclusive environment where everyone's perspectives are respected and embraced</li>\n<li>\ud83d\ude80 Enrolment onto our Virtual Stock Option programme: you will own a stake in SumUp's future success</li>\n<li>\ud83d\udcda A dedicated annual L&amp;D budget of \u20ac2,000 for your individual devel",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1778197520",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-08T02:11:50.374914+00:00",
+    "salary_parsed": null,
+    "score": 50,
+    "matched_keywords": [
+      "backend engineer",
+      "api"
+    ],
+    "remote": true
+  },
+  {
+    "id": "ba93bf86b829",
+    "title": "Senior Backend Engineer - Global Expansion",
+    "company": "SumUp",
+    "location": "Munich, Bavaria, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/sumup/senior-backend-engineer-global-expansion-munich-372960",
+    "description": "<h1>Senior Backend Engineer \u2014 Global Expansion</h1>\n<h2>About the team</h2>\n<p>The Global Expansion Acquiring Squad is the engine behind SumUp's growth into new markets \u2014 integrating local payment acquirers, enabling merchant onboarding, and ensuring transactions flow reliably across countries like Mexico, Canada, New Zealand, and Australia. This role sits at the heart of that mission, owning critical backend systems while also shaping how the squad works \u2014 building AI agents and developer tooling that make the entire team faster and smarter. If you're a backend engineer who wants real ownership, enjoys working in ambiguous and complex environments, and is genuinely excited about teaching AI how your codebase works (not just using it for autocomplete), this role is for you.</p>\n<h2>What you'll do</h2>\n<ul>\n<li>Design and build scalable backend services in Golang and Kotlin, covering merchant onboarding, transaction processing, and reconciliation across multiple acquirers and markets</li>\n<li>Lead technical investigations for new market launches and mentor engineers on the team</li>\n<li>Configure and maintain AI coding assistants (Cursor, Copilot, Continue) with team-specific rules, framework conventions, and testing patterns \u2014 so generated code fits our systems, not generic templates</li>\n<li>Build AI agents that automate repetitive development tasks, such as generating integration stubs, updating OpenAPI specs, and flagging idempotency violations</li>\n<li>Keep documentation accurate and AI-accessible, so the team spends less time answering \"how does X work?\" and more time shipping</li>\n</ul>\n<h2>You'll be great for this role if\u2026</h2>\n<ul>\n<li>Strong proficiency in Golang (primary) or a JVM language such as Java or Kotlin, with experience building distributed, fault-tolerant backend systems</li>\n<li>Experience configuring AI coding assistants at a team level \u2014 defining rules, prompts, and context packages that produce consistent, framework-compliant output</li>\n<li>Solid understanding of idempotency, retry policies, and transaction safety in payment or financial systems</li>\n<li>Comfort working across multiple teams and domains simultaneously, navigating ambiguity and influencing without direct authority</li>\n<li>A track record of taking ownership in complex, cross-functional environments where the scope isn't always clearly defined</li>\n</ul>\n<h2>Why you should join SumUp</h2>\n<ul>\n<li>\ud83c\udf0e Opportunity to work with SumUppers globally on large-scale fintech products used by millions of businesses worldwide, from our Berlin office. This involves an office-first setup</li>\n<li>\ud83c\udf08 Commitment to Diversity and Inclusion: be part of a workplace that values and promotes diversity, fostering an inclusive environment where everyone's perspectives are respected and embraced</li>\n<li>\ud83d\ude80 Enrolment onto our Virtual Stock Option programme: you will own a stake in SumUp's future success</li>\n<li>\ud83d\udcda A dedicated annual L&amp;D budget of \u20ac2,000 for your individual devel",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1778197520",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-08T02:11:50.374935+00:00",
+    "salary_parsed": null,
+    "score": 50,
+    "matched_keywords": [
+      "backend engineer",
+      "api"
+    ],
+    "remote": true
+  },
+  {
+    "id": "a1bd94b4f62c",
+    "title": "Senior Backend Engineer - Global Expansion",
+    "company": "SumUp",
+    "location": "Hamburg, Hamburg, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/sumup/senior-backend-engineer-global-expansion-hamburg-485974",
+    "description": "<h1>Senior Backend Engineer \u2014 Global Expansion</h1>\n<h2>About the team</h2>\n<p>The Global Expansion Acquiring Squad is the engine behind SumUp's growth into new markets \u2014 integrating local payment acquirers, enabling merchant onboarding, and ensuring transactions flow reliably across countries like Mexico, Canada, New Zealand, and Australia. This role sits at the heart of that mission, owning critical backend systems while also shaping how the squad works \u2014 building AI agents and developer tooling that make the entire team faster and smarter. If you're a backend engineer who wants real ownership, enjoys working in ambiguous and complex environments, and is genuinely excited about teaching AI how your codebase works (not just using it for autocomplete), this role is for you.</p>\n<h2>What you'll do</h2>\n<ul>\n<li>Design and build scalable backend services in Golang and Kotlin, covering merchant onboarding, transaction processing, and reconciliation across multiple acquirers and markets</li>\n<li>Lead technical investigations for new market launches and mentor engineers on the team</li>\n<li>Configure and maintain AI coding assistants (Cursor, Copilot, Continue) with team-specific rules, framework conventions, and testing patterns \u2014 so generated code fits our systems, not generic templates</li>\n<li>Build AI agents that automate repetitive development tasks, such as generating integration stubs, updating OpenAPI specs, and flagging idempotency violations</li>\n<li>Keep documentation accurate and AI-accessible, so the team spends less time answering \"how does X work?\" and more time shipping</li>\n</ul>\n<h2>You'll be great for this role if\u2026</h2>\n<ul>\n<li>Strong proficiency in Golang (primary) or a JVM language such as Java or Kotlin, with experience building distributed, fault-tolerant backend systems</li>\n<li>Experience configuring AI coding assistants at a team level \u2014 defining rules, prompts, and context packages that produce consistent, framework-compliant output</li>\n<li>Solid understanding of idempotency, retry policies, and transaction safety in payment or financial systems</li>\n<li>Comfort working across multiple teams and domains simultaneously, navigating ambiguity and influencing without direct authority</li>\n<li>A track record of taking ownership in complex, cross-functional environments where the scope isn't always clearly defined</li>\n</ul>\n<h2>Why you should join SumUp</h2>\n<ul>\n<li>\ud83c\udf0e Opportunity to work with SumUppers globally on large-scale fintech products used by millions of businesses worldwide, from our Berlin office. This involves an office-first setup</li>\n<li>\ud83c\udf08 Commitment to Diversity and Inclusion: be part of a workplace that values and promotes diversity, fostering an inclusive environment where everyone's perspectives are respected and embraced</li>\n<li>\ud83d\ude80 Enrolment onto our Virtual Stock Option programme: you will own a stake in SumUp's future success</li>\n<li>\ud83d\udcda A dedicated annual L&amp;D budget of \u20ac2,000 for your individual devel",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1778197520",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-08T02:11:50.374944+00:00",
+    "salary_parsed": null,
+    "score": 50,
+    "matched_keywords": [
+      "backend engineer",
+      "api"
+    ],
+    "remote": true
+  },
+  {
     "id": "590851550f6f",
     "title": "Praktikant Marketing & Content Creation (m/w/d) 100 Prozent  im Home-Office",
     "company": "canicu",
@@ -4299,6 +4365,27 @@
     "score": 45,
     "matched_keywords": [
       "saas"
+    ],
+    "remote": true
+  },
+  {
+    "id": "80894a210d56",
+    "title": "Creative Strategist (EMEA)",
+    "company": "HexClad",
+    "location": "Munich",
+    "url": "https://www.arbeitnow.com/jobs/companies/hexclad/creative-strategist-emea-munich-406035",
+    "description": "<p><strong>JOIN HEXCLAD</strong></p>\n<p>As we continue to scale across Europe, we\u2019re seeking a Creative Strategist to shape, localise, and execute standout campaigns across the EMEA countries - with a primary focus on the UK, EU, Germany, UAE. You\u2019ll bridge global brand vision with local cultural insight, crafting creative strategies that drive performance and resonate with audiences across markets.</p>\n<p>If you\u2019re passionate about storytelling, data-driven creativity, and bringing premium brands to life through exceptional content - this is your sign to join the hybrid revolution.</p>\n<p><strong>What You\u2019ll Do</strong></p>\n<p>The Creative Strategist plays a central role in shaping and executing creative strategies across the EMEA region, with a primary focus on the UK, Germany, UAE. Their remit includes overseeing the production and localisation of creative assets, collaborating with internal teams and external partners, and driving campaigns that align with HexClad\u2019s brand and business goals.</p>\n<h2>Aufgaben</h2>\n<p><strong>Creative Strategy and Ideation</strong></p>\n<ul>\n<li>Develop and execute innovative creative strategies across a full funnel activation from direct response ads and brand campaigns.</li>\n<li>Ensure alignment with HexClad\u2019s overarching business objectives and brand values.</li>\n<li>Drive creative localisation efforts, particularly in the EMEA markets, creating a playbook to refine and scale processes.</li>\n</ul>\n<p><strong>Copywriting and Localisation</strong></p>\n<ul>\n<li>Produce engaging, on-brand copy for ads and campaigns tailored to the EMEA markets.</li>\n<li>Localise US creative assets for EMEA audiences, ensuring cultural and linguistic relevance.</li>\n<li>Provide British English and German copywriting support as needed, ensuring all content meets HexClad\u2019s high standards.</li>\n</ul>\n<p><strong>Market Research and Insights</strong></p>\n<ul>\n<li>Conduct research into market trends, customer behaviour, and competitor activities to inform campaigns.</li>\n<li>Use insights from ambassadors, culinary council members, and studio resources to inspire creative concepts.</li>\n</ul>\n<p><strong>Creative Production and Execution</strong></p>\n<ul>\n<li>Manage the end-to-end creative production process, from briefing to final execution.</li>\n<li>Collaborate with internal design and production teams as well as external freelancers to ensure timely delivery of assets.</li>\n<li>Coordinate with US-based content and creative teams to ensure consistent execution and analysis of campaigns.</li>\n<li>Work with the brand team to ensure alignment and maintain a consistent brand in every territory.</li>\n</ul>\n<p><strong>Performance Analysis and Optimisation</strong></p>\n<ul>\n<li>Analyse campaign performance using data and analytics tools, identifying opportunities to enhance creative impact.</li>\n<li>Run creative tests to evaluate and iterate on strategies for improved outcomes.</li>\n</ul>\n<p><strong>Cross-Functional Collaboration</strong></p>\n",
+    "tags": "Remote Strategic Marketing",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1778180437",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-08T02:11:50.374984+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "api"
     ],
     "remote": true
   },
@@ -8192,6 +8279,25 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-05-07T19:28:11.481966+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "d07130dd159e",
+    "title": "Senior AI Consultant / Machine Learning Engineer (m/w/d) Public Sector | >90% REMOTE",
+    "company": "Bridgency HR Management GbR",
+    "location": "Usingen",
+    "url": "https://www.arbeitnow.com/jobs/companies/bridgency-hr-management-gbr/senior-ai-consultant-machine-learning-engineer-public-sector-90-remote-usingen-94077",
+    "description": "<p><strong>From Legacy to Leading Edge \u2013</strong> gestalten Sie mit uns die digitale Transformation in anspruchsvollen Branchen und werden Sie Teil eines zukunftsorientierten IT-Beratungsunternehmens.</p>\n<p>Als ausgezeichneter Arbeitgeber und <strong>Top Company 2026</strong> bieten wir Ihnen mehr als nur einen Job. Bei uns gestalten Sie aktiv die digitale Zukunft mit \u2013 in Projekten, die wirklich bewegen \u2013 und das ohne starre Hierarchien, aber mit viel Vertrauen und Gestaltungsspielraum. Ob Projektmanagement, innovative Softwareentwicklung oder der smarte Einsatz von K\u00fcnstlicher Intelligenz: Bei Semper Prospera glauben wir an exzellente Zusammenarbeit, echte Wertsch\u00e4tzung und die Kraft guter Ideen.</p>\n<p>F\u00fcr ein strategisches Gro\u00dfprojekt im <strong>Public Sector</strong> suchen wir <strong>hochqualifizierte KI-Spezialisten (m/w/d)</strong> zur Unterst\u00fctzung von Forschungs-, Beratungs- und Umsetzungsleistungen im Bereich <strong>Einsatzevaluation und Entwicklung innovativer KI-L\u00f6sungen</strong>.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Entwicklung und Umsetzung von KI- und Machine-Learning-L\u00f6sungen</li>\n<li>Konzeption und Realisierung von Prototypen und produktionsnahen Anwendungen</li>\n<li>Analyse und Bewertung neuer Technologien und Forschungstrends im KI-Umfeld</li>\n<li>Aufbau und Optimierung von Datenpipelines und Modellarchitekturen</li>\n<li>Durchf\u00fchrung von Tests, Evaluationen und Performanceanalysen</li>\n<li>Zusammenarbeit mit Fachbereichen, Entwicklern und Projektteams</li>\n<li>Durchf\u00fchrung von Workshops sowie Wissenstransfer im Team</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Abgeschlossenes Studium der Informatik, Mathematik, Physik oder eine vergleichbare Qualifikation</li>\n<li>Erfahrung in der Planung, Durchf\u00fchrung und dem Abschluss von IT-Projekten</li>\n<li>Mehrj\u00e4hrige praktische Erfahrung in der Softwareentwicklung (insbesondere Backend) sowie in der Qualit\u00e4tssicherung</li>\n<li>Erfahrung in der Architektur und Dokumentation von KI-Systemen</li>\n<li>Kenntnisse im Bereich Machine Learning, neuronale Netze und/oder generative KI (z. B. Fine-Tuning von Sprachmodellen)</li>\n<li>Praxiserfahrung mit Datenbanksystemen (z. B. SQL, NoSQL, Vektordatenbanken)</li>\n<li>Erfahrung im Umgang mit Versionskontrolle (z. B. Git)</li>\n<li>Idealerweise Projekterfahrung im \u00f6ffentlichen Sektor, insbesondere in Beh\u00f6rden oder regulierten Umfeldern</li>\n<li>Erfahrung in KI-Projekten (z. B. Datenverarbeitung oder Modelltraining)</li>\n<li>Zertifizierungen im Bereich K\u00fcnstliche Intelligenz (z. B. CAIS, ARTIBA, Azure AI Engineer, NVIDIA oder Intel)</li>\n<li>Kenntnisse in Container- und Plattformtechnologien (z. B. OpenShift)</li>\n<li>Analytisches Denken und strukturierte Arbeitsweise</li>\n<li>Interesse an neuen Technologien und Forschung</li>\n<li>F\u00e4higkeit, komplexe Themen verst\u00e4ndlich zu kommunizieren</li>\n<li>Teamf\u00e4higkeit und Eigenverantwortung</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Spannende und herausfordernde Aufgaben in einem bedeutenden Digitalisierungsprojekt</li>\n",
+    "tags": "Remote Consulting Engineering",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1778178634",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-08T02:11:50.374989+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
