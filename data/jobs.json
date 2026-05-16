@@ -815,6 +815,33 @@
     "remote": true
   },
   {
+    "id": "dd250c0aec38",
+    "title": "AI Software Developer",
+    "company": "Sphere",
+    "location": "Munich",
+    "url": "https://www.arbeitnow.com/jobs/companies/sphere/ai-software-developer-munich-397681",
+    "description": "<p><strong>ABOUT THE POSITION</strong></p>\n<p>We are looking for an experienced Senior Full-Stack Developer with a strong background in AI engineering to join our growing team and help design, build, and deploy robust, intelligent software solutions for our clients. In this role, you will lead and deliver high-impact full-stack applications in collaboration with renowned clients in the European industry.</p>\n<p>You will work hands-on to build end-to-end products, integrate multi-modal datasets, and embed predictive and generative AI features into scalable user interfaces and backend architectures. This is more than a job \u2014 it\u2019s an opportunity to help shape the technical future of our company and drive innovation.</p>\n<p><strong>ABOUT SPHERE ENERGY</strong></p>\n<p>We are a young, dynamic and technology-driven company, committed to developing targeted AI-driven solutions that revolutionize the development of products in the broad field of engineering.</p>\n<h2>Tasks</h2>\n<p><strong>KEY RESPONSIBILITIES</strong></p>\n<ul>\n<li>End-to-End Development: Design, build, and maintain scalable, production-grade full-stack web applications that seamlessly integrate AI features, LLM workflows, and client-specific enterprise data.</li>\n<li>Architecture &#x26; API Design: Craft robust backend microservices, design efficient database schemas, and build secure APIs capable of handling high-throughput inference and data streaming.</li>\n<li>AI Integration &#x26; Orchestration: Embed predictive models and generative AI capabilities into user-facing products using orchestration frameworks and vector databases.</li>\n<li>CI/CD &#x26; DevOps Excellence: Establish modern DevOps and MLOps standards, building reusable pipelines for clean code deployment, automated testing, containerization, and system monitoring.</li>\n<li>Technical Strategy &#x26; Leadership: Translate complex business requirements into technical blueprints, bridging the gap between raw AI capability and intuitive user experiences. Advise stakeholders on technical strategy, clearly communicating architectural tradeoffs regarding cost, latency, performance, and scalability.</li>\n</ul>\n<h2>Requirements</h2>\n<p><strong>QUALIFICATIONS</strong></p>\n<ul>\n<li>Master\u2019s or Bachelor\u2019s degree in Computer Science, Software Engineering, or a related field, with proven experience building enterprise-scale full-stack applications with integrated AI components.</li>\n<li>Full-Stack Proficiency: Strong command of modern frontend frameworks and advanced proficiency in backend languages, specifically Python (FastAPI, Django) and/or Node.js/TypeScript.</li>\n<li>Expert command of software design patterns, clean code principles, distributed systems, microservices architecture, and cloud infrastructure orchestration.</li>\n<li>Leadership &#x26; Code Quality: Ability to define and execute technical roadmaps paired with experience mentoring engineering teams, conducting code/architecture reviews, and enforcing engineering excellence.<",
+    "tags": "IT",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1778940030",
+    "source": "arbeitnow",
+    "status": "approved",
+    "found_at": "2026-05-16T18:52:47.019494+00:00",
+    "salary_parsed": null,
+    "score": 65,
+    "matched_keywords": [
+      "software engineer",
+      "python",
+      "node.js",
+      "typescript",
+      "fastapi",
+      "django",
+      "api"
+    ],
+    "remote": true
+  },
+  {
     "id": "2d476ba92c37",
     "title": "Python Software Engineer, Backend & APIs - Remote",
     "company": "dexter health",
@@ -2612,44 +2639,24 @@
     "remote": true
   },
   {
-    "id": "edb79fff2763",
-    "title": "Praktikum Influencer Marketing & Partnerships (m/w/d)",
-    "company": "Shapemate",
-    "location": "Cologne",
-    "url": "https://www.arbeitnow.com/jobs/companies/shapemate/praktikum-influencer-marketing-partnerships-cologne-349825",
-    "description": "<p>Start zum 15.05.2026 \ud83d\udc47</p>\n<p>\ud83d\udd0d Wir suchen jemanden, der nicht nur Follower z\u00e4hlt. sondern Beziehungen aufbaut, die wirklich konvertieren.</p>\n<p>Wir sind Shapemate, ein junges Startup mit der Mission, Fitness tracking einfacher und pers\u00f6nlicher zu machen.</p>\n<p>Jetzt wollen wir wachsen. und daf\u00fcr brauchen wir eine starke Creator-Strategie.</p>\n<p>Wenn du wei\u00dft, wie man Kooperationen aufbaut, Communities versteht und Influencer nicht nur als Werbefl\u00e4che siehst. dann bist du bei uns genau richtig.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Du identifizierst passende Creator &#x26; Micro-Influencer f\u00fcr Shapemate (Instagram, TikTok, YouTube)</li>\n<li>Du baust und pflegst unser Creator-Netzwerk mit echten Beziehungen, nicht nur Cold DMs</li>\n<li>Du koordinierst Kooperationen von der Anfrage bis zur Auswertung</li>\n<li>Du trackst Performance-Daten und leitest daraus klare Learnings ab</li>\n<li>Du unterst\u00fctzt bei der Entwicklung unserer Influencer-Strategie gemeinsam mit dem Gr\u00fcnderteam</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Eingeschriebene:r Student:in</li>\n<li>Begeisterung f\u00fcr Social Media und die Creator Economy</li>\n<li>Gesp\u00fcr f\u00fcr Authentizit\u00e4t: du erkennst, welche Creator wirklich zur Brand passen</li>\n<li>Strukturierte Arbeitsweise und eigenverantwortliches Vorgehen</li>\n<li>Kommunikationsst\u00e4rke, intern wie extern</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Enge Zusammenarbeit mit dem Gr\u00fcnderteam</li>\n<li>Schnelles Feedback, flache Strukturen &#x26; ehrliche Kommunikation</li>\n<li>Freiheit f\u00fcr eigene Ideen &#x26; Formate</li>\n<li>Ein junges, motiviertes Team mit klarer Vision</li>\n<li>Flexible Arbeitszeiten</li>\n</ul>\n<p><strong><em>Klingt nach dir?</em></strong></p>\n<p>Wir freuen uns auf deine Bewerbung \ud83d\ude80</p>\n<p>\ud83d\udc49 Aktuell bieten wir ein flexibles, unbezahltes Praktikum (2\u20133 Monate) oder in Form eines Pflichtpraktikums (bis zu 6 Monate) \u2013 mit klarer Aussicht auf eine anschlie\u00dfende Zusammenarbeit. Ob als Werkstudent oder Angestellter.</p>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Remote Marketing and Communication",
+    "id": "32ae136477e8",
+    "title": "Marketing Manager, Content & AI Enablement",
+    "company": "Expion Health",
+    "location": "USA",
+    "url": "https://remotive.com/remote-jobs/marketing/marketing-manager-content-ai-enablement-2090883",
+    "description": "<p class=\"MsoNormal\" style=\"line-height:normal\"><strong><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">Title</span></strong><span style=\"mso-ascii-theme-font:minor-latin;\r\nmso-hansi-theme-font:minor-latin\">: Marketing Manager, Content &amp; AI\r\nEnablement<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><strong><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">Location</span></strong><span style=\"mso-ascii-theme-font:minor-latin;\r\nmso-hansi-theme-font:minor-latin\">: Fully Remote<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><strong><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">Reports To:</span></strong><span style=\"mso-ascii-theme-font:minor-latin;\r\nmso-hansi-theme-font:minor-latin\"> VP, Marketing &amp; Communications<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">\u00a0</span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">Pharmacy\r\nbenefit management is a $500B+ industry most people have never heard of \u2014 but\r\nit has a major impact on how prescription drugs are priced, accessed, and paid\r\nfor. Expion Health is at the forefront of changing how that system works.<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">\u00a0</span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">We sit at\r\nthe intersection of data, technology, and pharmacy economics, helping clients\r\nstay ahead of a rapidly evolving market. We are also in the middle of a\r\ncompany-wide AI transformation, with teams across the business rethinking how\r\nwork gets done.<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">\u00a0</span></p><p style=\"border-width: medium medium 1pt; border-style: none none solid; border-color: currentcolor currentcolor windowtext; padding: 0in 0in 1pt;\">\n</p><div class=\"h3\" style=\"margin:0in;line-height:normal\"><strong>The Role</strong><p></p></div>\n<p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">We are\r\nlooking for a <strong>Marketing Manager, Content &amp; AI Enablement</strong>\u00a0 to help our marketing team create stronger\r\nwork faster by combining AI ingenuity with marketing fundamentals. This is not\r\na role for someone who wants to use AI around the edges. It is for someone who\r\nwants to help build a more modern, faster, smarter marketing function from the\r\ninside.<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor",
+    "tags": "react seo video AI/ML product marketing project management research content marketing digital media healthcare digital marketing partnerships editing SOLID mailchimp email marketing google ads testing CMS insurance SEM performance optimization",
     "salary_min": null,
     "salary_max": null,
-    "posted_at": "1777739430",
-    "source": "arbeitnow",
+    "posted_at": "2026-05-15T06:54:14",
+    "source": "remotive",
     "status": "new",
-    "found_at": "2026-05-02T18:45:10.249617+00:00",
+    "found_at": "2026-05-16T18:52:46.648488+00:00",
     "salary_parsed": null,
-    "score": 45,
+    "score": 50,
     "matched_keywords": [
-      "startup"
-    ],
-    "remote": true
-  },
-  {
-    "id": "61589261e7f7",
-    "title": "Praktikum Content Marketing & Creation (m/w/d)",
-    "company": "Shapemate",
-    "location": "Cologne",
-    "url": "https://www.arbeitnow.com/jobs/companies/shapemate/praktikum-content-marketing-creation-cologne-67762",
-    "description": "<p>Start zum 15.05.2026 \ud83d\udc47</p>\n<p>\ud83d\udd0d Wir suchen jemanden, der Content nicht nur postet - sondern bewegt.</p>\n<p>Wir sind Shapemate, ein junges Startup mit der Mission, Fitness tracking einfacher und pers\u00f6nlicher zu machen.</p>\n<p>Jetzt wollen wir wachsen und daf\u00fcr brauchen wir dich!</p>\n<p>Wenn du Social Media liebst, Trends verfolgst und Bock auf Content Creation hast, bist du bei uns genau richtig.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Du erstellst Content (Text, Grafik, Short-Videos) f\u00fcr Instagram, TikTok &#x26; Co.</li>\n<li>Du bringst unsere Marke visuell &#x26; sprachlich auf den Punkt</li>\n<li>Du entwickelst neue Formate, die unsere Community feiern wird</li>\n<li>Du hilfst mit, unser Content-System zu strukturieren (Notion, Canva, KI-Tools etc.)</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Eingeschriebene:r Student:in</li>\n<li>Begeisterung f\u00fcr Social Media, insbesondere TikTok &#x26; Instagram</li>\n<li>Gutes Gesp\u00fcr f\u00fcr Trends und Zielgruppen</li>\n<li>Kreative Ideen, Eigenverantwortung &#x26; Lust auf Startup-Mentalit\u00e4t</li>\n<li>Strukturierte Arbeitsweise und Zuverl\u00e4ssigkeit</li>\n<li>Du scheust dich nicht auch mal vor der Kamera zu stehen</li>\n<li>Optional: Erste Erfahrung mit Video-Schnitt (z.\u202fB. CapCut, Canva o.\u202f\u00c4.)</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Enge Zusammenarbeit mit dem Gr\u00fcnderteam</li>\n<li>Schnelles Feedback, flache Strukturen &#x26; ehrliche Kommunikation</li>\n<li>Freiheit f\u00fcr eigene Ideen &#x26; Formate</li>\n<li>Ein junges, motiviertes Team mit klarer Vision</li>\n<li>Flexible Arbeitszeiten</li>\n</ul>\n<p><strong><em>Klingt nach dir?</em></strong></p>\n<p>Wir freuen uns auf deine Bewerbung \ud83d\ude80</p>\n<p>\ud83d\udc49 Aktuell bieten wir ein flexibles, unbezahltes Praktikum (2\u20133 Monate) oder in Form eines Pflichtpraktikums (bis zu 6 Monate) \u2013 mit klarer Aussicht auf eine anschlie\u00dfende Zusammenarbeit. Ob als Werkstudent oder Angestellter.</p>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Remote Marketing and Communication",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1777737629",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-02T18:45:10.249623+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "startup"
+      "react",
+      "api"
     ],
     "remote": true
   },
@@ -4163,25 +4170,6 @@
     "matched_keywords": [
       "startup"
     ],
-    "remote": true
-  },
-  {
-    "id": "e513bd418222",
-    "title": "Inside Sales Contractor",
-    "company": "Credit Wellness, LLC",
-    "location": "Worldwide",
-    "url": "https://remotive.com/remote-jobs/sales/inside-sales-contractor-2086540",
-    "description": "<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">About Us</span></p>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals.</span></p>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sales professional looking for the autonomy of a remote position combined with great compensation, we want to hear from you!</span></p>\n<div class=\"h2\" dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 6pt 0pt 4pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Compensation Structure</span></div>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 8pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">This role is </span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">100% commission-based</span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">, which means your earning potential is unlimited. In addition, we regularly offer </span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertica",
-    "tags": "CRM google sheets financial services Inside Sales",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "2026-04-13T13:54:47",
-    "source": "remotive",
-    "status": "new",
-    "found_at": "2026-05-02T18:45:10.047603+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
     "remote": true
   },
   {
@@ -8929,6 +8917,25 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-05-16T13:02:20.196132+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "e513bd418222",
+    "title": "Inside Sales Contractor",
+    "company": "Credit Wellness, LLC",
+    "location": "Worldwide",
+    "url": "https://remotive.com/remote-jobs/sales/inside-sales-contractor-2086540",
+    "description": "<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">About Us</span></p>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals.</span></p>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sales professional looking for the autonomy of a remote position combined with great compensation, we want to hear from you!</span></p>\n<div class=\"h2\" dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 6pt 0pt 4pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Compensation Structure</span></div>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 8pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">This role is </span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">100% commission-based</span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">, which means your earning potential is unlimited. In addition, we regularly offer </span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertica",
+    "tags": "CRM google sheets financial services Inside Sales",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "2026-05-08T22:00:54",
+    "source": "remotive",
+    "status": "new",
+    "found_at": "2026-05-16T18:52:46.648546+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
