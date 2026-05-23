@@ -1434,29 +1434,6 @@
     "remote": true
   },
   {
-    "id": "a65984c5183a",
-    "title": "Senior Cloud Software Engineer (TypeScript & AWS) (m/w/d)",
-    "company": "vOffice Software",
-    "location": "Hamburg",
-    "url": "https://www.arbeitnow.com/jobs/companies/voffice-software/senior-cloud-software-engineer-typescript-aws-hamburg-431856",
-    "description": "<p>Hey!</p>\n<p>Hast du Lust, Teil eines jungen und dynamischen Teams zu werden, das mit Leidenschaft und Innovation die Ferienvermietungsbranche revolutioniert?</p>\n<p>vOffice entwickelt die moderne All-in-One Software, mit der bereits rund 50.000 Ferienunterk\u00fcnfte vermietet werden. Durch eine Vielzahl an Innovationen und ausgereiften Schnittstellen hat sich unsere Software zum absoluten Marktstandard entwickelt.</p>\n<p>Wir suchen eine/n <strong><em>Senior Cloud Software Engineer in Typescript und AWS,</em></strong> die/der mit uns gemeinsam die Digitalisierung der Branche vorantreiben m\u00f6chte. Wenn du Werte wie Kommunikation, Antrieb, Innovation, Lernen, Leidenschaft und Teamarbeit teilst und bereit bist, in einem cross-funktionalen Team zu arbeiten, dann bist du genau richtig bei uns.</p>\n<p>Komm zu vOffice und hilf uns, die Zukunft der professionellen Ferienvermietung zu gestalten!</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Als Senior Entwickler*in bringst du eine mehrj\u00e4hrige Erfahrung in der Software-Entwicklung mit und bist ma\u00dfgeblich an der Konzeption und dem Ausbau unserer neuen serverless cloud-native Software-Plattform auf Basis von AWS beteiligt.<br>\nAls Cloud-Spezialist*in liegt dein Schwerpunkt auf der Implementierung skalierbarer NodeJS Services im Backend, wobei du die Infrastruktur effizient mittels AWS CDK (Infrastructure as Code) definierst und verwaltest. Erg\u00e4nzend entwickelst du moderne Frontend-Komponenten mit Svelte. Im agilen Team gestaltest, pr\u00e4sentierst und evaluierst du zukunftsweisende technische L\u00f6sungen und treibst deren Implementierung voran.</li>\n<li>Als Full-Stack Entwickler wirst du im Backend NodeJS Services implementieren und im Frontend Apps mit Svelte implementieren.</li>\n<li>Im agilen Team wirst du technische L\u00f6sungen gestalten, erarbeiten, pr\u00e4sentieren, evaluieren und implementieren.</li>\n<li>Zu deinen Kernaufgaben geh\u00f6rt die Erstellung und Evaluierung von komplexen Cloud-Architekturkonzepten. Du definierst technische Standards sowie Best Practices und etablierst diese nachhaltig innerhalb des Entwicklungsteams..</li>\n<li><strong>Unser moderner Tech Stack:</strong></li>\n</ul>\n<p>NodeJS | AWS | Cloud-Native | GitHub |Typescript | Svelte</p>\n<h2>Qualifikation</h2>\n<p><strong>Must-have Skills:</strong></p>\n<ul>\n<li>Mehrj\u00e4hrige Erfahrung als DevOps oder Cloud Engineer in komplexen Umgebungen mit AWS (EC2,  Lambda, etc.)</li>\n<li>Sehr gutes Verst\u00e4ndnis von Cloud-Architekturen, Netzwerktechnologien (z.\u202fB. VPC, Security Groups) sowie IT-Security in der Cloud</li>\n<li>Deine Erfahrung in der Entwicklung mit NodeJS spricht f\u00fcr sich</li>\n<li>Du bist Experte in Javascript &#x26; Typescript</li>\n<li>Professional Working English</li>\n</ul>\n<p><strong>Nice-to-have Skills:</strong></p>\n<ul>\n<li>Du kennst dich in der Online-Reisebranche aus</li>\n<li>Du hast mehrj\u00e4hrige Erfahrung in Frontend-Entwicklung mit Svelte</li>\n<li>AWS Kenntnisse</li>\n</ul>\n<h2>Benefits</h2>\n<p>Du arbeitest auf einem modernen Tech-Stack und bist Teil einer absolute",
-    "tags": "Remote Software Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778306427",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-09T07:45:20.757326+00:00",
-    "salary_parsed": null,
-    "score": 55,
-    "matched_keywords": [
-      "software engineer",
-      "typescript",
-      "aws"
-    ],
-    "remote": true
-  },
-  {
     "id": "d7edda2865c8",
     "title": "Unpaid Internship: Full-Stack PHP Developer (Immediate Start)",
     "company": "HOPn",
@@ -4974,25 +4951,6 @@
     "matched_keywords": [
       "api"
     ],
-    "remote": true
-  },
-  {
-    "id": "9b1eb101b772",
-    "title": "Senior Full-Stack Kotlin Engineer (m/f/d) - Station Management & Inventory",
-    "company": "Flix",
-    "location": "Berlin, Berlin, Germany",
-    "url": "https://www.arbeitnow.com/jobs/companies/flix/senior-full-stack-kotlin-engineer-station-management-inventory-berlin-152257",
-    "description": "<p><span style=\"font-size: 12pt;\"><span data-contrast=\"none\">We are looking for a motivated and curious<strong> Senior Full-Stack Engineer </strong></span><strong><span data-contrast=\"none\">(Kotlin)</span></strong><span data-contrast=\"none\">&nbsp;to&nbsp;join our team&nbsp;in&nbsp;Supply&nbsp;Division&nbsp;and drive customer station experience to the next level!</span><span data-ccp-props=\"{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:180,&quot;335559739&quot;:0}\">&nbsp;</span></span></p>\n<p><span style=\"font-size: 12pt;\"><span data-contrast=\"none\">In an&nbsp;ever growing&nbsp;network, Flix customers worldwide expect a comfortable and seamless experience at our stations as part of their travel experience. Our self-organized, cross-functional&nbsp;and distributed team builds products to enable Flix station managers to scale management of the station inventory, which a wide range of internal tech teams across Flix depend on, and overall serves to improve the experience at our stations for millions of passengers.</span><span data-ccp-props=\"{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:180,&quot;335559739&quot;:0}\">&nbsp;</span></span></p>\n<p><span style=\"font-size: 12pt;\"><span data-contrast=\"none\">In this role, you will continue to shape the product by driving innovation, solving complex challenges, and creating a lasting impact on our organization.</span><span data-ccp-props=\"{&quot;134233117&quot;:false,&quot;134233118&quot;:false,&quot;335557856&quot;:16777215,&quot;335559738&quot;:180,&quot;335559739&quot;:0}\">&nbsp;</span></span></p>\n<p><span style=\"font-size: 24pt;\"><strong data-renderer-mark=\"true\">About the Role</strong></span></p>\n<ul>\n<li style=\"font-size: 12pt;\"><span style=\"font-size: 12pt;\">You take ownership of roadmap epics as topic driver, aligning technical requirements and solutions across the team together with the product owner</span></li>\n<li style=\"font-size: 12pt;\"><span style=\"font-size: 12pt;\">As part of the team you will work closely with business stakeholders on continuously developing and improving the product vision</span></li>\n<li style=\"font-size: 12pt;\"><span style=\"font-size: 12pt;\">You always keep the business value in mind when making decisions&nbsp;</span></li>\n<li style=\"font-size: 12pt;\"><span style=\"font-size: 12pt;\">You drive the development process using an agile environment</span></li>\n<li style=\"font-size: 12pt;\"><span style=\"font-size: 12pt;\">As part of your daily work, you collaborate closely with your fellow team members, for example in pair and ensemble programming, doing code reviews,\u202ftesting, and operations&nbsp;</span></li>\n<li style=\"font-size: 12pt;\"><span style=\"font-size: 12pt;\">You frequently deliver new versions of the product, using continuous integration and delivery&nbsp;</span></li>\n<li style=\"font-size: 12pt;\"><span style=\"font-size: 12pt;\">You work confidently ",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778309120",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-09T07:45:20.757300+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
     "remote": true
   },
   {
