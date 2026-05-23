@@ -1434,29 +1434,6 @@
     "remote": true
   },
   {
-    "id": "4f4188c93ef1",
-    "title": "DevOps-Engineer (m/w/d)",
-    "company": "IT42morrow IFT GmbH",
-    "location": "Brandenburg",
-    "url": "https://www.arbeitnow.com/jobs/companies/it42morrow-ift-gmbh/devops-engineer-brandenburg-487435",
-    "description": "<p>IT42morrow steht f\u00fcr Innovation und Dynamik in der IT-Welt. Mit einer Palette von spannenden Projekten und einer Kultur, die Wachstum und Diversit\u00e4t f\u00f6rdert, sind wir auf der Suche nach einem neuen Star in unserem DevOps-Team. Egal, ob du ein erfahrener Profi oder ein begeisterter Neuling mit einer Leidenschaft f\u00fcr Technologie bist \u2013 wenn du bereit bist, in die Welt der gro\u00dfen IT-Umgebungen einzutauchen, sollten wir uns unterhalten!</p>\n<h2>Aufgaben</h2>\n<p><strong>Dein neues Spielfeld:</strong></p>\n<ul>\n<li><strong>Nimm das Ruder in die Hand</strong> bei der Betreuung von Cloud-Umgebungen und der Steuerung von CI/CD-Pipelines.</li>\n<li>Zeige deine Skills in der <strong>Automatisierung</strong> und Optimierung von Prozessen.</li>\n<li>Werde zum Detektiv, wenn es darum geht, <strong>Schwachstellen</strong> aufzusp\u00fcren.</li>\n<li><strong>Du baust Br\u00fccken</strong> zwischen Entwicklung und Infrastruktur? Das ist dein Ding!</li>\n</ul>\n<h2>Qualifikation</h2>\n<p><strong>M\u00f6gliche Techstacks unserer Kundenprojekte:</strong></p>\n<ul>\n<li><strong>Tech-Enthusiast</strong>: Neue Technologien ziehen Sie magisch an. Du bist immer up-to-date und brennen darauf, Innovationen praktisch anzuwenden.</li>\n<li><strong>CI/CD:</strong> Jenkins, Gitlab, Azure DevOps, Bitbucket</li>\n<li><strong>Cloud:</strong> Amazon Webservices, Microsoft Azure, Google Cloud Platform</li>\n<li><strong>Automatisierung:</strong> Ansible, Puppet, Chef, SaltStack</li>\n<li><strong>Container(-Orchestrierung):</strong> Docker, Kubernetes, OpenShift, Rancher</li>\n<li><strong>Monitoring/Observability:</strong> Prometheus, Nagios, ELK-Stack, Grafana</li>\n<li><strong>Entwicklung:</strong> Java, Python, Go, Golang</li>\n</ul>\n<p><strong>Was Du sonst noch mitbringen solltest:</strong></p>\n<ul>\n<li><strong>Sicherheitsbewusst:</strong> F\u00fcr dich steht die Sicherheit der Systeme immer an erster Stelle. Du kennst die Best Practices und sorgen daf\u00fcr, dass Sicherheitsl\u00fccken keine Chance haben.</li>\n<li><strong>Kommunikationsstark:</strong> Du wei\u00dft, dass gute Ideen geteilt werden m\u00fcssen. Im Team f\u00fchlen Sie sich wohl und k\u00f6nnen dein Wissen klar und verst\u00e4ndlich vermitteln.</li>\n<li><strong>Lernwillig:</strong> Die IT-Welt ver\u00e4ndert sich rasant, und Du bist immer bereit, Neues zu lernen und sich weiterzuentwickeln.</li>\n<li><strong>Reiselustig:</strong> Du bist offen f\u00fcr Eins\u00e4tze bei unseren Kunden und sehen darin eine Chance, deinen Horizont zu erweitern.</li>\n<li><strong>Sprachtalent:</strong> Du beherrschst Deutsch mindestens auf dem Niveau C1. Englischkenntnisse sind ein absoluter Pluspunkt</li>\n</ul>\n<h2>Benefits</h2>\n<p>Was wir Ihnen bieten:</p>\n<ul>\n<li><strong>Zukunftssicherheit</strong>: Freuen Sie sich auf einen unbefristeten Arbeitsplatz in einem zukunftsorientierten Unternehmen.</li>\n<li><strong>Entwicklungspotenzial</strong>: Wir investieren in Ihre Karriere mit individuellen Weiterbildungsm\u00f6glichkeiten.</li>\n<li><strong>Cutting-Edge Technologie</strong>: Arbeiten Sie mit den neuesten Technologien",
-    "tags": "Remote Software Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778275841",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-09T02:05:37.469559+00:00",
-    "salary_parsed": null,
-    "score": 55,
-    "matched_keywords": [
-      "python",
-      "docker",
-      "kubernetes"
-    ],
-    "remote": true
-  },
-  {
     "id": "a65984c5183a",
     "title": "Senior Cloud Software Engineer (TypeScript & AWS) (m/w/d)",
     "company": "vOffice Software",
@@ -1982,6 +1959,29 @@
       "software engineer",
       "aws",
       "docker"
+    ],
+    "remote": true
+  },
+  {
+    "id": "a94dc8de1917",
+    "title": "AI Automation & Generative AI Engineer",
+    "company": "Resourceful Talent Group",
+    "location": "Berlin",
+    "url": "https://www.arbeitnow.com/jobs/companies/resourceful-talent-group/ai-automation-generative-ai-engineer-berlin-225157",
+    "description": "<p style=\";\">We are seeking an AI Automation &amp; Generative AI Engineer to support a rapidly growing organization in the U.S.</p><p style=\";;\"></p><p style=\";\">This person will build AI-powered applications, workflow automations, LLM integrations, and business process automation solutions. The ideal candidate is hands-on, strong with Python, comfortable working with APIs, and experienced in turning AI tools into practical business solutions.</p><p style=\";;\"></p><p style=\";\">This is a strong fit for someone who has built AI applications, internal automation tools, RAG systems, chatbots, AI agents, or LLM-powered workflows.</p><p style=\";;\"></p><p style=\";\">Key Responsibilities</p><ul><li><p>Build and integrate AI-powered applications, workflows, and automation systems</p></li><li><p>Develop LLM-based tools, AI agents, chatbots, and internal productivity solutions</p></li><li><p>Integrate OpenAI, Anthropic, Gemini, or other generative AI APIs into business systems</p></li><li><p>Design AI automation solutions for operations, sales, customer support, recruiting, and productivity use cases</p></li><li><p>Build and improve RAG systems, document search tools, and knowledge-based AI applications</p></li><li><p>Work with APIs, databases, cloud services, and third-party platforms</p></li><li><p>Optimize prompts, workflows, outputs, and AI interactions for accuracy and usability</p></li><li><p>Collaborate with engineering, product, and business teams to deliver scalable AI solutions</p></li><li><p>Troubleshoot and improve AI workflows, including handling edge cases, errors, and unreliable outputs</p></li><li><p>Help ensure AI solutions are practical, secure, and aligned with business needs</p></li></ul><ul><li><p>Strong Python experience</p></li><li><p>Hands-on experience with OpenAI APIs or other LLM platforms</p></li><li><p>Experience with LangChain, LlamaIndex, Semantic Kernel, CrewAI, AutoGen, or similar frameworks</p></li><li><p>Experience building AI-powered applications, automations, or workflow tools</p></li><li><p>Strong API integration experience</p></li><li><p>Understanding of prompts, structured outputs, embeddings, RAG, and AI workflow design</p></li><li><p>Experience working with cloud infrastructure or backend systems</p></li><li><p>Ability to work independently in a remote environment</p></li><li><p>Strong English communication skills</p></li><li><p>Comfortable working with international teams and fast-moving projects</p></li></ul><p style=\";;\"></p><p style=\";\">Preferred Qualifications</p><ul><li><p>Experience with vector databases such as Pinecone, Weaviate, Chroma, Qdrant, Milvus, or pgvector</p></li><li><p>Experience building RAG systems or document Q&amp;A tools</p></li><li><p>Experience with AWS, GCP, or Azure</p></li><li><p>Experience with voice AI, conversational AI, or customer support automation</p></li><li><p>Experience with workflow automation tools such as n8n, Zapier, Make, Airflow, or similar</p></li><li><p>Experience worki",
+    "tags": "Engineering associate's degree",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1779484814",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-23T02:11:51.977896+00:00",
+    "salary_parsed": null,
+    "score": 55,
+    "matched_keywords": [
+      "python",
+      "aws",
+      "api"
     ],
     "remote": true
   },
@@ -4974,25 +4974,6 @@
     "matched_keywords": [
       "api"
     ],
-    "remote": true
-  },
-  {
-    "id": "314b5cfa141d",
-    "title": "Account Manager (m/w/d) Managed Services - KRITIS",
-    "company": "EWERK GROUP",
-    "location": "Leipzig",
-    "url": "https://www.arbeitnow.com/jobs/companies/ewerk-group/account-manager-managed-services-kritis-leipzig-312884",
-    "description": "<p>Bist du ein passionierter Vertriebsexperte (m/w/d) mit einem starken Gesp\u00fcr f\u00fcr Markttrends und Kundenbed\u00fcrfnisse? Du hast Spa\u00df daran, Gesch\u00e4ftsbeziehungen aufzubauen und langfristige Erfolge zu sichern? Dann haben wir die perfekte Herausforderung f\u00fcr dich!</p>\n<p>Wir begleiteten Organisationen beim Betrieb komplexer IT\u2011Services. In diesem Umfeld \u00fcbernehmen wir Verantwortung f\u00fcr stabile, sichere und regelkonforme IT\u2011L\u00f6sungen \u2013 insbesondere dort, wo Verf\u00fcgbarkeit, Nachvollziehbarkeit und Compliance von zentraler Bedeutung sind.</p>\n<p>Zur Betreuung und Weiterentwicklung unserer Kunden im Umfeld <strong>kritischer Infrastrukturen</strong> suchen wir einen <strong>Account Manager (m/w/d) Managed Services</strong>.</p>\n<p><strong>Was dich erwartet:</strong></p>\n<ul>\n<li>Verantwortung f\u00fcr die Betreuung und Weiterentwicklung bestehender Kunden im KRITIS-Umfeld</li>\n<li>Zentrale Ansprechperson (m/w/d) f\u00fcr alle kaufm\u00e4nnischen und vertraglichen Themen im Account</li>\n<li>Weiterentwicklung von Managed\u2011Services\u2011Leistungen (Betrieb, Support, SLA\u2011basierte Services)</li>\n<li>Steuerung von Angebots\u2011, Vertrags\u2011 und Verl\u00e4ngerungsprozessen</li>\n<li>Enge Zusammenarbeit mit Service Delivery, Technik, Architektur und Projektmanagement</li>\n<li>Abstimmung von Leistungsinhalten, SLAs und Service\u2011Modellen entsprechend regulatorischer Vorgaben</li>\n<li>Aufbau langfristiger, vertrauensvoller Kundenbeziehungen auf Entscheidungs\u2011 und Managementebene</li>\n</ul>\n<p><strong>Darauf freuen wir uns:</strong></p>\n<ul>\n<li>Mehrj\u00e4hrige Erfahrung im Account Management oder servicenahen Vertrieb von IT\u2011Leistungen</li>\n<li>Erfahrung mit Managed Services und/oder IT\u2011Betriebsmodellen</li>\n<li>Idealerweise Ber\u00fchrungspunkte mit KRITIS\u2011relevanten Kunden oder regulierten Umfeldern</li>\n<li>Verst\u00e4ndnis f\u00fcr betriebliche IT\u2011Strukturen, Service\u2011Level\u2011Modelle und Vertragswerke</li>\n<li>Strukturierte, verl\u00e4ssliche Arbeitsweise und hohes Verantwortungsbewusstsein</li>\n<li>Sehr gute Deutsch\u2011 sowie gute Englischkenntnisse</li>\n</ul>\n<p><strong>Unsere Benefits:</strong></p>\n<ul>\n<li>Flexibilit\u00e4t ist unser Motto - Office, remote, Homeoffice oder Workation in der EU? Entscheide selbst!</li>\n<li>Familienfreundlich - Wir bieten flexible Arbeitszeiten f\u00fcr die optimale Work-Life-Balance und unterst\u00fctzen dich mit einem Kindergartenzuschuss.</li>\n<li>Gut versorgt am Arbeitsplatz - Bei uns erh\u00e4ltst du selbstverst\u00e4ndlich kostenlos Kaffee, Tee, Limonade, frisches Obst und die M\u00f6glichkeit, in unserer modernen Cafeteria zu kochen.</li>\n<li>Nachhaltige Mobilit\u00e4t - Mit dem JOB-Ticket sowie JobRad inkl. Fahrradgarage unterst\u00fctzen wir umweltfreundliche Mobilit\u00e4t und bieten dir die M\u00f6glichkeit, dich aktiv fortzubewegen.</li>\n<li>Deine Entwicklung im Fokus - Daf\u00fcr bieten wir dir ma\u00dfgeschneiderte Entwicklungsma\u00dfnahmen und regelm\u00e4\u00dfige Mitarbeitergespr\u00e4che</li>\n<li>Teamspirit und Spa\u00df - Freue dich auf Team- und Firmenevents, bei denen du deine Kolleginnen und Kollegen besser kennenlernen und gemeinsam Spa\u00df haben kannst.",
-    "tags": "Management Team Leader",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778286654",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-09T02:05:37.469518+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
     "remote": true
   },
   {
@@ -9512,6 +9493,25 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-05-22T19:25:04.174005+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "2ce2ff632124",
+    "title": "Kfz-Mechatroniker (m/w/d) f\u00fcr mobilen Au\u00dfendienst Hamburg",
+    "company": "Roos Fleetservice GmbH",
+    "location": "Ingolstadt",
+    "url": "https://www.arbeitnow.com/jobs/companies/roos-fleetservice-gmbh/kfz-mechatroniker-fur-mobilen-aussendienst-hamburg-ingolstadt-323250",
+    "description": "<p><strong>Stellenanzeige: Kfz-Mechatroniker (m/w/d) f\u00fcr mobilen Au\u00dfendienst Hamburg</strong></p>\n<p>Du hast Benzin im Blut, liebst Abwechslung und bist gern unterwegs? Dann schnapp dir dein Werkzeug, denn wir suchen DICH als Kfz-Mechatroniker (m/w/d) f\u00fcr unseren mobilen Service in Hamburg!</p>\n<p><strong>Deine Aufgaben:</strong></p>\n<ul>\n<li>Durchf\u00fchrung von Inspektionen und Software-Updates direkt bei unseren Kunden</li>\n<li>Bearbeitung von R\u00fcckrufaktionen nach Herstellervorgaben</li>\n<li>Austausch von Kleinteilen im Rahmen von Wartungen</li>\n<li>Diagnose und kleinere Reparaturen vor Ort</li>\n<li>Regelm\u00e4\u00dfige Teilnahme an Herstellerschulungen</li>\n<li>Zus\u00e4tzlich auch werkstattbezogene Aufgaben in einer Homebase</li>\n</ul>\n<p><strong>Das bringst du mit:</strong></p>\n<ul>\n<li>Abgeschlossene Ausbildung als Kfz-Mechatroniker</li>\n<li>F\u00fchrerschein der Klasse B</li>\n<li>Freude am Reisen und flexible Einsatzbereitschaft</li>\n</ul>\n<p><strong>Wir bieten dir:</strong></p>\n<ul>\n<li>Abwechslung statt Werkstattalltag</li>\n<li>Ein starkes Team und faire Konditionen</li>\n</ul>\n<p>Bereit, die Stra\u00dfen unsicher zu machen? Dann bewirb dich jetzt und werde Teil unseres mobilen Serviceteams!</p>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Remote Automotive Engineering",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1779496235",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-23T02:11:51.977858+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
