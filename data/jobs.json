@@ -997,6 +997,57 @@
     "remote": true
   },
   {
+    "id": "1a6618fd2142",
+    "title": "Software Engineer, Platform - Berlin, Germany",
+    "company": "Speechify",
+    "location": "Berlin, Berlin, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/speechify/software-engineer-platform-berlin-germany-208651",
+    "description": "<p>The mission of Speechify is to make sure that reading is never a barrier to learning.</p>\n<p>Over 50 million people use Speechify's text-to-speech products to turn whatever they're reading \u2013 PDFs, books, Google Docs, news articles, websites \u2013 into audio, so they can read faster, read more, and remember more. Speechify's text-to-speech reading products include its iOS app, Android App, Mac App, Chrome Extension, and Web App. Google recently named Speechify the Chrome Extension of the Year and Apple named Speechify its 2025 Design Award winner for Inclusivity.&nbsp;&nbsp;</p>\n<p>Today, nearly 200 people around the globe work on Speechify in a 100% distributed setting \u2013 Speechify has no office. These include frontend and backend engineers, AI research scientists, and others from Amazon, Microsoft, and Google, leading PhD programs like Stanford, high growth startups like Stripe, Vercel, Bolt, and many founders of their own companies.</p>\n<p><strong>Overview</strong></p>\n<p data-speechify-sentence=\"\">The responsibilities of our Platform team include building and maintaining all backend services, including, but not limited to, payments, analytics, subscriptions, new products, text to speech, and external APIs.</p>\n<p data-speechify-sentence=\"\">This is a key role and ideal for someone who thinks strategically, enjoys fast-paced environments, is passionate about making product decisions, and has experience building great user experiences that delight users.</p>\n<p data-speechify-sentence=\"\">We are a flat organization that allows anyone to become a leader by showing excellent technical skills and delivering results consistently and fast. Work ethic, solid communication skills, and obsession with winning are paramount.&nbsp;</p>\n<p data-speechify-sentence=\"\">Our interview process involves several technical interviews and we aim to complete them within 1 week.&nbsp;</p>\n<p><strong>What Yo</strong><strong>u'</strong><strong>ll Do</strong></p>\n<ul>\n<li data-speechify-sentence=\"\">Design, develop, and maintain robust APIs including public TTS API, internal APIs like Payment, Subscription, Auth and Consumption Tracking, ensuring they meet business and scalability requirements</li>\n<li data-speechify-sentence=\"\">Oversee the full backend API landscape, enhancing and optimizing for performance and maintainability</li>\n<li data-speechify-sentence=\"\">Collaborate on B2B solutions, focusing on customization and integration needs for enterprise clients</li>\n<li data-speechify-sentence=\"\">Work closely with cross-functional teams to align backend architecture with overall product strategy and user experience</li>\n</ul>\n<p><strong>An Ideal Candidate Should Have</strong></p>\n<ul>\n<li>Proven experience in backend development: TS/Node (required)</li>\n<li>Direct experience with GCP and knowledge of AWS, Azure, or other cloud providers</li>\n<li>Efficiency in ideation and implementation, prioritizing tasks based on urgency and impact</li>\n<li>Preferred: Experience with Docker",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1779630325",
+    "source": "arbeitnow",
+    "status": "approved",
+    "found_at": "2026-05-24T19:04:33.320509+00:00",
+    "salary_parsed": null,
+    "score": 65,
+    "matched_keywords": [
+      "software engineer",
+      "backend engineer",
+      "aws",
+      "docker",
+      "api",
+      "startup"
+    ],
+    "remote": true
+  },
+  {
+    "id": "088e306df889",
+    "title": "Software Engineer, Data Infrastructure & Acquisition - Stuttgart, Germany",
+    "company": "Speechify",
+    "location": "Stuttgart, Baden-W\u00fcrttemberg, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/speechify/software-engineer-data-infrastructure-acquisition-stuttgart-germany-127438",
+    "description": "<p>The mission of Speechify is to make sure that reading is never a barrier to learning.</p>\n<p>Over 50 million people use Speechify's text-to-speech products to turn whatever they're reading \u2013 PDFs, books, Google Docs, news articles, websites \u2013 into audio, so they can read faster, read more, and remember more. Speechify's text-to-speech reading products include its iOS app, Android App, Mac App, Chrome Extension, and Web App.&nbsp;Google recently named Speechify the Chrome Extension of the Year and Apple named Speechify its 2025 Design Award winner for Inclusivity.&nbsp;&nbsp;</p>\n<p>Today, nearly 200 people around the globe work on Speechify in a 100% distributed setting \u2013 Speechify has no office. These include frontend and backend engineers, AI research scientists, and others from Amazon, Microsoft, and Google, leading PhD programs like Stanford, high growth startups like Stripe, Vercel, Bolt, and many founders of their own companies.</p>\n<p><strong>Overview</strong></p>\n<p>We're looking to hire for our Data side of our AI team at Speechify. This role is responsible for all aspects of data collection to support our model training operations. We are able to build high-quality datasets at petabyte-scale and low cost through a tight integration of infrastructure, engineering, and research work. We are looking for a skilled Software Engineer to join us.</p>\n<p><strong>What You'll Do</strong></p>\n<ul>\n<li>Be scrappy to find new sources of audio data and bring it into our ingestion pipeline</li>\n<li>Operate and extend the cloud infrastructure for our ingestion pipeline, currently running on GCP and managed with Terraform.</li>\n<li>Collaborate closely with our Scientists to shift the cost/throughput/quality frontier, delivering richer data at bigger scale and lower cost to power our next-generation models.</li>\n<li>Collaborate with others on the AI Team and Speechify Leadership to craft the AI Team's dataset roadmap to power Speechify's next-generation consumer and enterprise products.</li>\n</ul>\n<p><strong>An Ideal Candidate Should Have</strong></p>\n<ul>\n<li>BS/MS/PhD in Computer Science or a related field.</li>\n<li>5+ years of industry experience in software development.</li>\n<li>Proficiency with bash/Python scripting in Linux environments</li>\n<li>Proficiency in Docker and Infrastructure-as-Code concepts and professional experience with at least one major Cloud Provider (we use GCP)</li>\n<li>Experience with web crawlers, large-scale data processing workflows is a plus</li>\n<li>Ability to handle multiple tasks and adapt to changing priorities.</li>\n<li>Strong communication skills, both written and verbal.</li>\n</ul>\n<p><strong>What we offer</strong></p>\n<ul>\n<li>A fast-growing environment where you can help shape the company and product.</li>\n<li>An entrepreneurial-minded team that supports risk, intuition, and hustle.</li>\n<li>A hands-off management approach so you can focus and do your best work.</li>\n<li>An opportunity to make a big impact in a ",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1779630324",
+    "source": "arbeitnow",
+    "status": "approved",
+    "found_at": "2026-05-24T19:04:33.320516+00:00",
+    "salary_parsed": null,
+    "score": 65,
+    "matched_keywords": [
+      "software engineer",
+      "backend engineer",
+      "python",
+      "docker",
+      "startup"
+    ],
+    "remote": true
+  },
+  {
     "id": "652dfebba90e",
     "title": "Junior DevOps Engineer (m/f/d)",
     "company": "Flix",
@@ -1576,29 +1627,6 @@
       "backend engineer",
       "typescript",
       "react",
-      "startup"
-    ],
-    "remote": true
-  },
-  {
-    "id": "d7edda2865c8",
-    "title": "Unpaid Internship: Full-Stack PHP Developer (Immediate Start)",
-    "company": "HOPn",
-    "location": "Munich",
-    "url": "https://www.arbeitnow.com/jobs/companies/hopn/unpaid-internship-full-stack-php-developer-immediate-start-munich-452488",
-    "description": "<p>We are looking for a motivated <strong>Full-Stack PHP Developer Intern</strong> who can start soon and contribute to real-world web platforms and software systems in a fast-paced environment.</p>\n<p>This role is ideal for candidates comfortable with rapid prototyping, AI-assisted coding, and delivering practical solutions quickly using modern development workflows.</p>\n<p>The internship is fully remote, flexible, and focused on hands-on experience with real projects.</p>\n<h2>Tasks</h2>\n<ul>\n<li>Develop and maintain web applications using PHP (Laravel or similar frameworks)</li>\n<li>Build and integrate APIs, databases, and frontend components</li>\n<li>Debug, optimize, and improve existing systems</li>\n<li>Deploy applications to live environments</li>\n<li>Work on rapid prototyping and practical feature delivery</li>\n<li>Collaborate with team members on milestone-based tasks</li>\n<li>Use AI tools (ChatGPT, Gemini, Copilot, Cursor, etc.) to accelerate development and debugging</li>\n<li>Support backend and frontend development workflows</li>\n</ul>\n<h2>Requirements</h2>\n<ul>\n<li>Strong knowledge of PHP and backend development</li>\n<li>Experience with Laravel or similar PHP frameworks</li>\n<li>frontend skills (HTML, CSS, JavaScript)</li>\n<li>Familiarity with MySQL or similar databases</li>\n<li>Ability to build and deliver working solutions quickly</li>\n<li>Comfortable using AI tools for coding and debugging</li>\n<li>Ability to work independently in a remote environment</li>\n<li>Must be able to start soon</li>\n<li>Experience with React, Vue, or modern frontend frameworks</li>\n<li>Hosting and deployment experience</li>\n<li>Understanding of REST APIs and system architecture</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Real-world project experience</li>\n<li>Exposure to AI-assisted development workflows</li>\n<li>Flexible working hours</li>\n<li>Fully remote collaboration</li>\n<li>Opportunity to work on live systems and products</li>\n<li>Internship certificate upon successful completion</li>\n<li>Fast-paced startup environment with practical learning opportunities</li>\n</ul>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Remote Software Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778428829",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-10T18:49:24.798162+00:00",
-    "salary_parsed": null,
-    "score": 55,
-    "matched_keywords": [
-      "react",
-      "api",
       "startup"
     ],
     "remote": true
@@ -2896,27 +2924,6 @@
     "matched_keywords": [
       "react",
       "api"
-    ],
-    "remote": true
-  },
-  {
-    "id": "99b2bef677d2",
-    "title": "Senior Sales Development Representative Remote (m/w/d)",
-    "company": "Argumentorik-Akademie GmbH",
-    "location": "K\u00f6ln",
-    "url": "https://www.arbeitnow.com/jobs/companies/argumentorik-akademie-gmbh/senior-sales-development-representative-remote-koln-39139",
-    "description": "<img src=\"https://recruitee-main.s3.eu-central-1.amazonaws.com/uploads/775fupappd/0019_6554_2024-06-22_Greator-1536x1024.jpeg\" /><p style=\";\"></p><p><strong>Standort:</strong> Remote (Deutschland / EU)</p><p><strong>Startdatum:</strong> Ab sofort oder nach Vereinbarung</p><p><strong>Anstellungsart:</strong> Vollzeit (Festanstellung oder Freelance)</p><p><strong>Verg\u00fctung:</strong> Top-Performer erzielen im Durchschnitt zwischen <strong>4.000 \u2013 10.000 \u20ac monatlich</strong></p><p style=\";\"></p><h4><strong>Deine Mission</strong></h4><p>Als <strong>Senior SDR (m/w/d)</strong> bei der Argumentorik Akademie bist du verantwortlich f\u00fcr die systematische Qualifizierung von Leads.</p><p>Du identifizierst Potenziale, strukturierst Gespr\u00e4che und bereitest hochwertige Sales-Chancen f\u00fcr das Closing-Team vor.</p><p>Du bist die Schnittstelle zwischen Marketing und Sales \u2013 und entscheidend f\u00fcr nachhaltiges Wachstum.</p><p style=\";\"></p><h4><strong>Deine Aufgaben</strong></h4><ul><li><p>Qualifizierung von Leads durch strukturierte Gespr\u00e4che</p></li><li><p>Analyse von Bedarf, Situation und Entscheidungsreife</p></li><li><p>Terminierung und Vorbereitung von Sales-Gespr\u00e4chen</p></li><li><p>Dokumentation und Pflege im CRM</p></li><li><p>Zusammenarbeit mit Marketing und Sales-Team</p></li><li><p>Optimierung von Gespr\u00e4chsleitf\u00e4den</p></li></ul><p style=\";\"></p><h4><strong>Warum die Argumentorik Akademie?</strong></h4><ul><li><p>Klare Systeme und strukturierter Vertriebsprozess</p></li><li><p>Hochwertige Leads mit echtem Interesse</p></li><li><p>Stark wachsendes Umfeld mit Entwicklungsm\u00f6glichkeiten</p></li><li><p>Enge Zusammenarbeit mit erfahrenen Vertrieblern</p></li><li><p>Performance-orientierte Kultur</p></li></ul><br /><br /><h4><strong>Das bringst du mit</strong></h4><ul><li><p>Erste Erfahrung im Vertrieb oder starke Motivation</p></li><li><p>Strukturierte und analytische Arbeitsweise</p></li><li><p>Kommunikationsst\u00e4rke und Gespr\u00e4chssicherheit</p></li><li><p>Hohe Eigenmotivation &amp; Disziplin</p></li><li><p>Bereitschaft f\u00fcr viele Calls</p></li><li><p>Sehr gute Deutschkenntnisse</p></li></ul><p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Consulting high school or equivalent",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778433612",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-10T18:49:24.798116+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "aws"
     ],
     "remote": true
   },
@@ -5123,82 +5130,6 @@
     "matched_keywords": [
       "api"
     ],
-    "remote": true
-  },
-  {
-    "id": "e7776edbbb33",
-    "title": "Steuerfachangestellte f\u00fcr die Beratung (m/w/d)",
-    "company": "Desch Digital GmbH",
-    "location": "Hamburg",
-    "url": "https://www.arbeitnow.com/jobs/companies/desch-digital-gmbh/steuerfachangestellte-fur-die-beratung-hamburg-135411",
-    "description": "<p>Die Desch Digital GmbH ist eine Beratung, die sich ganz auf die digitale Weiterentwicklung von Steuerkanzleien spezialisiert hat. Unser Anspruch ist es, Steuerberater sp\u00fcrbar zu entlasten, Abl\u00e4ufe einfacher zu machen und Teams so aufzustellen, dass die Kanzlei wirklich rund l\u00e4uft.</p>\n<p>Heute arbeiten bereits viele Kanzleien in Deutschland mit uns zusammen und erleben, dass mit klaren Strukturen und den richtigen Systemen nicht nur mehr Zeit entsteht, sondern auch mehr Freude im Alltag.</p>\n<p>Besonders wichtig ist uns dabei, dass wir mit unseren Kunden partnerschaftlich auf Augenh\u00f6he arbeiten und L\u00f6sungen schaffen, die sich leicht in den Kanzleialltag integrieren lassen.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Du begleitest unsere Kundinnen und Kunden eng in Videocalls und \u00fcber WhatsApp und bist ihr erster Ansprechpartner f\u00fcr alle Fragen.</li>\n<li>Du hilfst nicht nur beim Planen, sondern packst auch bei der Umsetzung der besprochenen Ma\u00dfnahmen mit an.</li>\n<li>Du ber\u00e4tst umfassend zu den Themen: Digitalisierung, Positionierung und internen Prozessen</li>\n<li>Du bereitest Termine sorgf\u00e4ltig vor und nach und sorgst daf\u00fcr, dass nichts liegen bleibt.</li>\n<li>Du bringst dich aktiv in die Weiterentwicklung unseres Beratungsangebots ein</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Ausbildung als Steuerfachangestellte/r oder vergleichbare Ausbildung</li>\n<li>Alternativ: Umfangreiche Erfahrung in Abl\u00e4ufen und Prozessen in Steuerkanzleien</li>\n<li>Klare Kommunikation, um technische L\u00f6sungen verst\u00e4ndlich zu vermitteln</li>\n<li>Analytisches und L\u00f6sungsorientiertes Denken</li>\n<li>Selbst\u00e4ndige und strukturierte Arbeitsweise</li>\n<li>Sehr gute Deutschkenntnisse</li>\n<li>W\u00fcnschenswert: Berufserfahrung in einer Steuerkanzlei oder in der Beratung von Steuerkanzleien</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>\n<p>Zentrales Office: Unser B\u00fcro findest Du zentral gelegen in Barmbek-S\u00fcd, perfekt angebunden an den \u00f6ffentlichen Nahverkehr \u2013 der Bus h\u00e4lt direkt vor der T\u00fcr. Solltest Du lieber mit dem Auto zur Arbeit kommen, steht Dir ein eigener Parkplatz zur Verf\u00fcgung.</p>\n</li>\n<li>\n<p>Flexibles Arbeitsumfeld: Wir verstehen, dass das Leben nicht immer in einen 9-5 Rahmen passt. Dank unserer flexiblen Arbeitszeiten und Remote-M\u00f6glichkeiten, kannst Du die Balance finden, die f\u00fcr Dich am besten passt.</p>\n</li>\n<li>\n<p>Team-Events: Mit den besten Team-Events f\u00f6rdern wir den starken Zusammenhalt untereinander. Egal ob Top-Golf, After-Work-Partys oder Segeln auf der Alster: Es steht immer etwas an.</p>\n</li>\n<li>\n<p>Feedback-Kultur: Feedback wird aktiv gef\u00f6rdert, gesch\u00e4tzt und in unsere Prozesse integriert. Du hilfst uns dabei, unsere Vision zu verwirklichen.</p>\n</li>\n<li>\n<p>900\u20ac Gesundheitsbudget: Jeder von uns bekommt j\u00e4hrlich ein Gesundheitsbudget von 900\u20ac, das Du f\u00fcr Sehhilfen, Massagen, Physio uvm. frei ausgeben kannst.</p>\n</li>\n<li>\n<p>Hervorragende Entwicklungsm\u00f6glichkeit: Du hast die M\u00f6glichkeit, direkt zu Beginn in ein kleines Team einzusteigen, Deine Ideen einzubringen u",
-    "tags": "Customer Service",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778430630",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-10T18:49:24.798150+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "acec057a7dc4",
-    "title": "Minijob Webdesigner - Remote m\u00f6glich",
-    "company": "OnlineVision",
-    "location": "Potsdam",
-    "url": "https://www.arbeitnow.com/jobs/companies/onlinevision/minijob-webdesigner-remote-moglich-potsdam-364379",
-    "description": "<p>Zur Unterst\u00fctzung unseres Teams suchen wir eine motivierte Person im Bereich Webdesign mit Fokus auf WordPress. Egal ob mit erster Erfahrung oder bereits fortgeschrittenen Kenntnissen \u2013 wichtig sind uns Kreativit\u00e4t, Zuverl\u00e4ssigkeit und Lust auf moderne Webprojekte.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Erstellung und Pflege von Webseiten mit WordPress</li>\n<li>Anpassung von Themes, Layouts und Inhalten</li>\n<li>Unterst\u00fctzung bei Webdesign- und UI/UX-Aufgaben</li>\n<li>Arbeiten mit verschiedenen CMS-Systemen (haupts\u00e4chlich WordPress, teilweise andere Systeme)</li>\n<li>Optimierung bestehender Webseiten</li>\n<li>Unterst\u00fctzung bei kleineren technischen und gestalterischen Aufgaben im Webbereich</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Interesse an Webdesign und digitalen Projekten</li>\n<li>Erste Erfahrungen mit WordPress oder anderen CMS von Vorteil, aber keine Voraussetzung</li>\n<li>Kreatives Gesp\u00fcr f\u00fcr modernes Webdesign</li>\n<li>Selbstst\u00e4ndige und zuverl\u00e4ssige Arbeitsweise</li>\n<li>Gute Deutschkenntnisse</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Flexible Arbeitszeiten</li>\n<li>Remote-Arbeit m\u00f6glich</li>\n<li>Spannende und abwechslungsreiche Webprojekte</li>\n<li>M\u00f6glichkeit, praktische Erfahrungen zu sammeln und dazuzulernen</li>\n<li>Junges, digitales Arbeitsumfeld</li>\n<li>Raum f\u00fcr eigene Ideen und kreative Mitgestaltung</li>\n</ul>\n<p>Wir freuen uns auf deine Bewerbung \u2013 ganz unkompliziert und ohne gro\u00dfen Formalit\u00e4ten.</p>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Remote Web Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778419829",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-10T18:49:24.798181+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "35860060890e",
-    "title": "Performance Marketing Manager:  Run the Machine Across a Brand Portfolio",
-    "company": "TheFamilyGroup",
-    "location": "Cologne",
-    "url": "https://www.arbeitnow.com/jobs/companies/thefamilygroup/performance-marketing-manager-run-the-machine-across-a-brand-portfolio-cologne-223888",
-    "description": "<p>We're bringing performance marketing fully in-house across our brand portfolio. No more agencies. No more middlemen.</p>\n<p>You'll work directly with our founders. Your job: own the accounts, run the tests, scale what works.</p>\n<p>The Family Group is a house of brands for families, from baby to teenage years. We move fast, build in-house, and we're just getting started.</p>\n<h2>Tasks</h2>\n<ul>\n<li>Own and operate Meta and Google Ads across our brands day-to-day</li>\n<li>Run structured creative and audience tests: weekly, not quarterly</li>\n<li>Translate CMO strategy into campaign execution</li>\n<li>Set up and maintain clean tracking &#x26; attribution (Shopify, GA4)</li>\n<li>Analyze performance and turn data into decisions fast</li>\n<li>Scale winning campaigns while keeping CAC in check</li>\n</ul>\n<h2>Requirements</h2>\n<ul>\n<li>Hands-on Meta Ads and Google Ads experience \u2014 non-negotiable</li>\n<li>D2C or e-commerce background</li>\n<li>You execute, you own, you deliver \u2014 no hand-holding needed</li>\n<li>Data-driven: you pull the numbers yourself and know what they mean</li>\n<li>Shopify experience a plus</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Real ownership from day one</li>\n<li>Work directly with an experienced serial entrepreneurs and build something real</li>\n<li>Competitive salary</li>\n<li>Fast decisions, zero corporate overhead</li>\n<li>Room to grow as the brand portfolio expands</li>\n</ul>\n<p>If Meta and Google are your playground and you're tired of waiting for approvals: apply now.</p>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Remote Online Marketing",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778419828",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-10T18:49:24.798185+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "ab1ad2b5b094",
-    "title": "TikTok & Reels Content Creator (Minijob/Werkstudent) (m/w/d)",
-    "company": "ecophil GmbH",
-    "location": "Neckarsteinach",
-    "url": "https://www.arbeitnow.com/jobs/companies/ecophil-gmbh/tiktok-reels-content-creator-minijob-werkstudent-neckarsteinach-147363",
-    "description": "<p>ecophil entwickelt hochwirksame Flecken- und Spezialreiniger mit ehrlichen Inhaltsstoffen und echter Wirkung.</p>\n<p>Wir suchen Unterst\u00fctzung im Bereich TikTok, Instagram Reels &#x26; Shortform-Content.</p>\n<p>Wir suchen keine Hochglanz-Werbung und keine klassische Marketingagentur, sondern jemanden mit Gesp\u00fcr f\u00fcr authentischen Content, kreative Hooks und einfache, echte Videos mit Wirkung.</p>\n<p>Ideal f\u00fcr Studierende, kreative Nebenjobber oder Content-Creator, die Lust haben, gemeinsam mit einer wachsenden Marke sichtbar zu werden.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Erstellung und Bearbeitung von TikToks, Instagram Reels &#x26; Shortform-Content</li>\n<li>Entwicklung einfacher Hook-Ideen und kreativer Videoformate</li>\n<li>Schnitt von Smartphone-Videos mit CapCut oder \u00e4hnlichen Tools</li>\n<li>Erstellung von Vorher/Nachher-Content und Produktdemos</li>\n<li>Einfache Voice Overs, Untertitel und Trend-Adaptionen</li>\n<li>Unterst\u00fctzung beim Aufbau unserer Social-Media-Pr\u00e4senz</li>\n<li>Sammlung und Strukturierung von Content-Ideen und Video-Assets</li>\n<li>Testen neuer Reel- und TikTok-Formate</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Interesse an TikTok, Instagram Reels &#x26; Social Media Trends</li>\n<li>Sicherer Umgang mit CapCut oder \u00e4hnlichen Schnittprogrammen</li>\n<li>Gesp\u00fcr f\u00fcr authentischen, aufmerksamkeitsstarken Content</li>\n<li>Kreativit\u00e4t, Eigeninitiative und Lust, neue Ideen auszuprobieren</li>\n<li>Zuverl\u00e4ssige und selbstst\u00e4ndige Arbeitsweise</li>\n<li>Kein Perfektionismus n\u00f6tig \u2013 echte &#x26; nat\u00fcrliche Videos sind uns wichtiger als Hochglanz-Content</li>\n</ul>\n<p>Optional:</p>\n<ul>\n<li>Erfahrung mit Canva, Voice Overs oder KI-Tools</li>\n<li>Erste Erfahrung mit TikTok-, Reel- oder UGC-Content</li>\n<li>Interesse an nachhaltigen Produkten &#x26; ehrlicher Markenkommunikation</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Flexible Arbeitszeiten &#x26; 100 % Remote m\u00f6glich</li>\n<li>Direkte Zusammenarbeit mit dem Gr\u00fcnder</li>\n<li>Viel kreative Freiheit &#x26; schnelle Umsetzung eigener Ideen</li>\n<li>Praxisnahe Erfahrung statt Konzernstrukturen</li>\n<li>M\u00f6glichkeit, echten Markenaufbau von Anfang an mitzugestalten</li>\n<li>Langfristige Entwicklungsm\u00f6glichkeiten bei guter Zusammenarbeit</li>\n<li>Einblicke in E-Commerce, Amazon &#x26; Markenaufbau</li>\n<li>Ehrliche Produkte mit echter Wirkung statt austauschbarer Werbung</li>\n</ul>\n<p>Wenn du Lust hast, gemeinsam mit uns authentischen Content aufzubauen und eine wachsende Marke sichtbar zu machen, freuen wir uns auf deine Bewerbung inklusive kurzer Vorstellung, m\u00f6glicher Arbeitszeiten und \u2013 falls vorhanden \u2013 ersten Content-Beispielen oder Social-Media-Arbeiten.</p>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Remote Social Media Manager",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778418032",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-10T18:49:24.798194+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
     "remote": true
   },
   {
