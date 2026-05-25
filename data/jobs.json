@@ -1048,54 +1048,6 @@
     "remote": true
   },
   {
-    "id": "652dfebba90e",
-    "title": "Junior DevOps Engineer (m/f/d)",
-    "company": "Flix",
-    "location": "M\u00fcnchen, Bayern, Deutschland",
-    "url": "https://www.arbeitnow.com/jobs/companies/flix/junior-devops-engineer-munchen-300553",
-    "description": "<p>At Flix, we offer a dynamic work environment with competitive pay, strong growth opportunities, and a tech-driven approach to making travel more accessible, sustainable, and affordable.</p>\n<p>Our Platform Engineering team builds and operates the cloud infrastructure that powers Flix's services across Europe and beyond. We manage a Kubernetes-based platform on AWS and enable engineering teams to deploy and operate scalable, reliable applications. The team focuses on automation, infrastructure as code, and continuous improvement of our platform capabilities.</p>\n<h3><strong data-renderer-mark=\"true\">About the Role</strong></h3>\n<p>&nbsp;</p>\n<ul>\n<li>Design, deploy, and maintain cloud infrastructure on AWS using Kubernetes and Infrastructure as Code (Terraform)</li>\n<li>Automate infrastructure and operational workflows to improve efficiency and reliability</li>\n<li>Support API infrastructure, including API gateways and publishing APIs to external consumers</li>\n<li>Monitor systems, troubleshoot incidents, and contribute to improving system reliability and recovery processes</li>\n<li>Collaborate with engineering teams and support them in using the platform effectively</li>\n<li>Continuously improve platform tooling, automation, and engineering practices</li>\n<li>Participate in an on-call rotation to support platform stability</li>\n</ul>\n<h3><strong data-renderer-mark=\"true\">About You</strong></h3>\n<p>&nbsp;</p>\n<ul>\n<li>At least 6 months of professional experience in software, platform, or infrastructure engineering</li>\n<li>Hands-on experience with Python</li>\n<li>Basic knowledge of Linux/UNIX systems and shell usage</li>\n<li>Experience with containerization and interest in Kubernetes</li>\n<li>Understanding of networking fundamentals (e.g. TCP/IP, HTTP, DNS)</li>\n<li>Familiarity with Infrastructure as Code and CI/CD concepts</li>\n<li>Strong communication skills and ability to work in a team</li>\n<li>Fluent in English</li>\n</ul>\n<p>&nbsp;</p>\n<h4>Nice to have</h4>\n<p>&nbsp;</p>\n<ul>\n<li>Experience with Kubernetes, Terraform, or cloud platforms (e.g. AWS)</li>\n<li>Exposure to API infrastructure (e.g. API gateways, external API publishing)</li>\n<li>Experience with monitoring tools (e.g. Prometheus, Grafana, Datadog)</li>\n<li>Interest in improving developer experience and platform usability</li>\n</ul>\n<p>&nbsp;</p>\n<p><strong data-renderer-mark=\"true\">We recognize that everyone carries a unique set of valuable skills and experiences. If you think you could have an impact even though you don't meet 100% of the requirements, we still encourage you to apply. We want to hear from you!\u202f&nbsp;</strong></p>\n<h3><strong>What We Offer</strong></h3>\n<ul>\n<li data-renderer-start-pos=\"11445\"><strong data-renderer-mark=\"true\">Travel perks</strong>: 12 free Flix vouchers + 12 discount vouchers for friends &amp; family.</li>\n<li data-renderer-start-pos=\"11445\"><strong data-renderer-mark=\"true\">Work from (M)Anywhere</strong>: Depending on your role, work from anoth",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778456720",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-11T02:15:26.089253+00:00",
-    "salary_parsed": null,
-    "score": 60,
-    "matched_keywords": [
-      "python",
-      "aws",
-      "kubernetes",
-      "api"
-    ],
-    "remote": true
-  },
-  {
-    "id": "082df290d800",
-    "title": "Junior DevOps Engineer (m/f/d)",
-    "company": "Flix",
-    "location": "Berlin, Berlin, Germany",
-    "url": "https://www.arbeitnow.com/jobs/companies/flix/junior-devops-engineer-berlin-268701",
-    "description": "<p>At Flix, we offer a dynamic work environment with competitive pay, strong growth opportunities, and a tech-driven approach to making travel more accessible, sustainable, and affordable.</p>\n<p>Our Platform Engineering team builds and operates the cloud infrastructure that powers Flix's services across Europe and beyond. We manage a Kubernetes-based platform on AWS and enable engineering teams to deploy and operate scalable, reliable applications. The team focuses on automation, infrastructure as code, and continuous improvement of our platform capabilities.</p>\n<h3><strong data-renderer-mark=\"true\">About the Role</strong></h3>\n<p>&nbsp;</p>\n<ul>\n<li>Design, deploy, and maintain cloud infrastructure on AWS using Kubernetes and Infrastructure as Code (Terraform)</li>\n<li>Automate infrastructure and operational workflows to improve efficiency and reliability</li>\n<li>Support API infrastructure, including API gateways and publishing APIs to external consumers</li>\n<li>Monitor systems, troubleshoot incidents, and contribute to improving system reliability and recovery processes</li>\n<li>Collaborate with engineering teams and support them in using the platform effectively</li>\n<li>Continuously improve platform tooling, automation, and engineering practices</li>\n<li>Participate in an on-call rotation to support platform stability</li>\n</ul>\n<h3><strong data-renderer-mark=\"true\">About You</strong></h3>\n<p>&nbsp;</p>\n<ul>\n<li>At least 6 months of professional experience in software, platform, or infrastructure engineering</li>\n<li>Hands-on experience with Python</li>\n<li>Basic knowledge of Linux/UNIX systems and shell usage</li>\n<li>Experience with containerization and interest in Kubernetes</li>\n<li>Understanding of networking fundamentals (e.g. TCP/IP, HTTP, DNS)</li>\n<li>Familiarity with Infrastructure as Code and CI/CD concepts</li>\n<li>Strong communication skills and ability to work in a team</li>\n<li>Fluent in English</li>\n</ul>\n<p>&nbsp;</p>\n<h4>Nice to have</h4>\n<p>&nbsp;</p>\n<ul>\n<li>Experience with Kubernetes, Terraform, or cloud platforms (e.g. AWS)</li>\n<li>Exposure to API infrastructure (e.g. API gateways, external API publishing)</li>\n<li>Experience with monitoring tools (e.g. Prometheus, Grafana, Datadog)</li>\n<li>Interest in improving developer experience and platform usability</li>\n</ul>\n<p>&nbsp;</p>\n<p><strong data-renderer-mark=\"true\">We recognize that everyone carries a unique set of valuable skills and experiences. If you think you could have an impact even though you don't meet 100% of the requirements, we still encourage you to apply. We want to hear from you!\u202f&nbsp;</strong></p>\n<h3><strong>What We Offer</strong></h3>\n<ul>\n<li data-renderer-start-pos=\"11445\"><strong data-renderer-mark=\"true\">Travel perks</strong>: 12 free Flix vouchers + 12 discount vouchers for friends &amp; family.</li>\n<li data-renderer-start-pos=\"11445\"><strong data-renderer-mark=\"true\">Work from (M)Anywhere</strong>: Depending on your role, work from anoth",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778456720",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-11T02:15:26.089258+00:00",
-    "salary_parsed": null,
-    "score": 60,
-    "matched_keywords": [
-      "python",
-      "aws",
-      "kubernetes",
-      "api"
-    ],
-    "remote": true
-  },
-  {
     "id": "872da702d622",
     "title": "\ud83c\udde9\ud83c\uddea Senior/Staff Software Engineer PHP, TS, Rust, Kotlin (m/w/d)",
     "company": "easybill GmbH",
@@ -2924,27 +2876,6 @@
     "matched_keywords": [
       "react",
       "api"
-    ],
-    "remote": true
-  },
-  {
-    "id": "45fb506ef15a",
-    "title": "Werkstudent (m/w/d) HR & Payroll",
-    "company": "Lohnklar UG",
-    "location": "Berlin",
-    "url": "https://www.arbeitnow.com/jobs/companies/lohnklar-ug/werkstudent-hr-payroll-berlin-252148",
-    "description": "<p><strong>Bei Lohnklar in Berlin \u00b7 15\u201320 Std./Woche \u00b7 Remote m\u00f6glich</strong></p>\n<p>Wir sind Lohnklar, eine HR-Intelligence-Boutique aus Berlin. Wir machen Payroll, HR-Admin und Beratung f\u00fcr Startups und KMU. Schlank, digital, ohne den \u00fcblichen Steuerberater-Mief. Jetzt suchen wir Verst\u00e4rkung.</p>\n<h2>Aufgaben</h2>\n<p><strong>Was du bei uns machst</strong></p>\n<p>Du arbeitest mit an echten Mandaten, nicht an Kaffee oder Ablage. Konkret:</p>\n<ul>\n<li>Vorbereitung und Plausibilisierung von Lohnabrechnungen</li>\n<li>Pflege von Personalstammdaten, Bescheinigungswesen, SV-Meldungen</li>\n<li>Unterst\u00fctzung bei Eintritten, Austritten, Vertrags\u00e4nderungen</li>\n<li>Mitarbeit bei HR-Projekten: Onboarding-Prozesse, Vorlagen, Automatisierung</li>\n<li>Recherche zu arbeitsrechtlichen und sozialversicherungsrechtlichen Fragen</li>\n<li>Kommunikation mit Mandanten, Krankenkassen, Beh\u00f6rden</li>\n</ul>\n<h2>Qualifikation</h2>\n<p><strong>Was du mitbringst</strong></p>\n<ul>\n<li>Eingeschriebenes Studium, idealerweise BWL, Wirtschaftsrecht, HR oder vergleichbar</li>\n<li>Erste Ber\u00fchrungen mit Payroll oder HR, aus Praktikum, Werkstudentenjob oder Studium</li>\n<li>Strukturiertes, sauberes Arbeiten, bei uns z\u00e4hlt jede Nachkommastelle</li>\n<li>Lust auf DATEV, Excel und digitale Tools (n8n, Notion, was auch immer hilft)</li>\n<li>Sehr gutes Deutsch, Englisch ist Bonus</li>\n</ul>\n<p>Du musst nicht alles k\u00f6nnen. Aber du solltest wissen wollen, wie eine Abrechnung wirklich entsteht und nicht nur, wo man auf \"Senden\" klickt.</p>\n<h2>Benefits</h2>\n<ul>\n<li>33 Tage Urlaub \u2013 plus Weihnachten &#x26; Silvester frei</li>\n<li>50 \u20ac Sachzuwendungen (z. B. Benefits-/Gutscheinkarte) steuerfrei</li>\n<li>Hybrides Arbeiten: Mandant:innen vor Ort oder remote</li>\n<li>Modernes Equipment</li>\n<li>Weiterbildungsbudget &#x26; Jobbike (nach der Probezeit)</li>\n<li>Direkte Zusammenarbeit mit dem Gesch\u00e4ftsf\u00fchrer, du lernst hier mehr als in drei Jahren Konzern</li>\n</ul>\n<p>Schick uns kurz, wer du bist, was du studierst. CV reicht, Anschreiben kannst du dir sparen, au\u00dfer du hast wirklich was zu sagen.</p>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Remote Administration",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778437858",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-11T02:15:26.089282+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "startup"
     ],
     "remote": true
   },
@@ -5130,63 +5061,6 @@
     "matched_keywords": [
       "api"
     ],
-    "remote": true
-  },
-  {
-    "id": "f12316967b07",
-    "title": "Werkstudent:in Influencer Management & Personal Branding (m/w/d) - Remote",
-    "company": "Kiwimo-Product GmbH",
-    "location": "Cologne",
-    "url": "https://www.arbeitnow.com/jobs/companies/kiwimo-product-gmbh/werkstudentin-influencer-management-personal-branding-remote-cologne-144328",
-    "description": "<p>Unsere Marke WhyWords unterst\u00fctzt Unternehmer:innen, Expert:innen und F\u00fchrungskr\u00e4fte dabei, auf LinkedIn sichtbar zu werden \u2013 nicht als klassische Influencer:innen, sondern als relevante Stimmen in ihrem Fachbereich.</p>\n<p>Daf\u00fcr suchen wir eine:n Werkstudent:in im Bereich Influencer Management &#x26; Personal Branding. Du arbeitest nah an unseren Kund:innen, verstehst ihre Themen, ihre Positionierung und ihre fachliche Perspektive und hilfst dabei, daraus klare Inhalte, gute Gespr\u00e4chsgrundlagen und eine konsistente Personenmarke zu entwickeln.</p>\n<p>Es geht darum, unsere Kunden inhaltlich zu begleiten, Themen zu erkennen, Gedanken zu strukturieren und gemeinsam mit Redaktion und Strategie daraus starke LinkedIn-Inhalte entstehen zu lassen.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Direkter Austausch mit Kund:innen, insbesondere in regelm\u00e4\u00dfigen Gespr\u00e4chen und Sparring-Terminen</li>\n<li>Herausarbeiten von <strong>Positionierung, Tonalit\u00e4t, Themen und relevanten Botschaften</strong> f\u00fcr die LinkedIn Accounts unserer Kunden*innen</li>\n<li>Unterst\u00fctzung beim Aufbau und der Weiterentwicklung von Personenmarken auf LinkedIn</li>\n<li>Strukturierung von Gedanken, Aussagen und Rohmaterial f\u00fcr redaktionelle Inhalte</li>\n<li>Identifikation von Content-Ideen aus Gespr\u00e4chen, Notizen, Kundenkontexten und aktuellen Themen</li>\n<li>Vorbereitung und Nachbereitung von Kundengespr\u00e4chen f\u00fcr die Redaktion</li>\n<li>Entwicklung von Content-Ideen f\u00fcr <strong>LinkedIn</strong> und Personal Branding</li>\n<li>Erstellung und \u00dcberarbeitung erster Textentw\u00fcrfe nach redaktioneller Vorgabe</li>\n<li>Sicherstellung, dass Inhalte zur jeweiligen Person passen \u2013 in Stimme, Klarheit und Fokus</li>\n<li>Enge Zusammenarbeit mit der Redaktion</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Laufendes Studium, idealerweise im Master oder in einem fortgeschrittenen Bachelorstudium, z. B. in <strong>Kommunikation, Journalismus, Medien, Psychologie, Sprachwissenschaften, Marketing</strong> oder einem vergleichbaren Bereich</li>\n<li>Alternativ: vergleichbare praktische Erfahrung in Redaktion, Kommunikation, Content, Journalismus, Coaching-nahen Kontexten oder Personal Branding</li>\n<li>Sehr gutes Sprachgef\u00fchl und Freude daran, Gedanken pr\u00e4zise zu formulieren</li>\n<li>Interesse an Menschen, Positionierung, Kommunikation und Wirkung</li>\n<li>F\u00e4higkeit, gut zuzuh\u00f6ren, Inhalte zu strukturieren und zwischen den Zeilen zu erkennen, worum es wi rklich geht</li>\n<li>Sicherer schriftlicher Ausdruck auf Deutsch</li>\n<li>Zuverl\u00e4ssige, eigenst\u00e4ndige und strukturierte Arbeitsweise</li>\n<li>Souver\u00e4ner Umgang mit Kund:innen im direkten Austausch</li>\n<li>Verf\u00fcgbarkeit w\u00e4hrend der Vorlesungszeit im Rahmen einer Werkstudentent\u00e4tigkeit</li>\n</ul>\n<p><strong>Plus:</strong></p>\n<ul>\n<li>Erste Erfahrung im Agenturumfeld, in Redaktion, Social Media, Journalismus, Kommunikation oder Content Marketing</li>\n<li>Kenntnisse in LinkedIn, Personal Branding, Coaching-, Beratungs- oder Expertenkontexten</li>\n<li>Interesse an Themen wie",
-    "tags": "Remote Marketing and Communication",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778437858",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-11T02:15:26.089278+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "84192f63b692",
-    "title": "Werkstudent:in Influencer & Creator Marketing (m/w/d)",
-    "company": "Bling",
-    "location": "Berlin",
-    "url": "https://www.arbeitnow.com/jobs/companies/bling/werkstudentin-influencer-creator-marketing-berlin-243670",
-    "description": "<h2>Deine Mission</h2>\n<p>Du kennst die neuesten TikTok-Trends, bevor sie \u00fcberhaupt viral gehen? Dein Feed ist voll mit spannenden Creators und du wei\u00dft genau, wer zu welcher Brand passt? Dann mach dein Social-Media-Wissen jetzt zu deinem Job! Wir bei Bling suchen eine:n Werkstudent:in, der/die unser Team mit Leidenschaft, Kreativit\u00e4t und einem guten Gesp\u00fcr f\u00fcr Menschen unterst\u00fctzt.</p>\n<h2>Deine Aufgaben</h2>\n<ul>\n<li>Du recherchierst und identifizierst passende Influencer:innen und Creators f\u00fcr unsere Marke und Kampagnen</li>\n<li>Du bist der erste Kontakt f\u00fcr unsere Creators, \u00fcbernimmst die Kommunikation und baust langfristige Beziehungen auf</li>\n<li>Du unterst\u00fctzt bei der Planung, Umsetzung und dem Tracking von Influencer-Kampagnen</li>\n<li>Du hast ein Auge auf den Markt, verfolgst aktuelle Social-Media-Entwicklungen und bringst proaktiv neue Ideen ins Team ein.</li>\n</ul>\n<h2>Dein Profil</h2>\n<ul>\n<li>Du bist aktuell an einer Hochschule immatrikuliert (z.B. in Marketing, Kommunikation, Medienwissenschaften o. \u00c4.)</li>\n<li>Du bist auf Instagram, TikTok und YouTube zu Hause und verstehst, wie die Plattformen und ihre Communities ticken</li>\n<li>Du bist ein Kommunikationstalent und hast keine Scheu, offen auf neue Leute zuzugehen (in Wort und Schrift)</li>\n<li>Du arbeitest strukturiert, eigenverantwortlich und hast Lust, Dinge umzusetzen</li>\n<li>Sehr gute Deutsch- und gute Englischkenntnisse runden dein Profil ab.</li>\n</ul>\n<h2>Was dich erwartet</h2>\n<ul>\n<li>Ein modernes, lebendiges B\u00fcro im Herzen von Berlin Mitte, perfekt angebunden und umgeben von zahlreichen Lunch-Spots \u2013 dazu eine voll ausgestattete K\u00fcche mit kostenlosen Getr\u00e4nken, Fr\u00fchst\u00fcck und Snacks</li>\n<li>Ein flexibles Hybrid-Arbeitsmodell, das dir erm\u00f6glicht, im B\u00fcro oder von zu Hause zu arbeiten \u2013 mit der Option, gelegentlich auch remote zu arbeiten</li>\n<li>Subventionierter Urban Sports Club sowie ein Beat81-Studio direkt in unserem Hinterhof - perfekt f\u00fcr Morgen-Workouts, aktive Lunch-Pausen oder ein starken Training am Abend</li>\n<li>Ein MacBook und hochwertiges Equipment, damit du bestens ausgestattet bist, um erfolgreich zu arbeiten</li>\n<li>Exklusiver Bling Mobile-Tarif f\u00fcr alle Mitarbeiter, der dich mit Premium-Mobilservices und zahlreichen Vorteilen verbindet.</li>\n<li>Schnelle Entwicklungsm\u00f6glichkeiten durch eigenverantwortliche Projekte, interne Workshops und gemeinsames Lernen</li>\n<li>Regelm\u00e4\u00dfige Teamevents, die unsere Unternehmenskultur st\u00e4rken und jeden Erfolg noch sch\u00f6ner machen</li>\n</ul>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Marketing and Communication",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778437858",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-11T02:15:26.089286+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "5b2195f6a607",
-    "title": "Werkstudent:in E-Mail-Marketing & Content Management (m/w/d)",
-    "company": "Bling",
-    "location": "Berlin",
-    "url": "https://www.arbeitnow.com/jobs/companies/bling/werkstudentin-e-mail-marketing-content-management-berlin-365154",
-    "description": "<h2>Deine Mission</h2>\n<p>Du hast ein H\u00e4ndchen f\u00fcr Texte, die man einfach lesen muss, und wei\u00dft, dass gute Inhalte mehr sind als nur sch\u00f6ne Worte? Du liebst es, Themen zu recherchieren und visuell sowie textlich stark aufzubereiten? Perfekt! Bei Bling suchen wir eine:n Werkstudent:in, der unser E-Mail- und Content Marketing auf das n\u00e4chste Level hebt.</p>\n<h2>Deine Aufgaben</h2>\n<ul>\n<li>Du unterst\u00fctzt bei der Erstellung, dem Versand und der Auswertung unserer Newsletter und E-Mail-Kampagnen (Texte, Bildauswahl, Setup)</li>\n<li>Du schreibst spannende Artikel f\u00fcr unser Magazin/ Blog, erstellst hochwertige Whitepaper und Landingpages</li>\n<li>Du hilfst bei der Konzeption und Gestaltung von \u00fcberzeugenden Pr\u00e4sentationen f\u00fcr interne und externe Zwecke</li>\n<li>Du wirfst einen Blick auf die Zahlen (\u00d6ffnungsraten, Klicks) und leitest daraus Ideen ab, wie wir unseren Content noch besser machen k\u00f6nnen</li>\n</ul>\n<h2>Dein Profil</h2>\n<ul>\n<li>Du bist aktuell in einem Studium der Kommunikationswissenschaften, des Journalismus, Marketings oder eines vergleichbaren Studiengangs eingeschrieben</li>\n<li>Du hast eine Leidenschaft f\u00fcr das Schreiben und ein sehr gutes Sprachgef\u00fchl in Deutsch</li>\n<li>Du bringst ein Gesp\u00fcr f\u00fcr Design, \u00c4sthetik und ansprechende Content-Gestaltung mit</li>\n<li>Du hast idealerweise erste Erfahrungen mit Canva, Figma sowie E-Mail-Marketing-, CRM- oder CMS-Tools gesammelt</li>\n<li>Du verstehst es, komplexe Themen verst\u00e4ndlich und spannend aufzubereiten</li>\n<li>Du arbeitest strukturiert, kreativ und sorgf\u00e4ltig und hast Freude an abwechslungsreichen Themen</li>\n</ul>\n<h2>Was dich erwartet</h2>\n<ul>\n<li>Ein modernes, lebendiges B\u00fcro im Herzen von Berlin Mitte, perfekt angebunden und umgeben von zahlreichen Lunch-Spots \u2013 dazu eine voll ausgestattete K\u00fcche mit kostenlosen Getr\u00e4nken, Fr\u00fchst\u00fcck und Snacks</li>\n<li>Ein flexibles Hybrid-Arbeitsmodell, das dir erm\u00f6glicht, im B\u00fcro oder von zu Hause zu arbeiten \u2013 mit der Option, gelegentlich auch remote zu arbeiten</li>\n<li>Subventionierter Urban Sports Club sowie ein Beat81-Studio direkt in unserem Hinterhof - perfekt f\u00fcr Morgen-Workouts, aktive Lunch-Pausen oder ein starken Training am Abend</li>\n<li>Ein MacBook und hochwertiges Equipment, damit du bestens ausgestattet bist, um erfolgreich zu arbeiten</li>\n<li>Exklusiver Bling Mobile-Tarif f\u00fcr alle Mitarbeiter, der dich mit Premium-Mobilservices und zahlreichen Vorteilen verbindet.</li>\n<li>Schnelle Entwicklungsm\u00f6glichkeiten durch eigenverantwortliche Projekte, interne Workshops und gemeinsames Lernen</li>\n<li>Regelm\u00e4\u00dfige Teamevents, die unsere Unternehmenskultur st\u00e4rken und jeden Erfolg noch sch\u00f6ner machen</li>\n</ul>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Marketing and Communication",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778437858",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-11T02:15:26.089290+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
     "remote": true
   },
   {
