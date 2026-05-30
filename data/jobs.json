@@ -1174,33 +1174,6 @@
     "remote": true
   },
   {
-    "id": "dd250c0aec38",
-    "title": "AI Software Developer",
-    "company": "Sphere",
-    "location": "Munich",
-    "url": "https://www.arbeitnow.com/jobs/companies/sphere/ai-software-developer-munich-397681",
-    "description": "<p><strong>ABOUT THE POSITION</strong></p>\n<p>We are looking for an experienced Senior Full-Stack Developer with a strong background in AI engineering to join our growing team and help design, build, and deploy robust, intelligent software solutions for our clients. In this role, you will lead and deliver high-impact full-stack applications in collaboration with renowned clients in the European industry.</p>\n<p>You will work hands-on to build end-to-end products, integrate multi-modal datasets, and embed predictive and generative AI features into scalable user interfaces and backend architectures. This is more than a job \u2014 it\u2019s an opportunity to help shape the technical future of our company and drive innovation.</p>\n<p><strong>ABOUT SPHERE ENERGY</strong></p>\n<p>We are a young, dynamic and technology-driven company, committed to developing targeted AI-driven solutions that revolutionize the development of products in the broad field of engineering.</p>\n<h2>Tasks</h2>\n<p><strong>KEY RESPONSIBILITIES</strong></p>\n<ul>\n<li>End-to-End Development: Design, build, and maintain scalable, production-grade full-stack web applications that seamlessly integrate AI features, LLM workflows, and client-specific enterprise data.</li>\n<li>Architecture &#x26; API Design: Craft robust backend microservices, design efficient database schemas, and build secure APIs capable of handling high-throughput inference and data streaming.</li>\n<li>AI Integration &#x26; Orchestration: Embed predictive models and generative AI capabilities into user-facing products using orchestration frameworks and vector databases.</li>\n<li>CI/CD &#x26; DevOps Excellence: Establish modern DevOps and MLOps standards, building reusable pipelines for clean code deployment, automated testing, containerization, and system monitoring.</li>\n<li>Technical Strategy &#x26; Leadership: Translate complex business requirements into technical blueprints, bridging the gap between raw AI capability and intuitive user experiences. Advise stakeholders on technical strategy, clearly communicating architectural tradeoffs regarding cost, latency, performance, and scalability.</li>\n</ul>\n<h2>Requirements</h2>\n<p><strong>QUALIFICATIONS</strong></p>\n<ul>\n<li>Master\u2019s or Bachelor\u2019s degree in Computer Science, Software Engineering, or a related field, with proven experience building enterprise-scale full-stack applications with integrated AI components.</li>\n<li>Full-Stack Proficiency: Strong command of modern frontend frameworks and advanced proficiency in backend languages, specifically Python (FastAPI, Django) and/or Node.js/TypeScript.</li>\n<li>Expert command of software design patterns, clean code principles, distributed systems, microservices architecture, and cloud infrastructure orchestration.</li>\n<li>Leadership &#x26; Code Quality: Ability to define and execute technical roadmaps paired with experience mentoring engineering teams, conducting code/architecture reviews, and enforcing engineering excellence.<",
-    "tags": "IT",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1778940030",
-    "source": "arbeitnow",
-    "status": "approved",
-    "found_at": "2026-05-16T18:52:47.019494+00:00",
-    "salary_parsed": null,
-    "score": 65,
-    "matched_keywords": [
-      "software engineer",
-      "python",
-      "node.js",
-      "typescript",
-      "fastapi",
-      "django",
-      "api"
-    ],
-    "remote": true
-  },
-  {
     "id": "75654513c444",
     "title": "Software Engineer, Data Infrastructure & Acquisition - Munich, Germany",
     "company": "Speechify",
@@ -3053,28 +3026,6 @@
     "remote": true
   },
   {
-    "id": "32ae136477e8",
-    "title": "Marketing Manager, Content & AI Enablement",
-    "company": "Expion Health",
-    "location": "USA",
-    "url": "https://remotive.com/remote-jobs/marketing/marketing-manager-content-ai-enablement-2090883",
-    "description": "<p class=\"MsoNormal\" style=\"line-height:normal\"><strong><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">Title</span></strong><span style=\"mso-ascii-theme-font:minor-latin;\r\nmso-hansi-theme-font:minor-latin\">: Marketing Manager, Content &amp; AI\r\nEnablement<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><strong><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">Location</span></strong><span style=\"mso-ascii-theme-font:minor-latin;\r\nmso-hansi-theme-font:minor-latin\">: Fully Remote<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><strong><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">Reports To:</span></strong><span style=\"mso-ascii-theme-font:minor-latin;\r\nmso-hansi-theme-font:minor-latin\"> VP, Marketing &amp; Communications<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">\u00a0</span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">Pharmacy\r\nbenefit management is a $500B+ industry most people have never heard of \u2014 but\r\nit has a major impact on how prescription drugs are priced, accessed, and paid\r\nfor. Expion Health is at the forefront of changing how that system works.<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">\u00a0</span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">We sit at\r\nthe intersection of data, technology, and pharmacy economics, helping clients\r\nstay ahead of a rapidly evolving market. We are also in the middle of a\r\ncompany-wide AI transformation, with teams across the business rethinking how\r\nwork gets done.<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">\u00a0</span></p><p style=\"border-width: medium medium 1pt; border-style: none none solid; border-color: currentcolor currentcolor windowtext; padding: 0in 0in 1pt;\">\n</p><div class=\"h3\" style=\"margin:0in;line-height:normal\"><strong>The Role</strong><p></p></div>\n<p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor-latin\">We are\r\nlooking for a <strong>Marketing Manager, Content &amp; AI Enablement</strong>\u00a0 to help our marketing team create stronger\r\nwork faster by combining AI ingenuity with marketing fundamentals. This is not\r\na role for someone who wants to use AI around the edges. It is for someone who\r\nwants to help build a more modern, faster, smarter marketing function from the\r\ninside.<p></p></span></p><p class=\"MsoNormal\" style=\"line-height:normal\"><span style=\"\r\nmso-ascii-theme-font:minor-latin;mso-hansi-theme-font:minor",
-    "tags": "react seo video AI/ML product marketing project management research content marketing digital media healthcare digital marketing partnerships editing SOLID mailchimp email marketing google ads testing CMS insurance SEM performance optimization",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "2026-05-15T06:54:14",
-    "source": "remotive",
-    "status": "new",
-    "found_at": "2026-05-16T18:52:46.648488+00:00",
-    "salary_parsed": null,
-    "score": 50,
-    "matched_keywords": [
-      "react",
-      "api"
-    ],
-    "remote": true
-  },
-  {
     "id": "7a9ecb2fe743",
     "title": "Frontendentwickler (m/w/d) (Ref.Nr.: 46730)",
     "company": "Wavestone Germany AG",
@@ -3749,6 +3700,28 @@
     "matched_keywords": [
       "docker",
       "kubernetes"
+    ],
+    "remote": true
+  },
+  {
+    "id": "7e1988b36b6e",
+    "title": "Senior GenAI Engineer LLMs/ RAG/ Python (w/m/d) remote in DE",
+    "company": "Talents2Germany GmbH",
+    "location": "Frankfurt am Main",
+    "url": "https://www.arbeitnow.com/jobs/companies/talents2germany-gmbh/senior-genai-engineer-llms-rag-python-remote-in-de-frankfurt-am-main-137280",
+    "description": "<p><strong>Standort:</strong> remote \u2014 Deutschland | Frankfurt (\u2264 4 Tage/Monat Reise)</p>\n<p><strong>Verf\u00fcgbarkeit:</strong> Ab sofort</p>\n<p><strong>\u00dcber die Rolle</strong></p>\n<p>Talents2Germany besetzt diese Position im Auftrag unseres Kunden, einem schnell wachsenden KI-Unternehmen im Bereich technologischer L\u00f6sungen f\u00fcr den Handel.</p>\n<p>Wir suchen eine erfahrene Senior Fullstack Developerin oder einen erfahrenen Senior Fullstack Developer, der oder die Teil eines dynamischen, internationalen Engineering-Teams wird. In dieser Rolle \u00fcbernimmst du Verantwortung f\u00fcr vollst\u00e4ndige Produktfunktionen, von der Datenbank bis zur Benutzeroberfl\u00e4che, und spielst eine zentrale Rolle bei der Weiterentwicklung der technischen Architektur einer kundenorientierten Plattform.</p>\n<p>Der Tech-Stack ist modern, das Team vielf\u00e4ltig, und die Arbeitsweise schnell und pragmatisch. Du arbeitest eng mit Product, Design und GenAI Engineers zusammen, um L\u00f6sungen zu entwickeln, die bereits von gro\u00dfen Enterprise-Kunden genutzt werden.</p>\n<h2>Aufgaben</h2>\n<p><strong>Was du aufbauen wirst</strong></p>\n<ul>\n<li>Konzeption und Verantwortung f\u00fcr End-to-End-RAG-Pipelines \u2014 von der Dokumentenaufnahme und Chunking-Strategie bis zur Retrieval-Evaluierung und Antwortqualit\u00e4t</li>\n<li>Bewertung, Fine-Tuning und Deployment von LLMs (OpenAI, Anthropic, Open-Source) f\u00fcr dom\u00e4nenspezifische deutschsprachige Anwendungsf\u00e4lle</li>\n<li>Architektur robuster, skalierbarer KI-Systeme unter Einhaltung von Enterprise-Anforderungen an Zuverl\u00e4ssigkeit und Compliance</li>\n<li>Aufbau von Evaluierungsrahmen \u2014 automatisierte Evals, Human-in-the-Loop-Tests, Regressions-Suites \u2014 zur Sicherstellung der Produktionszuverl\u00e4ssigkeit</li>\n<li>Zusammenarbeit mit Fullstack-Entwickler:innen zur Bereitstellung von KI-Funktionen \u00fcber saubere APIs und intuitive Produktoberfl\u00e4chen</li>\n<li>Enge Zusammenarbeit mit Unternehmenskunden: Anforderungen verstehen, in technische L\u00f6sungen \u00fcbersetzen und ma\u00dfgeschneiderte Ergebnisse liefern</li>\n<li>Verfolgung aktueller GenAI-Entwicklungen und kurzfristige \u00dcbersetzung relevanter Forschung in praktische Produktverbesserungen</li>\n</ul>\n<h2>Qualifikation</h2>\n<p><strong>Was wir suchen</strong></p>\n<p><strong>Technische Anforderungen</strong></p>\n<ul>\n<li>5+ Jahre Softwareentwicklungserfahrung, davon mindestens 2 Jahre in angewandter KI/ML in Produktionsumgebungen</li>\n<li>Tiefe Python-Kenntnisse \u2014 du schreibst sauberen, testbaren, produktionsreifen Code (nicht nur Notebooks)</li>\n<li>Praktische Erfahrung mit RAG-Architekturen und Vector-Datenbanken (Pinecone, Weaviate, Qdrant o.\u00e4.)</li>\n<li>Fundiertes Wissen \u00fcber mindestens einen gro\u00dfen LLM-Anbieter (OpenAI, Anthropic, Cohere) und Best Practices im Prompt Engineering</li>\n<li>Solides Verst\u00e4ndnis von MLOps: Modell-Versionierung, Deployment, Monitoring und graceful Degradation in der Produktion</li>\n<li>Erfahrung mit Orchestrierungs-Frameworks wie LangChain, LlamaIndex o.\u00e4.</li>\n</ul>\n<p><strong>Pers\u00f6nlichkeit &#x26; Arbeitswe",
+    "tags": "Remote Engineering",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1780142427",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-30T19:01:24.202901+00:00",
+    "salary_parsed": null,
+    "score": 50,
+    "matched_keywords": [
+      "python",
+      "api"
     ],
     "remote": true
   },
@@ -6165,25 +6138,6 @@
     "matched_keywords": [
       "api"
     ],
-    "remote": true
-  },
-  {
-    "id": "e513bd418222",
-    "title": "Inside Sales Contractor",
-    "company": "Credit Wellness, LLC",
-    "location": "Worldwide",
-    "url": "https://remotive.com/remote-jobs/sales/inside-sales-contractor-2086540",
-    "description": "<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">About Us</span></p>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals.</span></p>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sales professional looking for the autonomy of a remote position combined with great compensation, we want to hear from you!</span></p>\n<div class=\"h2\" dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 6pt 0pt 4pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Compensation Structure</span></div>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 8pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">This role is </span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">100% commission-based</span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">, which means your earning potential is unlimited. In addition, we regularly offer </span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertica",
-    "tags": "CRM google sheets financial services Inside Sales",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "2026-05-08T22:00:54",
-    "source": "remotive",
-    "status": "new",
-    "found_at": "2026-05-16T18:52:46.648546+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
     "remote": true
   },
   {
@@ -10095,6 +10049,63 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-05-30T13:06:40.675517+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "e513bd418222",
+    "title": "Inside Sales Contractor",
+    "company": "Credit Wellness, LLC",
+    "location": "Worldwide",
+    "url": "https://remotive.com/remote-jobs/sales/inside-sales-contractor-2086540",
+    "description": "<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">About Us</span></p>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">We are a financial services start up focusing on helping to improve consumer credit profiles. We are currently seeking KPI driven sales representatives looking to earn up to 45K in their first year while working remotely. We offer comprehensive training and continuous sales coaching to help you meet your financial goals.</span></p>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 0pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">During our training period we offer a guaranteed training stipend while our trainees are acclimating to the position (*see weekly pay below). If you are a seasoned sales professional looking for the autonomy of a remote position combined with great compensation, we want to hear from you!</span></p>\n<div class=\"h2\" dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 6pt 0pt 4pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">Compensation Structure</span></div>\n<p dir=\"ltr\" style=\"line-height: 1.38; background-color: #ffffff; margin-top: 0pt; margin-bottom: 0pt; padding: 8pt 0pt 12pt 0pt;\"><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">This role is </span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">100% commission-based</span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: 400; font-style: normal; font-variant: normal; text-decoration: none; vertical-align: baseline; white-space: pre-wrap;\">, which means your earning potential is unlimited. In addition, we regularly offer </span><span style=\"color: #2d2d2d; background-color: transparent; font-weight: bold; font-style: normal; font-variant: normal; text-decoration: none; vertica",
+    "tags": "CRM google sheets financial services Inside Sales",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "2026-05-08T22:00:54",
+    "source": "remotive",
+    "status": "new",
+    "found_at": "2026-05-30T19:01:24.047007+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "791ac65eab4d",
+    "title": "(Senior) Meta Performance Marketing Manager (m/w/d)",
+    "company": "paselo GmbH",
+    "location": "M\u00fcnster",
+    "url": "https://www.arbeitnow.com/jobs/companies/paselo-gmbh/senior-meta-performance-marketing-manager-munster-433143",
+    "description": "<p>paselo ist ein junges, schnell wachsendes Unternehmen f\u00fcr hochwertige Erg\u00e4nzungsfuttermittel f\u00fcr Hunde. Unsere Mission: Die Gesundheit und Lebensfreude von Hunden nachhaltig zu f\u00f6rdern \u2013 mit nat\u00fcrlichen, laborgepr\u00fcften Produkten, die wissenschaftlich fundiert sind und von Tierhaltern gesch\u00e4tzt werden.</p>\n<p>Um dieses Wachstum strukturiert voranzutreiben, suchen wir jemanden, der Creatives nicht verwaltet, sondern verantwortet.</p>\n<p>Du kennst den Unterschied zwischen einer Anzeige, die h\u00fcbsch ist, und einer, die kauft. Du wei\u00dft, warum Menschen klicken \u2014 und warum nicht. Du hast bewiesen, dass deine Arbeit Umsatz macht. Und du bist noch nicht fertig damit.</p>\n<p><strong>Worum es geht</strong></p>\n<p>Du bist der kreative Kopf hinter unseren Ads. Vom ersten Hook bis zur fertigen Performance-Analyse. Das ist keine reine Koordinationsrolle. Du denkst strategisch <em>und</em> setzt selbst um. Du baust Funnels, keine Einzeltexte.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li><strong>Funnel-Ownership statt Einzeltexte.</strong> Du denkst in Customer Journeys \u2014 von der ersten Impression bis zum Kauf. Landing Pages, Advertorials, Listicles, VSLs, Meta Ads, UGC-Scripte: Du wei\u00dft, was auf Meta, Google und Native funktioniert, und warum.</li>\n<li><strong>VSL- und Video-Konzepte.</strong> Du entwickelst Konzepte und schreibst Skripte f\u00fcr Meta und YouTube \u2014 Hook-getrieben und getestet, nicht geraten.</li>\n<li><strong>Briefings, die ohne dich funktionieren.</strong> Du schreibst Creative-Briefings, die Editoren und UGC-Creator eigenst\u00e4ndig umsetzen. So klar, dass niemand nachfragen muss.</li>\n<li><strong>Performance lesen, Hypothesen ableiten.</strong> Du liest die Creative-Performance aus dem Ads Manager, ziehst Schl\u00fcsse und briefst die n\u00e4chste Iteration. CVR, CAC, AOV und ROAS sind f\u00fcr dich kein Reporting, sondern Werkzeug.</li>\n<li><strong>Strukturiertes Testing.</strong> A/B-Tests sind keine K\u00fcr, sondern Grundhaltung. Du planst Creative-Rotationen und baust einen Testing-Prozess auf, der skaliert.</li>\n<li><strong>Zielgruppen-Instinkt.</strong> Du sprichst Menschen an, keine Personas \u2014 bei uns Hundehalter, f\u00fcr die der Hund Familie ist. Du triffst, was sie bewegt.</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li><strong>3\u20134 Jahre</strong> Erfahrung als Creative Stratgist im Performance Creative / Direct-Response, idealerweise im DTC-E-Commerce.</li>\n<li><strong>Nachweisbare Ergebnisse.</strong> Du nennst konkrete Zahlen. Kampagnen, die du verantwortet hast, Copy, die messbar konvertiert hat. Kein Portfolio ohne Proof.</li>\n<li><strong>Nachweisbare Ergebnisse mit Meta Video Ads</strong> (VSLs, UGC-Style, Hook-Testing).</li>\n<li><strong>Verkaufspsychologie im Blut.</strong> AIDA ist f\u00fcr dich ein Anfang, kein Ziel. Du kennst Hooks und Storytelling-Strukturen (PAS, DIC, Before/After) und wei\u00dft, was Scarcity, Urgency und Social Proof wirklich leisten \u2014 und wann man sie wegl\u00e4sst.</li>\n<li><strong>AI-Native Workflow.</strong> Du nutzt KI-Tools wie ein Profi. Zum Recherchieren, Ide",
+    "tags": "Remote Strategic Marketing",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1780162246",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-30T19:01:24.202840+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "617d847c11cb",
+    "title": "Performance Marketing Manager in Teilzeit (m/w/d) (Remote |\u00a020- 30 Std./Woche)",
+    "company": "KI-Prozessnavigator",
+    "location": "Mertingen",
+    "url": "https://www.arbeitnow.com/jobs/companies/ki-prozessnavigator/performance-marketing-manager-in-teilzeit-remote-20-30-std-woche-mertingen-361199",
+    "description": "<p>Google Ads und der Meta Business Manager geh\u00f6ren f\u00fcr dich zum Alltag, nicht zur Lernkurve? Du willst nicht l\u00e4nger fremde Vorgaben umsetzen, sondern selbst entscheiden, wie eine Kampagne l\u00e4uft und wie sie performt?</p>\n<p>Genau daf\u00fcr suchen wir Verst\u00e4rkung. Bei uns \u00fcbernimmst du als Performance Marketing Manager (m/w/d) in Teilzeit (20 bis 30 Std./Woche) echte Verantwortung, gibst operativ Gas und w\u00e4chst gemeinsam mit uns und unseren Kunden.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Du betreust Performance-Kampagnen auf Google und Meta eigenverantwortlich und optimierst sie laufend, damit Budgets effizient skalieren.</li>\n<li>Du baust Kampagnenstrukturen auf, testest neue Creatives und Zielgruppen und erkennst Optimierungspotenziale, bevor jemand danach fragt.</li>\n<li>Du richtest das Tracking \u00fcber den Google Tag Manager ein und sorgst daf\u00fcr, dass die Datenbasis f\u00fcr saubere Entscheidungen stimmt.</li>\n<li>Du beh\u00e4ltst die relevanten KPIs im Griff, bereitest Reportings auf und leitest daraus konkrete n\u00e4chste Schritte ab.</li>\n<li>Du bist direkte Ansprechperson f\u00fcr unsere Kunden, f\u00fchrst die Jour Fixes und besprichst Ergebnisse sowie das weitere Vorgehen.</li>\n<li>Du stimmst dich im Team zur Gesamtstrategie ab und setzt sie anschlie\u00dfend operativ selbstst\u00e4ndig um.</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Ein bis zwei Jahre praktische Erfahrung im Performance Marketing mit Google Ads und Social Ads. Die g\u00e4ngigen Tools und Best Practices sind dir vertraut.</li>\n<li>Solides Tracking-Verst\u00e4ndnis: Du wei\u00dft, wof\u00fcr der Pixel da ist, und liest Ergebnisse in GA4 sicher aus.</li>\n<li>Eine echte Hands-on-Mentalit\u00e4t. Du wartest nicht auf Anweisungen, sondern erkennst selbst, wann eine Kampagne nachjustiert werden muss.</li>\n<li>Analytischer Kopf: Deine Entscheidungen baust du auf Daten auf, nicht auf dem Bauchgef\u00fchl.</li>\n<li>Eine strukturierte Arbeitsweise und Lust darauf, Verantwortung f\u00fcr eigene Kunden-Accounts zu \u00fcbernehmen.</li>\n</ul>\n<h2>Benefits</h2>\n<p><strong>Das bekommst du von uns</strong></p>\n<ul>\n<li>Remote Work und flexible Arbeitszeiten. Du entscheidest, wann und wo du arbeitest.</li>\n<li>Ein faires Gehalt, das sich an deinem Skill-Level und deinen Stunden orientiert. In Teilzeit zwischen 1.800 und 3.500 Euro pro Monat.</li>\n</ul>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Remote Online Marketing",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1780146027",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-05-30T19:01:24.202864+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
