@@ -1842,6 +1842,31 @@
     "remote": true
   },
   {
+    "id": "49d5392432cd",
+    "title": "Senior Backend Engineer (Golang) - Bank",
+    "company": "SumUp",
+    "location": "Berlin, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/sumup/senior-backend-engineer-golang-bank-berlin-273004",
+    "description": "<p>At SumUp, the&nbsp;<strong>Global Bank team </strong>builds the core infrastructure and services that give merchants a digital bank account, helping small businesses manage their money easily and reliably.&nbsp;</p>\n<p>The <strong>Balance Management Squad</strong> sits at the core of the <strong>Global Bank </strong>Platform. Right now, our team is completing a major milestone: consolidating and modernizing our balance management system in Europe. The next big step is creating a global transaction history service; a single, shared platform used by all regions to give merchants consistent and transparent views of their financial activity.</p>\n<p>As a <strong>(Senior)</strong> <strong>Backend Engineer</strong>, you'll help modernize existing systems while balancing innovation with stability, collaborate with teams across regions, and build reliable services that manage diverse markets with different regulations.</p>\n<p>If you enjoy solving complex problems on high-load systems, are curious about banking, and are looking for a team that tackles challenges head-on, we'd love to hear from you.</p>\n<p><strong>What You'll Do</strong></p>\n<ul>\n<li>Build and evolve the SumUp's core banking services that powers ledger operations and transactions, transforming our regional systems into a unified, scalable global platform.</li>\n<li>Tackle complex distributed systems challenges, ensuring resilient services that continue to perform under high transaction volumes.</li>\n<li>Support modernization initiatives by improving observability, adding test coverage, refactoring code for long-term maintainability, and gradually introducing new architectural patterns without disrupting live banking operations.</li>\n<li>Contribute to key architectural decisions - build ledger and transaction history systems from the ground up, ensuring a globally scalable banking solution for our clients.</li>\n<li>Collaborate with teams across Risk, Treasury, Finance, and Infrastructure to ensure smooth, compliant, and reliable global operations</li>\n<li>Take ownership from design to production, running the services you build, monitoring their performance, and continuously improving how we deliver high-quality software at scale.</li>\n</ul>\n<p><strong>You'll be great for this role if</strong></p>\n<ul>\n<li>You have solid backend experience building reliable, high-volume services and you think carefully about system design, APIs, data modeling, and how services interact.</li>\n<li>You are <strong>proficient in Golang </strong>and comfortable learning and working with other languages as needed, e.g. Kotlin or Elixir.</li>\n<li>You write maintainable, well-tested code, follow CI/CD best practices, and take responsibility for the software you build from development to production.</li>\n<li>You're comfortable building, deploying, and running services in cloud environments like AWS using Docker and Kubernetes.</li>\n<li>You're eager to learn about relational databases that perform well under load and",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1780098319",
+    "source": "arbeitnow",
+    "status": "approved",
+    "found_at": "2026-05-30T02:14:00.462990+00:00",
+    "salary_parsed": null,
+    "score": 65,
+    "matched_keywords": [
+      "backend engineer",
+      "aws",
+      "docker",
+      "kubernetes",
+      "api"
+    ],
+    "remote": true
+  },
+  {
     "id": "ec3fd485f57b",
     "title": "Senior Software Engineer, Windows/Desktop Applications - Munich, Germany",
     "company": "Speechify",
@@ -6080,22 +6105,45 @@
     "remote": true
   },
   {
-    "id": "cc2323544d42",
-    "title": "Social Media Account Manager (all genders) / Onsite - kein Remote",
-    "company": "Visual Statements GmbH",
-    "location": "Freiburg im Breisgau",
-    "url": "https://www.arbeitnow.com/jobs/companies/visual-statements-gmbh/social-media-account-manager-all-genders-onsite-kein-remote-freiburg-im-breisgau-362334",
-    "description": "<h2><strong>\u00dcber uns</strong></h2>\n<p>Wir begeistern und inspirieren Millionen von Menschen! Als innovativer Hybrid aus Social Media Publisher und Social Media Agentur vereint das VS Mediahouse einzigartige Expertise in den Bereichen Content-Kreation, Markenaufbau und Performance-Marketing. Mit einem Team von \u00fcber 50 Experten in Social Media, Design und Videoproduktion betreiben wir die beliebtesten Social-Media-Marken Deutschlands auf Facebook, Instagram und TikTok. Zu unseren Erfolgsmarken z\u00e4hlen unter anderem VS, Lieblingskollegen und Lieblingsmensch\u00ae. Unser tiefes Verst\u00e4ndnis f\u00fcr die Dynamik von Social Media und unser Publishing-Know-how erm\u00f6glichen es uns, Marken wie Samsung, Schwartau, Bayer und Lexware im Bereich Social Media nachhaltig erfolgreich zu machen. Wir schaffen Verbindungen, erz\u00e4hlen Geschichten und setzen Trends \u2013 f\u00fcr echte Wirkung und messbaren Erfolg.</p>\n<h2><strong>Was erwartet dich</strong></h2>\n<ul>\n<li>Du steuerst deine Kundenprojekte eigenverantwortlich \u2013 von der Idee bis zum Reporting</li>\n<li>Du ber\u00e4tst unsere Kunden bei Social-Media-Strategien und bringst eigene Ideen mit rein</li>\n<li>Du bist die Schnittstelle zwischen Kunde und Kreation und h\u00e4ltst alle F\u00e4den zusammen</li>\n<li>Du sorgst daf\u00fcr, dass Timings, Budgets und Qualit\u00e4t stimmen</li>\n<li>Du entwickelst deine Kunden inhaltlich und strategisch weiter</li>\n<li>Du unterst\u00fctzt bei Pitches und hast Lust, neue Etats mitzugestalten</li>\n</ul>\n<h2><strong>Was solltest du mitbringen</strong></h2>\n<ul>\n<li>1\u20132 Jahre Erfahrung in einer Agentur oder im Projektmanagement</li>\n<li>Du kommst aus Freiburg oder der n\u00e4heren Umgebung oder bringst Umzugsbereitschaft mit</li>\n<li>Freude am Kundenkontakt und Lust, Verantwortung zu \u00fcbernehmen</li>\n<li>Gute Social-Media-Kenntnisse und ein Gef\u00fchl f\u00fcr Content, Trends &#x26; Plattformen</li>\n<li>Du denkst strukturiert, arbeitest eigenst\u00e4ndig und bist zuverl\u00e4ssig</li>\n<li>Zahlen schrecken dich nicht ab \u2013 KPIs sind f\u00fcr dich kein Buzzword</li>\n<li>Du kannst priorisieren, organisieren und beh\u00e4ltst auch bei mehreren Projekten den \u00dcberblick</li>\n<li>MS Office sitzt, KI-Tools nutzt du im Alltag ganz selbstverst\u00e4ndlich</li>\n<li>Du kannst dich durchsetzen, ohne unangenehm zu sein</li>\n</ul>\n<h2><strong>Warum VS Mediahouse</strong></h2>\n<p>Wir sind auf der Suche nach motivierten Mitarbeitenden, die etwas bewegen m\u00f6chten, Mut f\u00fcr neue Ideen haben und das Unternehmen aktiv mitgestalten wollen. Wir legen gro\u00dfen Wert auf einen respektvollen Umgang auf Augenh\u00f6he. Neben unseren modernen B\u00fcros im Herzen von Freiburg erwarten dich ausgezeichnete Arbeitsbedingungen in einem hoch dynamischen und wachstumsstarken Umfeld. Freue dich auf vielseitige Aufgaben mit hoher Eigenverantwortung und unternehmerischem Gestaltungsspielraum sowie eine moderne, sachorientierte Entscheidungskultur ohne unn\u00f6tige Hierarchien. Wir bieten dir fachliche und pers\u00f6nliche Entwicklungsm\u00f6glichkeiten durch Freiraum f\u00fcr Innovationen, kurze Entscheidungswege und individuelles Managemen",
-    "tags": "Social Media Manager",
+    "id": "6095af9f045a",
+    "title": "Pflichtpraktikum im Sales Ops & Lead Nurturing (m/w/d)",
+    "company": "embesch GmbH",
+    "location": "Osnabr\u00fcck",
+    "url": "https://www.arbeitnow.com/jobs/companies/embesch-gmbh/pflichtpraktikum-im-sales-ops-lead-nurturing-osnabruck-224037",
+    "description": "<p>Wir bauen seit 2 Jahren EmpowHerNetwork - das relevanteste DACH-\u00d6kostystem f\u00fcr Gr\u00fcnderinnen in den ersten 3 Jahren nach Gr\u00fcndung. \u00dcber 400 Gr\u00fcnderinnen in unserer Community. Unsere Expert:innen sind keine Coaches, sondern aktive Operatorinnen aus echten Unternehmen: Neben der Community und einigen offline Events, bieten wir sowohl B2C als auch B2B Startup Programme an.</p>\n<p>Unsere Corporate-Deals mit Banken und Versicherern sind kein Sponsorings, sondern ein neuer Akquise-Kanal, den wir zunehmend in die Corportewelt bringen wollen.<br>\nUnsere Gr\u00fcnderin sitzt in Hamburg, wir arbeiten aber remote-first.</p>\n<p><strong>Worum es geht.</strong> Wir bringen aktuell deutlich mehr Leads in unseren B2C-Funnel \u2014 \u00fcber Meta Ads, Webinare, Wartelisten, 1:1-Landingpages und unsere 10-Phasen-Masterclass. Zwischen \"Erstkontakt\" und \"Programm gebucht\" liegen mehrere Touchpoints, in der Regel ein 1:1-Call mit unserer Gr\u00fcnderin. Genau dazwischen sitzt du. Du sorgst daf\u00fcr, dass kein warmer Lead kalt wird, dass der Kalender unserer Gr\u00fcnderin Emily voll mit den richtigen Calls ist, und dass wir genau wissen, welcher Funnel-Pfad welche Closes bringt.</p>\n<h2>Aufgaben</h2>\n<p><strong>Wie deine Woche zb aussieht.</strong><br>\nW\u00f6chentlich nimmst du dir alle Lead-Eing\u00e4nge der vergangenen Woche vor -> Webinaranmeldungen, Lead-Magnet-Eintr\u00e4ge, Wartelisten-Adds, Masterclass-K\u00e4uferinnen und sorgst daf\u00fcr, das alles ordentlich in unserem CRM gepflegt ist. Als CRM nutzen wir Notion und Klayvio.</p>\n<p>In der Woche sind Follow-Up-Tage geplant: die Anrufe, nachdem jemand sich zum Beispiel beim Lead Magnet eingetragen hat, stehen an. Du holst dir feedback ein, pitchst unser Programm und settest sie auf einen Call mit Emily.<br>\nDonnerstag ist beispielsweise Drafting-Tag -> du schreibst zwischen 5 und 15 individuelle Mailantworten an warme Leads. Freitag-Nachmittag ist Reporting: Conversion-Tracking-Tabelle in Notion updaten, KPIs f\u00fcr das Wochen-Check-In mit Emily zusammenfassen.</p>\n<p><strong>Konkrete Aufgaben.</strong></p>\n<p>Klaviyo-Segmente sauber halten (E-Com, Service, Webinar-Leads, 1:1-Leads, Wartelist Revenue Sprint, Wartelist E-Com Sprint, Alumni).</p>\n<p>Gemeinsam setzen wir Flows auf in Klavyio f\u00fcr die f\u00fcnf aktuellen Funnel-Pfade. Mail-Drafts schreiben f\u00fcr warme Leads, die individuell antworten. Conversion-Tracking-Tabelle f\u00fchren: welcher Funnel-Pfad bringt wie viele Discovery-Calls, wie viele Closes, in welche Programme.</p>\n<p><strong>Was du NICHT machst.</strong> Du closest nicht. Pitches und Programm-Bewerbungsgespr\u00e4che macht wer anders. Du qualifizierst nicht hart -> die finale Entscheidung \"passt diese Bewerberin zum Programm\" trifft wer anders. Du verhandelst keine Preise -> Pricing-Fragen gehen zur\u00fcck zu unser Gr\u00fcnderin. Du machst keinen Cold-Outbound -> alle Leads, mit denen du arbeitest, sind Inbound.</p>\n<h2>Qualifikation</h2>\n<p>Dein Pflichtpraktikum steht in den n\u00e4chsten 6 Wochen an.</p>\n<p>Du arbeitest sauber und strukturiert: in Tabellen denken, Aufga",
+    "tags": "Remote Marketing and Communication",
     "salary_min": null,
     "salary_max": null,
-    "posted_at": "1778891431",
+    "posted_at": "1780084823",
     "source": "arbeitnow",
     "status": "new",
-    "found_at": "2026-05-16T02:08:22.853660+00:00",
+    "found_at": "2026-05-30T02:14:00.463029+00:00",
     "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
+    "score": 45,
+    "matched_keywords": [
+      "startup"
+    ],
+    "remote": true
+  },
+  {
+    "id": "jobot_57fc605606",
+    "title": "Senior Software Engineer\nConsulting$50 - $70Los Angeles, CA Remote",
+    "company": "Unknown",
+    "location": "Remote",
+    "description": "",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=57fc605606",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "",
+    "source": "jobot",
+    "status": "new",
+    "found_at": "2026-05-30T02:14:09.196004+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "software engineer"
+    ],
     "remote": true
   },
   {
