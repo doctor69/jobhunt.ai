@@ -1174,6 +1174,28 @@
     "remote": true
   },
   {
+    "id": "jobot_24969e5606",
+    "title": "Senior Software Engineer (Power Apps/Python)\n$110,000 - $120,000Fort Myers, FL Remote",
+    "company": "Unknown",
+    "location": "Remote",
+    "description": "",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=24969e5606",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "",
+    "source": "jobot",
+    "status": "approved",
+    "found_at": "2026-06-01T02:49:30.235217+00:00",
+    "salary_parsed": 110000,
+    "score": 70,
+    "matched_keywords": [
+      "software engineer",
+      "python"
+    ],
+    "remote": true
+  },
+  {
     "id": "57527402446c",
     "title": "Full Stack Software Engineer",
     "company": "Yendou",
@@ -5960,6 +5982,27 @@
     "score": 45,
     "matched_keywords": [
       "startup"
+    ],
+    "remote": true
+  },
+  {
+    "id": "bb7af6795820",
+    "title": "Senior Bazel Engineer",
+    "company": "Modus Create",
+    "location": "Alemanha",
+    "url": "https://www.arbeitnow.com/jobs/companies/modus-create/senior-bazel-engineer-alemanha-433853",
+    "description": "<h3><strong>Join our team as a Bazel Engineer at Tweag, part of the Modus Create group!&nbsp;</strong></h3>\n<p>&nbsp;</p>\n<h3><strong>About us</strong></h3>\n<p>Tweag is a software innovation lab dedicated to improving the craft of software engineering through functional programming, reproducible build systems, and open source leadership. The company unites researchers and engineers to solve complex technical challenges for industry leaders in fintech, biopharma, and automotive systems.</p>\n<p>Tweag has been active in the Bazel ecosystem since 2018 and is recognized for its thought leadership, open source contributions, and consistent high quality of its consulting services.</p>\n<p>Since 2022, Tweag has been part of the Modus Create group, a global digital product engineering consultancy.Together, the organizations help clients solve complex engineering challenges and accelerate digital transformation through world-class technical expertise.&nbsp;</p>\n<h3><strong>Opportunity:</strong></h3>\n<p>We are looking for a Bazel Engineer to join our Scalable Builds department in a fully remote, distributed environment. In this role, you will work closely with clients to design, implement, and optimize build infrastructure for large-scale software projects. You will help organizations improve developer productivity, build reliability, and engineering velocity by leveraging Bazel and related technologies.</p>\n<p>You will collaborate with experienced engineers across a variety of domains, contribute to open source projects, and have opportunities to shape the future of build systems both within Tweag and in the broader Bazel ecosystem. This is an excellent opportunity for someone who enjoys solving complex technical problems while working directly with clients and the open source community.</p>\n<h3><strong>Requirements:&nbsp;</strong></h3>\n<ul>\n<li>Strong hands-on experience with Bazel and modern build systems</li>\n<li>Senior-level experience in software engineering</li>\n<li>Strong understanding of build system architecture, scalability, and performance optimization</li>\n<li>Experience with developer productivity tooling and CI/CD environments</li>\n<li>Consultant mindset: confident yet humble, principled yet pragmatic</li>\n<li>Strong written and verbal communication skills</li>\n<li>Comfortable presenting technical solutions clearly to clients</li>\n<li>Ability to collaborate effectively in a fully remote environment</li>\n<li>Interest in exploring new technologies and contributing to open-source communities</li>\n</ul>\n<h3><strong>Bonus points:</strong></h3>\n<ul>\n<li>Experience migrating legacy build systems to Bazel or improving existing Bazel-based setups</li>\n<li>Experience setting up and optimizing Bazel remote caching and remote build execution (RBE) for performance and scalability.</li>\n<li>Broad exposure to multiple programming languages and platforms</li>\n</ul>\n<h3><strong>You'll love:</strong></h3>\n<ul>\n<li>Fully remote position with excellent work/life ",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1780271119",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-01T02:49:21.333201+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "software engineer"
     ],
     "remote": true
   },
