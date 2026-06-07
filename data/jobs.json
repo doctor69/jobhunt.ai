@@ -1296,57 +1296,6 @@
     "remote": true
   },
   {
-    "id": "1a6618fd2142",
-    "title": "Software Engineer, Platform - Berlin, Germany",
-    "company": "Speechify",
-    "location": "Berlin, Berlin, Germany",
-    "url": "https://www.arbeitnow.com/jobs/companies/speechify/software-engineer-platform-berlin-germany-208651",
-    "description": "<p>The mission of Speechify is to make sure that reading is never a barrier to learning.</p>\n<p>Over 50 million people use Speechify's text-to-speech products to turn whatever they're reading \u2013 PDFs, books, Google Docs, news articles, websites \u2013 into audio, so they can read faster, read more, and remember more. Speechify's text-to-speech reading products include its iOS app, Android App, Mac App, Chrome Extension, and Web App. Google recently named Speechify the Chrome Extension of the Year and Apple named Speechify its 2025 Design Award winner for Inclusivity.&nbsp;&nbsp;</p>\n<p>Today, nearly 200 people around the globe work on Speechify in a 100% distributed setting \u2013 Speechify has no office. These include frontend and backend engineers, AI research scientists, and others from Amazon, Microsoft, and Google, leading PhD programs like Stanford, high growth startups like Stripe, Vercel, Bolt, and many founders of their own companies.</p>\n<p><strong>Overview</strong></p>\n<p data-speechify-sentence=\"\">The responsibilities of our Platform team include building and maintaining all backend services, including, but not limited to, payments, analytics, subscriptions, new products, text to speech, and external APIs.</p>\n<p data-speechify-sentence=\"\">This is a key role and ideal for someone who thinks strategically, enjoys fast-paced environments, is passionate about making product decisions, and has experience building great user experiences that delight users.</p>\n<p data-speechify-sentence=\"\">We are a flat organization that allows anyone to become a leader by showing excellent technical skills and delivering results consistently and fast. Work ethic, solid communication skills, and obsession with winning are paramount.&nbsp;</p>\n<p data-speechify-sentence=\"\">Our interview process involves several technical interviews and we aim to complete them within 1 week.&nbsp;</p>\n<p><strong>What Yo</strong><strong>u'</strong><strong>ll Do</strong></p>\n<ul>\n<li data-speechify-sentence=\"\">Design, develop, and maintain robust APIs including public TTS API, internal APIs like Payment, Subscription, Auth and Consumption Tracking, ensuring they meet business and scalability requirements</li>\n<li data-speechify-sentence=\"\">Oversee the full backend API landscape, enhancing and optimizing for performance and maintainability</li>\n<li data-speechify-sentence=\"\">Collaborate on B2B solutions, focusing on customization and integration needs for enterprise clients</li>\n<li data-speechify-sentence=\"\">Work closely with cross-functional teams to align backend architecture with overall product strategy and user experience</li>\n</ul>\n<p><strong>An Ideal Candidate Should Have</strong></p>\n<ul>\n<li>Proven experience in backend development: TS/Node (required)</li>\n<li>Direct experience with GCP and knowledge of AWS, Azure, or other cloud providers</li>\n<li>Efficiency in ideation and implementation, prioritizing tasks based on urgency and impact</li>\n<li>Preferred: Experience with Docker",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1779630325",
-    "source": "arbeitnow",
-    "status": "approved",
-    "found_at": "2026-05-24T19:04:33.320509+00:00",
-    "salary_parsed": null,
-    "score": 65,
-    "matched_keywords": [
-      "software engineer",
-      "backend engineer",
-      "aws",
-      "docker",
-      "api",
-      "startup"
-    ],
-    "remote": true
-  },
-  {
-    "id": "088e306df889",
-    "title": "Software Engineer, Data Infrastructure & Acquisition - Stuttgart, Germany",
-    "company": "Speechify",
-    "location": "Stuttgart, Baden-W\u00fcrttemberg, Germany",
-    "url": "https://www.arbeitnow.com/jobs/companies/speechify/software-engineer-data-infrastructure-acquisition-stuttgart-germany-127438",
-    "description": "<p>The mission of Speechify is to make sure that reading is never a barrier to learning.</p>\n<p>Over 50 million people use Speechify's text-to-speech products to turn whatever they're reading \u2013 PDFs, books, Google Docs, news articles, websites \u2013 into audio, so they can read faster, read more, and remember more. Speechify's text-to-speech reading products include its iOS app, Android App, Mac App, Chrome Extension, and Web App.&nbsp;Google recently named Speechify the Chrome Extension of the Year and Apple named Speechify its 2025 Design Award winner for Inclusivity.&nbsp;&nbsp;</p>\n<p>Today, nearly 200 people around the globe work on Speechify in a 100% distributed setting \u2013 Speechify has no office. These include frontend and backend engineers, AI research scientists, and others from Amazon, Microsoft, and Google, leading PhD programs like Stanford, high growth startups like Stripe, Vercel, Bolt, and many founders of their own companies.</p>\n<p><strong>Overview</strong></p>\n<p>We're looking to hire for our Data side of our AI team at Speechify. This role is responsible for all aspects of data collection to support our model training operations. We are able to build high-quality datasets at petabyte-scale and low cost through a tight integration of infrastructure, engineering, and research work. We are looking for a skilled Software Engineer to join us.</p>\n<p><strong>What You'll Do</strong></p>\n<ul>\n<li>Be scrappy to find new sources of audio data and bring it into our ingestion pipeline</li>\n<li>Operate and extend the cloud infrastructure for our ingestion pipeline, currently running on GCP and managed with Terraform.</li>\n<li>Collaborate closely with our Scientists to shift the cost/throughput/quality frontier, delivering richer data at bigger scale and lower cost to power our next-generation models.</li>\n<li>Collaborate with others on the AI Team and Speechify Leadership to craft the AI Team's dataset roadmap to power Speechify's next-generation consumer and enterprise products.</li>\n</ul>\n<p><strong>An Ideal Candidate Should Have</strong></p>\n<ul>\n<li>BS/MS/PhD in Computer Science or a related field.</li>\n<li>5+ years of industry experience in software development.</li>\n<li>Proficiency with bash/Python scripting in Linux environments</li>\n<li>Proficiency in Docker and Infrastructure-as-Code concepts and professional experience with at least one major Cloud Provider (we use GCP)</li>\n<li>Experience with web crawlers, large-scale data processing workflows is a plus</li>\n<li>Ability to handle multiple tasks and adapt to changing priorities.</li>\n<li>Strong communication skills, both written and verbal.</li>\n</ul>\n<p><strong>What we offer</strong></p>\n<ul>\n<li>A fast-growing environment where you can help shape the company and product.</li>\n<li>An entrepreneurial-minded team that supports risk, intuition, and hustle.</li>\n<li>A hands-off management approach so you can focus and do your best work.</li>\n<li>An opportunity to make a big impact in a ",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1779630324",
-    "source": "arbeitnow",
-    "status": "approved",
-    "found_at": "2026-05-24T19:04:33.320516+00:00",
-    "salary_parsed": null,
-    "score": 65,
-    "matched_keywords": [
-      "software engineer",
-      "backend engineer",
-      "python",
-      "docker",
-      "startup"
-    ],
-    "remote": true
-  },
-  {
     "id": "b55c25d91173",
     "title": "Senior Full-stack React Developer",
     "company": "Lemon.io",
@@ -3483,6 +3432,28 @@
     "score": 50,
     "matched_keywords": [
       "react",
+      "startup"
+    ],
+    "remote": true
+  },
+  {
+    "id": "ca2d6880d1f2",
+    "title": "Kundensupport / Onboarding - Finanzbranche - DATEV - remote",
+    "company": "pathway solutions gmbh",
+    "location": "Hamburg",
+    "url": "https://www.arbeitnow.com/jobs/companies/pathway-solutions-gmbh/kundensupport-onboarding-finanzbranche-datev-remote-hamburg-420222",
+    "description": "<p>Wir von pathway solutions haben ein klares Ziel: Die Buchhaltung gemeinsam mit dir zu revolutionieren!</p>\n<p>Ob Shopify-Startups oder SaaS-Unternehmen \u2013 unsere Software automatisiert Buchhaltungsprozesse, damit Unternehmer:innen sich auf das wesentliche konzentrieren k\u00f6nnen.<br>\nWir setzen uns ambitionierte Ziele, glauben an Wachstum und haben w\u00e4hrenddessen enorm viel Spa\u00df als Team!</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Du hilfst t\u00e4glich per Telefon, E-Mail und Zoom e-Commerce Unternehmer:innen bei buchhalt\u00e4rischen Problemen.</li>\n<li>Sicherstellung einer hohen Kundenzufriedenheit durch klare und <strong>freundliche Kommunikation</strong>.</li>\n<li>Identifikation <strong>wiederkehrender Probleme</strong> und Verbesserung unserer L\u00f6sungen.</li>\n<li>Enge Zusammenarbeit mit dem Onboarding Automation Team zur Sicherstellung der <strong>Kundenzufriedenheit</strong>.</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Hohe Eigenmotivation und Ergebnisorientiert <strong>(SMART Goals).</strong></li>\n<li>Erfahrungen in der Nutzung von <strong>DATEV (Pflichtvoraussetzung)</strong></li>\n<li><strong>Interesse an der Digitalisierung der Buchhaltungsbranche.</strong></li>\n<li>Eigenst\u00e4ndige, strukturierte und prozessorientierte Arbeitsweise.</li>\n<li>Offen f\u00fcr Feedback, digitales Arbeiten und remote first.</li>\n<li>Flie\u00dfend in deutsch und englisch.</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li><strong>Flexibilit\u00e4t:</strong> Remote First und familienfreundliche Arbeitszeiten \u2013 du bestimmst, wann du arbeitest.</li>\n<li><strong>Entwicklung:</strong> Coaching-Budget, Mentoring und ein diverses Team.</li>\n<li><strong>Urlaub:</strong> 30 Tage, damit du dich erholen kannst.</li>\n<li><strong>Gehalt:</strong> Ein attraktives Verg\u00fctungspaket wartet auf dich.</li>\n<li><strong>Lernkurve:</strong> \u00dcbernimm Verantwortung und wachse mit uns.</li>\n</ul>\n<p>Klingt spannend? Dann bewirb dich jetzt und werde Teil unserer Mission, die Buchhaltung f\u00fcr immer zu ver\u00e4ndern!</p>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Remote Business Operations",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1780842631",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-07T19:08:44.095491+00:00",
+    "salary_parsed": null,
+    "score": 50,
+    "matched_keywords": [
+      "saas",
       "startup"
     ],
     "remote": true
@@ -9032,6 +9003,25 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-06-07T13:24:48.577930+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "9abe2f71d779",
+    "title": "Paid Ads - Online Werbung auf Facebook / Instagram - Performance / Datengetriebenes  Marketing (w/m/d) - 100% remote",
+    "company": "Hommel Hired",
+    "location": "Munich",
+    "url": "https://www.arbeitnow.com/jobs/companies/hommel-hired/paid-ads-online-werbung-auf-facebook-instagram-performance-datengetriebenes-marketing-100-remote-munich-406921",
+    "description": "<p><strong>VOGGSMEDIA</strong> ist eine Performance-Marketing-Agentur mit Familien-DNA und <strong>Remote-First-Setup</strong>. 2017 von Sebastian, Lisa und Matthias Vogg gegr\u00fcndet, arbeitet heute ein eingespieltes Team aus Media Buyern, Creative Strategists, Designern und Content-Produzenten verteilt im gesamten DACH-Raum zusammen.</p>\n<p>Der Fokus liegt auf messbarem Wachstum f\u00fcr die Kunden \u2013 auf Meta, TikTok, Google und dar\u00fcber hinaus. Von Paid Media \u00fcber UGC und Creative Strategy bis hin zu Measurement &#x26; Attribution</p>\n<p>VOGGSMEDIA ist bewusst klein und eingespielt geblieben. Was die Agentur antreibt, ist nicht die Gr\u00f6\u00dfe des Teams, sondern die Tiefe der Zusammenarbeit \u2013 mit den Kunden und untereinander.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li><strong>Kommunikation</strong>: Hauptansprechpartner f\u00fcr den Kundenkontakt deiner Kunden und die regelm\u00e4\u00dfige Kommunikation.</li>\n<li><strong>Performance-Analyse</strong>: Kontinuierliche Performance-Analyse und Ableitung proaktiver Ma\u00dfnahmen, um Kundenbed\u00fcrfnisse zu erkennen und die Kundenzufriedenheit zu sichern.</li>\n<li><strong>Kampagnenoptimierung</strong>: Verantwortung f\u00fcr die kontinuierliche Kampagnenoptimierung, um die Ziele der Kunden zu erreichen.</li>\n<li><strong>Umfang</strong>: Eigenst\u00e4ndige Betreuung eines Portfolios von typischerweise 2 gro\u00dfen und 4 bis 5 mittelgro\u00dfen Kunden.</li>\n<li><strong>Creative Briefings</strong>: Erstellung pr\u00e4ziser Briefings f\u00fcr Creative-Teams.</li>\n<li><strong>Umsatzverantwortung</strong>: \u00dcbernahme der Verantwortung f\u00fcr die Kundenbindung und Umsatzsteigerung als zentrale Schnittstelle zur Agentur.</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li><strong>Meta Ads Expertise</strong>: Fundiertes und tiefes Wissen in Meta Ads als K.O.-Kriterium.</li>\n<li><strong>Erfahrung</strong>: Nachweisliche Erfahrung in der eigenst\u00e4ndigen Betreuung von Kunden im Performance Marketing.</li>\n<li><strong>Growth Mindset</strong>: Stark ausgepr\u00e4gtes Growth Mindset und Interesse an neuen Tools und Entwicklungen in der Branche.</li>\n<li><strong>Selbstorganisation</strong>: Hohe F\u00e4higkeit zur Selbstorganisation und Eigeninitiative, um in unserer freien Agenturstruktur erfolgreich zu sein.</li>\n<li><strong>Bonus - TikTok</strong>: Kenntnisse im Bereich TikTok Ads</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li><strong>Arbeitsort</strong>: 100% Remote-Work und flexible Arbeitsweise.</li>\n<li><strong>Workation:</strong> Wie z.b. Paris, Prag oder Gardasee</li>\n<li><strong>Kultur</strong>: Flache Hierarchien und die Chance, Verantwortung schnell zu \u00fcbernehmen und eigene Prozesse zu gestalten.</li>\n<li><strong>Entwicklung</strong>: Regelm\u00e4\u00dfige Feedbackschleifen zur aktiven F\u00f6rderung deiner Entwicklung.</li>\n</ul>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Remote Marketing and Communication",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1780840824",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-07T19:08:44.095514+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
