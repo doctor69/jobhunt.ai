@@ -1890,29 +1890,6 @@
     "remote": true
   },
   {
-    "id": "3ce26b4c642a",
-    "title": "Senior Software Engineer, Android - KMP",
-    "company": "SumUp",
-    "location": "Berlin, Berlin, Germany",
-    "url": "https://www.arbeitnow.com/jobs/companies/sumup/senior-software-engineer-android-kmp-berlin-67544",
-    "description": "<p><strong>About the team</strong></p>\n<p>SumUp's Point-of-Sale (POS) solution empowers cafes, shops, bars, hair salons, and other businesses to operate efficiently and grow. It offers a wide range of features, including product catalogs, inventory management, business analytics, compliance support, and loyalty tools.</p>\n<p>Our POS solution integrates seamlessly into the SumUp SuperApp, which supports both our proprietary register hardware and mobile devices like tablets and phones.</p>\n<p>As a <strong>Senior Android Developer</strong>, you'll collaborate with a dynamic, cross-functional team of Product Managers, Product Designers, Engineering Managers, and fellow engineers.</p>\n<p><strong>About the role</strong></p>\n<p>We're evolving toward a Kotlin Multiplatform (KMP) strategy, enabling shared development across Android and iOS. In this role, you'll learn, refine, and help implement this technology, shaping the future of our mobile apps.</p>\n<p>You're a developer who values user-centric design, precision, and seamless collaboration. You bring structure to communication and thrive in a cross-functional environment.&nbsp;</p>\n<p>This role is on-site in Berlin, where face-to-face interactions spark innovation and teamwork.</p>\n<p><strong>What you'll do</strong></p>\n<ul>\n<li>Build new features for the item catalog within the SumUp SuperApp</li>\n<li>Help improve the architecture of the application and contribute to our Kotlin Multiplatform strategy</li>\n<li>Enhance and maintain our unified android app, distributed across 60+ countries, ensuring high-quality, scalable solutions</li>\n<li>Shape the product's evolution by identifying opportunities for improvement and contributing to daily decision-making</li>\n<li>Write thorough documentation and implement robust testing for features before shipping</li>\n<li>Collaborate closely with Designer, Product Manager and Android engineers to deliver a unified UX experience across platforms</li>\n<li>Coach and mentor other engineers</li>\n</ul>\n<p><strong>You'll thrive in this role if:</strong></p>\n<ul>\n<li>You have&nbsp;<strong>8</strong><strong>+ years experience </strong>in mobile engineering with <strong>Android and Kotlin.</strong></li>\n<li>You have <strong>2+ years of experience</strong> working with <strong>Jetpack Compose.</strong></li>\n<li>You have a <strong>solid understanding of software design patterns</strong> (e.g., MVVM, MVI) and expertise in building modular, scalable app architectures.</li>\n<li>You have<strong> good knowledge of reactive programming </strong>(Flow, Coroutines and Concurrency).</li>\n<li>You have a <strong>strong grasp of testing </strong>best practices: knowing what to test, why, and how to write resilient tests.</li>\n<li>You <strong>strive for clean code,</strong> and you are flexible to <strong>balance pragmatism and perfection.</strong></li>\n<li>You have a <strong>keen interest </strong>in multi-platform development using<strong> Kotlin Multiplatform.</strong></li>\n</ul>\n<p><stro",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1780209921",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-05-31T08:36:07.898583+00:00",
-    "salary_parsed": null,
-    "score": 55,
-    "matched_keywords": [
-      "software engineer",
-      "react",
-      "api"
-    ],
-    "remote": true
-  },
-  {
     "id": "df948f137cba",
     "title": "Customer Support Specialist (m/w/d)",
     "company": "Prospeum GmbH",
