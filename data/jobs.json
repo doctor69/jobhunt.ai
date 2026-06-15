@@ -393,28 +393,6 @@
     "remote": true
   },
   {
-    "id": "jobot_24969e5606",
-    "title": "Senior Software Engineer (Power Apps/Python)\n$110,000 - $120,000Fort Myers, FL Remote",
-    "company": "Unknown",
-    "location": "Remote",
-    "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=24969e5606",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "",
-    "source": "jobot",
-    "status": "approved",
-    "found_at": "2026-06-01T02:49:30.235217+00:00",
-    "salary_parsed": 110000,
-    "score": 70,
-    "matched_keywords": [
-      "software engineer",
-      "python"
-    ],
-    "remote": true
-  },
-  {
     "id": "jobot_1d55dc5906",
     "title": "REMOTE Sr. Software Engineer\n$130,000 - $160,000Charlotte, NC Remote\nA growing company with great benefits in a start-up environment.",
     "company": "Unknown",
@@ -512,6 +490,28 @@
     "salary_parsed": 150000,
     "score": 70,
     "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "jobot_24969e5606",
+    "title": "Senior Software Engineer (Power Apps/Python)\n$110,000 - $120,000Fort Myers, FL Remote",
+    "company": "Unknown",
+    "location": "Remote",
+    "description": "",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=24969e5606",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "",
+    "source": "jobot",
+    "status": "approved",
+    "found_at": "2026-06-15T02:52:43.717925+00:00",
+    "salary_parsed": 110000,
+    "score": 70,
+    "matched_keywords": [
+      "software engineer",
+      "python"
+    ],
     "remote": true
   },
   {
@@ -3025,27 +3025,6 @@
     "remote": true
   },
   {
-    "id": "bb7af6795820",
-    "title": "Senior Bazel Engineer",
-    "company": "Modus Create",
-    "location": "Alemanha",
-    "url": "https://www.arbeitnow.com/jobs/companies/modus-create/senior-bazel-engineer-alemanha-433853",
-    "description": "<h3><strong>Join our team as a Bazel Engineer at Tweag, part of the Modus Create group!&nbsp;</strong></h3>\n<p>&nbsp;</p>\n<h3><strong>About us</strong></h3>\n<p>Tweag is a software innovation lab dedicated to improving the craft of software engineering through functional programming, reproducible build systems, and open source leadership. The company unites researchers and engineers to solve complex technical challenges for industry leaders in fintech, biopharma, and automotive systems.</p>\n<p>Tweag has been active in the Bazel ecosystem since 2018 and is recognized for its thought leadership, open source contributions, and consistent high quality of its consulting services.</p>\n<p>Since 2022, Tweag has been part of the Modus Create group, a global digital product engineering consultancy.Together, the organizations help clients solve complex engineering challenges and accelerate digital transformation through world-class technical expertise.&nbsp;</p>\n<h3><strong>Opportunity:</strong></h3>\n<p>We are looking for a Bazel Engineer to join our Scalable Builds department in a fully remote, distributed environment. In this role, you will work closely with clients to design, implement, and optimize build infrastructure for large-scale software projects. You will help organizations improve developer productivity, build reliability, and engineering velocity by leveraging Bazel and related technologies.</p>\n<p>You will collaborate with experienced engineers across a variety of domains, contribute to open source projects, and have opportunities to shape the future of build systems both within Tweag and in the broader Bazel ecosystem. This is an excellent opportunity for someone who enjoys solving complex technical problems while working directly with clients and the open source community.</p>\n<h3><strong>Requirements:&nbsp;</strong></h3>\n<ul>\n<li>Strong hands-on experience with Bazel and modern build systems</li>\n<li>Senior-level experience in software engineering</li>\n<li>Strong understanding of build system architecture, scalability, and performance optimization</li>\n<li>Experience with developer productivity tooling and CI/CD environments</li>\n<li>Consultant mindset: confident yet humble, principled yet pragmatic</li>\n<li>Strong written and verbal communication skills</li>\n<li>Comfortable presenting technical solutions clearly to clients</li>\n<li>Ability to collaborate effectively in a fully remote environment</li>\n<li>Interest in exploring new technologies and contributing to open-source communities</li>\n</ul>\n<h3><strong>Bonus points:</strong></h3>\n<ul>\n<li>Experience migrating legacy build systems to Bazel or improving existing Bazel-based setups</li>\n<li>Experience setting up and optimizing Bazel remote caching and remote build execution (RBE) for performance and scalability.</li>\n<li>Broad exposure to multiple programming languages and platforms</li>\n</ul>\n<h3><strong>You'll love:</strong></h3>\n<ul>\n<li>Fully remote position with excellent work/life ",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1780271119",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-01T02:49:21.333201+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "software engineer"
-    ],
-    "remote": true
-  },
-  {
     "id": "3e835a1bc098",
     "title": "Teamlead Digital Marketing (m/f/d)",
     "company": "Onepage GmbH",
@@ -4319,6 +4298,27 @@
     "score": 45,
     "matched_keywords": [
       "react"
+    ],
+    "remote": true
+  },
+  {
+    "id": "0daddd2577c7",
+    "title": "Kundenberater f\u00fcr Buchhaltungsautomatisierung (m/w/d)_remote",
+    "company": "Finmatics GmbH",
+    "location": "Munich",
+    "url": "https://www.arbeitnow.com/jobs/companies/finmatics-gmbh/kundenberater-fur-buchhaltungsautomatisierung-remote-munich-341691",
+    "description": "<p><strong>Finmatics - Your AI accountant</strong></p>\n<p>Mit <strong>Fin, dem KI-Buchhalter</strong>, macht Finmatics Buchhaltung einfacher, schneller und smarter. Statt Routinearbeiten von Hand zu erledigen, \u00fcbernimmt unsere Software diese zuverl\u00e4ssig \u2013 f\u00fcr Buchhalter:innen in Deutschland und \u00d6sterreich.</p>\n<p>Unsere Mission: Zeit zur\u00fcckgeben, Belegchaos beseitigen und Abl\u00e4ufe effizient, digital und zukunftssicher gestalten.</p>\n<p>Bei Finmatics bekommst du mehr als innovative Technologie: ein Umfeld, das Flexibilit\u00e4t f\u00f6rdert und dir Raum gibt, Ideen einzubringen. Gemeinsam sorgen wir daf\u00fcr, dass sich smarte Technologie wie echte Entlastung anf\u00fchlt \u2013 und Finmatics zum digitalen Lieblingsprodukt unserer Kund:innen wird.</p>\n<p>Als <strong>Kundenberater f\u00fcr Buchhaltungsautomatisierung (m/w/d)</strong> spielst du eine entscheidende Rolle bei der Implementierung unserer L\u00f6sungen f\u00fcr unsere Kunden. Du arbeitest eng mit Anwendern und Key Usern zusammen, um deren Gesch\u00e4ftsprozesse zu optimieren und sicherzustellen, dass unsere Software bestm\u00f6glich eingesetzt wird. Du bist verantwortlich f\u00fcr die Schulung, Unterst\u00fctzung und Optimierung der Produktnutzung, um langfristige Erfolge zu gew\u00e4hrleisten. Dank deiner umfassenden Expertise in Buchhaltung und deinem tiefen Produktwissen arbeitest du eng mit dem Kunden zusammen, um ma\u00dfgeschneiderte Automatisierungsanforderungen umzusetzen.</p>\n<p><strong>Deine Aufgaben:</strong></p>\n<ul>\n<li><strong>Kundentermine, Beratung &#x26; Schulungen:</strong> Du planst und f\u00fchrst Kundenbesuche sowie Meetings durch, optimierst die Arbeitsweise der Anwender und bietest Schulungen sowie Nachschulungen an, um eine optimale Nutzung unserer Software sicherzustellen.</li>\n<li><strong>Automatisierungsoptimierung:</strong> Du koordinierst verschiedene Teams, um die Software optimal zu konfigurieren und maximale Automatisierung zu gew\u00e4hrleisten. Dabei verbindest du den Know-how-Aufbau beim Kunden, Prozessoptimierung, optimale Konfiguration und die Nutzung unserer Serviceabteilungen.</li>\n<li><strong>Feedback sammeln</strong>: Du holst Kundenfeedback ein, leitest es an den Produktteam weiter und arbeitest eng mit diesem zusammen, um sicherzustellen, dass Kundenanforderungen in die Produktentwicklung einflie\u00dfen.</li>\n<li><strong>Einrichtung &#x26; Onboarding</strong>: Du unterst\u00fctzt die Anwenderschulung und fungierst als fachliche und technische Ansprechperson f\u00fcr die Anwender.</li>\n<li><strong>Probleml\u00f6sung &#x26; Troubleshooting</strong>: Du l\u00f6st Anwenderprobleme in enger Zusammenarbeit mit dem technischen Support und stellst sicher, dass Service Levels eingehalten werden.</li>\n</ul>\n<p><strong>Das solltest du mitbringen:</strong></p>\n<ul>\n<li><strong>Must Have:</strong> Erfahrungen in der <strong>Finanzbuchhaltung oder Steuerberatung</strong>, idealerweise im DATEV Umfeld (\u201eknow your customer\u201c)</li>\n<li><strong>Und/Oder:</strong> Erfahrungen im Projekt- bzw. Prozessmanagement vorzugsweise im SaaS oder BMD Umfeld (Kunden- und l\u00f6sung",
+    "tags": "Remote Business Consulting",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1781483434",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-15T02:52:33.060555+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "saas"
     ],
     "remote": true
   },
@@ -8459,6 +8459,25 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-06-14T19:11:56.975302+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "a9a9dc365417",
+    "title": "Account & Sales Manager Ostdeutschland",
+    "company": "Ing Plus AG",
+    "location": "F\u00fcrth",
+    "url": "https://www.arbeitnow.com/jobs/companies/ing-plus-ag/account-sales-manager-ostdeutschland-furth-318191",
+    "description": "<p><strong>Account &#x26; Sales Manager Ostdeutschland</strong></p>\n<p>Ing.Plus ist Spezialist f\u00fcr intelligente Prozessautomatisierung im Tiefbau und unterst\u00fctzt Netzbetreiber sowie Ingenieurb\u00fcros mit einsatzbereiten, datengetriebenen L\u00f6sungen f\u00fcr das sichere, effiziente und nachhaltige Management von Infrastrukturnetzen. Durch den Einsatz moderner Technologien verwandeln wir komplexe Informationen in transparente und nutzbare Daten, die eine pr\u00e4zise Entscheidungsfindung und strategische Handlungsempfehlungen erm\u00f6glichen. Von der Zustandserfassung bis zum reibungslosen Betrieb helfen unsere L\u00f6sungen dabei, Abl\u00e4ufe zu vereinfachen, Personal zu entlasten sowie wertvolle Zeit und Ressourcen einzusparen. Dabei setzen wir auf einen ganzheitlichen Ansatz aus digitaler und pers\u00f6nlicher Unterst\u00fctzung. Unser hybrides Service-Konzept garantiert umfassende Entlastung bei der Datenarbeit sowie kompetente Beratung durch langj\u00e4hrige Erfahrung und tiefgreifendes Fachwissen im Bereich Geoinformationssysteme.</p>\n<p>Wir denken heute die Infrastruktur von morgen und suchen daf\u00fcr Teamplayer, die Verantwortung \u00fcbernehmen, Beziehungen aufbauen und gemeinsam mit uns wachsen wollen. F\u00fcr die Weiterentwicklung unseres Vertriebs in Ostdeutschland suchen wir einen kommunikationsstarken Account / Sales Manager, der bestehende Partnerschaften pflegt, neue Kunden gewinnt und unsere L\u00f6sungen mit Begeisterung in den Markt tr\u00e4gt.</p>\n<p><strong>Dein Aufgabenbereich</strong></p>\n<p>\u00b7 Du betreust und entwickelst bestehende Partner sowie Endkunden in deinem Vertriebsgebiet weiter</p>\n<p>\u00b7 Du baust aktiv neue Kundenbeziehungen auf und erschlie\u00dft zus\u00e4tzliche Marktpotenziale in Berlin, Brandenburg und den angrenzenden Regionen</p>\n<p>\u00b7 Du begleitest den gesamten Vertriebsprozess \u2013 von der ersten Kontaktaufnahme \u00fcber Beratung und Angebotserstellung bis zum erfolgreichen Abschluss</p>\n<p>\u00b7 Du repr\u00e4sentierst Ing.Plus auf Fachmessen, Kongressen, Netzwerktreffen und Branchenveranstaltungen und baust unser Netzwerk kontinuierlich aus</p>\n<p>\u00b7 Du erkennst Kundenbed\u00fcrfnisse fr\u00fchzeitig und entwickelst gemeinsam mit unserem Projekt- und Salesteam passende L\u00f6sungsans\u00e4tze</p>\n<p>\u00b7 Du pflegst langfristige und vertrauensvolle Beziehungen zu Kunden, Partnern und Entscheidern</p>\n<p>\u00b7 Du arbeitest eng mit unseren Fach-, Projekt- und Vertriebsteams zusammen und sorgst f\u00fcr eine reibungslose Kundenbetreuung</p>\n<p>\u00b7 Du bringst Impulse aus dem Markt zur\u00fcck ins Unternehmen und unterst\u00fctzt die Weiterentwicklung unserer Vertriebsaktivit\u00e4ten</p>\n<p>\u00b7 Du organisierst deinen Vertriebsalltag eigenverantwortlich und nutzt moderne cloudbasierte Werkzeuge f\u00fcr eine effiziente Zusammenarbeit</p>\n<p><strong>Dein Profil</strong></p>\n<p>\u00b7 Du bringst mindestens drei Jahre Erfahrung im B2B- oder B2G-Vertrieb mit</p>\n<p>\u00b7 Du wohnst verkehrsg\u00fcnstig gelegen in Berlin oder Brandenburg und arbeitest \u00fcberwiegend remote von deinem Wohnort aus</p>\n<p>\u00b7 Du bist ein kommunikationsstarker Netzwerker und gehst offen auf Menschen zu<",
+    "tags": "Remote Management Team Leader",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1781483434",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-15T02:52:33.060535+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
