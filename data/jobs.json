@@ -1,27 +1,5 @@
 [
   {
-    "id": "jobot_b1482d5606",
-    "title": "Senior Python Developer\n$150,000 - $200,000Reno, NV Remote\n100% REMOTE Senior Python Engineer / Senior Full Stack Developer Needed for Growing Reinsurance Company!",
-    "company": "Unknown",
-    "location": "Remote",
-    "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=b1482d5606",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "",
-    "source": "jobot",
-    "status": "approved",
-    "found_at": "2026-06-01T21:22:54.367788+00:00",
-    "salary_parsed": 150000,
-    "score": 80,
-    "matched_keywords": [
-      "full stack",
-      "python"
-    ],
-    "remote": true
-  },
-  {
     "id": "jobot_3838265d06",
     "title": "Sr. AI Software Engineer (C#/.Net, infrastructure & startup exp. req'd) - 100% REMOTE\n$170,000 - $270,000Austin, TX +6 Remote\n100% REMOTE",
     "company": "Unknown",
@@ -87,50 +65,6 @@
     "remote": true
   },
   {
-    "id": "jobot_3d59c05906",
-    "title": "REMOTE Staff Software Engineer\n$170,000 - $205,000Charlotte, NC Remote\nA growing company with great benefits in a start-up environment.",
-    "company": "Unknown",
-    "location": "Remote",
-    "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=3d59c05906",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "",
-    "source": "jobot",
-    "status": "approved",
-    "found_at": "2026-06-01T21:22:54.280609+00:00",
-    "salary_parsed": 170000,
-    "score": 75,
-    "matched_keywords": [
-      "software engineer"
-    ],
-    "remote": true
-  },
-  {
-    "id": "jobot_8a83ea5506",
-    "title": "Java Software Engineer - (Full Stack)\n$100,000 - $120,000Dallas, TX +3 Remote\nSoftware Engineer (Java/AWS) \u2013 Remote Contract-to-Hire",
-    "company": "Unknown",
-    "location": "Remote",
-    "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=8a83ea5506",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "",
-    "source": "jobot",
-    "status": "approved",
-    "found_at": "2026-06-02T02:46:29.133561+00:00",
-    "salary_parsed": 100000,
-    "score": 75,
-    "matched_keywords": [
-      "software engineer",
-      "full stack",
-      "aws"
-    ],
-    "remote": true
-  },
-  {
     "id": "jobot_599c8b5b06",
     "title": "Lead Software Engineer\n$160,000 - $185,000New York, NY Remote\nGraphQL Developer | Own Full-Stack Architecture in a High-Impact Consulting Environment",
     "company": "Unknown",
@@ -173,21 +107,21 @@
     "remote": true
   },
   {
-    "id": "jobot_1d55dc5906",
-    "title": "REMOTE Sr. Software Engineer\n$130,000 - $160,000Charlotte, NC Remote\nA growing company with great benefits in a start-up environment.",
+    "id": "jobot_3d59c05906",
+    "title": "REMOTE Staff Software Engineer\n$170,000 - $205,000Charlotte, NC Remote\nA growing company with great benefits in a start-up environment.",
     "company": "Unknown",
     "location": "Remote",
     "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=1d55dc5906",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=3d59c05906",
     "tags": "",
     "salary_min": null,
     "salary_max": null,
     "posted_at": "",
     "source": "jobot",
     "status": "approved",
-    "found_at": "2026-06-01T21:22:54.273663+00:00",
-    "salary_parsed": 130000,
-    "score": 70,
+    "found_at": "2026-06-16T02:54:22.527508+00:00",
+    "salary_parsed": 170000,
+    "score": 75,
     "matched_keywords": [
       "software engineer"
     ],
@@ -291,6 +225,27 @@
     "matched_keywords": [
       "software engineer",
       "python"
+    ],
+    "remote": true
+  },
+  {
+    "id": "jobot_1d55dc5906",
+    "title": "REMOTE Sr. Software Engineer\n$130,000 - $160,000Charlotte, NC Remote\nA growing company with great benefits in a start-up environment.",
+    "company": "Unknown",
+    "location": "Remote",
+    "description": "",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=1d55dc5906",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "",
+    "source": "jobot",
+    "status": "approved",
+    "found_at": "2026-06-16T02:54:22.521138+00:00",
+    "salary_parsed": 130000,
+    "score": 70,
+    "matched_keywords": [
+      "software engineer"
     ],
     "remote": true
   },
@@ -1185,54 +1140,6 @@
     "remote": true
   },
   {
-    "id": "c5981f082207",
-    "title": "Implementation & Success Consultant (all genders)",
-    "company": "Prospeum GmbH",
-    "location": "Hallbergmoos",
-    "url": "https://www.arbeitnow.com/jobs/companies/prospeum-gmbh/implementation-success-consultant-hallbergmoos-384559",
-    "description": "<p>You're not managing implementations, you're building how enterprise procurement actually works. As Implementation &#x26; Success Consultant, you own the full journey: from first kick-off to production rollout to long-term success. You translate what customers need into what the product delivers.</p>\n<h2>Tasks</h2>\n<ul>\n<li>Own end-to-end enterprise implementations from kick-off to go-live \u2014 on time, on scope, on quality</li>\n<li>Translate complex customer requirements into scalable solution designs and structured rollout plans</li>\n<li>Become a product expert and train customers to integrate Prospeum into their operational and strategic procurement processes</li>\n<li>Act as the central project owner and trusted advisor throughout the customer relationship</li>\n<li>Drive customer retention and identify expansion opportunities in close collaboration with sales</li>\n<li>Coordinate across Product, Engineering, and Leadership to unblock delivery</li>\n<li>Manage risks, escalations, and stakeholder communication proactively \u2014 not reactively</li>\n<li>Turn customer feedback and usage patterns into concrete product improvement proposals</li>\n<li>Build standardized implementation playbooks that make every rollout faster than the last</li>\n</ul>\n<h2>Requirements</h2>\n<ul>\n<li>Entrepreneurial mindset: you thrive when building from scratch, not when following a manual</li>\n<li>3\u20135 years of experience in software/SaaS implementation, customer success, or consulting</li>\n<li>Ambitious and ownership-driven: you want to shape a function, not just fill a role</li>\n<li>Background in startups, enterprise software, or consultancies: ideally with procurement or supply chain exposure</li>\n<li>Strong project management instincts: timelines, stakeholders, dependencies</li>\n<li>Comfortable with enterprise architectures, integrations, and system landscapes at a conceptual level</li>\n<li>Technical curiosity: you don't need to code, but APIs, data models, and JSON shouldn't intimidate you</li>\n<li>Confident communicating with C-level stakeholders and managing expectations clearly</li>\n<li>Fluent German and strong English</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Hybrid work: 3 days in the office, 2 from home. Occasional full remote possible.</li>\n<li>Competitive salary with performance-based bonus tied to customer success</li>\n<li>Direct impact: with 60+ enterprise customers, your work shapes how major organizations run procurement</li>\n<li>Annual development budget for courses, conferences, and certifications</li>\n<li>Small team, short paths: you'll work directly with the founders and engineering</li>\n<li>AI-native product: you'll be implementing cutting-edge procurement intelligence, not legacy software</li>\n</ul>\n<p><strong>Why Join Prospeum?</strong></p>\n<p>Procurement software has been boring for 20 years. We're making it intelligent.</p>\n<p>Prospeum is at an inflection point. We have the customers (60+, including major banks and manufacturers), we have the platform (SRM,",
-    "tags": "Project Management",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1780365543",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-02T02:46:19.520918+00:00",
-    "salary_parsed": null,
-    "score": 60,
-    "matched_keywords": [
-      "react",
-      "api",
-      "saas",
-      "startup"
-    ],
-    "remote": true
-  },
-  {
-    "id": "jobot_5a7de05506",
-    "title": "Full Stack Software Engineer (Java/React/MongoDB/TypeScript)\nConsulting$55 - $60Ashburn, VA Remote",
-    "company": "Unknown",
-    "location": "Remote",
-    "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=5a7de05506",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "",
-    "source": "jobot",
-    "status": "new",
-    "found_at": "2026-06-02T02:46:29.147944+00:00",
-    "salary_parsed": null,
-    "score": 60,
-    "matched_keywords": [
-      "software engineer",
-      "full stack",
-      "typescript",
-      "react"
-    ],
-    "remote": true
-  },
-  {
     "id": "b141132721f2",
     "title": "Software Engineer / Fullstack  (m/w/d) - D2C E-Commerce",
     "company": "elvent",
@@ -1621,25 +1528,26 @@
     "remote": true
   },
   {
-    "id": "df948f137cba",
-    "title": "Customer Support Specialist (m/w/d)",
-    "company": "Prospeum GmbH",
-    "location": "Hallbergmoos",
-    "url": "https://www.arbeitnow.com/jobs/companies/prospeum-gmbh/customer-support-specialist-hallbergmoos-186889",
-    "description": "<p>Du bist die erste Anlaufstelle f\u00fcr unsere Kunden, wenn etwas nicht funktioniert \u2014 und der Grund, warum sie trotzdem gelassen bleiben. Als Customer Support Specialist bei Prospeum bearbeitest du eingehende Tickets, l\u00f6st Probleme schnell und zuverl\u00e4ssig und sorgst daf\u00fcr, dass nichts untergeht.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Bearbeitung eingehender Support-Tickets \u2014 schnell, freundlich und l\u00f6sungsorientiert</li>\n<li>Eigenst\u00e4ndige L\u00f6sung von Tier-1-Anfragen: Zugangsprobleme, Konfigurationsfragen, Anleitungen, bekannte Fehler</li>\n<li>Gemeldete Probleme untersuchen: reproduzieren, zwischen Anwendungsfehler und Bug unterscheiden, Ergebnisse klar dokumentieren</li>\n<li>Best\u00e4tigte Bugs strukturiert an das Entwicklungsteam eskalieren \u2014 mit Reproduktionsschritten und Kontext</li>\n<li>Eskalierte Tickets bis zur L\u00f6sung nachverfolgen und Kunden proaktiv \u00fcber den Status informieren</li>\n<li>Wissensdatenbank pflegen und ausbauen: FAQs, Troubleshooting-Guides, h\u00e4ufige L\u00f6sungswege</li>\n<li>Wiederkehrende Probleme identifizieren und Verbesserungsvorschl\u00e4ge einbringen, um das Ticketvolumen zu reduzieren</li>\n<li>Enge Zusammenarbeit mit dem Implementation- und Produktteam, um bei neuen Features und \u00c4nderungen auf dem Laufenden zu bleiben</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>1\u20133 Jahre Erfahrung im Kundensupport, technischen Support oder Service Desk \u2014 idealerweise im B2B-SaaS-Umfeld</li>\n<li>Sicherer Umgang mit Webanwendungen und ein gutes Verst\u00e4ndnis daf\u00fcr, wie sie funktionieren</li>\n<li>Ausgepr\u00e4gter Troubleshooting-Instinkt: Du analysierst erst, bevor du eskalierst</li>\n<li>Strukturierte Kommunikation: Du kannst einen Bug-Report schreiben, den das Entwicklungsteam tats\u00e4chlich verwenden kann</li>\n<li>Geduldig und professionell im Umgang mit Kunden \u2014 auch wenn es mal hektisch wird</li>\n<li>Organisiert: Du beh\u00e4ltst bei mehreren offenen Tickets den \u00dcberblick</li>\n<li>Erfahrung mit Ticketsystemen (Zendesk, Freshdesk, Jira Service Desk o.\u00e4.)</li>\n<li>Grundlegendes technisches Verst\u00e4ndnis: Du musst nicht programmieren, aber du solltest wissen, was eine API ist, was die Browser-Konsole zeigt und wie man eine Fehlermeldung liest</li>\n<li>Flie\u00dfend Deutsch (Pflicht) und gutes Englisch</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Vor Ort oder Remote</li>\n<li>Wettbewerbsf\u00e4higes Gehalt</li>\n<li>Direkter Einfluss: Mit \u00fcber 60 Enterprise-Kunden beeinflusst deine Arbeit unmittelbar die Kundenzufriedenheit</li>\n<li>Kleines Team, kurze Wege: Du arbeitest direkt mit den Gr\u00fcndern und dem Engineering-Team zusammen</li>\n<li>Entwicklungsperspektive: Mit der Weiterentwicklung unserer KI-Funktionen w\u00e4chst auch die Support-Rolle</li>\n<li>J\u00e4hrliches Weiterbildungsbudget f\u00fcr Schulungen und Zertifizierungen</li>\n</ul>\n<p>**Warum Prospeum?<br>\n**<br>\nSupport bei einem Startup ist kein Callcenter \u2014 es ist die vorderste Linie. Du kennst jeden Kunden beim Namen, verstehst wie sie das Produkt nutzen und bist die Person, die daf\u00fcr sorgt, dass der Beschaffungsprozess bei gro\u00dfen Unternehmen reibungsl",
-    "tags": "Remote Helpdesk",
+    "id": "jobot_5a7de05506",
+    "title": "Full Stack Software Engineer (Java/React/MongoDB/TypeScript)\nConsulting$55 - $60Ashburn, VA Remote",
+    "company": "Unknown",
+    "location": "Remote",
+    "description": "",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=5a7de05506",
+    "tags": "",
     "salary_min": null,
     "salary_max": null,
-    "posted_at": "1780351237",
-    "source": "arbeitnow",
+    "posted_at": "",
+    "source": "jobot",
     "status": "new",
-    "found_at": "2026-06-02T02:46:19.520903+00:00",
+    "found_at": "2026-06-16T02:54:22.546309+00:00",
     "salary_parsed": null,
-    "score": 55,
+    "score": 60,
     "matched_keywords": [
-      "api",
-      "saas",
-      "startup"
+      "software engineer",
+      "full stack",
+      "typescript",
+      "react"
     ],
     "remote": true
   },
@@ -4102,41 +4010,24 @@
     "remote": true
   },
   {
-    "id": "1b264d9bcae7",
-    "title": "Projekt Manager Marketing (m/w/d)",
-    "company": "Saleshead Recruiting",
-    "location": "Pliening",
-    "url": "https://www.arbeitnow.com/jobs/companies/saleshead-recruiting/projekt-manager-marketing-pliening-376935",
-    "description": "<p>Du liebst es, Ordnung in komplexe Marketingprojekte zu bringen?</p>\n<p>Du denkst operativ, arbeitest detailorientiert und f\u00fchlst dich wohl zwischen CRM, Eventkoordination und Teamabstimmung?</p>\n<p>Dann k\u00f6nnte unser Kunde genau der richtige Ort f\u00fcr dich sein.</p>\n<p>Denn dort entsteht eine nachhaltige Solaryacht, die Effizienz, Design und echte Innovation verbindet. Ein Produkt f\u00fcr Menschen, die Freiheit auf dem Wasser neu denken wollen.</p>\n<p>Damit aus Vision Realit\u00e4t wird, suchen wir jemanden, der Marketingprojekte strukturiert steuert, Prozesse organisiert und Themen zuverl\u00e4ssig ins Ziel bringt. Kein reiner Strategiekopf. Sondern jemand, der anpackt, koordiniert und Dinge umsetzt.</p>\n<p>Besonders wichtig: Marketing Operations, HubSpot und ein gutes Gesp\u00fcr f\u00fcr Kommunikation.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Du koordinierst Marketing-, CRM-, PR- und Go-to-Market-Projekte bis zur Wasserung und dar\u00fcber hinaus.</li>\n<li>Du h\u00e4ltst Timelines, Stakeholder und Priorit\u00e4ten zusammen.</li>\n<li>Du steuerst externe Partner wie PR-Agenturen, Eventdienstleister und Kreativpartner.</li>\n<li>Du arbeitest eng mit der CMO, dem CEO sowie Sales und Business Development zusammen.</li>\n<li>Du organisierst Sea Trials, Events und die Wasserung in Stralsund.</li>\n<li>Du pflegst und optimierst HubSpot-Prozesse f\u00fcr CRM, Newsletter und Leadmanagement.</li>\n<li>Du sorgst daf\u00fcr, dass Aufgaben sauber dokumentiert und umgesetzt werden.</li>\n<li>Du bringst Struktur in operative Marketingabl\u00e4ufe und verbesserst Prozesse nachhaltig.</li>\n<li>Du koordinierst Content, Assets und interne Freigaben.</li>\n<li>Du denkst mit, erkennst L\u00fccken fr\u00fchzeitig und h\u00e4ltst Projekte zuverl\u00e4ssig am Laufen.</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Du hast Erfahrung im Marketing Operations, Projektmanagement oder CRM-Management.</li>\n<li>Du kennst dich mit HubSpot aus \u2013 besonders im Bereich CRM und Newslettermanagement.</li>\n<li>Du arbeitest strukturiert, eigenst\u00e4ndig und verlierst auch bei vielen Themen nicht den \u00dcberblick.</li>\n<li>Du bist stark in Koordination, Kommunikation und Umsetzung.</li>\n<li>Du kannst mit unterschiedlichen Stakeholdern souver\u00e4n arbeiten.</li>\n<li>Du bist offen daf\u00fcr, bei wichtigen Events oder Projekten nach Stralsund zu reisen.</li>\n<li>Du interessierst dich f\u00fcr Technik, Innovation oder den nautischen Bereich.</li>\n<li>Idealerweise bringst du Erfahrung aus Premium-, Tech-, Automotive- oder Yachting-Umfeldern mit.</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Remote-first-Arbeit mit maximaler Flexibilit\u00e4t.</li>\n<li>30 Urlaubstage.</li>\n<li>Gehalt je nach Erfahrung zwischen 55.000 \u20ac und 70.000 \u20ac brutto pro Jahr.</li>\n<li>Direkte Zusammenarbeit mit Gr\u00fcnder, CEO und CMO.</li>\n<li>Viel Gestaltungsspielraum in einer fr\u00fchen und spannenden Unternehmensphase.</li>\n<li>Ein Produkt mit echtem Innovationscharakter und nachhaltigem Ansatz.</li>\n<li>Kurze Abstimmungen und schnelle Entscheidungen.</li>\n<li>Die Chance, ein einzigartiges Yachtprojekt von Beginn an mitzugestalten.</li>\n<li>Ein ",
-    "tags": "Remote Marketing Manager",
+    "id": "e8931036b8b9",
+    "title": "(Senior) Product Manager (w/m/d) (remote)",
+    "company": "Weflow",
+    "location": "Berlin",
+    "url": "https://www.arbeitnow.com/jobs/companies/weflow/senior-product-manager-berlin-402867",
+    "description": "<p>Weflow's Revenue AI Platform automates Salesforce data capture and provides full visibility into deal, pipeline, and forecast health.</p>\n<p>300+ fast-growing companies like Retool, BenchSci, IDnow use Weflow to improve team productivity, sales performance, and revenue predictability.</p>\n<p>Weflow is backed by Gradient Ventures, Cherry Ventures, Eurazeo, and renowned angel investors and run by successful repeat founders Janis Zech &#x26; Philipp Stelzer.</p>\n<h2>Tasks</h2>\n<p><strong>Own a product area end to end.</strong> Define the vision, prioritize, and drive it from discovery to launch.</p>\n<p><strong>Talk to revenue teams.</strong> Dig into how sales reps and RevOps actually work in Salesforce, and turn messy workflows into clear product decisions.</p>\n<p><strong>Shape our AI features.</strong> Reason about how AI should capture, summarize, and surface data, and decide where it adds real value versus noise.</p>\n<p><strong>Translate insight into specs.</strong> Write clear user stories and acceptance criteria for engineering and design.</p>\n<p><strong>Lead cross-functional execution.</strong> Coordinate engineering, design, and go-to-market to ship on time.</p>\n<p><strong>Define and track success.</strong> Set KPIs, watch adoption, and iterate based on data.</p>\n<h2>Requirements</h2>\n<p><strong>Product management experience in B2B SaaS</strong>, ideally with technical or data-heavy products. We're open to either a high-potential candidate with less hands-on experience or a senior person who wants to stay highly operational and hands-on. Needs to have 3+ years of experience minimum in any case.</p>\n<p><strong>Strong customer instinct.</strong> You enjoy talking to users, digging into their workflows, and turning messy problems into clear product decisions.</p>\n<p><strong>Comfort with data and AI.</strong> You can reason about how AI features should work and use data to drive prioritization and measure success.</p>\n<p><strong>Sharp prioritization.</strong> You can say no, focus on what matters, and balance speed with quality.</p>\n<p><strong>Excellent communication.</strong> You keep engineering, design, and go-to-market teams aligned and bring clarity to ambiguity.</p>\n<p><strong>Bias for ownership.</strong> You take full responsibility for outcomes, not just output, and thrive in a fast-moving, remote environment.</p>\n<p><strong>Bonus: familiarity with Salesforce, RevOps, or sales workflows.</strong> Understanding how revenue teams operate will help you move faster.</p>\n<h2>Benefits</h2>\n<ul>\n<li>Work closely with the founders on a product with strong product-market fit and clear traction</li>\n<li>Fully remote role with regular in-person meetups</li>\n<li>Strong ownership of the roadmap and product quality</li>\n<li>Competitive compensation with equity</li>\n<li>Top-of-the-line equipment</li>\n<li>Fast career growth</li>\n</ul>\n<p>If you are passionate about product management and AI, we would love to hear from you. Please note: The salary ran",
+    "tags": "Remote Product Management",
     "salary_min": null,
     "salary_max": null,
-    "posted_at": "1780340427",
+    "posted_at": "1781557142",
     "source": "arbeitnow",
     "status": "new",
-    "found_at": "2026-06-01T21:22:44.705468+00:00",
+    "found_at": "2026-06-16T02:54:13.950228+00:00",
     "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "857a39e6d942",
-    "title": "Werkstudent/in - LinkedIn-Marketing & Podcast (m/w/d)",
-    "company": "WE7 Digital GmbH",
-    "location": "Stuttgart",
-    "url": "https://www.arbeitnow.com/jobs/companies/we7-digital-gmbh/werkstudent-in-linkedin-marketing-podcast-stuttgart-340824",
-    "description": "<p>WE7 ist eine HubSpot &#x26; CRM-Beratung aus Stuttgart im Boutique-Stil.</p>\n<p>Wir helfen Unternehmen, ihre Vertriebs-, Marketing- und Serviceprozesse mit HubSpot abzubilden, zu verbessern und stressfrei zu skalieren.</p>\n<p>Nun m\u00f6chten wir unsere Position durch Content Marketing via LinkedIn und Podcast weiter festigen. Hierf\u00fcr suchen wir Unterst\u00fctzung.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Du unterst\u00fctzt beim Auf- und Ausbau unserer LinkedIn-Pr\u00e4senz: Content planen, Beitr\u00e4ge vorbereiten, Beitr\u00e4ge ver\u00f6ffentlichen</li>\n<li>Du wirkst bei dem Versand unseres Newsletters mit (Redaktion, Aufbereitung, Tool-Pflege)</li>\n<li>Du hilfst beim Aufbau und der Koordination unseres neuen Podcasts: G\u00e4ste koordinieren, Postproduction koordinieren, Folgen ver\u00f6ffentlichen, Folgen vermarkten</li>\n<li>Du bringst eigene Ideen ein und probierst Neues aus</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Du studierst im Bereich Marketing, Kommunikation, Medien o. \u00c4. \u2013 oder hast einfach Lust auf diese Themen</li>\n<li>Du bist sicher im Umgang mit LinkedIn und hast ein Gesp\u00fcr f\u00fcr Sprache und Content</li>\n<li>Nice-to-have: hattest du schon Ber\u00fchrungspunkte mit einem Newsletter-Tool oder der Podcast-Welt</li>\n<li>Du arbeitest strukturiert, eigenst\u00e4ndig und zuverl\u00e4ssig</li>\n<li>Interesse an B2B, CRM oder dem HubSpot-\u00d6kosystem ist ein echter Bonus</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Verg\u00fctung mit 15 EUR pro Stunde</li>\n<li>Flexible Arbeitszeiten rund um dein Studium (ca. 6-10 Stunden pro Woche)</li>\n<li>50:50 B\u00fcro/Remote</li>\n<li>Viel Gestaltungsspielraum und direkte Zusammenarbeit</li>\n<li>Einblick in eine wachsende Boutique-Beratung mit spannenden Kunden (u.a. MHP RIESEN Ludwigsburg, Stuttgarter Kickers etc.)</li>\n</ul>\n<p>Wir freuen uns riesig auf deine Bewerbung! :)</p>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Marketing and Communication",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1780331437",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-01T21:22:44.705526+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
+    "score": 45,
+    "matched_keywords": [
+      "saas"
+    ],
     "remote": true
   },
   {
