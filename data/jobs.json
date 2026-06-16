@@ -128,24 +128,23 @@
     "remote": true
   },
   {
-    "id": "jobot_ecab52b501",
-    "title": "Software Engineer\n$120,000 - $150,000Arlington, VA Remote\nTypeScript Developer | Own Full-Stack Architecture in a High-Impact Consulting Environment\nYou viewed this on May 2, 2026 (last month)",
+    "id": "jobot_7fa2875106",
+    "title": "Senior QA Automation Engineer\n$150,000 - $175,000Phoenix, AZ Remote\nFully remote, well-funded AI startup. Room for growth, greenfield projects, excellent benefits!",
     "company": "Unknown",
     "location": "Remote",
     "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=ecab52b501",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=7fa2875106",
     "tags": "",
     "salary_min": null,
     "salary_max": null,
     "posted_at": "",
     "source": "jobot",
     "status": "approved",
-    "found_at": "2026-06-02T20:36:51.830778+00:00",
-    "salary_parsed": 120000,
-    "score": 70,
+    "found_at": "2026-06-16T20:40:42.821845+00:00",
+    "salary_parsed": 150000,
+    "score": 75,
     "matched_keywords": [
-      "software engineer",
-      "typescript"
+      "startup"
     ],
     "remote": true
   },
@@ -246,6 +245,28 @@
     "score": 70,
     "matched_keywords": [
       "software engineer"
+    ],
+    "remote": true
+  },
+  {
+    "id": "jobot_ecab52b501",
+    "title": "Software Engineer\n$120,000 - $150,000Arlington, VA Remote\nTypeScript Developer | Own Full-Stack Architecture in a High-Impact Consulting Environment\nYou viewed this on May 2, 2026 (2 months ago)",
+    "company": "Unknown",
+    "location": "Remote",
+    "description": "",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=ecab52b501",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "",
+    "source": "jobot",
+    "status": "approved",
+    "found_at": "2026-06-16T20:40:42.753539+00:00",
+    "salary_parsed": 120000,
+    "score": 70,
+    "matched_keywords": [
+      "software engineer",
+      "typescript"
     ],
     "remote": true
   },
@@ -1907,28 +1928,6 @@
     "remote": true
   },
   {
-    "id": "b13a08c66503",
-    "title": "Technical Customer Success Manager",
-    "company": "nara GmbH",
-    "location": "W\u00fcrzburg",
-    "url": "https://www.arbeitnow.com/jobs/companies/nara-gmbh/technical-customer-success-manager-wurzburg-310364",
-    "description": "<p><strong>Kurzinfo</strong></p>\n<ul>\n<li>\ud83d\udccd Standort: W\u00fcrzburg, DE. Remote m\u00f6glich innerhalb DE, optional onsite oder hybrid</li>\n<li>\ud83d\udcbc Anstellungsart: Vollzeit, unbefristet</li>\n<li>\ud83d\udcb6 Gehalt: 55.000\u201385.000 \u20ac brutto pro Jahr (erfahrungsabh\u00e4ngig) plus ESOPs</li>\n<li>\ud83d\ude80 Start: ab sofort</li>\n</ul>\n<p>Bei <strong>nara</strong> bauen wir keine klassischen Chatbots. Wir entwickeln Agentensysteme, die in realen Unternehmensumgebungen arbeiten: Tickets bearbeiten, Zug\u00e4nge zur\u00fccksetzen oder Ger\u00e4te in Kundennetzen konfigurieren.</p>\n<p>F\u00fcr unsere Kundenprojekte suchen wir eine kundenzentrierte, technisch starke Pers\u00f6nlichkeit, die unsere Projekte von der ersten Anforderung bis zur erfolgreichen Nutzung begleitet. Du bist die zentrale Schnittstelle zwischen Kunde, Produkt und Entwicklung: Du verstehst Gesch\u00e4ftsprozesse, \u00fcbersetzt sie in klare Anforderungen, baust erste AI-Agenten und sorgst daf\u00fcr, dass unsere Kunden mit nara echten Mehrwert erzielen.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Du leitest Kundenprojekte von Kickoff bis Go-live und sorgst f\u00fcr klare n\u00e4chste Schritte.</li>\n<li>Du f\u00fchrst Kundenmeetings, Workshops und Anforderungsaufnahmen durch.</li>\n<li>Du verstehst fachliche und technische Kundenfragen und beantwortest sie pragmatisch.</li>\n<li>Du \u00fcbersetzt Kundenanforderungen in klare Tickets, Specs und Priorit\u00e4ten f\u00fcr das Dev-Team.</li>\n<li>Du erstellst Projektpl\u00e4ne, koordinierst Timelines und h\u00e4ltst alle Stakeholder auf dem Laufenden.</li>\n<li>Du konfigurierst und baust AI-Agenten, Workflows und Automationen f\u00fcr unsere Kunden.</li>\n<li>Du begleitest Onboarding, Adoption und den laufenden Customer Success.</li>\n<li>Du erkennst Risiken fr\u00fchzeitig und sorgst daf\u00fcr, dass Kunden langfristig erfolgreich bleiben.</li>\n<li>Du sammelst Produktfeedback und bringst es strukturiert in Produkt und Entwicklung ein.</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Erste Erfahrung in einer Rolle wie Technical Customer Success, Implementation Management, Solutions Consulting, Technical Account Management, SaaS-Projektleitung oder Vergleichbarem.</li>\n<li>Sehr gute Kommunikationsf\u00e4higkeit mit Kunden \u2013 auch bei unklaren oder komplexen Anforderungen.</li>\n<li>Technisches Verst\u00e4ndnis f\u00fcr SaaS-Produkte, APIs, Workflows, Datenfl\u00fcsse und Automationen.</li>\n<li>Echtes Interesse an AI, LLMs und Agenten-Systemen.</li>\n<li>F\u00e4higkeit, Anforderungen sauber zu strukturieren und f\u00fcr Entwickler verst\u00e4ndlich aufzubereiten.</li>\n<li>Solide Projektmanagement-Skills: klare Timelines, konsequente Follow-ups, Priorisierung und Verbindlichkeit.</li>\n<li>Hands-on-Mentalit\u00e4t: Du moderierst nicht nur, sondern baust und testest auch selbst.</li>\n<li>Sehr gutes Deutsch und gutes Englisch.</li>\n</ul>\n<p><strong>Nice to have</strong></p>\n<ul>\n<li>Erfahrung mit AI-/Automation-Tools, Low-Code/No-Code-Plattformen wie Zapier, Make, n8n oder \u00e4hnlichen Systemen.</li>\n<li>Erfahrung mit Jira, Linear, Notion, HubSpot oder vergleichbaren Tools.</li>\n<li>Grundverst\u00e4ndnis von Softwareentwicklung oder ein fr\u00fcherer tec",
-    "tags": "Remote IT",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1780428630",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-02T20:36:41.624989+00:00",
-    "salary_parsed": null,
-    "score": 50,
-    "matched_keywords": [
-      "api",
-      "saas"
-    ],
-    "remote": true
-  },
-  {
     "id": "7023c734628c",
     "title": "Junior Data Analyst (gn)",
     "company": "Intermate Media GmbH",
@@ -2541,48 +2540,6 @@
     "matched_keywords": [
       "api",
       "startup"
-    ],
-    "remote": true
-  },
-  {
-    "id": "dc3814427427",
-    "title": "Mechanical Design / Stress Engineer (Working Student Possible)",
-    "company": "Telura GmbH",
-    "location": "Munich",
-    "url": "https://www.arbeitnow.com/jobs/companies/telura-gmbh/mechanical-design-stress-engineer-working-student-possible-munich-337260",
-    "description": "<p><strong>Our Game Plan</strong></p>\n<p>Are you driven by understanding how the Earth actually behaves under extreme conditions? Do you believe the future of geothermal energy depends on mastering rock mechanics, stress, and fracture?</p>\n<p>At Telura, we\u2019re developing the next-generation drilling system which uses ultra-high-voltage electro-impulses to fracture hard rock, essentially \u201cdestroying with lightning\u201d, to enable economically viable drilling beyond today's hotspots and unlock affordable baseload<br>\nenergy anywhere. The physics is well understood, but success depends on how this technology interacts with real subsurface conditions.</p>\n<p>Founded in 2025 and based in Munich, Telura is working closely with leading European universities, is supported by SPRIND, and has raised $5m to date from leading German investors.</p>\n<p>As we move from validation toward field-relevant testing, we\u2019re looking to connect with a mechanical design and/or stress engineer to help shape how our technology meets the Earth.</p>\n<h2>Tasks</h2>\n<p>What you\u2019ll be working on</p>\n<ul>\n<li>Architect, design and develop core mechanical subsystems for our drill bit and drilling system - from initial concept to market launch. Your input will shape the product for years to come.</li>\n<li>Conduct FEA-driven analysis to evaluate static loads, fatigue life, thermal-mechanical coupling, and failure modes under extreme conditions</li>\n<li>Build prototypes, support the definition of test infrastructure from scratch, and conduct testing and validation to progressively prove and de-risk our technology</li>\n<li>Integrate HV, thermal, and fluid systems into a robust drilling assembly</li>\n<li>Set up and improve development processes, with an eye on design, manufacturing and future operations. Defining how we\u2019ll build, not just what we\u2019ll build.</li>\n</ul>\n<h2>Requirements</h2>\n<p>What we are looking for</p>\n<ul>\n<li>Degree in Mechanical Engineering or a related engineering discipline</li>\n<li>2\u20135 years (min) of professional experience in product development, design, or manufacturing</li>\n<li>Proficient in CAD (e.g., SolidWorks, Inventor, or similar); familiar with mechanical analysis and FEA</li>\n<li>Able to recommend and help establish appropriate design and development toolsets</li>\n<li>Hands-on mentality: you enjoy building things, breaking things, and understanding why</li>\n<li>Structured and independent working style, with a willingness to take ownership</li>\n<li>Willingness to travel occasionally to partners, suppliers, and customer sites</li>\n<li>A collaborative mindset and interest in shaping a new drilling paradigm from first principles</li>\n</ul>\n<h2>Benefits</h2>\n<p>What we offer</p>\n<ul>\n<li>A chance to define the foundations of a breakthrough drilling technology, and unlock geothermal energy at global scale</li>\n<li>Early influence on system architecture, testing strategy, and deployment assumptions</li>\n<li>Flexible initial engagement model (full-time, part-time, o",
-    "tags": "Engineering",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1780416040",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-02T20:36:41.625031+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "api"
-    ],
-    "remote": true
-  },
-  {
-    "id": "80638f59addf",
-    "title": "(Senior) Test Automation Engineer, AI-Native (d/m/w) - Remote",
-    "company": "ZEP GmbH",
-    "location": "Ditzingen",
-    "url": "https://www.arbeitnow.com/jobs/companies/zep-gmbh/senior-test-automation-engineer-ai-native-remote-ditzingen-219156",
-    "description": "<p>Bei ZEP gestalten wir die Zukunft der Arbeit f\u00fcr 3.000+ Unternehmen im deutschen Mittelstand. Aktuell bauen wir unsere n\u00e4chste Produktgeneration komplett neu (Laravel/Vue.js) und entwickeln parallel neue AI-Produkte, die die Projektarbeit von Grund auf neu denken. Daf\u00fcr suchen wir einen Test Automation Engineer, der AI nicht nur kennt, sondern damit lebt. Claude, Cursor und Playwright mit AI-Codegen sind f\u00fcr dich keine Experimente, sondern dein allt\u00e4gliches Handwerkszeug. Du schreibst Tests in Stunden, wof\u00fcr andere Tage brauchen. Du verstehst, dass moderne Qualit\u00e4tssicherung heute aus der Kombination von handwerklicher Test-Exzellenz und AI-Hebel entsteht. Und du wei\u00dft: AI-Produkte testet man anders als klassische Software.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Aufbau und Betrieb einer modernen, AI-gest\u00fctzten Teststrategie f\u00fcr unsere n\u00e4chste Produktgeneration (Laravel/Vue.js)</li>\n<li>End-to-End Testautomatisierung mit Playwright oder \u00e4hnlichem, inklusive AI-gest\u00fctzter Testfallgenerierung und Selbstheilung von Tests</li>\n<li>Qualit\u00e4tssicherung unserer AI-Produkte: Evaluierung von LLM-Outputs, Prompt-Tests, Halluzinations-Checks und Verhaltenstests f\u00fcr agentische Workflows</li>\n<li>Aufbau einer Testpyramide mit den Entwicklern (Unit, Integration, E2E), enge Integration in CI/CD</li>\n<li>AI-gest\u00fctzte Bug-Reproduktion und Root-Cause-Analyse, \u00dcbersetzung von Kunden-Tickets in reproduzierbare Tests</li>\n<li>Enge Zusammenarbeit mit Entwicklern, Product Managern und dem Co-CEO</li>\n</ul>\n<h2>Qualifikation</h2>\n<p>AI-Native Toolset (was du bereits aktiv nutzt):</p>\n<ul>\n<li>Testautomatisierung mit Playwright, Cypress oder vergleichbar, idealerweise mit AI-Codegen</li>\n<li>Daily Driver wie Claude oder ChatGPT f\u00fcr Testfallgenerierung, Edge-Case-Analyse und Test-Code</li>\n<li>Cursor oder \u00e4hnliche AI-IDEs, um Vue.js und Laravel-Code schnell zu verstehen und passende Tests zu schreiben</li>\n<li>Idealerweise Erfahrung mit LLM-Evaluation (Promptfoo, Braintrust, LangSmith oder selbstgebaute Eval-Pipelines)</li>\n<li>Verst\u00e4ndnis f\u00fcr MCP, Agentic Workflows oder Custom GPTs und wie man diese systematisch testet</li>\n<li>Du verstehst den Unterschied: Du wei\u00dft, wann ein AI-generierter Test ausreicht und wann handwerkliches Testdenken mit pr\u00e4zisen Assertions den Unterschied macht</li>\n<li>Erfahrung mit CI/CD (GitHub Actions, GitLab CI), Git und Pull-Request-basiertem Arbeiten</li>\n<li>Ausgepr\u00e4gtes Verst\u00e4ndnis f\u00fcr API-Tests (REST), Datenbanken (MySQL/Postgres) und Web-Architekturen. Mobile Apps (iOS &#x26; Android) ist ein Plus.</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Vollausstattung mit allen AI-Tools, die du brauchst (Claude Max, Cursor, Playwright, Subscription deiner Wahl)</li>\n<li>30 Tage Urlaub und unbefristete Arbeitsvertr\u00e4ge</li>\n<li>Remote First Company &#x26; flexible Arbeitszeiten \u2013 Arbeite innerhalb Deutschlands von wo du m\u00f6chtest!</li>\n<li>Regelm\u00e4\u00dfige Workshops, Workations und Events zum Teambuilding</li>\n<li>Unterst\u00fctzung bei der Home-Office Einrichtung, freie L",
-    "tags": "Remote Quality Assurance Inspection",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1780416039",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-02T20:36:41.625037+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "api"
     ],
     "remote": true
   },
@@ -3885,22 +3842,45 @@
     "remote": true
   },
   {
-    "id": "166d468c69cd",
-    "title": "Content Reviewer & KI-Textanalyst (m/w/d) - Nebenjob - flexibel + remote",
-    "company": "Talentwert Digital Research Studio",
-    "location": "Leipzig",
-    "url": "https://www.arbeitnow.com/jobs/companies/talentwert-digital-research-studio/content-reviewer-ki-textanalyst-nebenjob-flexibel-remote-leipzig-89704",
-    "description": "<p>Du arbeitest gerne mit Sprache, erkennst schnell unklare Formulierungen und interessierst dich f\u00fcr moderne KI-Technologien?</p>\n<p>F\u00fcr ein internationales Projekt im Bereich K\u00fcnstliche Intelligenz werden derzeit deutschsprachige Personen gesucht, die bei der Analyse, Bewertung und Optimierung von Textinhalten mitwirken m\u00f6chten.</p>\n<p>Dabei unterst\u00fctzt du die Weiterentwicklung moderner Sprachmodelle, indem du Inhalte pr\u00fcfst, Aufgabenstellungen erstellst und die Qualit\u00e4t von KI-generierten Antworten bewertest.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Analyse und Bewertung von deutschsprachigen Texten</li>\n<li>Erstellung realistischer Aufgabenstellungen f\u00fcr KI-Systeme</li>\n<li>Entwicklung von Beispielantworten und Bewertungsvorgaben</li>\n<li>Pr\u00fcfung von KI-generierten Inhalten auf Verst\u00e4ndlichkeit, Qualit\u00e4t und sprachliche Nat\u00fcrlichkeit</li>\n<li>Identifikation von Fehlern, Unklarheiten oder Verbesserungspotenzialen</li>\n<li>Unterst\u00fctzung bei Qualit\u00e4tssicherungs- und Evaluationsprozessen</li>\n</ul>\n<h2>Qualifikation</h2>\n<p>Das solltest du mitbringen</p>\n<ul>\n<li>Sehr gute Deutschkenntnisse in Wort und Schrift</li>\n<li>Gute Englischkenntnisse zum Arbeiten mit internationalen Inhalten</li>\n<li>Freude am Schreiben, Lesen und Analysieren von Texten</li>\n<li>Strukturierte und sorgf\u00e4ltige Arbeitsweise</li>\n<li>Interesse an digitalen Technologien und KI-Anwendungen</li>\n</ul>\n<p>Ein Studium oder eine Ausbildung im sprachlichen, kommunikativen oder analytischen Bereich ist hilfreich, aber keine Voraussetzung.</p>\n<h2>Benefits</h2>\n<p>Rahmenbedingungen</p>\n<ul>\n<li>100 % Home Office</li>\n<li>ca. 20 Stunden pro Woche</li>\n<li>Projektlaufzeit mehrere Wochen bis Monate</li>\n<li>Zusammenarbeit in einem internationalen Projektumfeld</li>\n</ul>\n<p>Eine spannende T\u00e4tigkeit f\u00fcr alle, die Sprache, Analyse und moderne KI-Technologien miteinander verbinden m\u00f6chten.</p>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Remote Marketing and Communication",
+    "id": "58b81cbd930c",
+    "title": "(Senior) Software Engineer Java (m/w/d) | Public Sector | >90% REMOTE",
+    "company": "Bridgency HR Management GbR",
+    "location": "D\u00fcsseldorf",
+    "url": "https://www.arbeitnow.com/jobs/companies/bridgency-hr-management-gbr/senior-software-engineer-java-public-sector-90-remote-dusseldorf-8108",
+    "description": "<p><strong>From Legacy to Leading Edge \u2013</strong> gestalten Sie mit uns die digitale Transformation in anspruchsvollen Branchen und werden Sie Teil eines zukunftsorientierten IT-Beratungsunternehmens.</p>\n<p>Als ausgezeichneter Arbeitgeber und <strong>Top Company 2026</strong> bieten wir Ihnen mehr als nur einen Job. Bei uns gestalten Sie aktiv die digitale Zukunft mit \u2013 in Projekten, die wirklich bewegen \u2013 und das ohne starre Hierarchien, aber mit viel Vertrauen und Gestaltungsspielraum. Ob Projektmanagement, innovative Softwareentwicklung oder der smarte Einsatz von K\u00fcnstlicher Intelligenz: Bei Semper Prospera glauben wir an exzellente Zusammenarbeit, echte Wertsch\u00e4tzung und die Kraft guter Ideen.</p>\n<p>F\u00fcr ein langfristiges Digitalisierungsprogramm im \u00f6ffentlichen Umfeld suchen wir einen erfahrenen (Senior) Software Engineer Java (m/w/d) mit Schwerpunkt <strong>Dokumentengenerierung, Webentwicklung</strong> und <strong>Enterprise-Anwendungsarchitekturen.</strong></p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Entwicklung und Weiterentwicklung moderner serverseitiger Java-Anwendungen</li>\n<li>Konzeption und Implementierung von L\u00f6sungen zur Dokumentengenerierung und Dokumentenverarbeitung</li>\n<li>Entwicklung und Optimierung verteilter sowie hochverf\u00fcgbarer Enterprise-Anwendungen</li>\n<li>Entwicklung von Web-Komponenten und webbasierten Fachanwendungen</li>\n<li>Umsetzung technischer Anforderungen auf Basis von Java 17+, Spring Boot 3 und modernen Frameworks</li>\n<li>Erstellung und Pflege von Dokumentenvorlagen sowie Layout- und Designkomponenten</li>\n<li>Integration bestehender Systeme und Schnittstellen in komplexe Anwendungslandschaften</li>\n<li>Unterst\u00fctzung bei Build-, Deployment- und Release-Prozessen in gro\u00dfen Enterprise-Umgebungen</li>\n<li>Durchf\u00fchrung von Tests, Code Reviews und Qualit\u00e4tssicherungsma\u00dfnahmen</li>\n<li>Erstellung technischer Dokumentationen und Unterst\u00fctzung bei Architekturentscheidungen</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Abgeschlossenes Studium der Informatik oder eine vergleichbare Qualifikation wie z.B. abgeschlossene Ausbildung in der Anwendungsentwicklung mit mehrj\u00e4hriger Berufserfahrung</li>\n<li>Mehrj\u00e4hrige Erfahrung in der Entwicklung von Java-Enterprise-Anwendungen mit aktuellen Technologien wie Java 17+ und Spring Boot 3.x</li>\n<li>Nachweisbare Projekterfahrung in der Entwicklung serverseitiger Anwendungen auf Basis von Java SE bzw. Java EE</li>\n<li>Fundierte Kenntnisse in der Entwicklung moderner Webanwendungen sowie sehr gute Kenntnisse in HTML</li>\n<li>Erfahrung in der Entwicklung verteilter und hochverf\u00fcgbarer Anwendungen in komplexen Systemlandschaften</li>\n<li>Kenntnisse im Bereich Dokumentengenerierung und Template-Technologien, idealerweise mit Freemarker</li>\n<li>Erfahrung in der Gestaltung und Aufbereitung von Dokumenten, einschlie\u00dflich Layout- und Typografieanforderungen</li>\n<li>Erfahrung mit Softwarebereitstellung und Deployment-Prozessen in Enterprise-Umgebungen mit getrennten Verantwortlichkeiten zwischen E",
+    "tags": "Web Development",
     "salary_min": null,
     "salary_max": null,
-    "posted_at": "1780417837",
+    "posted_at": "1781625641",
     "source": "arbeitnow",
     "status": "new",
-    "found_at": "2026-06-02T20:36:41.625020+00:00",
+    "found_at": "2026-06-16T20:40:33.442826+00:00",
     "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
+    "score": 45,
+    "matched_keywords": [
+      "software engineer"
+    ],
+    "remote": true
+  },
+  {
+    "id": "a91b8627d53e",
+    "title": "Director Capital Markets (m/w/d)",
+    "company": "Gunnar K\u00fchne Executive Search GmbH",
+    "location": "Frankfurt am Main",
+    "url": "https://www.arbeitnow.com/jobs/companies/gunnar-kuhne-executive-search-gmbh/director-capital-markets-frankfurt-am-main-359962",
+    "description": "<p>F\u00fcr unseren Kunden, eine etablierte und wachstumsorientierte Beratungs-Boutique, suchen wir ab sofort einen <strong>Director Capital Markets (m/w/d)</strong> zur strategischen Weiterentwicklung des Gesch\u00e4ftsbereichs sowie zur Leitung komplexer Transformationsprogramme bei Banken und Finanzdienstleistern.</p>\n<h2>Aufgaben</h2>\n<p><strong>Ihre Aufgabe:</strong></p>\n<ul>\n<li>Konzeptionelle und fachliche Beratung zu den Themen Capital Markets, Trading, Treasury, Regulatory &#x26; Compliance sowie weiteren relevanten Kapitalmarktfragestellungen</li>\n<li>Steuerung und Gesamtverantwortung anspruchsvoller Projekte, u. a. in den Bereichen Blockchain, Digital Assets, Sustainable Finance oder ESG</li>\n<li>Aufbau, F\u00fchrung und Weiterentwicklung von Berater- und Projektteams</li>\n<li>Verantwortung f\u00fcr Business-Development-Aktivit\u00e4ten: Identifikation neuer Marktchancen, Akquisition von Beratungsmandaten sowie Ausbau bestehender Kundenbeziehungen</li>\n<li>Weiterentwicklung des Service-Portfolios und aktive Mitgestaltung der strategischen Ausrichtung des Beratungsbereichs</li>\n<li>Repr\u00e4sentation des Unternehmens auf Fachkonferenzen, Branchenveranstaltungen und in Expertenkreisen</li>\n</ul>\n<h2>Qualifikation</h2>\n<p><strong>Ihr Profil:</strong></p>\n<ul>\n<li>Erfolgreich abgeschlossenes Hochschulstudium (z. B. Wirtschaftswissenschaften, Finanzen, MINT) mit sehr guten akademischen Leistungen</li>\n<li>Mehrj\u00e4hrige F\u00fchrungserfahrung in der Beratung oder Finanzindustrie \u2013 idealerweise mit Schwerpunkt in mindestens einem der Bereiche Capital Markets, Trading, Treasury oder Regulatory</li>\n<li>Stark ausgepr\u00e4gtes analytisches Denkverm\u00f6gen, hohe Kommunikationskompetenz sowie \u00fcberzeugendes Auftreten auf C-Level</li>\n<li>Erfahrung im Aufbau und in der Leitung von Teams sowie in der Steuerung komplexer Transformationsprojekte</li>\n<li>Unternehmerisches Mindset, Gestaltungswille und Netzwerkst\u00e4rke</li>\n<li>Reisebereitschaft innerhalb Deutschlands</li>\n<li>Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift</li>\n</ul>\n<h2>Benefits</h2>\n<p><strong>Ihre Vorteile mit GKES</strong></p>\n<p>Diskretion, Professionalit\u00e4t und Ehrlichkeit / starker Zugang zu unz\u00e4hligen Entscheidern der Finanzindustrie und Wirtschaft / Ratgeber im Bewerbungsprozess / prompte Reflektion Ihrer Bewerbungsunterlagen.</p>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Remote Directors Chief Executives",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1781625639",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-16T20:40:33.442858+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "api"
+    ],
     "remote": true
   },
   {
@@ -7964,6 +7944,63 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-06-16T16:26:26.716558+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "a686ad6e1187",
+    "title": "Content Manager (m/w/d) - Teilzeit",
+    "company": "Ecoturn GmbH",
+    "location": "Munich",
+    "url": "https://www.arbeitnow.com/jobs/companies/ecoturn-gmbh/content-manager-teilzeit-munich-270003",
+    "description": "<p>Elektrovorteil ist eine der f\u00fchrenden Plattformen im deutschen THG-Quoten-Markt. Wir erm\u00f6glichen E-Auto-Fahrern, einfach und schnell ihre THG-Pr\u00e4mie einzureichen \u2013 vollst\u00e4ndig digital. Unser Ziel: durch starke Inhalte, klare Botschaften und eine konsistente Markenpr\u00e4senz nachhaltig wachsen.</p>\n<p>Du verantwortest den gesamten Content-Bereich bei Elektrovorteil \u2013 von der strategischen Planung bis zur Umsetzung. Du denkst in Zielgruppen, Kan\u00e4len und Formaten, verstehst wie organische Sichtbarkeit entsteht und wei\u00dft, welche Inhalte Menschen wirklich ansprechen. Du arbeitest eng mit der Gesch\u00e4ftsf\u00fchrung und dem Performance-Marketing zusammen.</p>\n<h2>Aufgaben</h2>\n<p><strong>Content &#x26; Redaktion</strong></p>\n<ul>\n<li>Planung, Erstellung und Pflege von Inhalten f\u00fcr Website, Blog und Landing Pages</li>\n<li>Entwicklung eines redaktionellen Kalenders und konsistenter Content-Strukturen</li>\n<li>Aufbereitung komplexer Themen (THG-Quote, E-Mobilit\u00e4t, F\u00f6rderungen) in verst\u00e4ndliche, zielgruppengerechte Inhalte</li>\n</ul>\n<p><strong>SEO &#x26; GEO</strong></p>\n<ul>\n<li>Keyword-Recherche und inhaltliche Optimierung bestehender und neuer Seiten</li>\n<li>Technisches SEO-Grundverst\u00e4ndnis: Meta-Daten, interne Verlinkung, Seitenstruktur</li>\n<li>Beobachtung und Anpassung an Entwicklungen im Bereich Generative Engine Optimization (GEO) \u2013 Inhalte fit machen f\u00fcr KI-basierte Suchantworten (z. B. Google AI Overviews, ChatGPT Search)</li>\n</ul>\n<p><strong>Social Media</strong></p>\n<ul>\n<li>Betreuung und Weiterentwicklung der Social-Media-Kan\u00e4le (organisch)</li>\n<li>Entwicklung kanalspezifischer Formate und Bildsprache</li>\n<li>Community-Interaktion und Monitoring der relevanten Kan\u00e4le</li>\n</ul>\n<p><strong>Creative Strategy</strong></p>\n<ul>\n<li>Entwicklung von Content-Konzepten und kreativen Kampagnenideen in enger Abstimmung mit dem Performance-Marketing</li>\n<li>Erstellung von Briefings f\u00fcr Creatives (Texte, Visuals, Videos) \u2013 ggf. auch Eigenproduktion</li>\n<li>Testen und Weiterentwickeln von Hooks, Formaten und Botschaften auf Basis von Performance-Daten</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Erfahrung in der eigenst\u00e4ndigen Content-Erstellung \u2013 schriftlich und visuell</li>\n<li>Solide SEO-Kenntnisse und ein Gef\u00fchl daf\u00fcr, wie Inhalte organisch performen</li>\n<li>Sicherer Umgang mit Social-Media-Kan\u00e4len und deren Algorithmen</li>\n<li>F\u00e4higkeit, sowohl strategisch zu denken als auch operativ umzusetzen</li>\n<li>Sehr gutes Deutsch in Wort und Schrift; pr\u00e4ziser, zielgruppengerechter Schreibstil</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Flexibles Arbeiten (Remote)</li>\n<li>Weiterentwicklungsm\u00f6glichkeiten in einem wachsenden Team</li>\n<li>20 Stunden pro Woche</li>\n<li>Direkte Zusammenarbeit mit der Gesch\u00e4ftsf\u00fchrung und echtes Ownership \u00fcber den Content-Bereich</li>\n<li>Flache Hierarchien, kurze Entscheidungswege und ein wachsendes Team</li>\n</ul>\n<p>Klingt nach dir? Dann lass uns sprechen.</p>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">Eng",
+    "tags": "Remote Marketing and Communication",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1781634629",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-16T20:40:33.442797+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "9f99f8466d2b",
+    "title": "Head of Group IT (m/w/d)",
+    "company": "SelectLine Group",
+    "location": "Magdeburg",
+    "url": "https://www.arbeitnow.com/jobs/companies/selectline-group/head-of-group-it-magdeburg-484235",
+    "description": "<p>Die SelectLine Group w\u00e4chst und mit ihr unsere IT. Wir konsolidieren unsere IT-Landschaft zu einem gruppenweiten Shared-Service-Modell und suchen dich als F\u00fchrungspers\u00f6nlichkeit.</p>\n<p>Du bist erfahren in IT-Transformation, denkst in Programmen statt in Tickets und steuerst Provider genauso souver\u00e4n wie C-Level-Stakeholder?</p>\n<p>Dann ist das deine Rolle. Wir suchen einen Head of IT, der unsere gruppenweite IT-Konsolidierung mit Klarheit und echtem Gestaltungswillen vorantreibt, von M365 Single Tenant \u00fcber ITSM-Einf\u00fchrung und Security Baseline bis hin zur AI-Integration in der gesamten Gruppe.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Du steuerst das gruppenweite IT-Transformationsbacklog mit allen parallelen Streams (M365 Single Tenant, ITSMEinf\u00fchrung, Security Baseline, Standort- und Provider-Konsolidierung).</li>\n<li>Du f\u00fchrst ein 10-k\u00f6pfies Team.</li>\n<li>Du begleitest aktiv die AI-Transformation in der Gruppe, von der Strategie bis zur praktischen Einf\u00fchrung neuer Technologien im Arbeitsalltag.</li>\n<li>Du baust ein belastbares Programm- und KPI-Setup auf, verantwortest die IT-Budgets selbst\u00e4ndig und lieferst klares Board-Reporting auf C-Level.</li>\n<li>Du etablierst ein verbindliches Operating Model mit transparenten Entscheidungs-, Priorisierungs- und Eskalationsstrukturen f\u00fcr die gesamte Gruppe.</li>\n<li>Du steuerst externe Service Provider anhand klarer SOWs, SLAs und Abnahmekriterien und konsolidierst IT-Services, Vertr\u00e4ge und Kosten standort\u00fcbergreifend.</li>\n<li>Du sicherst stabile IT-basierte Kernprozesse (z. B. On-/Offboarding, Identity &#x26; Access) und treibst messbare Fortschritte bei Azure, Security und ITSM.</li>\n<li>Du bist bereit, mehrt\u00e4gige Reisen im Rahmen deiner Aufgaben zu \u00fcbernehmen.</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Du bringst mehrj\u00e4hrige Senior-Erfahrung als IT\u2011Leitung, IT\u2011Transformation Lead oder Head of IT mit und hast operative IT\u2011Organisationen sowie komplexe Transformationsprogramme erfolgreich gesteuert.</li>\n<li>Du bist ein Pragmatiker mit Hands-on-Mentalit\u00e4t, du schaffst Struktur, triffst klare Entscheidungen und verlierst dich nicht in Details.</li>\n<li>Du beherrschst Multi-Stream-Programm-Management \u2013 Roadmaps, Backlogs, KPIs und Stakeholder-Kommunikation sind f\u00fcr dich t\u00e4gliches Handwerk.</li>\n<li>Du kennst Vendor- &#x26; Provider-Management aus der Praxis \u2013 SOW und SLA-Verhandlungen, Lieferf\u00e4higkeit sicherstellen und idealerweise Erfahrung im Microsoft-\u00d6kosystem (M365, Azure, Entra ID).</li>\n<li>Du verstehst IT-Operations von Grund auf, M365, Azure, Identity &#x26; Access, ITSM, Security und AI sind keine Fremdw\u00f6rter, auch wenn du es nicht selbst umsetzt.</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Echte Gestaltungsmacht: Du bekommst Budget, Mandat und direkten Draht zum Management, keine Stabsstelle, sondern eine Rolle mit echter Wirkung.</li>\n<li>Eine Transformation, die gerade passiert: M365 Single Tenant, ITSM, Security, AI, du kommst nicht zu sp\u00e4t, sondern genau zur richtigen Zeit.</li>\n<li>Hybrides Arbei",
+    "tags": "Remote SAP/ERP Consulting Development",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1781627430",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-16T20:40:33.442817+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "77e8f6486513",
+    "title": "Key Account Manager",
+    "company": "GFL Cosmetics",
+    "location": "Kemmern",
+    "url": "https://www.arbeitnow.com/jobs/companies/gfl-cosmetics/key-account-manager-kemmern-308244",
+    "description": "<p><strong>GFL Cosmetics</strong> is a group with 30 years of experience in the industry. Our <strong>Made in Italy</strong> cosmetics are available across multiple market channels, including hotels, retail, large-scale distribution, and e-commerce. Thanks to our production capacity and global sales network, we can offer innovative cosmetic collections and customized contract solutions.</p>\n<p>Our headquarters are in <strong>Switzerland</strong>, with sales offices across <strong>Europe, the Middle East, and North America</strong>, and a distributor network in <strong>South America, Africa, Southeast Asia, and the Pacific region</strong>. We supply cosmetics to independent and regional hotels as well as international hotel chains.</p>\n<p>We are looking for an <strong>enthusiastic and experienced Key Account Manager</strong>, based in <strong>Germany</strong>, to join our team and help develop the Local Market, with specific focus on Southern Germany. The ideal candidate will be responsible for securing new sales contracts and managing existing accounts.</p>\n<p><strong>Main responsibilities</strong></p>\n<ul>\n<li>Develop and secure new sales contracts with <strong>hotel groups, independent hotels, resorts, and cruise ship operators</strong> through direct engagement and negotiation.</li>\n<li>Maintain and strengthen <strong>relationships with existing clients and distribution partners</strong>, ensuring continued collaboration and business growth.</li>\n<li>Achieve and exceed <strong>sales turnover and margin targets</strong>, aligning with company objectives.</li>\n<li>Collaborate closely with designated <strong>distributors</strong> to ensure contract compliance and seamless implementation of agreements.</li>\n<li>Provide <strong>training and support</strong> to distributor sales teams to enhance their product knowledge and sales effectiveness.</li>\n<li>Conduct market research to identify <strong>new hotel openings and business opportunities</strong>, independently or with distributor network support.</li>\n</ul>\n<p><strong>Skills and requirements</strong></p>\n<ul>\n<li>Strong alignment with the company\u2019s values of environmental respect and sustainability.</li>\n<li>Highly self-motivated and entrepreneurial, with a proactive, individual and team-oriented results-driven mindset.</li>\n<li>Willingness to travel within Italy, with occasional short stays abroad when required.</li>\n<li>Tech-savvy, proficient in Excel and online business applications, with the ability to analyze data and optimize sales strategies.</li>\n<li>Nice to have: prior experience or strong understanding of the hotel supply industry across the region.</li>\n</ul>\n<p>If you have strong sales and communication skills and are looking for a workplace where you can make a difference, grow, and take on new challenges, this is the right opportunity for you!</p>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Remote Customer Service",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1781627429",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-16T20:40:33.442821+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
