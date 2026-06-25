@@ -252,33 +252,6 @@
     "remote": true
   },
   {
-    "id": "5431ecf57cad",
-    "title": "Full-Stack Software Engineer | AI Accelerated | (m/w/d)",
-    "company": "Merlin Digital Solutions GmbH",
-    "location": "Munich",
-    "url": "https://www.arbeitnow.com/jobs/companies/merlin-digital-solutions-gmbh/full-stack-software-engineer-ai-accelerated-munich-396494",
-    "description": "<p><strong>Baue mit uns die KI-Plattform f\u00fcr den \u00f6ffentlichen Sektor</strong></p>\n<p>Der \u00f6ffentliche Sektor steht unter massivem Druck: steigende Anfragen, Fachkr\u00e4ftemangel, komplexe Prozesse, wachsende Erwartungen der B\u00fcrger:innen. Viele Verwaltungen scheitern nicht am Willen, sondern an Systemen, die nie f\u00fcr diese Realit\u00e4t gebaut wurden.</p>\n<p>Wir \u00e4ndern das.</p>\n<p>Mit Merlin entwickeln wir KI-native Produkte, die Verwaltungen entlasten, Mitarbeitende st\u00e4rken und B\u00fcrger:innen bessere Services bieten. Unser Anspruch: Merlin wird der f\u00fchrende KI-Anbieter f\u00fcr Kommunen und Beh\u00f6rden im deutschsprachigen Raum.</p>\n<p>Wir werden seit einer Pre-Seed-Finanzierung von Top-Tier-Investoren, Business Angels und ehemaligen Spitzenpolitikern unterst\u00fctzt und haben bereits mehr als 60 Kunden.</p>\n<h2>Aufgaben</h2>\n<p>Das ist eine <strong>High-Ownership-Rolle</strong> f\u00fcr Engineers, die Dinge von <strong>0 \u2192 1</strong> bauen wollen und Verantwortung \u00fcbernehmen m\u00f6chten. Eine Rolle f\u00fcr Builder, die <strong>lernen</strong> wollen durch <strong>AI Tools</strong> (Claude Code, Codex, Cursor, etc.) ihren Output zu maximieren.</p>\n<p>Als Full-Stack Software Engineer bei uns arbeitest du direkt mit den Gr\u00fcndern zusammen und pr\u00e4gst Tech, Produkt und Architektur von Grund auf. Du schreibst nicht nur Code \u2013 du entscheidest, <strong>was</strong> gebaut wird und <strong>wie</strong> es gebaut wird.</p>\n<p>Unser Ziel ist ein kleines, extrem starkes Kernteam mit sehr hohem Impact. Nicht der richtige Ort ist das hier f\u00fcr alle, die sich hinter Prozessen oder Tickets verstecken wollen. F\u00fcr alle, die gestalten wollen, hingegen schon.</p>\n<p>Du solltest Lust haben, an allen Teilen des Produkts zu arbeiten: Heute den Retriever am RAG-System f\u00fcr die kommunalen Wissensbest\u00e4nde optimieren, n\u00e4chste Woche ein neues Feature f\u00fcr das Multi-Tenant-Kundendashboard ausrollen oder ein neues Tool f\u00fcr den Voiceagenten entwickeln.</p>\n<p><strong>Was du tun wirst</strong></p>\n<ul>\n<li>KI-Systeme konzipieren, bauen und produktiv betreiben (z. B. Conversational AI, RAG, Agenten, Voice)</li>\n<li>skalierbare Backend-Architekturen f\u00fcr ein Multi-Tenant-SaaS entwickeln</li>\n<li>technische Grundsatzentscheidungen treffen (Cloud, Datenmodelle, Infrastruktur, Tooling)</li>\n<li>Features und Systeme end-to-end ownen \u2013 von der Idee bis zum produktiven Einsatz bei Kunden</li>\n</ul>\n<p><strong>Unser Tech-Stack (heute)</strong></p>\n<ul>\n<li>Python, TypeScript, Next.js</li>\n<li>Postgres, Docker, Cloud-Infrastruktur (Azure, StackIT)</li>\n<li>LiveKit Agents Framework, Langfuse, diverse LLM-APIs, Embeddings/RAG und STT/TTS</li>\n</ul>\n<h2>Qualifikation</h2>\n<p><strong>Was dich zu einem guten Fit macht</strong></p>\n<ul>\n<li>du hast bereits produktive Software gebaut (Startup, Scale-up oder vergleichbar)</li>\n<li>du \u00fcbernimmst Verantwortung und brauchst keine engmaschige Anleitung</li>\n<li>du bist pragmatisch, entscheidungsfreudig und bringst Dinge zu Ende</li>\n<li>du tauschst dich gern direkt mit Kunden aus und verste",
-    "tags": "Remote Software Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781117942",
-    "source": "arbeitnow",
-    "status": "approved",
-    "found_at": "2026-06-10T20:14:47.420850+00:00",
-    "salary_parsed": null,
-    "score": 65,
-    "matched_keywords": [
-      "software engineer",
-      "python",
-      "typescript",
-      "docker",
-      "api",
-      "saas",
-      "startup"
-    ],
-    "remote": true
-  },
-  {
     "id": "441aa44556bf",
     "title": "Software Engineer, Data Infrastructure & Acquisition",
     "company": "Speechify",
@@ -884,6 +857,57 @@
       "fastapi",
       "kubernetes",
       "api"
+    ],
+    "remote": true
+  },
+  {
+    "id": "dcf7ea34f500",
+    "title": "Software Engineer, Data Infrastructure & Acquisition - Cologne, Germany",
+    "company": "Speechify",
+    "location": "Cologne, North Rhine-Westphalia, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/speechify/software-engineer-data-infrastructure-acquisition-cologne-germany-461835",
+    "description": "<p>The mission of Speechify is to make sure that reading is never a barrier to learning.</p>\n<p>Over 50 million people use Speechify's text-to-speech products to turn whatever they're reading \u2013 PDFs, books, Google Docs, news articles, websites \u2013 into audio, so they can read faster, read more, and remember more. Speechify's text-to-speech reading products include its iOS app, Android App, Mac App, Chrome Extension, and Web App.&nbsp;Google recently named Speechify the Chrome Extension of the Year and Apple named Speechify its 2025 Design Award winner for Inclusivity.&nbsp;&nbsp;</p>\n<p>Today, nearly 200 people around the globe work on Speechify in a 100% distributed setting \u2013 Speechify has no office. These include frontend and backend engineers, AI research scientists, and others from Amazon, Microsoft, and Google, leading PhD programs like Stanford, high growth startups like Stripe, Vercel, Bolt, and many founders of their own companies.</p>\n<p><strong>Overview</strong></p>\n<p>We're looking to hire for our Data side of our AI team at Speechify. This role is responsible for all aspects of data collection to support our model training operations. We are able to build high-quality datasets at petabyte-scale and low cost through a tight integration of infrastructure, engineering, and research work. We are looking for a skilled Software Engineer to join us.</p>\n<p><strong>What You'll Do</strong></p>\n<ul>\n<li>Be scrappy to find new sources of audio data and bring it into our ingestion pipeline</li>\n<li>Operate and extend the cloud infrastructure for our ingestion pipeline, currently running on GCP and managed with Terraform.</li>\n<li>Collaborate closely with our Scientists to shift the cost/throughput/quality frontier, delivering richer data at bigger scale and lower cost to power our next-generation models.</li>\n<li>Collaborate with others on the AI Team and Speechify Leadership to craft the AI Team's dataset roadmap to power Speechify's next-generation consumer and enterprise products.</li>\n</ul>\n<p><strong>An Ideal Candidate Should Have</strong></p>\n<ul>\n<li>BS/MS/PhD in Computer Science or a related field.</li>\n<li>5+ years of industry experience in software development.</li>\n<li>Proficiency with bash/Python scripting in Linux environments</li>\n<li>Proficiency in Docker and Infrastructure-as-Code concepts and professional experience with at least one major Cloud Provider (we use GCP)</li>\n<li>Experience with web crawlers, large-scale data processing workflows is a plus</li>\n<li>Ability to handle multiple tasks and adapt to changing priorities.</li>\n<li>Strong communication skills, both written and verbal.</li>\n</ul>\n<p><strong>What we offer</strong></p>\n<ul>\n<li>A fast-growing environment where you can help shape the company and product.</li>\n<li>An entrepreneurial-minded team that supports risk, intuition, and hustle.</li>\n<li>A hands-off management approach so you can focus and do your best work.</li>\n<li>An opportunity to make a big impact in a ",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1782333931",
+    "source": "arbeitnow",
+    "status": "approved",
+    "found_at": "2026-06-25T02:32:19.830045+00:00",
+    "salary_parsed": null,
+    "score": 65,
+    "matched_keywords": [
+      "software engineer",
+      "backend engineer",
+      "python",
+      "docker",
+      "startup"
+    ],
+    "remote": true
+  },
+  {
+    "id": "f1143414afbd",
+    "title": "Software Engineer, Platform - Berlin, Germany",
+    "company": "Speechify",
+    "location": "Berlin, Berlin, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/speechify/software-engineer-platform-berlin-germany-468519",
+    "description": "<p>The mission of Speechify is to make sure that reading is never a barrier to learning.</p>\n<p>Over 50 million people use Speechify's text-to-speech products to turn whatever they're reading \u2013 PDFs, books, Google Docs, news articles, websites \u2013 into audio, so they can read faster, read more, and remember more. Speechify's text-to-speech reading products include its iOS app, Android App, Mac App, Chrome Extension, and Web App. Google recently named Speechify the Chrome Extension of the Year and Apple named Speechify its 2025 Design Award winner for Inclusivity.&nbsp;&nbsp;</p>\n<p>Today, nearly 200 people around the globe work on Speechify in a 100% distributed setting \u2013 Speechify has no office. These include frontend and backend engineers, AI research scientists, and others from Amazon, Microsoft, and Google, leading PhD programs like Stanford, high growth startups like Stripe, Vercel, Bolt, and many founders of their own companies.</p>\n<p><strong>Overview</strong></p>\n<p data-speechify-sentence=\"\">The responsibilities of our Platform team include building and maintaining all backend services, including, but not limited to, payments, analytics, subscriptions, new products, text to speech, and external APIs.</p>\n<p data-speechify-sentence=\"\">This is a key role and ideal for someone who thinks strategically, enjoys fast-paced environments, is passionate about making product decisions, and has experience building great user experiences that delight users.</p>\n<p data-speechify-sentence=\"\">We are a flat organization that allows anyone to become a leader by showing excellent technical skills and delivering results consistently and fast. Work ethic, solid communication skills, and obsession with winning are paramount.&nbsp;</p>\n<p data-speechify-sentence=\"\">Our interview process involves several technical interviews and we aim to complete them within 1 week.&nbsp;</p>\n<p><strong>What Yo</strong><strong>u'</strong><strong>ll Do</strong></p>\n<ul>\n<li data-speechify-sentence=\"\">Design, develop, and maintain robust APIs including public TTS API, internal APIs like Payment, Subscription, Auth and Consumption Tracking, ensuring they meet business and scalability requirements</li>\n<li data-speechify-sentence=\"\">Oversee the full backend API landscape, enhancing and optimizing for performance and maintainability</li>\n<li data-speechify-sentence=\"\">Collaborate on B2B solutions, focusing on customization and integration needs for enterprise clients</li>\n<li data-speechify-sentence=\"\">Work closely with cross-functional teams to align backend architecture with overall product strategy and user experience</li>\n</ul>\n<p><strong>An Ideal Candidate Should Have</strong></p>\n<ul>\n<li>Proven experience in backend development: TS/Node (required)</li>\n<li>Direct experience with GCP and knowledge of AWS, Azure, or other cloud providers</li>\n<li>Efficiency in ideation and implementation, prioritizing tasks based on urgency and impact</li>\n<li>Preferred: Experience with Docker",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1782333931",
+    "source": "arbeitnow",
+    "status": "approved",
+    "found_at": "2026-06-25T02:32:19.830062+00:00",
+    "salary_parsed": null,
+    "score": 65,
+    "matched_keywords": [
+      "software engineer",
+      "backend engineer",
+      "aws",
+      "docker",
+      "api",
+      "startup"
     ],
     "remote": true
   },
@@ -1789,6 +1813,98 @@
     "remote": true
   },
   {
+    "id": "93cc20ad0348",
+    "title": "Software Engineer, iOS Core Product - Stuttgart, Germany",
+    "company": "Speechify",
+    "location": "Stuttgart, Baden-W\u00fcrttemberg, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/speechify/software-engineer-ios-core-product-stuttgart-germany-484459",
+    "description": "<p>The mission of Speechify is to make sure that reading is never a barrier to learning.</p>\n<p>Over 50 million people use Speechify's text-to-speech products to turn whatever they're reading \u2013 PDFs, books, Google Docs, news articles, websites \u2013 into audio, so they can read faster, read more, and remember more. Speechify's text-to-speech reading products include its iOS app, Android App, Mac App, Chrome Extension, and Web App. Google recently named Speechify the Chrome Extension of the Year and Apple named Speechify its App of the Day.</p>\n<p>Today, nearly 200 people around the globe work on Speechify in a 100% distributed setting \u2013 Speechify has no office. These include frontend and backend engineers, AI research scientists, and others from Amazon, Microsoft, and Google, leading PhD programs like Stanford, high growth startups like Stripe, Vercel, Bolt, and many founders of their own companies.</p>\n<p><strong>Overview</strong></p>\n<p data-speechify-sentence=\"\">With the growth of our iOS app, being the #18 productivity app in the App Store category and also our recent recognition as Apple's 2025 Design Award for inclusivity, we find the need for a Senior iOS Engineer to help us support the new user base as well as work on new and exciting projects to push our missing forward. &nbsp;&nbsp;</p>\n<p data-speechify-sentence=\"\">This is a key role and ideal for someone who thinks strategically, enjoys fast-paced environments, passionate about making product decisions, and has experience building great user experiences that delight users.</p>\n<p data-speechify-sentence=\"\">We are a flat organization that allows anyone to become a leader by showing excellent technical skills and delivering results consistently and fast. Work ethic, solid communication skills, and obsession with winning are paramount.&nbsp;</p>\n<p data-speechify-sentence=\"\">Our interview process involves several technical interviews and we aim to complete them within 1 week.&nbsp;</p>\n<p><strong>What Yo</strong><strong>u'</strong><strong>ll Do</strong></p>\n<ul>\n<li data-speechify-sentence=\"\">Opportunity to lead key engineering and product decisions</li>\n<li data-speechify-sentence=\"\">Actively shipping production code for the Speechify iOS app</li>\n<li data-speechify-sentence=\"\">Work within a dedicated product team</li>\n<li data-speechify-sentence=\"\">Participate in product discussions to shape the product roadmap</li>\n<li data-speechify-sentence=\"\">Maintain and enhance the existing complex app architecture</li>\n</ul>\n<p><strong>An Ideal Candidate Should Have</strong></p>\n<ul>\n<li data-speechify-sentence=\"\">Experience. You've worked on products that scaled to a large user base</li>\n<li data-speechify-sentence=\"\">Track record. You have worked on various products from inception to decent traction. You have been responsible for engineering the product</li>\n<li data-speechify-sentence=\"\">Customer obsession. We expect every team member whose responsibilities directly impact customers to be constan",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1782333931",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-25T02:32:19.830035+00:00",
+    "salary_parsed": null,
+    "score": 55,
+    "matched_keywords": [
+      "software engineer",
+      "backend engineer",
+      "startup"
+    ],
+    "remote": true
+  },
+  {
+    "id": "78359a9ae49b",
+    "title": "Tech Lead, Android Core Product - Cologne, Germany",
+    "company": "Speechify",
+    "location": "Cologne, North Rhine-Westphalia, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/speechify/tech-lead-android-core-product-cologne-germany-105480",
+    "description": "<p>The mission of Speechify is to make sure that reading is never a barrier to learning.</p>\n<p>Over 50 million people use Speechify's text-to-speech products to turn whatever they're reading \u2013 PDFs, books, Google Docs, news articles, websites \u2013 into audio, so they can read faster, read more, and remember more. Speechify's text-to-speech reading products include its iOS app, Android App, Mac App, Chrome Extension, and Web App. Google recently named Speechify the Chrome Extension of the Year and Apple named Speechify its Design award winner for inclusivity for 2025.</p>\n<p>Today, nearly 200 people around the globe work on Speechify in a 100% distributed setting \u2013 Speechify has no office. These include frontend and backend engineers, AI research scientists, and others from Amazon, Microsoft, and Google, leading PhD programs like Stanford, high growth startups like Stripe, Vercel, Bolt, and many founders of their own companies.</p>\n<p><strong>Overview</strong></p>\n<p data-speechify-sentence=\"\">With the growth of our Android app, being the most used text-to-speech app in the Play Store, we find the need for a Senior Android Engineer to help us support the new user base as well as work on new and exciting projects to push us forward. &nbsp;&nbsp;</p>\n<p data-speechify-sentence=\"\">This is a key role and ideal for someone who thinks strategically, enjoys fast-paced environments, passionate about making product decisions, and has experience building great user experiences that delight users.</p>\n<p data-speechify-sentence=\"\">We are a flat organization that allows anyone to become a leader by showing excellent technical skills and delivering results consistently and fast. Work ethic, solid communication skills, and obsession with winning are paramount.&nbsp;</p>\n<p data-speechify-sentence=\"\">Our interview process involves several technical interviews and we aim to complete them within 1 week.&nbsp;</p>\n<p><strong>What Yo</strong><strong>u'</strong><strong>ll Do</strong></p>\n<ul>\n<li data-speechify-sentence=\"\">Owning major features and working closely with our design team - take ownership of features inside the app and become responsible of delivering high quality features</li>\n<li data-speechify-sentence=\"\">Shape the future of our Android team</li>\n<li data-speechify-sentence=\"\">Own, maintain and improve reliability metrics for key features</li>\n<li data-speechify-sentence=\"\">Participate in discussions across different teams - Product, Design, Engineering</li>\n<li data-speechify-sentence=\"\">Review pull requests, and support other teammates</li>\n<li data-speechify-sentence=\"\">Handle critical issues or cope with unexpected challenges&nbsp;</li>\n<li data-speechify-sentence=\"\">Take ownership of feature releases and provide nightly builds for the QA team</li>\n</ul>\n<p><strong>An Ideal Candidate Should Have</strong></p>\n<ul>\n<li data-speechify-sentence=\"\">5+ years of software engineering experience</li>\n<li data-speechify-sentence=\"\">Familiarity with Android co",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1782333931",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-25T02:32:19.830040+00:00",
+    "salary_parsed": null,
+    "score": 55,
+    "matched_keywords": [
+      "software engineer",
+      "backend engineer",
+      "startup"
+    ],
+    "remote": true
+  },
+  {
+    "id": "90cab8110b88",
+    "title": "Senior Software Engineer, Core Experiences - Stuttgart, Germany",
+    "company": "Speechify",
+    "location": "Stuttgart, Baden-W\u00fcrttemberg, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/speechify/senior-software-engineer-core-experiences-stuttgart-germany-28083",
+    "description": "<p><strong>Mission</strong></p>\n<p><strong>Speechify is the easiest way to listen to the world's information.</strong> Articles on the web, documents in the cloud, books on your phone. We absorb it all and let you listen to it at your desk, on the go, at your own speed, and with tools that make learning easier, deeper, and faster.</p>\n<p>What streaming services have done for audio entertainment, we're doing for audio information. And whatever we're doing seems to be working. We're #1 in our category, and experiencing exponential growth.</p>\n<p><strong>Overview</strong></p>\n<p data-speechify-sentence=\"\">We're looking for a Senior Software Engineer to join our Core Experiences Team. This team builds and maintains the foundational services and SDKs that power Speechify's product experience across platforms. It's a critical role for someone who enjoys working at the intersection of product and infrastructure, thinks strategically, and is passionate about designing clear, reliable APIs and simple systems that directly enhance the user experience.</p>\n<p><strong>What Yo</strong><strong>u'</strong><strong>ll Do</strong></p>\n<ul>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Collaborate with Speechify's Product Teams to scope projects, find ways to reduce scope to get faster feedback from customers, navigate the integration/UX tradeoffs relevant to different product teams, and deliver solutions via our cross-platform SDK</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Optimize existing functionality to ship things like faster loading and more intelligent parsing by designing more efficient abstractions and improving our algorithms</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Ship cloud functions, lightweight backend services, and jobs using Kotlin</li>\n</ul>\n<p><strong>An Ideal Candidate Should Have</strong></p>\n<ul>\n<li>Systems thinking. You know that optimizing a system requires end-to-end design, and you believe simplicity is valuable.</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Speed. You work quickly to generate ideas and options and know how to decide which things can ship now and what things need time</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Focus. We're a high-growth startup with a busy, remote team. You know how and when to engage or be heads down</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Collaboration. You know how to inspire, play, and negotiate with opinionated designers, marketers, and PMs</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Preferred Tech Stack:\n<ul>\n<li data-stringify-indent=\"1\" data-stringify-border=\"0\">Kotlin Multiplatform (Java experience is OK but role is Kotlin Multiplatform)&nbsp;</li>\n<li data-stringify-indent=\"1\" data-stringify-border=\"0\">Prior experience with GCP is a plus</li>\n</ul>\n</li>\n</ul>\n<p data-speechify-sentence=\"\"><strong>What We Offer </strong></p>\n<ul>\n<li>A fast-growing environment where you can hel",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1782333931",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-25T02:32:19.830050+00:00",
+    "salary_parsed": null,
+    "score": 55,
+    "matched_keywords": [
+      "software engineer",
+      "api",
+      "startup"
+    ],
+    "remote": true
+  },
+  {
+    "id": "718ff3ac5e3c",
+    "title": "Senior Software Engineer, Core Experiences - Hamburg, Germany",
+    "company": "Speechify",
+    "location": "Hamburg, Hamburg, Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/speechify/senior-software-engineer-core-experiences-hamburg-germany-432623",
+    "description": "<p><strong>Mission</strong></p>\n<p><strong>Speechify is the easiest way to listen to the world's information.</strong> Articles on the web, documents in the cloud, books on your phone. We absorb it all and let you listen to it at your desk, on the go, at your own speed, and with tools that make learning easier, deeper, and faster.</p>\n<p>What streaming services have done for audio entertainment, we're doing for audio information. And whatever we're doing seems to be working. We're #1 in our category, and experiencing exponential growth.</p>\n<p><strong>Overview</strong></p>\n<p data-speechify-sentence=\"\">We're looking for a Senior Software Engineer to join our Core Experiences Team. This team builds and maintains the foundational services and SDKs that power Speechify's product experience across platforms. It's a critical role for someone who enjoys working at the intersection of product and infrastructure, thinks strategically, and is passionate about designing clear, reliable APIs and simple systems that directly enhance the user experience.</p>\n<p><strong>What Yo</strong><strong>u'</strong><strong>ll Do</strong></p>\n<ul>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Collaborate with Speechify's Product Teams to scope projects, find ways to reduce scope to get faster feedback from customers, navigate the integration/UX tradeoffs relevant to different product teams, and deliver solutions via our cross-platform SDK</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Optimize existing functionality to ship things like faster loading and more intelligent parsing by designing more efficient abstractions and improving our algorithms</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Ship cloud functions, lightweight backend services, and jobs using Kotlin</li>\n</ul>\n<p><strong>An Ideal Candidate Should Have</strong></p>\n<ul>\n<li>Systems thinking. You know that optimizing a system requires end-to-end design, and you believe simplicity is valuable.</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Speed. You work quickly to generate ideas and options and know how to decide which things can ship now and what things need time</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Focus. We're a high-growth startup with a busy, remote team. You know how and when to engage or be heads down</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Collaboration. You know how to inspire, play, and negotiate with opinionated designers, marketers, and PMs</li>\n<li data-stringify-indent=\"0\" data-stringify-border=\"0\">Preferred Tech Stack:\n<ul>\n<li data-stringify-indent=\"1\" data-stringify-border=\"0\">Kotlin Multiplatform (Java experience is OK but role is Kotlin Multiplatform)&nbsp;</li>\n<li data-stringify-indent=\"1\" data-stringify-border=\"0\">Prior experience with GCP is a plus</li>\n</ul>\n</li>\n</ul>\n<p data-speechify-sentence=\"\"><strong>What We Offer </strong></p>\n<ul>\n<li>A fast-growing environment where you can hel",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1782333931",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-25T02:32:19.830057+00:00",
+    "salary_parsed": null,
+    "score": 55,
+    "matched_keywords": [
+      "software engineer",
+      "api",
+      "startup"
+    ],
+    "remote": true
+  },
+  {
     "id": "a6494899b264",
     "title": "Database Platform Engineer (all genders)",
     "company": "Accenture",
@@ -2423,27 +2539,6 @@
     "matched_keywords": [
       "aws",
       "kubernetes"
-    ],
-    "remote": true
-  },
-  {
-    "id": "b15ef103d60a",
-    "title": "Business Analyst Wertpapierprojekte (m/w/d)",
-    "company": "finwyz GmbH",
-    "location": "Cologne",
-    "url": "https://www.arbeitnow.com/jobs/companies/finwyz-gmbh/business-analyst-wertpapierprojekte-cologne-393269",
-    "description": "<p><strong>Unternehmensbeschreibung</strong></p>\n<p><strong><em>banking beyond the hype</em></strong> - Wir \u00fcbersetzen relevante Bankingtrends und Kundenerwartungen in digitale L\u00f6sungen. Mit durchschnittlich \u00fcber 15 Jahren Branchenerfahrung verstehen wir die Herausforderungen der Finanzindustrie und erreichen Erl\u00f6ssteigerungen und Effizienzgewinne.</p>\n<p>Unsere Firmenkultur basiert auf flachen Hierarchien, eigenverantwortlichem Arbeiten und Mitgestaltung.</p>\n<h2>Aufgaben</h2>\n<p><strong>Dein Aufgabengebiet</strong></p>\n<ul>\n<li>Spannende Projekte bei namhaften Banken</li>\n<li>Beratung und Unterst\u00fctzung unserer Kunden in agilen IT-Projekten</li>\n<li>Analyse von Gesch\u00e4ftsprozessen, Identifizierung von Optimierungspotenzialen und Entwicklung innovativer L\u00f6sungen</li>\n<li>Konzeption von Kundenanwendungen (User Stories), Planung und Durchf\u00fchrung von Projekten</li>\n<li>Einbindung in Projekt-Teams unserer Kunden: Projektstandort Frankfurt am Main, 2 Tage pro Woche vor Ort beim Kunden, ansonsten remote</li>\n</ul>\n<h2>Qualifikation</h2>\n<p><strong>Dein Profil</strong></p>\n<ul>\n<li>Mindestens 2 Jahre Berufs- und Projekterfahrung in IT-Projekten f\u00fcr Banken, Asset Manager oder Fintechs</li>\n<li>sehr gute Kenntnisse der Wertpapierangebote und -prozesse</li>\n<li>sehr gute Methodenkenntnisse, Fokus agile Development</li>\n<li>Starke Kommunikations- und Pr\u00e4sentationsf\u00e4higkeiten \u2013 auf Augenh\u00f6he mit Fach- und IT-Seite</li>\n<li>Teamf\u00e4hig, kundenorientiert und bereit, in einer Boutique-Beratung nicht nur Projekte zu gestalten, sondern das Unternehmen aktiv mit zu entwickeln</li>\n<li>Sehr gute Deutsch- (mindestens C1-Nievau) und gute Englischkenntnisse in Wort und Schrift</li>\n</ul>\n<h2>Benefits</h2>\n<p><strong>Worauf Du Dich freuen kannst</strong></p>\n<ul>\n<li>Spannende, abwechslungsreiche und herausfordernde Projekte</li>\n<li>Unternehmensbonus und VSOP-Programm, Deutschlandticket und Bahncard 50</li>\n<li>modernes und digitales Arbeiten: geringer Anteil an vor-Ort-Eins\u00e4tzen bei unseren Kunden, flexible Arbeitszeiten, mobiles Arbeiten (zuhause oder international in der MESZ- Zeitzone)</li>\n<li>Flache Hierarchien und Mitgestaltung unseres Unternehmens</li>\n<li>Ein motiviertes Team von Experten mit einer offenen und kollegialen Arbeitsatmosph\u00e4re</li>\n<li>Gezielte Weiterentwicklungsm\u00f6glichkeiten und individuelle Karrieref\u00f6rderung</li>\n<li>Eine Unternehmenskultur, die Nachhaltigkeit und soziale Verantwortung betont</li>\n</ul>\n<p>Wir freuen uns auf deine Bewerbung!</p>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Remote Business Analyst",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781103638",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-10T20:14:47.420805+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "api"
     ],
     "remote": true
   },
@@ -3684,63 +3779,6 @@
     "matched_keywords": [
       "saas"
     ],
-    "remote": true
-  },
-  {
-    "id": "de304a89cbef",
-    "title": "Senior Berater SAP-Basis",
-    "company": "Contis GmbH",
-    "location": "Nuremberg",
-    "url": "https://www.arbeitnow.com/jobs/companies/contis-gmbh/senior-berater-sap-basis-nuremberg-164893",
-    "description": "<p>Seit unserer Gr\u00fcndung 2011 in N\u00fcrnberg schl\u00e4gt unser Herz f\u00fcr die SAP-Basis und IT-Security. Heute sind wir ein starkes Team aus \u00fcber 40 Beratern, die eines verbindet: Die Lust auf pragmatische L\u00f6sungen, echte Qualit\u00e4t und ein Arbeiten ohne starre Hierarchien.</p>\n<p>Dass wir wissen, wo es langgeht, zeigen nicht nur unsere Top-Zertifizierungen (wie <em>SAP Certified in HANA operations &#x26; RISE with SAP</em> oder der <em>SUSE Emerald Partnerstatus</em>), sondern vor allem unser Umgang miteinander. Bei uns erwarten dich gelebte Zuverl\u00e4ssigkeit, ein l\u00f6sungsorientiertes Umfeld und Kollegen, auf die du dich r\u00fcckhaltlos verlassen kannst.</p>\n<p>Du suchst einen sicheren Hafen mit klarer Orientierung und spannenden Projekten? Willkommen im Team!</p>\n<h2>Aufgaben</h2>\n<ul>\n<li><strong>Projektleitung:</strong> Du \u00fcbernimmst die Leitung von SAP\u00ae Einf\u00fchrungs- und Migrationsprojekten, indem Du f\u00fcr die \u00dcberwachung dieser Projekte verantwortlich bist.</li>\n<li><strong>Optimierung:</strong> Du bist unter anderem verantwortlich f\u00fcr die nachhaltige Optimierung bestehender SAP-Systemlandschaften.</li>\n<li><strong>Konzeption:</strong> Konzeption und Aufbau von SAP Systemlandschaften.</li>\n<li><strong>Migration:</strong> Planung/ Durchf\u00fchrung technischer Migrationen im SAP Umfeld.</li>\n<li><strong>Updates:</strong> Umsetzung von Release-Wechseln und Implementierung von SAP Patches.</li>\n<li><strong>Optimierung:</strong> Optimierung von bestehenden Systemlandschaften (unabh\u00e4ngig von DB und OS).</li>\n<li><strong>Installation:</strong> Sizing und Installation von SAP Landschaften bei Hyperscalern, z.\u202fB. MS Azure.</li>\n<li><strong>Integration:</strong> Anbindung SAP Cloud-L\u00f6sungen.</li>\n<li><strong>Administration:</strong> Monitoring und (Remote-) Administration der SAP Systemlandschaften bestehender Managed Service Kunden.</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li><strong>Erfahrung:</strong> Praxiserfahrung im Bereich SAP Basis.</li>\n<li><strong>Eigeninitiative:</strong> Eigeninitiative und motiviert, Verantwortung zu \u00fcbernehmen.</li>\n<li><strong>Kundenorientierung:</strong> Du freust dich auf die direkte Kommunikation mit dem Kunden, in der Du die Kundenbed\u00fcrfnisse aufnimmst und gezielte Herangehensweisen und L\u00f6sungen abstimmst.</li>\n<li><strong>Weiterentwicklung:</strong> Du solltest motiviert sein, dich mit unserem Team stetig weiterzubilden, um Deine pers\u00f6nlichen F\u00e4higkeiten auszubauen. Wir unterst\u00fctzen Dich tatkr\u00e4ftig dabei und f\u00f6rdern Dich, wo wir k\u00f6nnen.</li>\n<li><strong>Teamf\u00e4higkeit:</strong> Das gemeinsame Gelingen unserer Leistungen steht f\u00fcr Dich an erster Stelle. Wir sind ein exzellent abgestimmtes und eingespieltes Team und sch\u00e4tzen uns gegenseitig wert.</li>\n<li><strong>Ausbildung:</strong> W\u00fcnschenswert ist eine erfolgreich abgeschlossene Ausbildung im Bereich IT.</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li><strong>Freie Ortswahl:</strong> Arbeite mobil von wo du willst, wann immer du nicht gerade beim Kunden vor Ort gebraucht wirst.</li>\n<li><strong>Ga",
-    "tags": "SAP/ERP Consulting Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781107237",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-10T20:14:47.420764+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "47f4567aa624",
-    "title": "Team Lead IT Security (m/w/d)",
-    "company": "visionm GmbH - part of Talentor (vormals Kaiser St\u00e4hler Rekrutierungsberatung)",
-    "location": "Mainz",
-    "url": "https://www.arbeitnow.com/jobs/companies/visionm-gmbh-part-of-talentor-vormals-kaiser-stahler-rekrutierungsberatung/team-lead-it-security-mainz-423344",
-    "description": "<p>Sie sind Experte in der IT-Sicherheit kritischer Infrastrukturen und m\u00f6chten sich in einem sinnstiftenden Umfeld einbringen und weiterentwickeln? Dann haben wir die passende Herausforderung f\u00fcr Sie.</p>\n<p>Als Team Lead IT\u2011Security (m/w/d) \u00fcbernehmen Sie eine Schl\u00fcsselrolle in der Absicherung der hochkritischen IT\u2011Infrastruktur eines renommierten Universit\u00e4tsklinikums. Sie sorgen daf\u00fcr, dass moderne Medizin, Forschung und Versorgung jederzeit sicher und stabil funktionieren \u2013 Cybersecurity im Gesundheitswesen bedeutet mehr als IT-Schutz: Sie sch\u00fctzen Menschen.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Fachliche Leitung und Weiterentwicklung des Teams IT\u2011Sicherheit sowie entsprechender Strukturen und Prozesse</li>\n<li>Verantwortung f\u00fcr den stabilen und sicheren Betrieb komplexer IT-Security-Systeme</li>\n<li>Entwicklung und Umsetzung der operativen IT-Sicherheitsstrategie</li>\n<li>Steuerung aller Ma\u00dfnahmen bei Sicherheitsvorf\u00e4llen (Incident Response)</li>\n<li>Koordination und Steuerung externer Dienstleister im Security-Umfeld</li>\n<li>Enge Zusammenarbeit mit internen Stakeholdern (IT, Medizintechnik, Management)</li>\n<li>Erstellung und Pr\u00e4sentation von Reports zur Sicherheitslage f\u00fcr relevante Entscheidungstr\u00e4ger</li>\n<li>Beratung der Fachbereiche zur Einhaltung von gesetzlichen Vorgaben und Sicherheitsstandards</li>\n<li>Beobachtung von Markt- und Technologietrends sowie Integration relevanter Innovationen</li>\n<li>Einbindung im operativen Tagesgesch\u00e4ft, v.a. in den Bereichen Firewall-Infrastruktur, Nessus, Vectra NDR oder auch SIEM</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Abgeschlossenes Studium der Informatik oder vergleichbare Ausbildung/Qualifikation</li>\n<li>Mehrj\u00e4hrige Erfahrung in der Konzeption und dem Betrieb komplexer IT-Sicherheitsl\u00f6sungen</li>\n<li>Erste F\u00fchrungserfahrung oder ausgepr\u00e4gtes Leadership-Potenzial</li>\n<li>Fundierte Kenntnisse in Sicherheits\u00fcberpr\u00fcfungen und Penetrationstests</li>\n<li>Erfahrung mit Compliance-Anforderungen in einem KRITIS-Umfeld (idealerweise im Gesundheitswesen) und BSI-Grundschutz.</li>\n<li>Kenntnisse in den Bereichen Fortinet, Vectra AI, Nessus und SIEM/SOC sind ein gro\u00dfes Plus</li>\n<li>Hohe analytische F\u00e4higkeiten und Probleml\u00f6sungskompetenz, sowie ausgepr\u00e4gte Hands-On-Mentalit\u00e4t</li>\n<li>Kommunikationsst\u00e4rke, Durchsetzungsverm\u00f6gen und strategisches Denken</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Ein sicherer Arbeitsplatz mit strukturierter Einarbeitung</li>\n<li>Verg\u00fctung gem\u00e4\u00df Haustarif entsprechend Ihrer Qualifikation sowie zus\u00e4tzliche Altersversorgung und Sozialleistungen</li>\n<li>Zahlreiche Mitarbeiterangebote wie z.B. Deutschland-Jobticket, Fahrradleasing und Teilnahme an Vorteilsprogrammen</li>\n<li>Kinderbetreuungsm\u00f6glichkeiten, sofern Pl\u00e4tze frei</li>\n<li>Gute Verkehrsanbindung und Option auf Remote Work Option (2 Tage / Woche)</li>\n</ul>\n<p>F\u00fcr weitere Fragen stehen Ihnen Jana Schaadt (06174-619-320) oder Jochen Markgraf (06174-9619-230) gerne zur Verf\u00fcgung.</p>\n<p>Find more <a href=\"https://www.arbeitno",
-    "tags": "IT Security",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781103638",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-10T20:14:47.420795+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "9d75f4753665",
-    "title": "Werkstudent HR im Bereich People Development (all genders)",
-    "company": "AdEx Beratungs GmbH",
-    "location": "Hamburg",
-    "url": "https://www.arbeitnow.com/jobs/companies/adex-beratungs-gmbh/werkstudent-hr-im-bereich-people-development-all-genders-hamburg-336649",
-    "description": "<p><strong>WIR SIND\u2026</strong></p>\n<p>AdEx Partners ist ein eingeschworenes Team erfahrener Beraterinnen und Berater. Wir begleiten unsere Kunden bei ihren komplexen <strong>Business Transformationen</strong> rund um Digitalisierung und IT.</p>\n<p>Als <strong>Trusted Advisors</strong> sind wir kein Dienstleister unter vielen. Wir stehen unseren Kunden als zuverl\u00e4ssiger Partner zur Seite.</p>\n<p>Mit unserem klaren Fokus auf Wirksamkeit und einem <strong>ganzheitlichen Transformationsansatz</strong> liefern wir, was wir versprechen.</p>\n<h2>Aufgaben</h2>\n<p><strong>WIR SUCHEN\u2026</strong></p>\n<p>ab dem 01.09.2026 einen <strong>Werkstudenten im Bereich People Development (all genders) f\u00fcr 20 Stunden pro Woche</strong> als Unterst\u00fctzung f\u00fcr unser Team in den folgenden Aufgaben:</p>\n<ul>\n<li>Organisation und Administration von <strong>Trainings und Onboarding Days</strong></li>\n<li>Mitwirkung bei <strong>konzeptionellen Themen</strong> im Bereich People Development</li>\n<li>Pflege und Aktualisierung des <strong>HR-Intranets</strong></li>\n<li>Anwendung von <strong>modernen Trends und Technologien</strong> im HR-Bereich, insbesondere der Einsatz von <strong>k\u00fcnstlicher Intelligenz</strong></li>\n</ul>\n<h2>Qualifikation</h2>\n<p><strong>DAS BRINGST DU MIT\u2026</strong></p>\n<p>Leidenschaft und Begeisterung sind f\u00fcr uns wichtiger als Zertifikate oder Zeugnisse, aber folgende F\u00e4higkeiten tragen dazu bei, dass Du bei uns erfolgreich wirst:</p>\n<ul>\n<li><strong>Eingeschrieben</strong> an einer <strong>deutschen Hochschule</strong> im fortgeschrittenen Bachelor- oder Beginn des Masterstudiums mit Inhalten der Personalarbeit, bspw. Wirtschaftspsychologie</li>\n<li><strong>Idealerweise erste Erfahrungen</strong> in der Personalentwicklung oder dem HR Bereich durch Praktika, Uni-Projekte oder \u00e4hnliches</li>\n<li><strong>Arbeitserfahrung</strong> mit g\u00e4ngiger HR-Software ist von Vorteil</li>\n<li>Interesse und Verf\u00fcgbarkeit f\u00fcr eine <strong>l\u00e4ngere Zusammenarbeit</strong> (mindestens 1 Jahr)</li>\n<li>Sehr gute <strong>MS-Office-Kenntnisse</strong> (insbesondere Excel, PowerPoint und Word)</li>\n<li><strong>Eigenst\u00e4ndige und selbstorganisierte</strong> Arbeitsweise, auch in einem virtuellen Umfeld</li>\n<li>Sehr gute <strong>Deutsch- und Englischkenntnisse</strong> in Wort und Schrift</li>\n</ul>\n<h2>Benefits</h2>\n<p><strong>UNSER ANGEBOT\u2026</strong></p>\n<p>Neben spannenden Projekten in der Weiterentwicklung bieten wir unseren Werkstudierenden noch eine Vielzahl weiterer Benefits, wie z.B.:</p>\n<ul>\n<li>Junge, <strong>agile Mitmach-Company</strong> mit einem gro\u00dfen Gestaltungsspielraum und <strong>flachen Hierarchien</strong></li>\n<li><strong>Umf\u00e4ngliche und praxisnahe</strong> Einblicke in die Arbeit einer \u00fcberwiegend virtuell aufgestellten Firma</li>\n<li><strong>Flexible Arbeitszeiten</strong> und <strong>Digital Workplace</strong> (inkl. Firmen Laptop), um Studium und Werkstudentent\u00e4tigkeit optimal zu vereinen</li>\n<li>Fitness mit <strong>EGYM</strong> Wellpass</li>\n<li>Regelm\u00e4\u00dfi",
-    "tags": "Remote HR",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781100038",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-10T20:14:47.420873+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
     "remote": true
   },
   {
