@@ -43,27 +43,6 @@
     "remote": true
   },
   {
-    "id": "jobot_f0b0b05206",
-    "title": "Senior Software Engineer (LTI/LMS Integrations, Scala)\n$150,000 - $190,000Raleigh, NC +1 Remote\nFully remote, well-funded AI shop. 0 to 1 build, excellent benefits, stable environment!",
-    "company": "Unknown",
-    "location": "Remote",
-    "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=f0b0b05206",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "",
-    "source": "jobot",
-    "status": "approved",
-    "found_at": "2026-06-11T20:11:27.463287+00:00",
-    "salary_parsed": 150000,
-    "score": 75,
-    "matched_keywords": [
-      "software engineer"
-    ],
-    "remote": true
-  },
-  {
     "id": "jobot_3d59c05906",
     "title": "REMOTE Staff Software Engineer\n$170,000 - $205,000Charlotte, NC Remote\nA growing company with great benefits in a start-up environment.",
     "company": "Unknown",
@@ -142,6 +121,27 @@
     "status": "approved",
     "found_at": "2026-06-24T14:10:12.154930+00:00",
     "salary_parsed": 160000,
+    "score": 75,
+    "matched_keywords": [
+      "software engineer"
+    ],
+    "remote": true
+  },
+  {
+    "id": "jobot_f0b0b05206",
+    "title": "Senior Software Engineer (LTI/LMS Integrations, Scala)\n$150,000 - $190,000Raleigh, NC +1 Remote\nFully remote, well-funded AI shop. 0 to 1 build, excellent benefits, stable environment!",
+    "company": "Unknown",
+    "location": "Remote",
+    "description": "",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=f0b0b05206",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "",
+    "source": "jobot",
+    "status": "approved",
+    "found_at": "2026-06-26T02:34:36.780197+00:00",
+    "salary_parsed": 150000,
     "score": 75,
     "matched_keywords": [
       "software engineer"
@@ -249,31 +249,6 @@
     "salary_parsed": 150000,
     "score": 70,
     "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "3748126f7c40",
-    "title": "Senior Java Software Engineer (m/w/d)",
-    "company": "CPU Consulting & Software GmbH",
-    "location": "M\u00fcnster",
-    "url": "https://www.arbeitnow.com/jobs/companies/cpu-consulting-software-gmbh/senior-java-software-engineer-munster-282088",
-    "description": "<p><strong>Deine Rolle</strong></p>\n<p>Du bist erfahrener Java Software Engineer (m/w/d) und f\u00fchlst dich in <strong>komplexen Bankenanwendungen und Bestandsanwendungen</strong> zuhause?</p>\n<p>Du arbeitest strukturiert, \u00fcbernimmst Verantwortung und baust dir Wissen in <strong>bestehenden Systemlandschaften</strong> selbstst\u00e4ndig auf?</p>\n<p>Der Schwerpunkt deiner Arbeit liegt in der <strong>Stabilisierung, Wartung und Analyse produktiver Anwendungen</strong>, inklusive der Bearbeitung von Incidents und Changes?</p>\n<p>Du m\u00f6chtest dein technisches Know-how in einem <strong>regulierten Bankenumfeld</strong> einbringen und dabei \u00fcberwiegend remote arbeiten?</p>\n<p>Dann bist du bei uns genau richtig!</p>\n<p><strong>\u00dcber uns</strong></p>\n<p>Die <strong>CPU Consulting &#x26; Software GmbH</strong> ist im Bereich Professional Services seit mehr als vier Jahrzehnten als erfolgreicher <strong>IT-Dienstleister</strong> im <strong>Bankenumfeld</strong> t\u00e4tig. Als Tochterunternehmen der CPU Gruppe richten wir unsere Kompetenzen auf die <strong>erfolgreiche Umsetzung von Softwareprojekten unserer Kunden vor Ort</strong> aus.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Bearbeitung von <strong>Incidents, Changes und Tickets</strong> in bestehenden Bankanwendungen</li>\n<li>Analyse, Bewertung und Behebung von Fehlern in <strong>Java-basierten Bestandsanwendungen</strong></li>\n<li>Wartung, Pflege und gezielte Weiterentwicklung mehrerer produktiver Systeme</li>\n<li>Umsetzung technischer Anforderungen unter Ber\u00fccksichtigung regulatorischer Vorgaben</li>\n<li>Durchf\u00fchrung von Entwickler- und Integrationstests sowie \u00dcbergabe an nachgelagerte Teststufen</li>\n<li>Dokumentation von Arbeitsergebnissen und technischen Sachverhalten in <strong>Jira und Confluence</strong></li>\n<li>Mitarbeit in einem agilen, cross-funktionalen Projektteam</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Mehrj\u00e4hrige Berufserfahrung als <strong>Java Software Engineer</strong>, idealerweise auf Senior-Level</li>\n<li>Sehr gute Kenntnisse in <strong>Java</strong>, <strong>Spring Boot</strong> sowie <strong>JPA/Hibernate</strong></li>\n<li>Erfahrung im Umgang mit <strong>relationalen Datenbanken</strong> (z. B. Oracle, DB2, PostgreSQL)</li>\n<li>Sicherer Umgang mit <strong>Git</strong>, <strong>Jira</strong> und <strong>Confluence</strong></li>\n<li>Erfahrung im <strong>Wartungs-, Incident- oder Ticketumfeld</strong> produktiver Anwendungen</li>\n<li>Gute Kenntnisse in <strong>REST APIs</strong> sowie in der Analyse komplexer technischer Zusammenh\u00e4nge</li>\n<li>Idealerweise erste Ber\u00fchrungspunkte mit <strong>Frontend-Technologien</strong> (z. B. Angular / Angular Material)</li>\n<li>Kenntnisse in <strong>event- oder serviceorientierten Architekturen</strong> (z. B. Kafka) sowie in <strong>CI/CD- oder Container-Umgebungen</strong> (Docker, OpenShift, Kubernetes) von Vorteil</li>\n<li>Erfahrung im <strong>Banken- oder Finanzdienstleistungsumfeld</strong> w\u00fcnschenswert</li>\n<li>Strukturierte, selbstst\u00e4ndige und zuverl\u00e4ssige Ar",
-    "tags": "Remote Software Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781191870",
-    "source": "arbeitnow",
-    "status": "approved",
-    "found_at": "2026-06-11T20:11:18.654216+00:00",
-    "salary_parsed": null,
-    "score": 65,
-    "matched_keywords": [
-      "software engineer",
-      "postgresql",
-      "docker",
-      "kubernetes",
-      "api"
-    ],
     "remote": true
   },
   {
@@ -1857,28 +1832,6 @@
     "remote": true
   },
   {
-    "id": "25b7717ec31b",
-    "title": "Business Transformation Lead",
-    "company": "Expion Health",
-    "location": "USA",
-    "url": "https://remotive.com/remote-jobs/artificial-intelligence/business-transformation-lead-2090881",
-    "description": "<p><strong>Title</strong>: Business Transformation Lead</p>\n<p><strong>Location</strong>: Fully Remote</p>\n<p><strong>Reports To</strong>: President, Service &amp; Growth</p>\n<p>\u00a0</p>\n<p>Expion Health is building the future of pharmacy economics. As architects of prescription economics, we design how pharmacy value is created, aligning cost, clinical decisions, and performance into one accountable system that moves beyond rebates. We help organizations stay ahead of pharmacy market change with clear insight, bold thinking, and strategies built for what's next-leading the next era of prescription economics.</p>\n<p>\u00a0</p>\n<p><strong>The Role</strong></p>\n<p>As our <strong>Business Transformation Lead</strong>, you'll be the architect and driver of how we embed AI into the way every team in our company works. This isn't a slide-deck strategy role. You'll be on the ground with department leaders, identifying real workflow opportunities, turning them into real solutions, and building the internal capability that makes the transformation stick.</p>\n<p>\u00a0</p>\n<p>You'll lead our AI Champions program, partner directly with executive leadership, and own the roadmap that takes Expion Health from an organization that uses AI tools to one that runs on AI intelligence. If you've spent time figuring out how to make AI work in the real world - not just in theory - and you want to do it at a company that's fast, innovative, and genuinely committed to this, this role was built for you.</p>\n<p>\u00a0</p>\n<p><strong>What You'll Own</strong></p>\n<p>\u00a0</p>\n<ul style=\"\">\n<li style=\"\"><strong>Drive Transformation (65%)</strong></li>\n<ul style=\"\">\n<li style=\"\">Own the AI transformation roadmap end-to-end - from strategy to execution - and keep it moving in a fast-paced environment</li>\n<li style=\"\">Run discovery sessions with department leaders across Sales, Client Management, Clinical, Finance, Operations, IT, and Trade to surface high-impact AI opportunities</li>\n<li style=\"\">Design and lead our AI Champions program - recruiting, training, and developing a network of department-level AI advocates across the organization</li>\n<li style=\"\">Build and deliver role-based AI learning pathways tailored to the specific needs of each department</li>\n<li style=\"\">Partner with the executive team to ensure AI initiatives are prioritized, resourced, and connected to business outcomes</li>\n<li style=\"\">Coordinate with IT and your AI Solutions Builders on initiatives that grow beyond departmental scope into broader technical implementations</li>\n<li style=\"\">Track and communicate progress against transformation milestones - keeping leadership informed and the organization energized</li>\n</ul>\n<li style=\"\"><strong>Build Capability &amp; Culture (20%)</strong></li>\n<ul style=\"\">\n<li style=\"\">Champion a culture of curiosity, experimentation, and continuous improvement around AI - modeling the behavior you want to see</li>\n<li style=\"\">Develop internal AI literacy programs and educational resour",
-    "tags": "api AI/ML automation healthcare spark startup infrastructure insurance",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "2026-05-13T06:46:26",
-    "source": "remotive",
-    "status": "new",
-    "found_at": "2026-06-11T20:11:18.374573+00:00",
-    "salary_parsed": null,
-    "score": 50,
-    "matched_keywords": [
-      "api",
-      "startup"
-    ],
-    "remote": true
-  },
-  {
     "id": "d9eeeb568c33",
     "title": "(Senior) IT- / Solution Architect (m/w/d) - Consulting",
     "company": "EWERK GROUP",
@@ -2447,48 +2400,6 @@
     "matched_keywords": [
       "python",
       "aws"
-    ],
-    "remote": true
-  },
-  {
-    "id": "2262f275adc1",
-    "title": "Freelance Senior AI Engineer | Multi-agent systems",
-    "company": "Zapdeck",
-    "location": "Berlin",
-    "url": "https://www.arbeitnow.com/jobs/companies/zapdeck/freelance-senior-ai-engineer-multi-agent-systems-berlin-438081",
-    "description": "<p>If you're excited about building real-world AI products at the forefront of generative AI, this role is for you.</p>\n<p>Zapdeck is one of the leading AI platforms for professional presentation creation. We help teams transform ideas into high-quality, on-brand presentations in minutes instead of hours.</p>\n<p>As a freelance contributor, you will help build and scale the core AI systems behind the product. You'll work on advanced agentic workflows, LLM orchestration, retrieval systems, and AI infrastructure that directly powers customer-facing features used every day by professionals around the world.</p>\n<p>We already work with global enterprises and some of the most exciting companies across industries, helping their employees create presentations more efficiently. At the same time, we're pushing the boundaries of what's possible in AI-powered presentation creation \u2013 developing innovative technologies that generate higher-quality content and increasingly sophisticated slide layouts with exceptional speed.</p>\n<p>You'll collaborate closely with an experienced founding team and have significant ownership over the systems you build. If you enjoy solving challenging AI problems and shipping products that create real value for customers, you'll feel right at home at Zapdeck.</p>\n<h2>Tasks</h2>\n<ul>\n<li><strong>Build and scale AI systems:</strong> Design, implement, and optimize core components of our agentic AI architecture with a focus on performance and reliability</li>\n<li><strong>Develop agentic workflows:</strong> Build on multi-agent systems using LLMs, orchestration frameworks (LangGraph), RAG, and context engineering</li>\n<li><strong>Ship advanced AI features:</strong> Develop innovative capabilities such as layout optimization, structured reasoning flows, and multimodal workflows</li>\n<li><strong>Contribute to product evolution:</strong> Collaborate closely with product and engineering teams to shape features through experimentation and rapid iteration</li>\n<li><strong>Drive continuous improvement:</strong> Help refine best practices for evaluation, deployment, monitoring, and scaling of AI systems in production</li>\n</ul>\n<h2>Requirements</h2>\n<p><strong>Professional requirements</strong></p>\n<ul>\n<li>Entrepreneurial mindset with strong ownership, creative thinking, and a pragmatic approach to building and shipping solutions quickly</li>\n<li>At least 2 years of experience building production-grade AI systems, with a strong focus on Large Language Models</li>\n<li>Proven experience designing and delivering agentic architectures and multi-step reasoning pipelines</li>\n<li>Hands-on experience with orchestration frameworks such as LangGraph and retrieval systems (RAG/REC)</li>\n<li>Strong understanding of prompt engineering, evaluation strategies, and LLM reliability optimization</li>\n<li>Bonus: Experience with fine-tuning LLMs or working with multimodal / visual AI models</li>\n</ul>\n<p><strong>Other requirements</strong></p>\n<ul>\n<li>Fluency ",
-    "tags": "Remote Software Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781200836",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-11T20:11:18.654143+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "api"
-    ],
-    "remote": true
-  },
-  {
-    "id": "d555bbf57eb5",
-    "title": "Senior Creative Concept/Copy (Social) (gn)",
-    "company": "Intermate Media GmbH",
-    "location": "Berlin",
-    "url": "https://www.arbeitnow.com/jobs/companies/intermate-media-gmbh/senior-creative-concept-copy-social-gn-berlin-278217",
-    "description": "<h2>Jobbeschreibung</h2>\n<h2>Intermate x SAMY \u2013 Shaping the State of Social</h2>\n<p>Intermate geh\u00f6rt zu den gr\u00f6\u00dften Social-Media- und Influencer-Agenturen im DACH-Raum. Mit mehr als 250 Mates in Berlin, Hamburg, K\u00f6ln und Remote entwickeln wir Social-First-Strategien, produzieren Content in eigenen Studios, arbeiten eng mit Creator:innen zusammen und steuern Kampagnen datengetrieben \u00fcber unsere eigene Technologie. Unsere Kund:innen sind einige der bekanntesten Marken der Welt \u2013 von Lifestyle \u00fcber FMCG bis hin zu Tech.</p>\n<p>Als Teil von SAMY, einem globalen Agenturnetzwerk f\u00fcr Social Media und Creator Marketing, sind wir mit \u00fcber 970 Expert:innen an 20 Standorten vernetzt. Das er\u00f6ffnet internationale Perspektiven, Projekte in rund 55 M\u00e4rkten und die M\u00f6glichkeit, dich weit \u00fcber L\u00e4ndergrenzen hinweg weiterzuentwickeln.</p>\n<p>\ud83d\udca1 \ud83d\udc49 Hinweis: Unser Bewerbungsprozess wird teilweise von einem KI-gest\u00fctzten Assistenten begleitet, der das erste Kennenlerngespr\u00e4ch f\u00fchrt. Weitere Informationen erh\u00e4ltst du im Verlauf deiner Bewerbung.</p>\n<h2>WAS DU MACHST</h2>\n<ul>\n<li>Du bist nicht einfach nur Copywriter:in \u2013 du l\u00e4sst Briefs zu Big-Ideas werden. Denkst nicht in Postings, sondern in kreativen Welten. Von der ersten Idee bis zum finalen Feinkonzept entwickelst du eigenst\u00e4ndig und in Absprache mit deinem Creative-Lead Social-Kampagnen f\u00fcr einen unserer Hero-Accounts: durchdacht, plattform-gerecht und im Idealfall mit Award-Potenzial.</li>\n<li>Du bringst deine Ideen eigenst\u00e4ndig in Pr\u00e4sentationsform und bist in der Lage, sie vor Kunden sowie Stakeholdern zu pr\u00e4sentieren.</li>\n<li>Du schreibst starke Skripte f\u00fcr unterschiedlichste Themen und Formate \u2013 und das innerhalb der Brand-Identity</li>\n<li>Du arbeitest eng mit verschiedenen Departments zusammen</li>\n<li>Du bist Sparringspartner:in f\u00fcr Junior- und Mid-Level-Creatives und tr\u00e4gst mit deiner Arbeit zur kreativen Weiterentwicklung des Accounts bei</li>\n</ul>\n<h2>Stellenanforderungen</h2>\n<h2>WAS DU BRAUCHST</h2>\n<ul>\n<li>Mehrj\u00e4hrige Berufserfahrung als Copywriter:in oder Concept Creative \u2013 idealerweise in einer Agentur mit Social-First-Fokus</li>\n<li>Teamgeist und Motivation Ideen sowie Projekte voranzutreiben</li>\n<li>Ein starkes Portfolio, das deine konzeptionelle St\u00e4rke und dein Gesp\u00fcr f\u00fcr Sprache sowie Ideen beweist</li>\n<li>(Klassische) Copywriting-Skills und einen \u00dcberblick dar\u00fcber, wie man auf Social spricht und kommuniziert</li>\n<li>Ein weitreichendes Verst\u00e4ndnis f\u00fcr Markenwelten und die F\u00e4higkeit innerhalb derer \u00fcberzeugenden kreativen Output zu liefern</li>\n</ul>\n<h2></h2>\n<p>WAS WIR DIR BIETEN</p>\n<ul>\n<li><strong>Onboarding &#x26; Support</strong><br>\nNo one likes to be the new kid. Mit strukturiertem Onboarding, einem pers\u00f6nlichen Mate und Zugang zu Lernmaterialien bist du ab Tag eine:r von uns.</li>\n<li><strong>Erstklassige Ausstattung</strong><br>\nCan\u2019t work without my iPhone. Mit MacBook, iPhone und aktueller Apple-Tech arbeitest du flexibel und effizient. Das gilt f\u00fcr unsere Altbau-Offices gen",
-    "tags": "Product Management",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781190033",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-11T20:11:18.654279+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "api"
     ],
     "remote": true
   },
@@ -3774,41 +3685,45 @@
     "remote": true
   },
   {
-    "id": "ec6abef85220",
-    "title": "Working Student HR Operations & Talent (Remote, DE)",
-    "company": "selectry GmbH",
+    "id": "e62156c05381",
+    "title": "(Senior) IoT Cloud Engineer (m/f/d)",
+    "company": "1KOMMA5\u02da",
     "location": "Berlin",
-    "url": "https://www.arbeitnow.com/jobs/companies/selectry-gmbh/working-student-hr-operations-talent-remote-de-berlin-91413",
-    "description": "<p><span style=\"color: #5a5f72\">Join selectry GmbH as a Working Student in HR Operations &amp; Talent. Support our growing, fully remote team with structured documentation, candidate communication, and operational HR processes.</span></p><p style=\";\"></p><p><strong><span style=\"color: #5a5f72\">Responsibilities\u00a0</span></strong></p><ul><li><p><span style=\"color: #5a5f72\">Document and organize HR processes and SOPs\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">Manage contracts and HR documents\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">Coordinate and communicate with candidates, including end-to-end interview scheduling\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">Confidently use MS 365 for daily tasks\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">Support the HR Manager and executive management with operational and coordinative topics\u00a0</span></p></li></ul><br /><br /><p><strong><span style=\"color: #5a5f72\">Must-Have Requirements\u00a0</span></strong></p><ul><li><p><span style=\"color: #5a5f72\">Current enrollment as a student with at least 2 semesters remaining\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">Availability of at least 20 hours per week\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">Business fluent German (C1 or higher)\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">Fluent English (written and spoken)\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">Confident use of MS 365\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">Structured approach to documentation and process organization\u00a0</span></p></li></ul><p style=\";\"></p><p><strong><span style=\"color: #5a5f72\">Nice-to-Have\u00a0</span></strong></p><ul><li><p><span style=\"color: #5a5f72\">Active Sourcing &amp; LinkedIn research (finding and approaching profiles, maintaining pipeline)\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">Experience with ATS, CRM, or document management tools\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">First experience in HR, recruiting, or office operations\u00a0</span></p></li></ul><ul><li><p><span style=\"color: #5a5f72\">Experience with client-facing communication or coordination\u00a0</span></p></li></ul><p style=\";\"></p><p><strong><span style=\"color: #5a5f72\">Location &amp; Work Model\u00a0</span></strong></p><p><span style=\"color: #5a5f72\">Remote within Germany\u00a0 |\u00a0 Part-time (20h/week, flexible around studies \u2014 more possible during semester breaks)\u00a0 |\u00a0 Fixed-term working student contract</span></p><p style=\";\"></p><p><strong><span style=\"color: #5a5f72\">Application Note\u00a0</span></strong></p><p><span style=\"color: #5a5f72\">Please apply with your CV and a brief motivation. Only applications meeting the must-have requirements can be considered.</span></p><p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Recruitment and hr college coursework completed",
+    "url": "https://www.arbeitnow.com/jobs/companies/1komma50/senior-iot-cloud-engineer-berlin-476643",
+    "description": "<h2>1KOMMA5\u00b0</h2>\n<p>At <strong>1KOMMA5\u00b0</strong>, we pursue a clear vision: <strong>Living on wind and sunlight forever for free</strong>. To make this a reality, we are building the energy system of the future with Heartbeat AI. Want to be part of it?</p>\n<p>We bring together regional craftsmanship and scalable software: We don't think of solar, batteries, heat pumps, and e-mobility as isolated components, but control them as an intelligent, integrated overall system in our virtual power plant. Directly connected to the electricity market \u2013 in real time, fully automated. This way, energy is used when it is available from renewables and particularly cost-effective. By 2030, our goal is to transition 1.5 million households to renewable energies. Over 3,000 people are working towards this every day, at more than 80 locations worldwide, from Finland to Australia.</p>\n<p><strong>Want to take responsibility and build solutions that truly matter? Apply now and help us shape the energy world of tomorrow.</strong></p>\n<p>Learn about our Product &#x26; Tech team!</p>\n<h2>Deine Position</h2>\n<p>At 1KOMMA5\u00b0, we connect and manage tens of thousands of distributed energy devices at scale. As a (Senior) IoT Cloud Engineer, you will own the cloud side of our IoT Platform that ingests, routes, and observes every message flowing between our gateway fleet and our cloud services.</p>\n<p>You will work at the intersection of cloud infrastructure, messaging systems, data and IoT engineering, making sure our device-to-cloud highway is reliable, secure, observable, and cost-efficient as the fleet grows. We are a Platform team: your work directly enables product teams across Heartbeat AI to ship features faster, while giving the business a clear, data-driven view of fleet health and performance.</p>\n<p>Key responsibilities include but are not limited to:</p>\n<ul>\n<li>Take ownership of our systems at the intersection of Cloud Services and residential IoT Gateways</li>\n<li>Operate and evolve our Kubernetes-based IoT Cloud Platform, including the deployment, scaling, and hardening of our connectivity and fleet services</li>\n<li>Develop and run our Eclipse Hono stack as the messaging backbone between gateways and the cloud</li>\n<li>Design, build and operate features around fleet management enabling the lifecycle of gateways from production line to field</li>\n<li>Integrate tightly with Mender to operate safe OTA rollouts across the fleet.</li>\n<li>Contribute to load and resilience tests to prove the platform scales and to find limits before our customers do</li>\n<li>Build and own the observability pipelines for the IoT Platform and turn metrics into automated monitors, alerts, and self-healing mechanisms</li>\n<li>Build data pipelines and BI models to turn raw data into fleet insights</li>\n<li>Work collaboratively with product managers, data engineers, IoT engineers, as well as cloud engineers to understand problems, support discoveries, and create solutions enabling a scalab",
+    "tags": "Remote Software Development",
     "salary_min": null,
     "salary_max": null,
-    "posted_at": "1781205610",
+    "posted_at": "1782423071",
     "source": "arbeitnow",
     "status": "new",
-    "found_at": "2026-06-11T20:11:18.654128+00:00",
+    "found_at": "2026-06-26T02:34:27.487237+00:00",
     "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
+    "score": 45,
+    "matched_keywords": [
+      "kubernetes"
+    ],
     "remote": true
   },
   {
-    "id": "3d035018fb4b",
-    "title": "Werkstudent:in LinkedIn, Brand & Sales Support (m/w/d)",
-    "company": "selectry GmbH",
+    "id": "35ad0afa4d2e",
+    "title": "(Senior) Paid Social Media Manager (all genders)",
+    "company": "mammaly",
     "location": "Berlin",
-    "url": "https://www.arbeitnow.com/jobs/companies/selectry-gmbh/werkstudentin-linkedin-brand-sales-support-berlin-429937",
-    "description": "<p>Join selectry as a Working Student (Werkstudent:in) to support our brand, content, and sales enablement on LinkedIn. Be part of a remote-first, scaling team and help orchestrate content cycles that drive brand trust and sales conversations.</p><p style=\";\"></p><p><strong><span style=\"color: #333333\">Responsibilities\u00a0</span></strong></p><ul><li><p>Prepare and tailor content for LinkedIn to specific target audiences</p></li></ul><ul><li><p>Plan, execute, and evaluate the content cycle: research, prepare, publish, monitor, and analyze</p></li></ul><ul><li><p>Identify and document LinkedIn signals for sales enablement (e.g., target companies, roles, warm signals)</p></li></ul><ul><li><p>Maintain structured editorial plans, lists, and content tests by audience, topic, hook, format, CTA, and results</p></li></ul><ul><li><p>Collaborate closely with the Marketing &amp; Brand / Sales Enablement team and management</p></li></ul><ul><li><p>Support brand enablement and sales enablement through systematic content work</p></li></ul><br /><br /><p><strong><span style=\"color: #333333\">Must-Have Requirements\u00a0</span></strong></p><ul><li><p>Very strong command of German (C1 or higher) and excellent writing skills</p></li></ul><ul><li><p>Enrolled student status (Werkstudent:in) at a German university</p></li></ul><ul><li><p>Availability of at least 20 hours per week</p></li></ul><ul><li><p>Experience or strong interest in LinkedIn and B2B communication</p></li></ul><ul><li><p>Ability to manage the full content cycle (research, prepare, publish, monitor, analyze)</p></li></ul><ul><li><p>Ability to read LinkedIn signals and make them usable for sales (e.g., identify target companies, roles, conversation triggers)</p></li></ul><ul><li><p>Familiarity or interest in Canva, Figma, and common collaboration tools such as Teams Workspace, Notion, Airtable</p></li></ul><ul><li><p>Structured documentation of editorial plans, lists, and content tests</p></li></ul><p style=\";\"></p><p><strong><span style=\"color: #333333\">Nice-to-Have Requirements\u00a0</span></strong></p><ul><li><p>First experience with LinkedIn content or personal branding</p></li></ul><ul><li><p>Basic knowledge of CRM systems, Notion, Airtable, or PowerPoint</p></li></ul><ul><li><p>Understanding of performance metrics (reach, engagement, conversion signals)</p></li></ul><ul><li><p>Experience with video or reels formats for Instagram or TikTok</p></li></ul><ul><li><p>A feel for brand aesthetics and tone</p></li></ul><ul><li><p>English skills for team collaboration</p></li></ul><p style=\";\"></p><p><strong><span style=\"color: #333333\">Location &amp; Work Model\u00a0</span></strong></p><p>Remote within Germany\u00a0 |\u00a0 Part-time (20h/week, flexible around studies \u2014 more possible during semester breaks)\u00a0 |\u00a0 Fixed-term working student contract</p><p style=\";\"></p><p><strong><span style=\"color: #333333\">Application Note\u00a0</span></strong></p><p>Please apply with your CV and a brief cover letter outlining your experience with Linked",
-    "tags": "Marketing and pr college coursework completed",
+    "url": "https://www.arbeitnow.com/jobs/companies/mammaly/senior-paid-social-media-manager-all-genders-berlin-285493",
+    "description": "<p><strong>About mammaly</strong></p>\n<p>We are mammaly! - und unsere Mission sind gesunde und gl\u00fcckliche Hunde! Deshalb entwickeln wir Premium Supplements f\u00fcr Hunde, die ein langes und gutes Leben erm\u00f6glichen.<br>\nGegr\u00fcndet in 2020, ist mammaly bereits jetzt das f\u00fchrende Pet Supplement Startup in Deutschland. Darauf ruhen wir uns nicht aus, denn Tierwohl liegt uns am Herzen: Wir f\u00f6rdern mit innovativen L\u00f6sungen die Gesundheit und Lebensqualit\u00e4t unserer Hunde. Au\u00dferdem, f\u00fchlen wir uns verpflichtet, hohe soziale und \u00f6kologische Standards einzuhalten und sind deswegen seit 2023 ein zertifiziertes B Corp-Unternehmen!</p>\n<p>Unsere Vision f\u00fcr 2028:</p>\n<ul>\n<li>\u00dcber 1.000.000 Hunde t\u00e4glich ges\u00fcnder und gl\u00fccklicher machen</li>\n<li>Das besten Hunde-Supplement Portfolio f\u00fcr \u00fcber 30 Problem-Bereiche der Hunde aufbauen.</li>\n<li>Klare Marktf\u00fchrerschaft in Europa</li>\n</ul>\n<p>Um diese Vision zu erreichen, bauen wir aktuell unser <strong>Acquisition Team</strong> weiter aus. Mit klarem Fokus auf skalierbare, profitable Neukundengewinnung. Und Paid Social ist einer unserer wichtigsten Wachstumstreiber.</p>\n<p><strong>Unsere Ambition im Acquisition Team:</strong></p>\n<ul>\n<li>Das beste Media-Buying-Team in ganz Deutschland aufbauen.</li>\n<li>UGC, Direct Response &#x26; VSL-Funnels auf ein neues Level heben.</li>\n<li>Skalierbare Neukundenakquise mit klarer CAC-Logik und Profitabilit\u00e4tsfokus.</li>\n</ul>\n<p>Daf\u00fcr investieren wir aktuell massiv: in Creatives und Funnels, Infrastruktur, Testing und Talente. Wenn du nicht nur Kampagnen verwalten, sondern als Teil eines ambitionierten Acquisition Teams aktiv einen Markt dominieren willst, lies weiter.</p>\n<p><strong>40 h/w, Hybrid oder Remote</strong></p>\n<h2>Tasks</h2>\n<ul>\n<li>Eigenst\u00e4ndige Skalierung unserer Meta-Kampagnen mit klarem Fokus auf profitabler Neukundenakquise</li>\n<li>Leidenschaftliche Analyse des gesamten Funnels  vom ersten Ad-Klick bis zum Checkout, und Identifikation konkreter Optimierungshebel (Hook, Angle, Offer, LP, UX, Trust-Elemente, Checkout)</li>\n<li>Entwicklung und Optimierung skalierbarer Direct-Response-Funnels mit starkem Fokus auf Long-Form-Formate wie VSLs</li>\n<li>Strategische Weiterentwicklung unserer Creative-Strategie \u00fcber Static &#x26; UGC hinaus, mit klarem Blick auf die Zukunft von D2C Performance</li>\n<li>Enge Zusammenarbeit mit Direct Response Copy, Creative Strategy und CRO, um Performance-Hypothesen schnell zu testen und iterativ zu verbessern</li>\n<li>Aufbau und Weiterentwicklung eines strukturierten Creative-Testing-Frameworks (Hooks, Angles, Mechanisms, Objection Handling)</li>\n<li>Datengetriebene Steuerung anhand von CAC, LTV, und Funnel-Metriken</li>\n<li>Kontinuierliche Markt-, Wettbewerbs- und US-Research, um Performance-Impulse fr\u00fchzeitig zu erkennen</li>\n</ul>\n<h2>Requirements</h2>\n<ul>\n<li>Mindestens 2 Jahre Hands-on Erfahrung im Paid Social Advertising (Meta)</li>\n<li>Mindestens 2 Jahre Erfahrung im E-Commerce (idealerweise im Supplements-, Beauty- oder Cosmetic",
+    "tags": "Remote Online Marketing",
     "salary_min": null,
     "salary_max": null,
-    "posted_at": "1781205610",
+    "posted_at": "1782417635",
     "source": "arbeitnow",
     "status": "new",
-    "found_at": "2026-06-11T20:11:18.654136+00:00",
+    "found_at": "2026-06-26T02:34:27.487265+00:00",
     "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
+    "score": 45,
+    "matched_keywords": [
+      "startup"
+    ],
     "remote": true
   },
   {
@@ -7511,6 +7426,25 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-06-25T19:47:06.970441+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "8e6776fddc22",
+    "title": "Senior Paid Search Manager (all genders)",
+    "company": "mammaly",
+    "location": "Berlin",
+    "url": "https://www.arbeitnow.com/jobs/companies/mammaly/senior-paid-search-manager-all-genders-berlin-422440",
+    "description": "<p>Unsere Vision f\u00fcr 2028:</p>\n<ul>\n<li>\u00dcber 1.000.000 Hunde t\u00e4glich ges\u00fcnder und gl\u00fccklicher machen</li>\n<li>Das besten Hunde-Supplement Portfolio f\u00fcr \u00fcber 30 Problem-Bereiche der Hunde aufbauen.</li>\n<li>Klare Marktf\u00fchrerschaft in Europa</li>\n</ul>\n<p>Um diese Vision zu erreichen, bauen wir aktuell unser Acquisition Team weiter aus. Mit klarem Fokus auf skalierbare, profitable Neukundengewinnung. Und Paid Search ist einer unserer wichtigsten Wachstumstreiber.</p>\n<p>Unsere Ambition im Acquisition Team:</p>\n<ul>\n<li>Das beste Media-Buying-Team in ganz Deutschland aufbauen.</li>\n<li>Search, Shopping, PMax und Demand Gen auf ein neues Skalierungsniveau heben</li>\n<li>Profitable Neukundenakquise mit klarer CAC-Logik, Subscription-Fokus und Full-Funnel-Denken</li>\n</ul>\n<p>Daf\u00fcr investieren wir massiv: in Tracking-Infrastruktur, Funnel-Architektur, Creative-Assets und Talente. Wenn du nicht nur Kampagnen verwalten, sondern als Senior im Acquisition Team aktiv einen Markt dominieren willst, lies weiter.</p>\n<h2>Tasks</h2>\n<ul>\n<li>Eigenst\u00e4ndige Skalierung und strategische Steuerung unserer Google-Kampagnen (Search, Shopping, Performance Max, Demand Gen / YouTube) mit klarem Fokus auf profitabler Neukundenakquise</li>\n<li>Restrukturierung und Konsolidierung unserer Kampagnenarchitektur: weg von fragmentierten produktbasierten Strukturen hin zu konversionsstarken, volumenf\u00e4higen Account-Setups</li>\n<li>Aufbau und Steuerung skalierbarer Demand-Gen- und YouTube-Strategien, um Top-of-Funnel-Reichweite gezielt in Mid-Funnel-Conversion zu \u00fcberf\u00fchren</li>\n<li>Ownership \u00fcber Tracking und Measurement: saubere Conversion-Architektur in Google Ads, GA4 und Google Tag Manager als Pflichtdisziplin, nicht als Nice-to-have</li>\n<li>Leidenschaftliche Analyse des gesamten Funnels vom ersten Search-Klick \u00fcber Advertorial und Landing Page bis zum Checkout, und Identifikation konkreter Optimierungshebel (Match Types, Bidding, Angles, Offer, LP-Varianten, Trust-Elemente)</li>\n<li>Strategische Weiterentwicklung unserer Funnel-Architektur mit unterschiedlichen Advertorial-Formaten (Erfahrungsberichte, Tierarzt-Inhalte, Produkt-Vergleichsseiten) und konsequenter CRO-Logik</li>\n<li>Enge Zusammenarbeit mit Direct Response Copy, Funnel Manager und CRO, um Performance-Hypothesen schnell zu testen und iterativ zu verbessern</li>\n<li>Datengetriebene Steuerung anhand von CAC, LTV, ROAS und Funnel-Metriken</li>\n<li>Kontinuierliche Markt-, Wettbewerbs- und US-Research, um Performance-Impulse (insbesondere im kompetitiven Subscription-Markt) fr\u00fchzeitig zu erkennen und zu nutzen</li>\n</ul>\n<h2>Requirements</h2>\n<ul>\n<li>Mindestens 5 Jahre Hands-on Erfahrung im Paid Search / Google Ads, davon mind. 3 Jahre im D2C-Bereich, idealerweise Supplements, Pet, Beauty oder Cosmetics</li>\n<li>Tiefes technisches Verst\u00e4ndnis von Google Ads in der Breite: Search, Shopping, Performance Max, Demand Gen / YouTube, Competitor Campaigns \u2013 und wie diese zusammenspielen</li>\n<li>Absolute Tracking-Kompetenz",
+    "tags": "Remote Marketing Manager",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1782417634",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-26T02:34:27.487270+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
