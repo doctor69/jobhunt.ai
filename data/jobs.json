@@ -1764,72 +1764,6 @@
     "remote": true
   },
   {
-    "id": "9faf2f462b63",
-    "title": "AI Developer (LLM Products) - Remote",
-    "company": "dexter health",
-    "location": "Cologne",
-    "url": "https://www.arbeitnow.com/jobs/companies/dexter-health/ai-developer-llm-products-remote-cologne-37116",
-    "description": "<p>\ud83d\udc4b Welcome to dexter health!</p>\n<p>At dexter health, we build AI-powered software for care teams. Our mission is to reduce administrative workload in healthcare so caregivers can spend more time with patients.</p>\n<p>We are looking for a high-agency <strong>AI Engineer</strong> to help us build new AI features faster and improve the quality, reliability, and speed of existing AI workflows.</p>\n<p>This is a hands-on engineering role. Not research. Not prompt-only. You will turn ambiguous product ideas into working, production-ready AI features.</p>\n<p>The role is mostly focused on shipping AI product features, with some AI systems and infrastructure work where needed.</p>\n<p>You will work closely with product and engineering, but we expect you to take real ownership. You should be comfortable moving fast, making technical decisions under ambiguity, and using AI development tools such as Claude Code, Codex, Cursor, Copilot, or similar every day.</p>\n<h2>Tasks</h2>\n<p>As our AI Engineer, you will:</p>\n<ul>\n<li>Build new AI-powered product features from idea to production</li>\n<li>Improve existing AI workflows for quality, reliability, latency, and user value</li>\n<li>Design and implement LLM-based workflows, structured outputs, validation logic, and fallback behavior</li>\n<li>Build evaluation loops, tests, and quality checks for AI-generated outputs</li>\n<li>Integrate AI capabilities into existing product and backend systems</li>\n<li>Work with commercial and open-source LLMs without being tied to one specific provider</li>\n<li>Support self-hosted model workflows where they make sense for quality, speed, cost, or control</li>\n<li>Debug AI feature failures across inputs, outputs, data, backend logic, and user flows</li>\n<li>Use AI development tools as a core part of your daily workflow</li>\n<li>Ship quickly while keeping production quality high</li>\n</ul>\n<h2>Requirements</h2>\n<p>We care less about formal seniority and more about speed, intelligence, ownership, and product impact. We like people who operate with founder-like urgency: they figure things out, make progress under ambiguity, and care about outcomes more than titles.</p>\n<p><strong>Must-have</strong></p>\n<ul>\n<li>Strong software engineering skills, especially in Python or a comparable backend language</li>\n<li>Experience building AI-powered product features or LLM-based workflows</li>\n<li>Ability to turn ambiguous product ideas into working software quickly</li>\n<li>Strong understanding of how to design, test, validate, and improve AI outputs</li>\n<li>Experience integrating AI workflows into production systems</li>\n<li>Strong debugging instincts across application logic, data, model outputs, and user-facing behavior</li>\n<li>Experience with evaluation, testing, validation, or quality checks for AI-generated outputs</li>\n<li>Serious experience using AI development tools such as Claude Code, Codex, Cursor, Copilot, or similar as part of your daily workflow</li>\n<li>High intelligence, fast",
-    "tags": "Remote Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781443833",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-14T19:11:56.975285+00:00",
-    "salary_parsed": null,
-    "score": 50,
-    "matched_keywords": [
-      "software engineer",
-      "python"
-    ],
-    "remote": true
-  },
-  {
-    "id": "2d10dd3e1d33",
-    "title": "Applied AI Developer - Remote",
-    "company": "dexter health",
-    "location": "Cologne",
-    "url": "https://www.arbeitnow.com/jobs/companies/dexter-health/applied-ai-developer-remote-cologne-39645",
-    "description": "<p>\ud83d\udc4b Welcome to dexter health!</p>\n<p>At dexter health, we build AI-powered software for care teams. Our mission is to reduce administrative workload in healthcare so caregivers can spend more time with patients.</p>\n<p>We are looking for a high-agency <strong>AI Engineer</strong> to help us build new AI features faster and improve the quality, reliability, and speed of existing AI workflows.</p>\n<p>This is a hands-on engineering role. Not research. Not prompt-only. You will turn ambiguous product ideas into working, production-ready AI features.</p>\n<p>The role is mostly focused on shipping AI product features, with some AI systems and infrastructure work where needed.</p>\n<p>You will work closely with product and engineering, but we expect you to take real ownership. You should be comfortable moving fast, making technical decisions under ambiguity, and using AI development tools such as Claude Code, Codex, Cursor, Copilot, or similar every day.</p>\n<h2>Tasks</h2>\n<p>As our Applied AI Engineer, you will:</p>\n<ul>\n<li>Build new AI-powered product features from idea to production</li>\n<li>Improve existing AI workflows for quality, reliability, latency, and user value</li>\n<li>Design and implement LLM-based workflows, structured outputs, validation logic, and fallback behavior</li>\n<li>Build evaluation loops, tests, and quality checks for AI-generated outputs</li>\n<li>Integrate AI capabilities into existing product and backend systems</li>\n<li>Work with commercial and open-source LLMs without being tied to one specific provider</li>\n<li>Support self-hosted model workflows where they make sense for quality, speed, cost, or control</li>\n<li>Debug AI feature failures across inputs, outputs, data, backend logic, and user flows</li>\n<li>Use AI development tools as a core part of your daily workflow</li>\n<li>Ship quickly while keeping production quality hi</li>\n</ul>\n<h2>Requirements</h2>\n<p>We care less about formal seniority and more about speed, intelligence, ownership, and product impact. We like people who operate with founder-like urgency: they figure things out, make progress under ambiguity, and care about outcomes more than titles.</p>\n<p><strong>Must-have</strong></p>\n<ul>\n<li>Strong software engineering skills, especially in Python or a comparable backend language</li>\n<li>Experience building AI-powered product features or LLM-based workflows</li>\n<li>Ability to turn ambiguous product ideas into working software quickly</li>\n<li>Strong understanding of how to design, test, validate, and improve AI outputs</li>\n<li>Experience integrating AI workflows into production systems</li>\n<li>Strong debugging instincts across application logic, data, model outputs, and user-facing behavior</li>\n<li>Experience with evaluation, testing, validation, or quality checks for AI-generated outputs</li>\n<li>Serious experience using AI development tools such as Claude Code, Codex, Cursor, Copilot, or similar as part of your daily workflow</li>\n<li>High intelligence",
-    "tags": "Remote Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781443832",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-14T19:11:56.975291+00:00",
-    "salary_parsed": null,
-    "score": 50,
-    "matched_keywords": [
-      "software engineer",
-      "python"
-    ],
-    "remote": true
-  },
-  {
-    "id": "f66345ffb613",
-    "title": "AI Engineer (LLM) - Remote",
-    "company": "dexter health",
-    "location": "Cologne",
-    "url": "https://www.arbeitnow.com/jobs/companies/dexter-health/ai-engineer-llm-remote-cologne-192977",
-    "description": "<p>\ud83d\udc4b Welcome to dexter health!</p>\n<p>At dexter health, we build AI-powered software for care teams. Our mission is to reduce administrative workload in healthcare so caregivers can spend more time with patients.</p>\n<p>We are looking for a high-agency <strong>AI Engineer</strong> to help us build new AI features faster and improve the quality, reliability, and speed of existing AI workflows.</p>\n<p>This is a hands-on engineering role. Not research. Not prompt-only. You will turn ambiguous product ideas into working, production-ready AI features.</p>\n<p>The role is mostly focused on shipping AI product features, with some AI systems and infrastructure work where needed.</p>\n<p>You will work closely with product and engineering, but we expect you to take real ownership. You should be comfortable moving fast, making technical decisions under ambiguity, and using AI development tools such as Claude Code, Codex, Cursor, Copilot, or similar every day.</p>\n<h2>Tasks</h2>\n<p>As our AI Engineer, you will:</p>\n<ul>\n<li>Build new AI-powered product features from idea to production</li>\n<li>Improve existing AI workflows for quality, reliability, latency, and user value</li>\n<li>Design and implement LLM-based workflows, structured outputs, validation logic, and fallback behavior</li>\n<li>Build evaluation loops, tests, and quality checks for AI-generated outputs</li>\n<li>Integrate AI capabilities into existing product and backend systems</li>\n<li>Work with commercial and open-source LLMs without being tied to one specific provider</li>\n<li>Support self-hosted model workflows where they make sense for quality, speed, cost, or control</li>\n<li>Debug AI feature failures across inputs, outputs, data, backend logic, and user flows</li>\n<li>Use AI development tools as a core part of your daily workflow</li>\n<li>Ship quickly while keeping production quality high</li>\n</ul>\n<h2>Requirements</h2>\n<p>We care less about formal seniority and more about speed, intelligence, ownership, and product impact. We like people who operate with founder-like urgency: they figure things out, make progress under ambiguity, and care about outcomes more than titles.</p>\n<p><strong>Must-have</strong></p>\n<ul>\n<li>Strong software engineering skills, especially in Python or a comparable backend language</li>\n<li>Experience building AI-powered product features or LLM-based workflows</li>\n<li>Ability to turn ambiguous product ideas into working software quickly</li>\n<li>Strong understanding of how to design, test, validate, and improve AI outputs</li>\n<li>Experience integrating AI workflows into production systems</li>\n<li>Strong debugging instincts across application logic, data, model outputs, and user-facing behavior</li>\n<li>Experience with evaluation, testing, validation, or quality checks for AI-generated outputs</li>\n<li>Serious experience using AI development tools such as Claude Code, Codex, Cursor, Copilot, or similar as part of your daily workflow</li>\n<li>High intelligence, fast",
-    "tags": "Remote Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781443831",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-14T19:11:56.975296+00:00",
-    "salary_parsed": null,
-    "score": 50,
-    "matched_keywords": [
-      "software engineer",
-      "python"
-    ],
-    "remote": true
-  },
-  {
     "id": "f7b05df075cb",
     "title": "(Senior) Full-Stack Software Engineer - Financial Infrastructure & Payments (m/f/d)",
     "company": "1KOMMA5\u02da",
@@ -3615,25 +3549,6 @@
     "matched_keywords": [
       "startup"
     ],
-    "remote": true
-  },
-  {
-    "id": "c37b0ac195cd",
-    "title": "Werkstudent:in / Intern:in Online Marketing & Paid Ads (Google Ads / Meta) (m/w/d)",
-    "company": "Logic Joe GmbH",
-    "location": "Hamburg",
-    "url": "https://www.arbeitnow.com/jobs/companies/logic-joe-gmbh/werkstudentin-internin-online-marketing-paid-ads-google-ads-meta-hamburg-300012",
-    "description": "<p><strong>Remote (DACH) mit Reisebereitschaft, oder an einem unserer Standorte (Hamburg \u00b7 Stuttgart \u00b7 Reutlingen \u00b7 Salzburg) \u00b7 Werkstudium (ca. 20 Std./Woche) oder Vollzeit-Praktikum \u00b7 ab sofort</strong></p>\n<p>Seit 2010 entwickeln und realisieren wir clevere, digitale L\u00f6sungen, die begeistern. Mit Standorten in Hamburg, Stuttgart, Reutlingen und Salzburg haben wir uns auf die Digitalisierung von B2B-Unternehmen im gesamten D-A-CH-Raum spezialisiert \u2013 mit dem besten Mix aus beiden Welten: hanseatisches Understatement gepaart mit schw\u00e4bischem Savoir-vivre.</p>\n<p>Wir haben alle Disziplinen unter einem Dach \u2013 Tech, Design, UX und Marketing \u2013 und nutzen KI nicht als Buzzword, sondern als festen Teil unserer t\u00e4glichen Arbeit. F\u00fcr unsere Kampagnen und f\u00fcr die Entwicklung neuer digitaler Produkte suchen wir jemanden, der Performance-Marketing liebt und KI-Tools im Schlaf bedient.</p>\n<h2>Aufgaben</h2>\n<p><strong>Tasks</strong></p>\n<p>Du verantwortest mit uns Paid-Kampagnen \u00fcber Google Ads und Meta \u2013 von der Idee \u00fcber das Creative bis zur Auswertung. Dabei arbeitest du stark KI-gest\u00fctzt: Du nutzt moderne Tools, um schneller bessere Creatives, Copy und Kampagnenstrukturen zu bauen und kontinuierlich zu optimieren. Zus\u00e4tzlich unterst\u00fctzt du unser Team bei der Entwicklung neuer digitaler Produkte \u2013 mit Marketing-Blick, Daten und einem guten Gesp\u00fcr daf\u00fcr, was bei Nutzer:innen ankommt.</p>\n<p>Deine Aufgaben:</p>\n<ul>\n<li>Paid Ads end-to-end: Du planst, baust und betreust Kampagnen auf Google Ads (Search, Performance Max) und Meta (Facebook/Instagram) \u2013 inklusive Targeting, Budget und laufender Optimierung.</li>\n<li>KI als Standard: Du setzt AI-Tools selbstverst\u00e4ndlich ein \u2013 f\u00fcr Creatives, Copy, Kampagnen-Setups, Analysen und Automatisierungen \u2013 und bringst neue Tools und Use Cases aktiv ins Team.</li>\n<li>Creatives mit Augenma\u00df: Du entwickelst und iterierst Anzeigenmotive und Ad-Copy mit einem guten Gesp\u00fcr f\u00fcr Wirkung und visuelle Qualit\u00e4t.</li>\n<li>Daten &#x26; Optimierung: Du analysierst Performance, f\u00e4hrst A/B-Tests und leitest konkrete Verbesserungen ab \u2013 datengetrieben statt aus dem Bauch.</li>\n<li>Produktentwicklung unterst\u00fctzen: Du bringst deine Marketing- und Nutzersicht in die Entwicklung neuer digitaler Produkte ein \u2013 von Landingpages \u00fcber Messaging bis zum Go-to-Market.</li>\n</ul>\n<h2>Qualifikation</h2>\n<p><strong>Requirements</strong></p>\n<ul>\n<li>Du studierst noch (Bachelor oder Master, Fachrichtung offen) oder hast dein Studium gerade abgeschlossen und suchst eine Werkstudierenden- oder Praktikumsstelle im Online Marketing.</li>\n<li>Du hast bereits praktische Erfahrung mit Google Ads und/oder Meta Ads gesammelt \u2013 privat, im Studium, als Freelancer:in oder im Job.</li>\n<li>Du bist ausgepr\u00e4gt AI-affin und nutzt KI-Tools sicher und kreativ im Marketing-Alltag.</li>\n<li>Du hast ein gutes visuelles Verst\u00e4ndnis und ein Gesp\u00fcr daf\u00fcr, was als Creative funktioniert.</li>\n<li>Du arbeitest analytisch, eigenverantwortlich und ergebnisorientiert.</li>\n<li>",
-    "tags": "Remote Online Marketing",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781442028",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-14T19:11:56.975302+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
     "remote": true
   },
   {
