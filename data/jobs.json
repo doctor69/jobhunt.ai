@@ -43,27 +43,6 @@
     "remote": true
   },
   {
-    "id": "jobot_3d59c05906",
-    "title": "REMOTE Staff Software Engineer\n$170,000 - $205,000Charlotte, NC Remote\nA growing company with great benefits in a start-up environment.",
-    "company": "Unknown",
-    "location": "Remote",
-    "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=3d59c05906",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "",
-    "source": "jobot",
-    "status": "approved",
-    "found_at": "2026-06-16T02:54:22.527508+00:00",
-    "salary_parsed": 170000,
-    "score": 75,
-    "matched_keywords": [
-      "software engineer"
-    ],
-    "remote": true
-  },
-  {
     "id": "jobot_7fa2875106",
     "title": "Senior QA Automation Engineer\n$150,000 - $175,000Phoenix, AZ Remote\nFully remote, well-funded AI startup. Room for growth, greenfield projects, excellent benefits!",
     "company": "Unknown",
@@ -172,21 +151,21 @@
     "remote": true
   },
   {
-    "id": "jobot_1d55dc5906",
-    "title": "REMOTE Sr. Software Engineer\n$130,000 - $160,000Charlotte, NC Remote\nA growing company with great benefits in a start-up environment.",
+    "id": "jobot_3d59c05906",
+    "title": "REMOTE Staff Software Engineer\n$170,000 - $205,000Charlotte, NC Remote\nA growing company with great benefits in a start-up environment.",
     "company": "Unknown",
     "location": "Remote",
     "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=1d55dc5906",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=3d59c05906",
     "tags": "",
     "salary_min": null,
     "salary_max": null,
     "posted_at": "",
     "source": "jobot",
     "status": "approved",
-    "found_at": "2026-06-16T02:54:22.521138+00:00",
-    "salary_parsed": 130000,
-    "score": 70,
+    "found_at": "2026-06-30T08:58:27.255393+00:00",
+    "salary_parsed": 170000,
+    "score": 75,
     "matched_keywords": [
       "software engineer"
     ],
@@ -250,6 +229,27 @@
     "salary_parsed": 150000,
     "score": 70,
     "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "jobot_1d55dc5906",
+    "title": "REMOTE Sr. Software Engineer\n$130,000 - $160,000Charlotte, NC Remote\nA growing company with great benefits in a start-up environment.",
+    "company": "Unknown",
+    "location": "Remote",
+    "description": "",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=1d55dc5906",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "",
+    "source": "jobot",
+    "status": "approved",
+    "found_at": "2026-06-30T08:58:27.249003+00:00",
+    "salary_parsed": 130000,
+    "score": 70,
+    "matched_keywords": [
+      "software engineer"
+    ],
     "remote": true
   },
   {
@@ -935,30 +935,6 @@
       "docker",
       "api",
       "startup"
-    ],
-    "remote": true
-  },
-  {
-    "id": "jobot_5a7de05506",
-    "title": "Full Stack Software Engineer (Java/React/MongoDB/TypeScript)\nConsulting$55 - $60Ashburn, VA Remote",
-    "company": "Unknown",
-    "location": "Remote",
-    "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=5a7de05506",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "",
-    "source": "jobot",
-    "status": "new",
-    "found_at": "2026-06-16T02:54:22.546309+00:00",
-    "salary_parsed": null,
-    "score": 60,
-    "matched_keywords": [
-      "software engineer",
-      "full stack",
-      "typescript",
-      "react"
     ],
     "remote": true
   },
@@ -2548,27 +2524,6 @@
     "remote": true
   },
   {
-    "id": "e8931036b8b9",
-    "title": "(Senior) Product Manager (w/m/d) (remote)",
-    "company": "Weflow",
-    "location": "Berlin",
-    "url": "https://www.arbeitnow.com/jobs/companies/weflow/senior-product-manager-berlin-402867",
-    "description": "<p>Weflow's Revenue AI Platform automates Salesforce data capture and provides full visibility into deal, pipeline, and forecast health.</p>\n<p>300+ fast-growing companies like Retool, BenchSci, IDnow use Weflow to improve team productivity, sales performance, and revenue predictability.</p>\n<p>Weflow is backed by Gradient Ventures, Cherry Ventures, Eurazeo, and renowned angel investors and run by successful repeat founders Janis Zech &#x26; Philipp Stelzer.</p>\n<h2>Tasks</h2>\n<p><strong>Own a product area end to end.</strong> Define the vision, prioritize, and drive it from discovery to launch.</p>\n<p><strong>Talk to revenue teams.</strong> Dig into how sales reps and RevOps actually work in Salesforce, and turn messy workflows into clear product decisions.</p>\n<p><strong>Shape our AI features.</strong> Reason about how AI should capture, summarize, and surface data, and decide where it adds real value versus noise.</p>\n<p><strong>Translate insight into specs.</strong> Write clear user stories and acceptance criteria for engineering and design.</p>\n<p><strong>Lead cross-functional execution.</strong> Coordinate engineering, design, and go-to-market to ship on time.</p>\n<p><strong>Define and track success.</strong> Set KPIs, watch adoption, and iterate based on data.</p>\n<h2>Requirements</h2>\n<p><strong>Product management experience in B2B SaaS</strong>, ideally with technical or data-heavy products. We're open to either a high-potential candidate with less hands-on experience or a senior person who wants to stay highly operational and hands-on. Needs to have 3+ years of experience minimum in any case.</p>\n<p><strong>Strong customer instinct.</strong> You enjoy talking to users, digging into their workflows, and turning messy problems into clear product decisions.</p>\n<p><strong>Comfort with data and AI.</strong> You can reason about how AI features should work and use data to drive prioritization and measure success.</p>\n<p><strong>Sharp prioritization.</strong> You can say no, focus on what matters, and balance speed with quality.</p>\n<p><strong>Excellent communication.</strong> You keep engineering, design, and go-to-market teams aligned and bring clarity to ambiguity.</p>\n<p><strong>Bias for ownership.</strong> You take full responsibility for outcomes, not just output, and thrive in a fast-moving, remote environment.</p>\n<p><strong>Bonus: familiarity with Salesforce, RevOps, or sales workflows.</strong> Understanding how revenue teams operate will help you move faster.</p>\n<h2>Benefits</h2>\n<ul>\n<li>Work closely with the founders on a product with strong product-market fit and clear traction</li>\n<li>Fully remote role with regular in-person meetups</li>\n<li>Strong ownership of the roadmap and product quality</li>\n<li>Competitive compensation with equity</li>\n<li>Top-of-the-line equipment</li>\n<li>Fast career growth</li>\n</ul>\n<p>If you are passionate about product management and AI, we would love to hear from you. Please note: The salary ran",
-    "tags": "Remote Product Management",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1781557142",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-06-16T02:54:13.950228+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "saas"
-    ],
-    "remote": true
-  },
-  {
     "id": "88bfeaee61dd",
     "title": "Projektmanager TGA / MEP (KG 400 \u2013 Elektro & HLSK) \u2013 Bauherrenseite (m/w/d) - Remote (DE)",
     "company": "Ruby GmbH",
@@ -3800,6 +3755,27 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-06-30T02:35:08.598336+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "startup"
+    ],
+    "remote": true
+  },
+  {
+    "id": "beef75c6fea0",
+    "title": "Product Manager - Growth (m/w/d)",
+    "company": "keleya Digital-Health Solutions GmbH",
+    "location": "Berlin",
+    "url": "https://www.arbeitnow.com/jobs/companies/keleya-digital-health-solutions-gmbh/product-manager-growth-berlin-243301",
+    "description": "<p>keleya is an innovative FemTech startup based in Berlin that offers expectant and new parents high-quality support and resources to help them enjoy a healthy and happy pregnancy, birth, and parental leave.</p>\n<p>Our mobile app is unique in its combination of a personalized pregnancy calendar, a health tracker, and a selection of workouts, recipes, and a midwife chat for expectant and new mothers: much of it covered by health insurance at no cost to users. Since our founding in summer 2017, we have been working on our mission with passion, agility, and team spirit and have already supported over 1.000,000 women.</p>\n<p>The Role:</p>\n<p>We're looking for a Growth PM to own and accelerate our user acquisition and conversion funnels, from first touchpoint to in-app subscription.</p>\n<p>At keleya, growth is powered by a B2B2C model: we partner with health insurers who offer our app as a covered benefit, so our success depends on driving engagement that users love and insurers can stand behind. You'll lead a cross-functional squad and work closely with marketing and business development to hit our growth targets.</p>\n<h2>Tasks</h2>\n<ul>\n<li>Run experiments across the full funnel: from top-of-funnel awareness to in-app subscription conversion and own the growth product roadmap, metrics (activation, retention, conversion), and the prioritisation calls that come with it.</li>\n<li>Work closely with engineering to ship experiments and features that move the numbers.</li>\n<li>Partner with marketing and business development to align campaigns, messaging, and health insurance partnerships with growth targets.</li>\n<li>Identify where acquisition campaigns convert (or don't) in-app, and use those insights to inform product decisions.</li>\n</ul>\n<h2>Requirements</h2>\n<ul>\n<li>3+ years of experience in product management, ideally in a mobile app.</li>\n<li>Solid understanding of growth levers: paid, organic, and product-led.</li>\n<li>Strong analytical instinct: you can trace a drop-off back to a cause and turn it into a testable hypothesis.</li>\n<li>Comfortable using AI tools to move faster and work smarter.</li>\n<li>A clear communicator who can work across product, engineering, marketing, and business development.</li>\n<li>Working proficiency in English; German is a plus.</li>\n<li>Based in Berlin.</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Meaningful work in digital health, with real impact on women's lives at a critical moment.</li>\n<li>Real ownership and responsibility in a fast-growing FemTech startup.</li>\n<li>Hybrid setup: minimum 2 days/week in our office in Berlin-Mitte, with up to 3 months fully remote per year.</li>\n<li>Urban Sports Club or Pluxee membership.</li>\n</ul>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Product Management",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1782804633",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-30T08:58:18.432076+00:00",
     "salary_parsed": null,
     "score": 45,
     "matched_keywords": [
@@ -7564,6 +7540,44 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-06-30T02:35:08.598344+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "7243345c16be",
+    "title": "MARKETING MANAGER DE",
+    "company": "OKTAGON MMA",
+    "location": "Berlin",
+    "url": "https://www.arbeitnow.com/jobs/companies/oktagon-mma/marketing-manager-de-berlin-201581",
+    "description": "<p><strong>10 years\u2026</strong> This year, we are celebrating 10 years of OKTAGON. Ten years during which we grew from a local sports organization into an international brand. We expanded into new countries, locked in major partnerships, and built a product followed by millions of fans across Europe. We sell out the biggest arenas, cooperate with top partners, and constantly look for new ways to push the fan experience to the next level.</p>\n<p>And right now, we are facing next MASSIVE challenges a huge event in Frankfurt and a packed Q4 full of back-to-back tournaments. Our German rocket ship is flying high, and we need reinforcement.</p>\n<p>We are looking for a <strong>MARKETING MANAGER (Campaigns &#x26; Events)</strong> for the German market. Someone to jump on board and take ownership of marketing campaigns, brand activations, and event marketing in Germany.</p>\n<p>We are not just looking for a \"coordinator.\" We are looking for an independent, driven A-Player who can bring creative ideas, deadlines, people, and tournament madness together to make our German campaigns run at 100%.</p>\n<h2>Tasks</h2>\n<ul>\n<li>Full management of marketing campaigns - from planning and creative briefs to channel oversight</li>\n<li>Planning and execution of micro-events and brand activations (media days, fan events, trade fairs like FIBO)</li>\n<li>On-site event marketing directly at our live tournaments (coordinating deliverables, show planning, guest management)</li>\n<li>CRM and newsletter marketing (content creation in German, ticket sale launch coordination, and lead-gen campaigns)</li>\n</ul>\n<h2>Requirements</h2>\n<ul>\n<li>At least <strong>2+ years of relevant experience</strong> in marketing, events, or project management (an agency background is a huge plus)</li>\n<li>A passion for sports, ideally a professional background in sports, or at least a strong personal interest in combat sports and MMA</li>\n<li>Exceptional organizational skills, reliability, and the ability to manage multiple projects/events at the same time</li>\n<li>Flexibility, because tournament weekends and traveling to live events are a natural part of the job</li>\n<li><strong>Native/fluent German</strong> and business-fluent English</li>\n<li><strong>Based in the Munich region (or flexible):</strong> Being located in or near Munich is a huge plus for occasional in-person syncs with Patrick and the team. However, this is a genuine <strong>100% remote role from anywhere in Germany.</strong> So if you are the right fit, we care more about your talent than your exact zip code!</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>A place in the team behind <strong>Europe\u2019s biggest combat sports show</strong>.</li>\n<li>The chance to be part of OKTAGON\u2019s <strong>massive expansion in Germany</strong>.</li>\n<li>The adrenaline and atmosphere you\u2019ll never find in a standard marketing job.</li>\n<li>Room to grow professionally and personally every event is a new challenge.</li>\n<li>And of course, unique perks: tickets to ou",
+    "tags": "Remote Marketing and Communication",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1782804634",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-30T08:58:18.432058+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "74add1830a06",
+    "title": "Inbound Customer Service - EU FreelancerInnen - 100% Remote",
+    "company": "hey contact heroes GmbH",
+    "location": "Hamburg",
+    "url": "https://www.arbeitnow.com/jobs/companies/hey-contact-heroes-gmbh/inbound-customer-service-eu-freelancerinnen-100-remote-hamburg-44579",
+    "description": "<p><strong>Werde Partner der hey contact heroes und arbeite flexibel in spannenden Inbound-Projekten!</strong></p>\n<p>Du bist Freelancer mit Erfahrung im Kundenservice und m\u00f6chtest Teil eines dynamischen Netzwerks werden? Wir suchen engagierte Partner <strong>innerhalb der EU</strong>, die uns in unseren Inbound-Kundenservice-Projekten unterst\u00fctzen.</p>\n<h2>Aufgaben</h2>\n<p><strong>Was dich erwartet:</strong></p>\n<ul>\n<li><strong>Vielf\u00e4ltige Projekte</strong>: Mitarbeit in innovativen Kundenservice-Projekten f\u00fcr spannende Auftraggeber.</li>\n<li><strong>Flexibilit\u00e4t</strong>: Du arbeitest von deinem Standort aus \u2013 alles, was du brauchst, ist ein abgeschlossener Arbeitsplatz und eine stabile Internetverbindung.</li>\n<li><strong>Eigenverantwortung</strong>: Als Freelancer bist du flexibel in deiner Zeiteinteilung und entscheidest selbst, wie du deinen Arbeitstag gestaltest.</li>\n</ul>\n<p><strong>Deine Aufgaben:</strong></p>\n<ul>\n<li><strong>Inbound-Kommunikatio</strong>n: Telefonische und schriftliche Bearbeitung von Anfragen \u2013 immer mit dem Fokus auf exzellenten Kundenservice.</li>\n<li><strong>L\u00f6sungsorientiertes Arbeiten</strong>: Du beantwortest Kundenfragen, l\u00f6st Probleme und sorgst f\u00fcr eine positive Kundenerfahrung.Professioneller Support: Du bist die erste Anlaufstelle f\u00fcr Kunden und arbeitest eng mit unseren internen Teams zusammen.</li>\n</ul>\n<h2>Qualifikation</h2>\n<p><strong>Das bringst du mit:</strong></p>\n<ul>\n<li><strong>Standort:</strong> Du lebst im EU-Ausland und hast ein gemeldetes Gewerbe mit Umsatzsteuer ID</li>\n<li><strong>Erfahrung im Kundenservice</strong>: Du hast bereits als Agent oder in einer \u00e4hnlichen Rolle gearbeitet.</li>\n<li><strong>Sprachkenntnisse</strong>: Du sprichst und schreibst Deutsch auf dem Niveau C1 oder C2 \u2013 klar, fehlerfrei und kundenorientiert.</li>\n<li><strong>Kommunikationsst\u00e4rke</strong>: Freundliches Auftreten, l\u00f6sungsorientiertes Arbeiten und sichere Ausdrucksweise in Wort und Schrift.</li>\n<li><strong>Technische Grundkenntnisse</strong>: Du bist sicher im Umgang mit g\u00e4ngigen Tools und Systemen, wie CRM- oder Ticketing-Systemen.Freelancer-Status: Du bist offiziell als Freelancer registriert und kannst innerhalb der EU arbeiten.</li>\n</ul>\n<h2>Benefits</h2>\n<p><strong>Warum mit uns arbeiten?</strong></p>\n<ul>\n<li><strong>Partnerschaft auf Augenh\u00f6he</strong>: Wir bieten dir spannende Projekte und eine langfristige Zusammenarbeit.</li>\n<li><strong>Faire Verg\u00fctung</strong>: Transparent und an den Umfang deines Einsatzes angepasst.</li>\n<li><strong>Unterst\u00fctzung</strong>: Du bist Teil eines motivierten Netzwerks, das dir mit Rat und Tat zur Seite steht.</li>\n</ul>\n<p><strong>Interesse?</strong></p>\n<p>Dann melde dich bei uns! Sende uns eine kurze Beschreibung deiner Erfahrungen im Kundenservice und deine Kontaktdaten. Wir freuen uns, dich kennenzulernen und dich als Partner in unser Team aufzunehmen!</p>\n<p><strong>Let\u2019s make customer service a shared success \u2013 gemeinsam mit den hey contact heroes!</strong>",
+    "tags": "Remote Customer Service",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1782802835",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-06-30T08:58:18.432097+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
