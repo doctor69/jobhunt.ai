@@ -2217,28 +2217,6 @@
     "remote": true
   },
   {
-    "id": "bda443d5507a",
-    "title": "IT Infrastructure and Security Engineer",
-    "company": "Zentso S GmbH",
-    "location": "Berlin",
-    "url": "https://www.arbeitnow.com/jobs/companies/zentso-s-gmbh/it-infrastructure-and-security-engineer-berlin-498582",
-    "description": "<p>Zentso builds and operates CloudToolz, a revenue-critical SaaS platform layered on top of iMIS RiSE association management software, serving clients across the UK, Europe, United States, and Asia Pacific. The platform encompasses workflow automation, form building, CRM, CMS, and payment processing capabilities delivered to organisations in multiple sectors.</p>\n<p>We are seeking a motivated IT Infrastructure and Security Engineer to support the global infrastructure and security posture underpinning CloudToolz and Zentso's internal systems. This is a hands-on, junior-to-mid-level role working closely with the IT Infrastructure and Security Lead and the CTO, assisting with day-to-day operations, security tasks, and the ongoing migration toward a containerised, Kubernetes-based deployment model. The successful candidate will be comfortable working across a distributed, multi-region environment, contributing directly to uptime, security, and compliance outcomes for a production platform.</p>\n<p>A key part of this role is supporting Zentso's transition to Kubernetes and helping build out an observability practice around Grafana OSS, alongside contributing scripts and small applications that automate and support infrastructure operations.</p>\n<h2>Tasks</h2>\n<p><strong>Infrastructure and Platform Operations</strong></p>\n<ul>\n<li>Help manage global infrastructure spanning Windows Server 2022, SQL Server, MongoDB, Redis, and Cloudflare across four regions, supporting the availability, performance, and scalability of the revenue-critical CloudToolz platform.</li>\n<li>Support deployments of new CloudToolz releases (<a href=\"http://ASP.NET\">ASP.NET</a> Core, integrating with Dynamics, iMIS, Salesforce, and native CRM/CMS) and contribute to the Kubernetes migration, including cluster operations such as deployments, scaling, network policies, and RBAC.</li>\n<li>Help build and maintain a Grafana OSS observability stack \u2014 dashboards, alerting, and integration with metrics, logs, and traces.Assist with DNS, CDN, WAF, and DDoS protection via Cloudflare; monitor system performance and participate in incident response and recovery.</li>\n<li>Maintain documentation, runbooks, and disaster recovery procedures.</li>\n<li>Write shell scripts and small infrastructure-related applications (automation tools, monitoring utilities, internal dashboards) in coordination with the Infrastructure Lead.</li>\n</ul>\n<p><strong>Security Operations</strong></p>\n<ul>\n<li>Support identity and access management, endpoint protection, and vulnerability management.</li>\n<li>Help administer policies across Microsoft 365, Bitwarden, Bitdefender GravityZone, and KnowBe4.</li>\n<li>Contribute to GDPR/ISO 27001-aligned data protection policies, security awareness training, phishing simulations, and threat monitoring/response.</li>\n</ul>\n<p><strong>IT Systems Administration</strong></p>\n<ul>\n<li>Support Microsoft 365 administration (Exchange Online, SharePoint, Teams, Entra ID) and Salesforce ad",
-    "tags": "Engineering",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1783033228",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-03T02:05:47.454428+00:00",
-    "salary_parsed": null,
-    "score": 50,
-    "matched_keywords": [
-      "kubernetes",
-      "saas"
-    ],
-    "remote": true
-  },
-  {
     "id": "59c33b35feac",
     "title": "Senior Java Backend Engineer (m/f/x)",
     "company": "Atolls",
@@ -3004,27 +2982,6 @@
     "score": 50,
     "matched_keywords": [
       "python",
-      "api"
-    ],
-    "remote": true
-  },
-  {
-    "id": "bc9d2f17412c",
-    "title": "Senior Finance Manager:in (DTC E-Commerce) - 10Std+/Woche - freelance & 100% remote",
-    "company": "Time to hire",
-    "location": "Marktbreit",
-    "url": "https://www.arbeitnow.com/jobs/companies/time-to-hire/senior-finance-managerin-dtc-e-commerce-10std-woche-freelance-100-remote-marktbreit-186733",
-    "description": "<p><strong>F\u00fcr meinen Kunden Purefemm suche ich aktuell Verst\u00e4rkung in einer Schl\u00fcsselposition.</strong></p>\n<p><strong>Purefemm ist eine schnell wachsende D2C-Brand im Bereich Frauengesundheit. Das Unternehmen entwickelt hochwertige Nahrungserg\u00e4nzungsmittel f\u00fcr Frauen in den Wechseljahren und verfolgt das Ziel, langfristig eine der f\u00fchrenden Subscription-Brands in Europa aufzubauen.</strong></p>\n<p>Bei Purefemm entwickeln wir hochwertige Nahrungserg\u00e4nzungsmittel f\u00fcr Frauen in den Wechseljahren. Als internationale D2C-Subscription Brand wachsen wir schnell \u2013 und mit unserem Wachstum steigen auch die Anforderungen an unsere Finanzprozesse, unsere internationale Struktur und unsere Entscheidungsgrundlagen.</p>\n<p>Deshalb suchen wir keinen klassischen Buchhalter und keinen reinen Controller.</p>\n<p>Wir suchen eine:n <strong>Senior Finance Manager</strong>, der oder die unsere gesamte Finance-Funktion verantwortet \u2013 von Cashflow-Management und Financial Reporting \u00fcber die Steuerung unserer externen Accounting- und Tax-Partner bis hin zu strategischen Finanzentscheidungen.</p>\n<p>Wir erwarten eine echte Ownership-Mentalit\u00e4t. Jemanden, der sich innerhalb der ersten zwei Wochen einen vollst\u00e4ndigen \u00dcberblick \u00fcber unsere Finanzlandschaft verschafft, unsere externen Partner aktiv einbindet und uns proaktiv aufzeigt, wo wir Liquidit\u00e4t verbessern, Kosten optimieren oder Finanzprozesse effizienter gestalten k\u00f6nnen \u2013 und diese Verbesserungen anschlie\u00dfend eigenst\u00e4ndig vorantreibt.</p>\n<p>Du verstehst Zahlen nicht als R\u00fcckblick, sondern als Grundlage f\u00fcr bessere Entscheidungen. Du arbeitest direkt mit dem Founder zusammen, entwickelst skalierbare Finanzstrukturen und sorgst daf\u00fcr, dass unsere Finance-Funktion mit dem Unternehmen mitw\u00e4chst.</p>\n<p>Du musst nicht jede steuerliche Spezialfrage selbst beantworten k\u00f6nnen. Viel wichtiger ist, dass du unsere Finance-Funktion verantwortest, die richtigen Fragen stellst und unsere externen Accounting- und Tax-Partner effizient steuerst.</p>\n<h2>Aufgaben</h2>\n<p>Financial Reporting &#x26; Business Analysis</p>\n<ul>\n<li>Du verantwortest unser monatliches Financial Reporting inklusive Gewinn- und Verlustrechnung, Bilanz und Cashflow.</li>\n<li>Du erstellst Budget- und Abweichungsanalysen und leitest daraus konkrete Handlungsempfehlungen ab.</li>\n<li>Du analysierst COGS, Deckungsbeitr\u00e4ge und Produktmargen und identifizierst Optimierungspotenziale.</li>\n<li>Du entwickelst Subscription-Reporting inklusive MRR, Churn, Customer Lifetime Value und Unit Economics.</li>\n<li>Du analysierst die Profitabilit\u00e4t verschiedener Kundengruppen und entwickelst aussagekr\u00e4ftige KPI-Dashboards f\u00fcr den Founder.</li>\n</ul>\n<p>Cashflow Management</p>\n<ul>\n<li>Du verantwortest unser Working Capital Management.</li>\n<li>Du entwickelst und pflegst belastbare Cashflow-Forecasts und Liquidit\u00e4tsplanungen.</li>\n<li>Du optimierst Zahlungszyklen zwischen Kunden, Lieferanten und Dienstleistern.</li>\n<li>Du verwaltest unsere Multi-Currency-Bankkonten und Zahl",
-    "tags": "Remote Management Team Leader",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1783034942",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-03T02:05:47.454491+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
       "api"
     ],
     "remote": true
@@ -4537,44 +4494,6 @@
     "matched_keywords": [
       "api"
     ],
-    "remote": true
-  },
-  {
-    "id": "960a2e5d34e5",
-    "title": "Senior Operations Manager - DTC & Supply Chain - 35hrs+/week freelance & 100% remote",
-    "company": "Time to hire",
-    "location": "Marktbreit",
-    "url": "https://www.arbeitnow.com/jobs/companies/time-to-hire/senior-operations-manager-dtc-supply-chain-35hrs-week-freelance-100-remote-marktbreit-374446",
-    "description": "<p><strong>I'm hiring for my client, Purefemm \u2013 a fast-growing D2C subscription brand in women's health.</strong></p>\n<p>We're looking for people who think like owners, enjoy solving problems and want to help build a category-leading brand.</p>\n<p>At Purefemm, we're building more than a supplement company. Our mission is to help women navigate menopause with products they trust and continue using for the long term.</p>\n<p>We're building a <strong>subscription-first DTC brand</strong>, where operational excellence is just as important as marketing. Every supplier, every shipment, every customer interaction and every internal process directly impacts customer experience, retention and long-term growth.</p>\n<p>That's why we're not looking for someone to simply manage operations.</p>\n<p>We're looking for a <strong>Senior Operations Manager</strong> who takes ownership of our entire operations function - from Supply Chain and Fulfillment to Customer Support and operational excellence.</p>\n<p>You won't join to maintain existing processes. You'll join to improve them.</p>\n<p>We expect someone with a true ownership mentality - someone who can step into the business, build a complete understanding of our operations within the first two weeks, proactively identify opportunities to save time, reduce costs and improve efficiency, and then take ownership of implementing those improvements.</p>\n<p>You'll work directly with the Founder, own day-to-day operational decisions and build scalable systems that support the next stage of Purefemm's growth, including new product launches and international expansion.</p>\n<p>If you enjoy creating structure from complexity, think like a business owner rather than an operator, and want to have a direct impact on building one of Europe's leading subscription brands in women's health, we'd love to hear from you.</p>\n<h2>Tasks</h2>\n<p>Responsibilities</p>\n<p>Supply Chain</p>\n<ul>\n<li>Own supplier relationships across manufacturing, packaging and labeling partners.</li>\n<li>Manage purchasing, demand planning and inventory forecasting based on sales performance, ad spend and customer behavior.</li>\n<li>Monitor inventory levels and proactively manage replenishment to prevent stockouts.</li>\n<li>Build backup supplier strategies and mitigate operational risks.</li>\n<li>Lead supplier negotiations and continuously optimize pricing and commercial terms.</li>\n<li>Coordinate product notifications and operational compliance requirements across all relevant markets.</li>\n</ul>\n<p>Fulfillment &#x26; Logistics</p>\n<ul>\n<li>Own the relationship with our 3PL fulfillment partners and continuously improve operational performance.</li>\n<li>Monitor daily order flow and ensure smooth fulfillment operations.</li>\n<li>Optimize shipping costs across Germany, Austria, Switzerland and the wider EU.</li>\n<li>Resolve operational issues including delivery disputes, incorrect addresses, courier issues and slow-moving inventory.</li>\n<li>Lead fulfillment op",
-    "tags": "Remote Management Team Leader",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1783034942",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-03T02:05:47.454495+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "ee590bf28a92",
-    "title": "Business Development Manager - remote",
-    "company": "Severin Travel GmbH",
-    "location": "D\u00fcsseldorf",
-    "url": "https://www.arbeitnow.com/jobs/companies/severin-travel-gmbh/business-development-manager-prozesse-tools-ki-remote-dusseldorf-412610",
-    "description": "<p>Claude ist dein zweiter Vorname? Dann lies weiter.</p>\n<p>Bei Severin Travel gestalten wir hochwertige Individualreisen nach Afrika \u2013 und wir wachsen. Komplett organisch, \u00fcber Weiterempfehlung, Reiseb\u00fcro-Partner und SEO. Wir arbeiten seit vielen Jahren 100 % digital und remote, unsere Prozesse laufen \u2013 aber \u201el\u00e4uft\" reicht uns nicht mehr. Jede Reise, die wir verkaufen, ist ein individuell kalkuliertes Unikat. Das ist unsere St\u00e4rke \u2013 und unser Engpass: Ein einziges Angebot zu erstellen ist heute noch aufwendige Handarbeit.</p>\n<p>Genau hier kommst du ins Spiel. Wir suchen den Menschen, dem unsere Prozesse geh\u00f6ren: Du setzt auf einem funktionierenden Fundament auf und machst daraus eine Maschine, die mit uns skaliert. Du berichtest direkt an die Gesch\u00e4ftsf\u00fchrung und sitzt in unseren OKR-Meetings \u2013 du greifst richtig mit ins Rad.</p>\n<p>Dein Umfeld: Du arbeitest an den zwei spannendsten Schnittstellen im Unternehmen \u2013 mit unserer Head of Sales und ihrem Team aus erfahrenen Afrika-Spezialisten, wenn es um Angebote, Kalkulation und Reiseanmeldung geht, und mit unserem Marketing-Team, wenn es um Funnel, Tracking und die Website geht. Unser Stack: Google Workspace, Odoo, Webflow, Notion, Asana, Aircall \u2013 plus die Branchen- und KI-Tools, die du evaluierst und einf\u00fchrst.</p>\n<h2>Aufgaben</h2>\n<p>Dein Nordstern: Erlebnis pro Kunde rauf, Zeit pro Angebot runter, Conversion rauf. Konkret:</p>\n<ul>\n<li>Die Angebotsmaschine bauen: Du entwickelst unseren Angebotsprozess vom aufwendigen Einzelst\u00fcck zum Baukasten \u2013 vorkalkulierte Module, aus denen unser Sales-Team in Minuten statt Stunden hochwertige Angebote baut. Perspektive: 2\u20133 Angebotsvarianten pro Kunde plus buchbare Add-ons.</li>\n<li>Tools evaluieren und einf\u00fchren: Du pr\u00fcfst unseren Stack (Odoo, WETU &#x26; Co.) gegen den Markt, triffst fundierte Make-or-Buy-Entscheidungen und f\u00fchrst die L\u00f6sung ein \u2013 von der Kalkulation bis zur Angebots-Pr\u00e4sentation, die so gut aussieht wie unsere Reisen.</li>\n<li>KI in den Arbeitsalltag bringen: Du baust Workflows mit LLMs und Automatisierung (z. B. Make/n8n) \u2013 Angebotstexte aus Bausteinen, Anfragen-Vorqualifizierung, interne Assistenten. Nicht als Spielerei, sondern messbar im Tagesgesch\u00e4ft.</li>\n<li>Die Kundenreise digitalisieren: Digitale Reiseanmeldung, Zahlungsstrecke, ein System f\u00fcr die Visa-Begleitung unserer Kunden (Checklisten, Dokumente, Fristen) \u2013 vom Angebot bis zur Abreise reibungslos.</li>\n<li>Das Nachspiel automatisieren: Vom Foto-Upload nach der Reise bis zum gedruckten Erinnerungsbuch \u2013 du baust die Pipelines hinter unseren Premium-Momenten (Print-on-Demand, Fulfillment).</li>\n<li>Transparenz ausbauen: Wir haben ein gutes KPI-Fundament \u2013 du machst es besser: von der Anfrage \u00fcber das Angebot bis zur Buchung, und bringst die Zahlen in unsere OKR-Meetings.</li>\n</ul>\n<p>Du priorisierst selbst \u2013 immer nach dem, was uns langfristig am meisten bringt \u2013, misst deine Wirkung und lieferst in Wochen, nicht Quartalen. Wir bauen nachhaltig, kein Quick &#x26; Dirty.",
-    "tags": "Remote Business Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1783024142",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-03T02:05:47.454521+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
     "remote": true
   },
   {
@@ -9056,6 +8975,25 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-07-17T01:53:30.223253+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "a40a9e632d7a",
+    "title": "Machine Learning Engineer (m/w/d)",
+    "company": "Rockstardevelopers GmbH",
+    "location": "Stuttgart",
+    "url": "https://www.arbeitnow.com/jobs/companies/rockstardevelopers-gmbh/machine-learning-engineer-stuttgart-412768",
+    "description": "<p>Du baust produktive KI-Systeme (LLM, RAG, Agenten) f\u00fcr gro\u00dfe Kunden im \u00f6ffentlichen Sektor. Kein Prototyp f\u00fcr die Schublade, sondern Software, die im Regelbetrieb l\u00e4uft.</p>\n<h2><strong>Wer wir sind</strong></h2>\n<p>Rockstardevelopers, gegr\u00fcndet 2015, B\u00fcros in Stuttgart und M\u00fcnchen. Aus hunderten Projekten f\u00fcr Enterprise- und Mittelstandskunden wissen wir, wie man Software baut, die im Ernstfall tr\u00e4gt.</p>\n<p>Seit einer Weile verschiebt sich unser Schwerpunkt Richtung KI: LLM-Anwendungen, RAG, Agenten-Systeme, die beim Kunden wirklich produktiv gehen. Genau daf\u00fcr suchen wir dich.</p>\n<h2><strong>Worum es geht</strong></h2>\n<p>Unsere Kunden sind IT-Dienstleister im \u00f6ffentlichen Sektor, ein reguliertes Umfeld mit hohen Anspr\u00fcchen an Datenschutz und Betriebssicherheit. Dort baust du KI-L\u00f6sungen in bestehende Branchenl\u00f6sungen ein: Dialogsysteme, semantische Suche, RAG-Pipelines, Agenten, alles im echten Produktivbetrieb f\u00fcr viele Nutzer. Projektsprache ist Deutsch.</p>\n<p>Ein Wort zu Remote, weil es oft die erste Frage ist: Der Alltag l\u00e4uft remote-first innerhalb der DACH-Region. Ab und zu bist du vor Ort, den Rest der Zeit arbeitest du von dort, wo du gut arbeitest.</p>\n<h2>Deine Aufgaben</h2>\n<ul>\n<li><strong>LLM-Anwendungen bauen.</strong> Du entwickelst dialogbasierte Systeme und semantische Suche und integrierst sie in die fachlichen Anwendungen der Branchenl\u00f6sung.</li>\n<li><strong>RAG-Systeme aufsetzen und pflegen.</strong> Inklusive Wissensbasis-Management: Indexierung, Aktualisierung, saubere quellengetrennte Ablage von strukturierten und unstrukturierten Inhalten.</li>\n<li><strong>Betrieb und Monitoring.</strong> MLOps im Produktivbetrieb: Observability, strukturiertes Logging, Fehleranalyse. Du sorgst daf\u00fcr, dass die Systeme laufen, nicht nur, dass sie einmal liefen.</li>\n<li><strong>Agenten produktiv setzen.</strong> Von der Entwicklung \u00fcber die Integration und die Anbindung an Portalsysteme bis zur stabilen Auslieferung.</li>\n<li><strong>Auf Datenbasis verbessern.</strong> Auf Basis von Monitoring-Daten, Tests und Nutzerfeedback machst du die L\u00f6sungen Schritt f\u00fcr Schritt besser.</li>\n<li><strong>Neues erproben.</strong> Du identifizierst neue KI-Anwendungsfelder, probierst sie aus und baust die Datenpipelines von der Aufbereitung \u00fcber die Modellerstellung bis in die Produktion.</li>\n</ul>\n<h2><strong>Das musst du mitbringen</strong></h2>\n<p>Die folgenden vier Punkte sind harte Voraussetzungen, jeder muss nachweisbar sein. Wenn einer davon fehlt, k\u00f6nnen wir dich leider nicht ins Rennen schicken. So ehrlich sind wir lieber vorab, als dir Zeit zu stehlen.</p>\n<ul>\n<li><strong>Mindestens 3 Jahre Berufserfahrung als Machine Learning Engineer</strong> in Konzeption, Entwicklung, Implementierung und Optimierung skalierbarer ML-L\u00f6sungen.</li>\n<li><strong>Mindestens 2 Jahre Erfahrung in agilen Entwicklerteams.</strong></li>\n<li><strong>Deutsch mindestens auf C1-Niveau</strong> in Wort und Schrift, nachweisbar \u00fcber ein Sprachzertifikat oder als ",
+    "tags": "Remote Software Development",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1784262625",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-07-17T07:54:14.092963+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
