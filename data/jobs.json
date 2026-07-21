@@ -1122,54 +1122,6 @@
     "remote": true
   },
   {
-    "id": "5392850e7787",
-    "title": "Junior DevOps Engineer (m/f/d)",
-    "company": "Flix",
-    "location": "Berlin, Berlin, Germany",
-    "url": "https://www.arbeitnow.com/jobs/companies/flix/junior-devops-engineer-berlin-74956",
-    "description": "<p>At Flix, we offer a dynamic work environment with competitive pay, strong growth opportunities, and a tech-driven approach to making travel more accessible, sustainable, and affordable.</p>\n<p>Our Platform Engineering team builds and operates the cloud infrastructure that powers Flix's services across Europe and beyond. We manage a Kubernetes-based platform on AWS and enable engineering teams to deploy and operate scalable, reliable applications. The team focuses on automation, infrastructure as code, and continuous improvement of our platform capabilities.</p>\n<h3><strong data-renderer-mark=\"true\">About the Role</strong></h3>\n<p>&nbsp;</p>\n<ul>\n<li>Design, deploy, and maintain cloud infrastructure on AWS using Kubernetes and Infrastructure as Code (Terraform)</li>\n<li>Automate infrastructure and operational workflows to improve efficiency and reliability</li>\n<li>Support API infrastructure, including API gateways and publishing APIs to external consumers</li>\n<li>Monitor systems, troubleshoot incidents, and contribute to improving system reliability and recovery processes</li>\n<li>Collaborate with engineering teams and support them in using the platform effectively</li>\n<li>Continuously improve platform tooling, automation, and engineering practices</li>\n<li>Participate in an on-call rotation to support platform stability</li>\n</ul>\n<h3><strong data-renderer-mark=\"true\">About You</strong></h3>\n<p>&nbsp;</p>\n<ul>\n<li>At least 6 months of professional experience in software, platform, or infrastructure engineering</li>\n<li>Hands-on experience with Python</li>\n<li>Basic knowledge of Linux/UNIX systems and shell usage</li>\n<li>Experience with containerization and interest in Kubernetes</li>\n<li>Understanding of networking fundamentals (e.g. TCP/IP, HTTP, DNS)</li>\n<li>Familiarity with Infrastructure as Code and CI/CD concepts</li>\n<li>Strong communication skills and ability to work in a team</li>\n<li>Fluent in English</li>\n</ul>\n<p>&nbsp;</p>\n<h4>Nice to have</h4>\n<p>&nbsp;</p>\n<ul>\n<li>Experience with Kubernetes, Terraform, or cloud platforms (e.g. AWS)</li>\n<li>Exposure to API infrastructure (e.g. API gateways, external API publishing)</li>\n<li>Experience with monitoring tools (e.g. Prometheus, Grafana, Datadog)</li>\n<li>Interest in improving developer experience and platform usability</li>\n</ul>\n<p>&nbsp;</p>\n<p><strong data-renderer-mark=\"true\">We recognize that everyone carries a unique set of valuable skills and experiences. If you think you could have an impact even though you don't meet 100% of the requirements, we still encourage you to apply. We want to hear from you!\u202f&nbsp;</strong></p>\n<h3><strong>What We Offer</strong></h3>\n<ul>\n<li data-renderer-start-pos=\"11445\"><strong data-renderer-mark=\"true\">Travel perks</strong>: 12 free Flix vouchers + 12 discount vouchers for friends &amp; family.</li>\n<li data-renderer-start-pos=\"11445\"><strong data-renderer-mark=\"true\">Work from (M)Anywhere</strong>: Depending on your role, work from anoth",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1783370726",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-07T02:12:28.119906+00:00",
-    "salary_parsed": null,
-    "score": 60,
-    "matched_keywords": [
-      "python",
-      "aws",
-      "kubernetes",
-      "api"
-    ],
-    "remote": true
-  },
-  {
-    "id": "223be49dfbe9",
-    "title": "Junior DevOps Engineer (m/f/d)",
-    "company": "Flix",
-    "location": "Berlin, Berlin, Germany",
-    "url": "https://www.arbeitnow.com/jobs/companies/flix/junior-devops-engineer-berlin-143109",
-    "description": "<p>At Flix, we offer a dynamic work environment with competitive pay, strong growth opportunities, and a tech-driven approach to making travel more accessible, sustainable, and affordable.</p>\n<p>Our Platform Engineering team builds and operates the cloud infrastructure that powers Flix's services across Europe and beyond. We manage a Kubernetes-based platform on AWS and enable engineering teams to deploy and operate scalable, reliable applications. The team focuses on automation, infrastructure as code, and continuous improvement of our platform capabilities.</p>\n<h3><strong data-renderer-mark=\"true\">About the Role</strong></h3>\n<p>&nbsp;</p>\n<ul>\n<li>Design, deploy, and maintain cloud infrastructure on AWS using Kubernetes and Infrastructure as Code (Terraform)</li>\n<li>Automate infrastructure and operational workflows to improve efficiency and reliability</li>\n<li>Support API infrastructure, including API gateways and publishing APIs to external consumers</li>\n<li>Monitor systems, troubleshoot incidents, and contribute to improving system reliability and recovery processes</li>\n<li>Collaborate with engineering teams and support them in using the platform effectively</li>\n<li>Continuously improve platform tooling, automation, and engineering practices</li>\n<li>Participate in an on-call rotation to support platform stability</li>\n</ul>\n<h3><strong data-renderer-mark=\"true\">About You</strong></h3>\n<p>&nbsp;</p>\n<ul>\n<li>At least 6 months of professional experience in software, platform, or infrastructure engineering</li>\n<li>Hands-on experience with Python</li>\n<li>Basic knowledge of Linux/UNIX systems and shell usage</li>\n<li>Experience with containerization and interest in Kubernetes</li>\n<li>Understanding of networking fundamentals (e.g. TCP/IP, HTTP, DNS)</li>\n<li>Familiarity with Infrastructure as Code and CI/CD concepts</li>\n<li>Strong communication skills and ability to work in a team</li>\n<li>Fluent in English</li>\n</ul>\n<p>&nbsp;</p>\n<h4>Nice to have</h4>\n<p>&nbsp;</p>\n<ul>\n<li>Experience with Kubernetes, Terraform, or cloud platforms (e.g. AWS)</li>\n<li>Exposure to API infrastructure (e.g. API gateways, external API publishing)</li>\n<li>Experience with monitoring tools (e.g. Prometheus, Grafana, Datadog)</li>\n<li>Interest in improving developer experience and platform usability</li>\n</ul>\n<p>&nbsp;</p>\n<p><strong data-renderer-mark=\"true\">We recognize that everyone carries a unique set of valuable skills and experiences. If you think you could have an impact even though you don't meet 100% of the requirements, we still encourage you to apply. We want to hear from you!\u202f&nbsp;</strong></p>\n<h3><strong>What We Offer</strong></h3>\n<ul>\n<li data-renderer-start-pos=\"11445\"><strong data-renderer-mark=\"true\">Travel perks</strong>: 12 free Flix vouchers + 12 discount vouchers for friends &amp; family.</li>\n<li data-renderer-start-pos=\"11445\"><strong data-renderer-mark=\"true\">Work from (M)Anywhere</strong>: Depending on your role, work from anoth",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1783370726",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-07T02:12:28.119917+00:00",
-    "salary_parsed": null,
-    "score": 60,
-    "matched_keywords": [
-      "python",
-      "aws",
-      "kubernetes",
-      "api"
-    ],
-    "remote": true
-  },
-  {
     "id": "jobot_65965e9601",
     "title": "Electrical Engineer (Data Centers)\n$125,000 - $165,000New York, NY Remote\nElectrical Engineer PE/EIT (Data Center/Healthcare) - NYC - Hybrid/Remote",
     "company": "Unknown",
@@ -2056,28 +2008,6 @@
     "remote": true
   },
   {
-    "id": "37bd86b10bfa",
-    "title": "Senior AI Engineer",
-    "company": "Pentadoc Gruppe",
-    "location": "W\u00fcrzburg",
-    "url": "https://www.arbeitnow.com/jobs/companies/pentadoc-gruppe/senior-ai-engineer-wurzburg-415522",
-    "description": "<p>At <strong>5Plus</strong>, we build <strong>production-grade AI systems</strong> that solve real operational problems for our customers.</p>\n<p>As a <strong>Senior AI Engineer</strong> (m/f/d), you will <strong>take technical responsibility for customer-facing AI solutions</strong> \u2014 from early design decisions to production deployment and operation. You will design, build, and operate AI applications ranging from <strong>LLM-powered workflows</strong> (e.g., intelligent document processing, RAG systems) to <strong>agentic AI systems</strong> that are actively used in customer environments.</p>\n<p><strong>German language</strong> skills at <strong>C1 level</strong> or above <strong>are essential</strong> for this role.</p>\n<p>You\u2019ll work closely with customers and internal engineers to translate ambiguous requirements into reliable, scalable systems and guide AI-driven product development within customer projects. This role is <strong>hybrid</strong>, with <strong>predominantly remote work</strong> and <strong>occasional on-site presence</strong> at customer locations across Germany and our office in W\u00fcrzburg, Bavaria.</p>\n<h2><strong>Your profile</strong></h2>\n<ul>\n<li><strong>Several years (3\u20136)</strong> of hands-on experience building and operating <strong>AI/ML systems in real-world projects</strong>.</li>\n<li><strong>At least one practical implementation of agentic AI systems</strong>, beyond simple chains or demos, ideally in a production or near-production context.</li>\n<li>**Strong Python expertise (**app. <strong>5 years)</strong> and experience with modern AI/LLM tooling; framework-agnostic mindset.</li>\n<li>Proven experience with <strong>LLM-based systems</strong> (e.g., RAG, embeddings, tool usage) and an understanding of trade-offs between quality, cost, latency, and complexity.</li>\n<li>Ability to work <strong>independently in customer-facing environments</strong>, taking ownership of technical decisions under uncertainty.</li>\n<li>Professional communication skills in customer contexts.</li>\n<li>Residence in <strong>Germany</strong>.</li>\n</ul>\n<h2><strong>Bonus points to score</strong></h2>\n<ul>\n<li>Deeper experience with <strong>agentic architectures</strong> (planning, memory, multi-agent coordination).</li>\n<li>Experience deploying and operating AI services in <strong>cloud environments</strong> (AWS, Azure, etc.).</li>\n<li>Contributions to open-source projects, technical writing, or applied research.</li>\n</ul>\n<h2><strong>Your daily business</strong></h2>\n<ul>\n<li>Design and ship end-to-end AI systems, from prototype to production.</li>\n<li>Build LLM-powered applications (incl. RAG, tool usage, validations) with a focus on reliability and cost-efficiency.</li>\n<li>Develop and operate agentic AI systems (e.g., planning, tool orchestration, multi-step workflows) with clearly defined safety and integrations into customers\u2019 systems</li>\n<li>Define evaluation strategies (offline + online), including metrics, benchmarks, and moni",
-    "tags": "Consulting",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1783384232",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-07T02:12:28.119862+00:00",
-    "salary_parsed": null,
-    "score": 50,
-    "matched_keywords": [
-      "python",
-      "aws"
-    ],
-    "remote": true
-  },
-  {
     "id": "956b913778d5",
     "title": "Office Assistant",
     "company": "Coalition Technologies ",
@@ -2800,27 +2730,6 @@
     "matched_keywords": [
       "software engineer",
       "python"
-    ],
-    "remote": true
-  },
-  {
-    "id": "7c6c1fa8d3ef",
-    "title": "Senior Product Owner (m/f/d)",
-    "company": "Flix",
-    "location": "Berlin, Berlin, Germany",
-    "url": "https://www.arbeitnow.com/jobs/companies/flix/senior-product-owner-berlin-299612",
-    "description": "<p>We're looking for a motivated and driven <strong>Senior Product Owner (m/f/d)</strong> who will help us shape our team and have the most direct influence on our success.</p>\n<p>The mission of the Revenue Management Products team is to integrate diverse pricing tools and services into a single, cohesive ecosystem, focusing on user experience.&nbsp;</p>\n<p>As part of our team, you will play a pivotal role in continuously evolving our Revenue Management Products for complex new features. Our team is part of the Demand Division, Demand Management Stream, and you will also become a member of our Product Owner community.&nbsp;</p>\n<p><span data-teams=\"true\">As the Product Owner joining our Revenue Management Products teams, you will collaborate with our Engineering Manager and Revenue Management department to support efforts in meeting the demands of our evolving business. Your responsibility will be to work closely with stakeholders, both on the business and tech sides, shape the product vision, and, together with your teams, seamlessly integrate multiple services to improve our users experience.</span></p>\n<p><span style=\"font-size: 24pt;\"><strong data-renderer-mark=\"true\">About the Role</strong></span></p>\n<p></p>\n<ul>\n<li>Define product vision and roadmap in close collaboration with your team and stakeholders, empowering engineers to drive day-to-day backlog refinement and team-internal prioritization</li>\n<li>Own and prioritize the product backlog at a strategic level, trusting your team(s) to manage the operational detail</li>\n<li>Lead cross-team and cross-stream product initiatives. Driving alignment, resolving dependencies, and creating clarity across multiple teams and domains</li>\n<li>Collaborate closely with other Product Owners to shape and deliver high-value outcomes beyond team boundaries</li>\n<li>Facilitate data-driven decisions and champion a culture of outcome-focused delivery</li>\n<li>Find a pragmatic balance between speed and quality, adapting your ways of working to the context, whether embedded with one team, spanning two, or leading broader product initiatives</li>\n</ul>\n<p></p>\n<p><span style=\"font-size: 24pt;\"><strong data-renderer-mark=\"true\">About You</strong></span></p>\n<ul>\n<li>7+ years of experience as a Product Owner or Product Manager in a highly collaborative environment, with a track record of owning complex products end-to-end.</li>\n<li>Awareness of UX best practices\u2028&amp; Ability to interpret user research, usability testing, and quantitative user behavior analysis</li>\n<li>Ability to define and communicate a clear product vision and strategy</li>\n<li>Experience in creating and managing product roadmaps</li>\n<li>Excellent stakeholder management and negotiation skills</li>\n<li>Experience working with engineers on API design decisions, data pipelines, and distributed system trade-offs</li>\n<li>Experience and willingness to work with a high degree of both individual and team autonomy</li>\n<li>Experience working with a",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1783370726",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-07T02:12:28.119894+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "api"
     ],
     "remote": true
   },
@@ -4124,63 +4033,6 @@
     "matched_keywords": [
       "startup"
     ],
-    "remote": true
-  },
-  {
-    "id": "75e16c013ee7",
-    "title": "Fachinformatiker Systemintegration (m/w/d) vor Ort | Es ist kein Job - Wir leben IT!",
-    "company": "YOGITRON Netzwerktechnik GmbH",
-    "location": "Stolberg (Rhineland)",
-    "url": "https://www.arbeitnow.com/jobs/companies/yogitron-netzwerktechnik-gmbh/fachinformatiker-systemintegration-vor-ort-es-ist-kein-job-wir-leben-it-stolberg-rhineland-271793",
-    "description": "<p>Wir leben IT.</p>\n<p>Eigentlich suchen wir keinen Mitarbeiter. Wir suchen jemanden, der Lust hat, mit uns IT zu machen.</p>\n<p>Wir sind ein kleines Team mit einer gro\u00dfen Leidenschaft f\u00fcr Technik. Uns begeistert alles, was blinkt, piept, sich virtualisieren l\u00e4sst oder einfach nur funktioniert, nachdem wir daran geschraubt haben. Neue Technologien probieren wir lieber selbst aus, als nur dar\u00fcber zu lesen.</p>\n<p>Unsere Kunden verlassen sich darauf, dass ihre IT l\u00e4uft. Deshalb sind wir da, wenn es darauf ankommt \u2013 meistens per Remotezugriff, manchmal aber auch direkt vor Ort. Mal geht es um Server, Virtualisierung oder Netzwerke, mal erkl\u00e4ren wir einem Kunden zum dritten Mal, warum der Monitor tats\u00e4chlich eingeschaltet sein muss. Wir nennen das liebevoll \u201ebetreutes Arbeiten\u201c \u2013 und meistens k\u00f6nnen wir anschlie\u00dfend gemeinsam dar\u00fcber lachen.</p>\n<p>Bei uns gibt es keine Konzernstrukturen und keine langen Entscheidungswege. Wir arbeiten unkompliziert zusammen, kommunizieren direkt und helfen uns gegenseitig \u2013 egal ob im B\u00fcro, im Homeoffice oder unterwegs.</p>\n<p>Und ja: Wenn wir Lust haben, gehen wir gemeinsam mit Kunden oder anderen ITlern zum Chinesen oder ins Steakhaus. Nicht weil das irgendwo vorgeschrieben ist, sondern weil wir uns gut verstehen.</p>\n<p>Wenn Du morgens eher denkst \u201eMal sehen, was heute kaputt ist\u201c als \u201eSchon wieder Montag\u201c, dann k\u00f6nnten wir ziemlich gut zusammenpassen.</p>\n<p>Kurz gesagt: Wir leben IT. Nicht nur zwischen 8 und 17 Uhr.</p>\n<h2>Aufgaben</h2>\n<p>Jeder Tag ist anders \u2013 genau deshalb macht der Job bei uns Spa\u00df.</p>\n<p>Du bist der erste Ansprechpartner, wenn beim Kunden die IT mal wieder beschlossen hat, ein Eigenleben zu entwickeln.</p>\n<p>Die meisten Probleme lassen sich per Remotezugriff l\u00f6sen, wenn es aber sinnvoller ist, f\u00e4hrst Du direkt zum Kunden und bringst die Technik wieder zum Laufen.</p>\n<p>Du installierst und betreust Windows-Clients, Windows-Server, Microsoft 365 sowie alles, was in einer modernen IT-Umgebung dazugeh\u00f6rt.</p>\n<p>Du k\u00fcmmerst Dich um Virtualisierung mit VMware vSphere, Microsoft Hyper-V oder Proxmox.</p>\n<p>Du richtest Netzwerke ein, konfigurierst Switches, Firewalls, WLAN und VPN-Verbindungen und findest auch dann noch den Fehler, wenn andere l\u00e4ngst aufgegeben haben.</p>\n<p>Du tauschst Hardware aus, begleitest Rollouts und setzt kleinere IT-Projekte bei unseren Kunden um.</p>\n<p>Du achtest darauf, dass Datensicherungen funktionieren, Updates nicht vergessen werden und die IT unserer Kunden sicher bleibt.</p>\n<p>Du dokumentierst Deine Arbeit nachvollziehbar \u2013 damit auch Deine Kollegen wissen, was Du gemacht hast (und nicht nur Du selbst \ud83d\ude09).</p>\n<p>Wenn ein Problem zum dritten Mal auftaucht, behebst Du nicht nur die Symptome, sondern suchst nach der eigentlichen Ursache.</p>\n<p>Du musst nicht alles wissen. Aber Du solltest Lust haben, Dinge herauszufinden.</p>\n<p>Wenn Du erst einmal verstehen willst, warum etwas kaputt ist, statt einfach nur neu zu starten, wirst Du Dich bei uns wohlf\u00fchlen.<",
-    "tags": "System and Network Administration",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1783389542",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-07T02:12:28.119883+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "b1b2182e6367",
-    "title": "Senior Platform Engineer, Event Streaming Platform",
-    "company": "Wolt - English",
-    "location": "Berlin, Berlin, Germany",
-    "url": "https://www.arbeitnow.com/jobs/companies/wolt-english/senior-platform-engineer-event-streaming-platform-berlin-198594",
-    "description": "<div class=\"content-intro\"><h2><span data-sheets-root=\"1\">About Wolt</span></h2>\n<p><span data-sheets-root=\"1\">At Wolt, we create technology that brings joy, simplicity and earnings to the neighborhoods of the world. In 2014 we started with delivery of restaurant food. Now we're building the delivery of (almost) everything and you'll find us in over 500 cities in 30 countries around the world. In 2022 we joined forces with DoorDash and together we keep on dreaming big and expanding across the globe.<br><br>Working at Wolt isn't always easy, but it's definitely exciting. Here you'll learn more, build more, and ship more than in most other companies. You'll be challenged a lot, but also have a lot of fun on the way. So, if you're a self-starter with drive and entrepreneurial spirit, this could be the ride of your life.</span></p></div><h2>About the Role</h2>\n<p>We're looking for an experienced Platform Engineer to join Event Streaming team \u2014 the distributed team responsible for the Kafka infrastructure and event streaming systems that power business-critical workflows across Wolt, Deliveroo and DoorDash.</p>\n<p>You'll be joining a team that operates at the intersection of Platform Engineering and Reliability Engineering, building and running the streaming backbone that is used by thousands of services across 3 companies. This is deeply technical work: you'll own distributed systems at scale, contribute to long-term architecture decisions, and be working on the reliability of critical parts of infrastructure.</p>\n<h2>What You'll Be Doing</h2>\n<p>You'll be joining the team within the broader Storage organisation. The team builds and operates highly reliable, scalable and efficient event streaming infrastructure, including Kafka, in-house Event Streaming abstraction (internally called Event Bus) and any future streaming platform technologies. These systems support critical workflows and are foundational to how engineering teams build reliable, event-driven products at scale.</p>\n<p>Here's what your day-to-day might look like:</p>\n<ul>\n<li>Design, build and operate large-scale, event streaming infrastructure that supports critical production workloads.</li>\n<li>Improve the reliability, scalability, observability and automation of Kafka, Event Bus and related streaming components.</li>\n<li>Debug complex distributed systems issues \u2014 latency issues, performance bottlenecks, capacity constraints, partition imbalances \u2014 and drive them to resolution.</li>\n<li>Build infrastructure automation and self-healing capabilities that reduce operational toil and improve platform resilience.</li>\n<li>Contribute to the team's 24/7 On-call rotation and incident response, and drive continuous improvement through pre-mortems, operational readiness checklists and post-mortem action items.</li>\n<li>Partner closely with other teams within Storage organization and&nbsp; wider Core Infrastructure org, like SRE, Data Platform, and Caching teams across EU and US regions \u2014 includi",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1783370725",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-07T02:12:28.119924+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
-    "id": "be29e1291977",
-    "title": "Business Development Manager Yacht Insurance (m/f/x)",
-    "company": "Sealogy GmbH",
-    "location": "Berlin",
-    "url": "https://www.arbeitnow.com/jobs/companies/sealogy-gmbh/business-development-manager-berlin-66499",
-    "description": "<p>Looking for more than just a job? Join forces with a dynamically growing company with an exciting product and a worldwide customer base.</p>\n<p>Since 1999, we have been insuring high-quality sailing and motor yachts \u2013 from daysailers to superyachts. Thanks to our expertise and customer focus, we have established ourselves as one of the leading solution providers worldwide.</p>\n<p>We don't manage the relationships with yacht owners ourselves, but through a worldwide network of strong partners with whom we work closely and trustingly. These include yacht managers, boat dealers, insurance brokers, shipyards, and many others. Our partners' success is therefore not a side issue, but a cornerstone of our strategy. The more successful our partners are, the more successful we are.</p>\n<p>This principle guides our daily priorities. Our team currently consists of thirty customer-focused and highly motivated employees. To meet the steadily growing demand for our insurance solutions and seize further growth opportunities, we are looking for the following addition to our team:</p>\n<h2>Tasks</h2>\n<ul>\n<li>Build win-win partnerships with the international yachting industry</li>\n<li>Identify and approach potential partners through various channels</li>\n<li>Onboard and train newly acquired partners</li>\n<li>Monitor and manage existing partnerships</li>\n<li>Represent Sealogy at national and international yacht shows and events</li>\n</ul>\n<h2>Requirements</h2>\n<ul>\n<li>Successfully completed degree or vocational training</li>\n<li>Network and many years of experience in the international yachting industry</li>\n<li>Interest in and enthusiasm for the world of yachting</li>\n<li>Fluent spoken and written in English. Additional languages are an advantage</li>\n<li>Communication, with a confident and professional manner</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>An exciting and varied role in a dynamic environment</li>\n<li>Attractive development opportunities with corresponding effort and commitment</li>\n<li>Fair compensation with exciting growth opportunities</li>\n<li>Attractive working conditions with regular participation in great events</li>\n<li>The chance to help shape a company and its processes and structures</li>\n</ul>\n<p><strong>Questions?</strong></p>\n<p>Just give us a call and we'll talk about whether we're a good fit.Your contact: Daniel Hoffmann, Phone: +49 170 907 8358</p>\n<p>We look forward to hearing from you!</p>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Remote Business Development",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1783371542",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-07T02:12:28.119968+00:00",
-    "salary_parsed": null,
-    "score": 40,
-    "matched_keywords": [],
     "remote": true
   },
   {
@@ -8130,6 +7982,25 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-07-21T01:51:57.997164+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "bc63d838e7b3",
+    "title": "Project Manager Intern",
+    "company": "HOPn UG",
+    "location": "Puchheim",
+    "url": "https://www.arbeitnow.com/jobs/companies/hopn-ug/project-manager-intern-unpaid-internship-puchheim-386852",
+    "description": "<p>We are looking for a motivated and organized Project Manager Intern to join our team. This internship is an excellent opportunity for someone who wants to gain hands-on experience managing projects in an Agile environment while working with cross-functional teams.</p>\n<p><strong>Location:</strong> Remote<br>\n<strong>Compensation:</strong> Unpaid Internship</p>\n<h2>Tasks</h2>\n<p>Responsibilities</p>\n<ul>\n<li>Coordinate and track project progress using <strong>Jira</strong>.</li>\n<li>Plan and manage <strong>sprints</strong> following Agile/Scrum practices.</li>\n<li>Lead and facilitate <strong>Daily Stand-ups</strong>, <strong>Sprint Planning</strong>, <strong>Sprint Reviews</strong>, and <strong>Sprint Retrospectives</strong>.</li>\n<li>Remove blockers and help the team stay focused on sprint goals.</li>\n<li>Communicate project updates with stakeholders and team members.</li>\n<li>Keep project documentation organized and up to date.</li>\n<li>Foster a positive, collaborative team environment and help maintain high team energy and motivation.</li>\n</ul>\n<h2>Requirements</h2>\n<p>Requirements</p>\n<ul>\n<li>Basic understanding of <strong>Agile</strong> and <strong>Scrum</strong> methodologies.</li>\n<li>Experience using <strong>Jira</strong> for task and sprint management.</li>\n<li>Strong communication and organizational skills.</li>\n<li>Ability to manage multiple tasks and prioritize effectively.</li>\n<li>Leadership mindset with a proactive attitude.</li>\n<li>Eagerness to learn and grow in project management.</li>\n</ul>\n<h2>Benefits</h2>\n<p>What You'll Gain</p>\n<ul>\n<li>Practical experience leading Agile projects.</li>\n<li>Exposure to real-world software development workflows.</li>\n<li>Mentorship from experienced professionals.</li>\n<li>Opportunity to build your project management portfolio.</li>\n<li>Potential consideration for future paid opportunities based on performance.</li>\n</ul>\n<p>Find <a href=\"https://www.arbeitnow.com/\">Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Remote Project Management",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1784604542",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-07-21T08:10:02.539481+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
