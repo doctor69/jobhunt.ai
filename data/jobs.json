@@ -995,25 +995,6 @@
     "remote": true
   },
   {
-    "id": "jobot_7301605206",
-    "title": "Sr Plumbing Design Engineer\n$100,000 - $150,000Philadelphia, PA Remote\nSr Plumbing Design Engineer (Medical Gas) - Remote",
-    "company": "Unknown",
-    "location": "Remote",
-    "description": "",
-    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=7301605206",
-    "tags": "",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "",
-    "source": "jobot",
-    "status": "new",
-    "found_at": "2026-07-11T07:42:29.693173+00:00",
-    "salary_parsed": 100000,
-    "score": 60,
-    "matched_keywords": [],
-    "remote": true
-  },
-  {
     "id": "080348352357",
     "title": "Staff Product Engineer (Mexico City)",
     "company": "LawnStarter",
@@ -1480,6 +1461,25 @@
       "react",
       "api"
     ],
+    "remote": true
+  },
+  {
+    "id": "jobot_7301605206",
+    "title": "Sr Plumbing Design Engineer\n$100,000 - $150,000Philadelphia, PA Remote\nSr Plumbing Design Engineer (Medical Gas) - Remote",
+    "company": "Unknown",
+    "location": "Remote",
+    "description": "",
+    "url": "https://jobot.com/search?q=software+engineer&l=Remote&j=7301605206",
+    "tags": "",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "",
+    "source": "jobot",
+    "status": "new",
+    "found_at": "2026-07-25T07:52:44.339579+00:00",
+    "salary_parsed": 100000,
+    "score": 60,
+    "matched_keywords": [],
     "remote": true
   },
   {
