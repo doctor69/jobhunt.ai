@@ -4497,27 +4497,6 @@
     "remote": true
   },
   {
-    "id": "680952fa6205",
-    "title": "SEO/AEO/GEO/LLM - B2B SaaS",
-    "company": "Syntivis AG",
-    "location": "Rosenheim",
-    "url": "https://www.arbeitnow.com/jobs/companies/syntivis-ag/seo-aeo-geo-llm-b2b-saas-rosenheim-241606",
-    "description": "<h2>Tasks</h2>\n<p>- 6+ years hands-on SEO experience</p>\n<p>- Currently employed at one of the following (this is the filter that matters):</p>\n<p>- A reputable Indian B2B SaaS company with a real organic growth function (e.g. Zoho, Freshworks, Postman, Chargebee, Razorpay, BrowserStack, Whatfix, Hasura, Zluri, and peers of that caliber)</p>\n<p>- A B2B-focused SEO/content agency serving Western clients (e.g. Animalz, Siege Media, Omniscient Digital, Foundation, Grow &#x26; Convert, Growfusely, or comparable boutiques)</p>\n<p>- An in-house growth/SEO role at a Western SaaS company, working remotely from India</p>\n<p>- SaaS or B2B background \u2014 not e-commerce, not affiliate, not local SEO</p>\n<p>- Demonstrable experience with US/Canada search markets</p>\n<h2>Requirements</h2>\n<p>Must be strong in:</p>\n<ul>\n<li>Technical SEO (Core Web Vitals, schema, crawl/index, site architecture, log analysis)</li>\n<li>Content &#x26; search intent strategy</li>\n<li>AI search optimization, Generative Engine Optimization (GEO), LLM SEO</li>\n<li>Ethical authority building (no PBNs, no link schemes)</li>\n<li>SEO analytics (GA4, GSC, Ahrefs/SEMrush, Screaming Frog)</li>\n<li>Linking SEO work to business outcomes \u2014 pipeline, MQLs, revenue, not just traffic</li>\n<li>Written and spoken English at a level comfortable for North American stakeholder communication</li>\n</ul>\n<p>Find more <a href=\"https://www.arbeitnow.com/english-speaking-jobs\">English Speaking Jobs in Germany</a> on Arbeitnow</a>",
-    "tags": "Remote IT",
-    "salary_min": null,
-    "salary_max": null,
-    "posted_at": "1784340037",
-    "source": "arbeitnow",
-    "status": "new",
-    "found_at": "2026-07-18T07:29:28.911972+00:00",
-    "salary_parsed": null,
-    "score": 45,
-    "matched_keywords": [
-      "saas"
-    ],
-    "remote": true
-  },
-  {
     "id": "4d6760c83786",
     "title": "Founders Associate (Pflicht-Praktikum) (d/w/m)",
     "company": "Project Bay GmbH",
@@ -7347,6 +7326,69 @@
     "score": 45,
     "matched_keywords": [
       "api"
+    ],
+    "remote": true
+  },
+  {
+    "id": "6bcab3c46054",
+    "title": "JavaScript-Entwickler (m/w/d)",
+    "company": "MILEO SYSTEMS",
+    "location": "Offenbach",
+    "url": "https://www.arbeitnow.com/jobs/companies/mileo-systems/javascript-entwickler-offenbach-330984",
+    "description": "<p>Wir betreuen ein JavaScript-Tool, das aus modellierten Gesch\u00e4ftsprozessen automatisch Auswertungen erzeugt \u2014 zum Beispiel, wie viel Arbeitszeit ein Prozess kostet und wie viele Mitarbeiter daf\u00fcr n\u00f6tig sind.</p>\n<p>Das Tool ist \u00fcber Jahre gewachsen und wird laufend erweitert. Daf\u00fcr suchen wir Verst\u00e4rkung.</p>\n<h2>Aufgaben</h2>\n<ul>\n<li>Neue Funktionen in JavaScript umsetzen</li>\n<li>Fehler suchen und beheben</li>\n<li>Berechnungslogik anpassen, wenn sich fachliche Vorgaben \u00e4ndern</li>\n<li>Auswertungen erweitern und verbessern</li>\n<li>Abstimmung mit dem Fachbereich</li>\n<li>Ergebnisse regelm\u00e4\u00dfig dem Kunden vorstellen \u2014 remote per MS Teams</li>\n</ul>\n<h2>Qualifikation</h2>\n<ul>\n<li>Gute JavaScript-Kenntnisse</li>\n<li>Spa\u00df daran, dich in bestehenden Code einzuarbeiten</li>\n<li>Sorgf\u00e4ltige Arbeitsweise \u2014 die Ergebnisse flie\u00dfen in echte Personalplanung ein</li>\n<li><strong>Sicheres Auftreten in Kundenterminen</strong> \u2014 du kannst deine Ergebnisse remote per Teams verst\u00e4ndlich pr\u00e4sentieren, auch gegen\u00fcber Nicht-Technikern</li>\n<li>Deutsch mind. C1 in Wort und Schrift (das Projekt l\u00e4uft komplett auf Deutsch)</li>\n</ul>\n<p><strong>Sch\u00f6n, aber kein Muss</strong></p>\n<ul>\n<li>Erfahrung mit \u00e4lterem JavaScript (ohne Frameworks)</li>\n<li><strong>Erfahrung mit der ARIS REST API</strong></li>\n<li>Kenntnisse in Gesch\u00e4ftsprozessmodellierung</li>\n</ul>\n<h2>Benefits</h2>\n<ul>\n<li>Remote-First-Arbeitsweise \u2013 arbeite dort, wo du am produktivsten bist (Homeoffice oder Co-Working)</li>\n<li>Flexible Arbeitszeiten \u2013 Ergebnisse z\u00e4hlen, nicht die Uhr</li>\n<li>Abwechslungsreiche Projekte \u2013 mit modernen Technologien und spannenden Kunden</li>\n<li>Modernes Equipment \u2013 leistungsstark und auf deine Bed\u00fcrfnisse abgestimmt</li>\n</ul>\n<p>Find <a href=\"https://www.arbeitnow.com\">Jobs in Germany</a> on Arbeitnow</a>",
+    "tags": "Remote Software Development",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1785565833",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-08-01T08:05:56.484361+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "api"
+    ],
+    "remote": true
+  },
+  {
+    "id": "35ba847bb0d3",
+    "title": "Account Executive - Mittelstand (Remote in Germany)",
+    "company": "Everbridge",
+    "location": "Germany",
+    "url": "https://www.arbeitnow.com/jobs/companies/everbridge/account-executive-mittelstand-remote-in-germany-177711",
+    "description": "<div>\n<p style=\"margin: 0cm; text-align: justify; line-height: normal; background: white; font-size: 12pt; font-family: Aptos, sans-serif;\"><strong><span style=\"font-family: Calibri, sans-serif; color: #222326;\">Everbridge</span></strong><span style=\"font-family: Calibri, sans-serif; color: #222326;\">:&nbsp;a fast-growing global provider of&nbsp;SaaS-based&nbsp;critical communications and enterprise safety solutions are currently seeking an <strong>Account Executive - </strong></span><em><strong><span style=\"font-family: Calibri, sans-serif; color: black;\">Mittelstand</span></strong></em><span style=\"font-family: Calibri, sans-serif; color: #222326;\"> to be based in the Germany. This is a remote role that can be based anywhere in Germany&nbsp;</span></p>\n<p style=\"margin: 0cm; text-align: justify; line-height: normal; background: white; font-size: 12pt; font-family: Aptos, sans-serif;\">&nbsp;</p>\n<p style=\"margin: 0cm; text-align: justify; line-height: normal; background: white; font-size: 12pt; font-family: Aptos, sans-serif;\"><span style=\"font-family: Calibri, sans-serif; color: #222326;\">This is a full selling role that will include prospecting, qualifying, managing, and closing new sales. In this role as an Account Executive, you will be responsible for selling the Everbridge Critical Event Managed (CEM) Platform into net new customer base.</span></p>\n</div><br><strong>What You\u2019ll Do:</strong><br><div>\n<ul style=\"margin-bottom: 0cm; margin-top: 0px;\">\n<li style=\"margin: 0cm 0cm 0cm 0px; font-size: 12pt; font-family: Aptos, sans-serif;\"><span style=\"font-family: Calibri, sans-serif;\">Develop a strong understanding of target buyers, domain knowledge, products and competitors.</span></li>\n<li style=\"margin: 0cm 0cm 0cm 0px; font-size: 12pt; font-family: Aptos, sans-serif;\"><span style=\"font-family: Calibri, sans-serif;\">Prospect and identify new opportunities to build and maintain a healthy pipeline.</span></li>\n<li style=\"margin: 0cm 0cm 0cm 0px; font-size: 12pt; font-family: Aptos, sans-serif;\"><span style=\"font-family: Calibri, sans-serif;\">Demonstrated ability to identify and sell to multiple buyers within an organization.</span></li>\n<li style=\"margin: 0cm 0cm 0cm 0px; font-size: 12pt; font-family: Aptos, sans-serif;\"><span style=\"font-family: Calibri, sans-serif;\">Implement a consultative, solution selling, methodology.</span></li>\n<li style=\"margin: 0cm 0cm 0cm 0px; font-size: 12pt; font-family: Aptos, sans-serif;\"><span style=\"font-family: Calibri, sans-serif;\">Work with Marketing, Business Development and Sales Team to execute campaigns to top buyers.</span></li>\n<li style=\"margin: 0cm 0cm 0cm 0px; font-size: 12pt; font-family: Aptos, sans-serif;\"><span style=\"font-family: Calibri, sans-serif;\">Exceed assigned sales objectives and quarterly bookings quotas.</span></li>\n<li style=\"margin: 0cm 0cm 0cm 0px; font-size: 12pt; font-family: Aptos, sans-serif;\"><span style=\"font-family: Calibri, sans-serif;\">Accurately manage and forecast your ",
+    "tags": "Sales",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1785560678",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-08-01T08:05:56.484456+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "saas"
+    ],
+    "remote": true
+  },
+  {
+    "id": "7264aac1708a",
+    "title": "Senior Spacecraft Qualification Engineer",
+    "company": "planetlabs",
+    "location": "Berlin",
+    "url": "https://www.arbeitnow.com/jobs/companies/planetlabs/senior-spacecraft-qualification-engineer-berlin-85241",
+    "description": "&lt;div class=&quot;content-intro&quot;&gt;&lt;p&gt;&lt;strong&gt;Welcome to Planet. We believe in using space to help life on Earth.&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Planet designs, builds, and operates the largest constellation of imaging satellites in history. This constellation delivers an unprecedented dataset of empirical information via a revolutionary cloud-based platform to authoritative figures in commercial, environmental, and humanitarian sectors. We are both a space company and data company all rolled into one.&lt;/p&gt;\n&lt;p&gt;Customers and users across the globe use Planet&#39;s data to develop new technologies, drive revenue, power research, and solve our world\u2019s toughest obstacles.&lt;/p&gt;\n&lt;p&gt;As we control every component of hardware design, manufacturing, data processing, and software engineering, our office is a truly inspiring mix of experts from a variety of domains.&lt;/p&gt;\n&lt;p&gt;We have a people-centric approach toward culture and community and we strive to iterate in a way that puts our team members first and prepares our company for growth. Join Planet and be a part of our mission to change the way people see the world.&lt;/p&gt;\n&lt;p&gt;Planet is a global company with employees working remotely world wide and joining us from offices in San Francisco, Washington DC, Germany, Austria, Slovenia, and The Netherlands.&lt;/p&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;About the Role:&amp;nbsp;&amp;nbsp;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;At Planet, we launch spacecraft early and often. From technology demonstrators to operational constellations, exceptional engineers are needed to design, manufacture, test and launch spacecraft. This role offers a unique opportunity for an engineer to take ownership of environmental testing activities supporting spacecraft production and delivery.&lt;/p&gt;\n&lt;p&gt;As a Senior Spacecraft Qualification Engineer, you will serve as the primary mechanical and environmental test engineering authority at our Berlin manufacturing site. The ideal candidate is a self-starter who enjoys hands-on work and thrives in ambiguity, with deep technical expertise, quick engineering judgment, and the ability to independently assess and resolve complex test situations while ensuring the safety of personnel and flight hardware. Coming from a dynamic aerospace environment, having completed challenging environmental test campaigns while collaborating effectively with R&amp;amp;D, systems, and manufacturing teams will be a solid advantage.&lt;/p&gt;\n&lt;p&gt;This is a full-time, in-office position based in our Berlin office 5 days per week. Occasional travel should be expected as part of testing and integration operations.&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;Impact You\u2019ll Own:&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;Own environmental test execution and respond to off-nominal events:&amp;nbsp;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Review environmental test requirements, procedures, and readiness packages for spacecraft acc",
+    "tags": "Production",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1785552978",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-08-01T08:05:56.484460+00:00",
+    "salary_parsed": null,
+    "score": 45,
+    "matched_keywords": [
+      "software engineer"
     ],
     "remote": true
   },
@@ -12570,6 +12612,44 @@
     "source": "arbeitnow",
     "status": "new",
     "found_at": "2026-08-01T02:00:10.584381+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "c44a73a3727d",
+    "title": "Werkstudent Sales (m/w/d)",
+    "company": "Sport Alliance GmbH",
+    "location": "Remote (Germany)",
+    "url": "https://www.arbeitnow.com/jobs/companies/sport-alliance-gmbh/remote-werkstudent-sales-336577",
+    "description": "<div><strong>Werde Teil der Alliance: Deine Expertise, unser globaler Impact!</strong><br aria-hidden=\"true\">Sport Alliance entwickelt Technologien, die Fitness- und Wellnessunternehmen weltweit voranbringen \u2013 von Management-Plattformen \u00fcber Payment-L\u00f6sungen bis hin zu Mitglieder-Apps.<br aria-hidden=\"true\">Wir sch\u00e4tzen Eigenverantwortung, Zusammenarbeit und Menschen, die den Status quo hinterfragen, um Dinge noch besser zu machen. Unsere Teams sind ausdr\u00fccklich dazu ermutigt, Ideen zu teilen, Entscheidungen mitzugestalten und bereichs\u00fcbergreifend mitzuwirken.<br aria-hidden=\"true\">W\u00e4hrend wir uns global immer weiterentwickeln, pflegen wir eine Kultur, in der Eigeninitiative gesch\u00e4tzt und Fachwissen respektiert wird.</div><br><strong>Deine Position in unserem Team</strong><br><div>\n<ul data-indent-level=\"1\" style=\"list-style-type: disc;\">\n<li>\n<p data-renderer-start-pos=\"423\">Repr\u00e4sentiere unsere Dienstleistung deutschlandweit und sei proaktiv Ansprechpartner:in im ersten Schritt (Outbound) f\u00fcr unsere Produkte</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"563\">Gewinne und begeistere potenzielle Neukunden f\u00fcr uns</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"619\">Du f\u00fchrst proaktiv Outbound-Calls in Deutsch durch und&nbsp;\u00fcbernimmst die Terminplanung von Demo-Pr\u00e4sentationen unserer Sales Manager</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"752\">Bearbeite vertriebsbezogene Korrespondenzen und \u00fcbernehme die Kommunikation via E-Mail und Telefon</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"854\">Baue Sales-Pipelines f\u00fcr Outbound-Verkaufsaktivit\u00e4ten durch Markt- und Wettbewerbsanalysen auf</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"952\">Erstelle Vertriebsdokumente wie z.B. Angebote, Pr\u00e4sentationen und Vertr\u00e4ge</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"1030\">\u00dcbernehme die allgemeine Administration im Bereich Datenqualit\u00e4t</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"1098\">Unterst\u00fctze bei der Prozessoptimierung im Bereich abteilungs\u00fcbergreifender Kommunikation</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"1190\">Du dokumentierst Deine Salest\u00e4tigkeiten und KPI's sauber in unserem CRM-Tool</p>\n</li>\n\n</ul></div><br><strong>Dein Profil</strong><br><div>\n<ul data-indent-level=\"1\" style=\"list-style-type: disc;\">\n<li>\n<p data-renderer-start-pos=\"1286\">Eingeschriebener Student (m/w/d) im Bereich Sport/Fitness, Marketing, BWL, Informatik oder einem vergleichbaren Bachelor-/ Masterstudium</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"1418\">Interesse und Leidenschaft f\u00fcr Outbound-Vertrieb und Eintritt in einen neuen Markt</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"1504\">Lust auf selbstorganisiertes Arbeiten, eine hohe Verantwortungs\u00fcbernahme und eine strukturierte sowie zielgerichtete Arbeitsweise&nbsp;</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"1638\">Aufgeschlossene und selbstbewusste Pers\u00f6nlichkeit mit starker Kommunikationsf\u00e4higkeit</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"1727\">Digitale Affinit\u00e4t</p>\n</li>\n<li>\n<p data-renderer-start-pos=\"1749\">flie\u00dfende Deutsch (C1) - und Eng",
+    "tags": "Sales & Business Development | DACH",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1785560702",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-08-01T08:05:56.484448+00:00",
+    "salary_parsed": null,
+    "score": 40,
+    "matched_keywords": [],
+    "remote": true
+  },
+  {
+    "id": "a7f253f53108",
+    "title": "Account Director (Freelance)",
+    "company": "dept",
+    "location": "London",
+    "url": "https://www.arbeitnow.co.uk/jobs/companies/dept/account-director-freelance-london-183083",
+    "description": "&lt;p&gt;&lt;strong&gt;&lt;em&gt;Please note: This is a remote short-term freelance contract opportunity.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;&lt;em&gt;DEPT\u00ae is a Growth Invention company built to help the world\u2019s most ambitious brands grow faster. Operating at the intersection of technology and marketing, our 4,000+ specialists deliver growth invention services across Brand &amp;amp; Media, Experience, Commerce, CRM, and Technology &amp;amp; Data. We\u2019re 50|50 tech and marketing, partner-led, and first to move. Clients include Google, Lufthansa, Meta, eBay, and OpenAI. We have been certified B Corp and Climate Neutral since 2021.&lt;/em&gt;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;JOB PURPOSE&lt;/strong&gt;&lt;/p&gt;\n&lt;p&gt;As an Account Director at DEPT\u00ae, you will lead strategic client relationships, overseeing the delivery of complex, multi-channel campaigns across global teams. You&#39;ll serve as a trusted advisor to senior stakeholders, combining deep marketing expertise with operational excellence. More than just a client lead, you\u2019ll drive growth, inspire teams, and elevate creative output, ensuring our work not only meets but exceeds expectations.&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;Own and grow key client relationships, acting as the senior point of contact and strategic partner to client stakeholders&lt;/li&gt;\n&lt;li&gt;Lead the development and delivery of integrated campaigns, ensuring they align with client goals and brand direction&lt;/li&gt;\n&lt;li&gt;Shape client strategy by understanding business needs, market dynamics, and audience insights\u2014translating them into actionable, measurable plans&lt;/li&gt;\n&lt;li&gt;Oversee the full lifecycle of project delivery, ensuring quality, efficiency, and profitability across all initiatives&lt;/li&gt;\n&lt;li&gt;Collaborate closely with creative, strategy, and tech teams to drive innovative thinking and high-quality output&lt;/li&gt;\n&lt;li&gt;Lead and mentor the client services team, providing guidance, development opportunities, and performance feedback&lt;/li&gt;\n&lt;li&gt;Manage budgets, forecasts, and revenue opportunities, identifying areas for growth within accounts&lt;/li&gt;\n&lt;li&gt;Ensure clear communication and alignment across global DEPT\u00ae teams and with external stakeholders&lt;/li&gt;\n&lt;li&gt;Contribute to new business development efforts\u2014identifying opportunities, leading pitches, and supporting cross-functional RFPs&lt;/li&gt;\n&lt;li&gt;Drive internal account planning sessions, building roadmaps to deepen client partnerships and unlock new workstreams&lt;/li&gt;\n&lt;li&gt;Monitor campaign performance and client satisfaction, using data and insights to continuously optimize our approach&lt;/li&gt;\n&lt;li&gt;Champion DEPT\u00ae values and ensure our work consistently reflects the highest standards of creativity, strategy, and execution&lt;/li&gt;\n&lt;/ul&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&lt;strong&gt;WHAT WE ARE LOOKING FOR:&lt;/strong&gt;&lt;/p&gt;\n&lt;ul&gt;\n&lt;li&gt;E",
+    "tags": "Project Management & Delivery",
+    "salary_min": null,
+    "salary_max": null,
+    "posted_at": "1785556538",
+    "source": "arbeitnow",
+    "status": "new",
+    "found_at": "2026-08-01T08:05:56.484785+00:00",
     "salary_parsed": null,
     "score": 40,
     "matched_keywords": [],
