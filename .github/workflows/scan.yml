@@ -25,6 +25,12 @@ jobs:
       - name: Install Playwright browser
         run: playwright install chromium --with-deps
 
+      # The purge deletes rows from data/jobs.json — never scan on a broken one.
+      - name: Test purge rules
+        run: |
+          python scripts/test_purge.py
+          python scripts/test_scan_purge.py
+
       - name: Run scanner
         run: python scripts/scan.py
         env:
@@ -37,6 +43,7 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add data/jobs.json
+          git add data/purge_log.json || true
           git diff --staged --quiet || \
             git commit -m "chore: scan jobs $(date -u +%Y-%m-%dT%H:%M:%SZ)"
           git push

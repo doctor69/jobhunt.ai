@@ -1438,6 +1438,10 @@ async def run(max_apply: int = 5):
             )
         )
         and j["id"] not in applied_ids
+        # Skip postings the scanner has flagged as gone — they are awaiting
+        # their grace window before being purged, there is nothing to apply to.
+        and not j.get("missing_since")
+        and j.get("link_status") != "dead"
     ][:max_apply]
 
     if not queue:

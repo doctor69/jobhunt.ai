@@ -6,6 +6,7 @@ keywords in config.json, and writes results to data/jobs.json.
 Runs every 6 hrs via GitHub Actions.
 """
 
+import argparse
 import asyncio
 import concurrent.futures
 import json
@@ -16,6 +17,14 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 import requests
+
+from purge import (
+    ensure_metadata,
+    mark_seen,
+    print_summary,
+    purge_jobs,
+    write_purge_log,
+)
 
 ROOT = Path(__file__).parent.parent
 DATA_DIR = ROOT / "data"
@@ -581,72 +590,120 @@ SOURCE_MAP = {
 
 
 def main():
+    ap = argparse.ArgumentParser(description="Scan job sources and refresh data/jobs.json")
+    ap.add_argument("--no-purge", action="store_true",
+                    help="skip the post-scan purge (keeps stale jobs in place)")
+    ap.add_argument("--no-verify", action="store_true",
+                    help="purge without the HTTP dead-link checks")
+    args = ap.parse_args()
+
     print("=== Job Scanner Starting ===")
+    now = datetime.now(timezone.utc)
     config = load_config()
     existing = load_existing_jobs()
 
+    # Index by both id and dedupe_key so a posting that comes back under a
+    # mirrored URL updates its existing record instead of piling up a new one.
+    by_key: dict[str, dict] = {}
+    for job in existing.values():
+        ensure_metadata(job)
+        by_key.setdefault(job["dedupe_key"], job)
+
     raw_jobs: list[dict] = []
+    healthy_sources: set[str] = set()
     for src in config.get("sources", list(SOURCE_MAP.keys())):
         fn = SOURCE_MAP.get(src)
-        if fn:
-            print(f"Fetching from {src}…")
-            raw_jobs.extend(fn(config))
-        else:
+        if not fn:
             print(f"[warn] Unknown source: {src}", file=sys.stderr)
+            continue
+        print(f"Fetching from {src}…")
+        try:
+            found = fn(config)
+        except Exception as e:
+            # One broken source must not take down the run — the remaining
+            # sources still refresh, and the purge below still gets to work.
+            print(f"[{src}] fetch failed: {e}", file=sys.stderr)
+            found = []
+        print(f"  {src}: {len(found)} listing(s)")
+        raw_jobs.extend(found)
+        # A source that returned nothing (error, rate limit, layout change) is
+        # not evidence that its jobs are gone — only healthy sources may purge.
+        if len(found) >= config.get("purge_min_source_results", 1):
+            healthy_sources.add(src)
 
     auto_approve_score = config.get("auto_approve_score", 65)
-    max_age_days = config.get("max_age_days", 14)
-    cutoff = datetime.now(timezone.utc) - __import__("datetime").timedelta(days=max_age_days)
+    min_score = config.get("min_score", 30)
 
-    # Drop jobs older than max_age_days; always keep applied ones for records
-    before = len(existing)
-    existing = {
-        jid: j for jid, j in existing.items()
-        if j.get("status") == "applied"
-        or not j.get("found_at")
-        or datetime.fromisoformat(j["found_at"]).replace(tzinfo=timezone.utc) >= cutoff
-    }
-    expired = before - len(existing)
-    if expired:
-        print(f"Pruned {expired} job(s) older than {max_age_days} days")
-
-    added = approved = 0
+    added = approved = refreshed = 0
+    seen_keys: set[str] = set()
 
     for job in raw_jobs:
         job = score_job(job, config)
-        if job["score"] < config.get("min_score", 30):
-            continue
-        if job["id"] not in existing:
+        ensure_metadata(job)
+        seen_keys.add(job["id"])
+        seen_keys.add(job["dedupe_key"])
+
+        prev = existing.get(job["id"]) or by_key.get(job["dedupe_key"])
+
+        if prev is None:
+            if job["score"] < min_score:
+                continue
             # Auto-approve high-scoring new jobs so apply.py picks them up
             # immediately without any manual step
             if job["score"] >= auto_approve_score:
                 job["status"] = "approved"
                 approved += 1
+            mark_seen(job, now)
             existing[job["id"]] = job
+            by_key[job["dedupe_key"]] = job
             added += 1
         else:
             # Refresh score/keywords but never downgrade a status the user
             # (or a previous run) has already set to applied/rejected
-            prev = existing[job["id"]]
             prev["score"] = job["score"]
             prev["matched_keywords"] = job["matched_keywords"]
             prev["remote"] = job.get("remote", prev.get("remote"))
             prev["salary_parsed"] = job.get("salary_parsed")
+            if job.get("description"):
+                prev["description"] = job["description"]
+            # Still listed today — this is what keeps a live job from expiring.
+            mark_seen(prev, now)
+            refreshed += 1
             # If score just crossed the threshold and job is still 'new', approve it
             if prev.get("status") == "new" and job["score"] >= auto_approve_score:
                 prev["status"] = "approved"
                 approved += 1
 
-    all_jobs = sorted(
-        existing.values(),
-        key=lambda j: (-j["score"], j.get("found_at", "")),
-    )
+    all_jobs = list(existing.values())
+
+    # ── Purge: drop everything that is no longer true ────────────────────────
+    if args.no_purge:
+        summary = None
+        print("Purge skipped (--no-purge)")
+    else:
+        all_jobs, summary = purge_jobs(
+            all_jobs,
+            config,
+            seen_keys=seen_keys,
+            healthy_sources=healthy_sources,
+            verify=not args.no_verify,
+            now=now,
+        )
+        print_summary(summary)
+
+    all_jobs.sort(key=lambda j: (-(j.get("score") or 0), j.get("found_at", "")))
 
     DATA_DIR.mkdir(parents=True, exist_ok=True)
     with open(JOBS_PATH, "w") as f:
         json.dump(all_jobs, f, indent=2)
+    if summary:
+        write_purge_log(summary)
 
-    print(f"=== Done: {added} new | {approved} auto-approved | {expired} expired | {len(all_jobs)} total ===")
+    purged = summary["removed"] if summary else 0
+    print(
+        f"=== Done: {added} new | {refreshed} refreshed | {approved} auto-approved "
+        f"| {purged} purged | {len(all_jobs)} total ==="
+    )
 
 
 if __name__ == "__main__":
